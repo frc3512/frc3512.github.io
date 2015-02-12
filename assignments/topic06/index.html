@@ -11,16 +11,74 @@
     <body>
         <h1>Topic 6 - Functions</h1>
 
-        <a href=""><p style="text-align:center;">Topic 6 Slides</p></a>
+        <a href="https://drive.google.com/open?id=14HT8PmD2Qr5rENlmOH5qZelbzAxoWQ_2_s7ezGzRDs8"><p style="text-align:center;">Topic 6 Slides</p></a>
 
 	<br>
 	<hr>
 	<br>
 
-	<h2></h2>
+	<h2>Question 1</h2>
+        <p>Write a function that converts Celsius to Fahrenheit. Complete the function.</p>
+        <pre>
+#include &lt;iostream&gt;
 
-        <p>
-	</p>
+float convert_to_fah(float celsius) {
+    // calculate the Celsius value
+    // return the result
+}</pre>
+
+        <h2>Question 2</h2>
+        <p>Write a function that determines how much money you will have in your savings account after some amount of time. Complete the code below.</p>
+        <pre>
+#include &lt;cmath&gt;
+
+//current: How much money you have now
+//rate: The interest rate (e.g. 0.05 for 5%)
+//time: How many years the money will sit
+
+float future_value(float current, float interest, float years) {
+    // finish this function
+}</pre>
+        <p>The formula for future value is: current * (rate + 1)<sup>time</sup></p>
+
+        <h2>Question 3</h2>
+        <p>Write a function that calculates how much kinetic energy an object has. The formula for kinetic energy is:<br>KE = (1/2) * m * v<sup>2</sup><br><br>The function must conform to the following:</p>
+        <pre>Name: 
+find_ke_value
+
+Parameters:
+float m - mass
+float v - velocity
+
+Return type: 
+float - The kinetic energy</pre>
+
+        <h2>Question 4</h2>
+        <p>Write a function that outputs a number of stars.  For example, 5 would output &quot;5: *****&quot;</p>
+        <p>The function must conform to the following:</p>
+        <pre>Name: 
+output_stars
+
+Parameters:
+int num - The number of stars that will be output on the console.
+
+Return type: 
+void</pre>
+
+        <h2>Question 5</h2>
+        <p>Write a function that determines how many times a word is repeated in a file.</p>
+<p>Search <a href="/assignments/topic06/clock.txt">clock.txt</a> and <a href="/assignments/topic06/raj.txt">raj.txt</a>.</p>
+<p>The function must conform to the following:</p>
+<pre>
+Name: 
+count_the_word
+
+Parameters:
+string filename - The name of the file that will be searched through.
+string word - The word that is being looked for.
+
+Return type: 
+int - The number of times that &quot;word&quot; was found in the file that is named &quot;filename&quot;.</pre>
     </body>
 </html>
 

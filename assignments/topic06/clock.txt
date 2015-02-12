@@ -1,0 +1,85 @@
+CLOCK SYNCHRONIZATION IN MOBILE SENSOR NETWORKS
+
+Abstract
+Clock Synchronization in Mobile Sensor Networks
+Michael Christopher Wagner
+Clock synchronization deals with the problem of ensuring that each node on a loosely
+coupled network shows approximately the same time on its clock. Much research has
+focused on achieving clock synchronization in networks where power consumption
+can be modeled as infinite (such as in a desktop machine) and the time taken for a
+message to travel between machines is deterministic. Less effort has been devoted to
+clock synchronization in sensor networks where these assumptions are not true.
+A sensor network consists of many small, battery-powered sensing devices that
+communicate over a wireless medium. Further, a sensor network that is mobile
+means that each of the nodes has the ability to move. This poses additional
+difficulties because it is possible for a mobile node to become completely out of range
+of any other nodes, thus hampering its ability to synchronize with others.
+This work presents a technique for a mobile node traveling in an orbit to individually
+determine when it will likely be within communication range with stationary nodes
+that it has previously encountered, so that clock synchronization rounds can be
+scheduled accordingly and executed with reduced message complexity (which
+conserves power consumption).
+v
+Table of Contents
+List of Tables ................................................................................................................vi
+List of Figures ..............................................................................................................vii
+1. Introduction............................................................................................................1
+1.1 Clock Synchronization and Traditional Networks.........................................1
+1.1.1 Clock Drift .............................................................................................2
+1.1.2 Latency...................................................................................................2
+1.1.3 Types of clocks ......................................................................................3
+1.1.4 Traditional to Sensor Networks .............................................................3
+1.2 Mobile Sensor Networks................................................................................7
+1.2.1 The CubeSat Network............................................................................8
+1.2.2 Future of CubeSat ..................................................................................9
+1.2.3 Ground station linking ...........................................................................9
+1.2.4 CubeSat Linking ..................................................................................10
+2. Related Work .......................................................................................................11
+2.1 A new fault-tolerant algorithm for clock synchronization...........................11
+2.2 Reference Broadcast Synchronization .........................................................12
+2.3 Continuous clock synchronization in wireless real time applications .........13
+2.4 Cristian's Algorithm ....................................................................................14
+2.5 Berkeley Algorithm .....................................................................................15
+3. Problem Statement...............................................................................................17
+4. Clock Synchronization and Path Time Detection................................................19
+4.1 Algorithm details .........................................................................................19
+4.1.1 Algorithm Overview ............................................................................22
+4.1.1.1 Mobile node algorithm.........................................................................24
+4.1.1.2 Stationary node algorithm....................................................................27
+4.2 Delta Table...................................................................................................27
+4.2.1 Delta table in the real world....................................................................31
+5. Results..................................................................................................................33
+5.1 Case 1...........................................................................................................34
+5.2 Case 2...........................................................................................................35
+5.3 Case 3...........................................................................................................37
+5.4 Case 4...........................................................................................................38
+6. Conclusion ...........................................................................................................41
+7. Future Work.........................................................................................................42
+8. References............................................................................................................44
+9. Appendices...........................................................................................................47
+9.1 Appendix A -Interview with CubeSat Representative ................................47
+9.2 Appendix B - Code Samples .......................................................................51
+9.2.1 Mobile Node Algorithm.......................................................................51
+9.2.2 Stationary Node Algorithm..................................................................53
+9.2.3 Delta Table...........................................................................................54
+vi
+List of Tables
+Table 1 - Example of difficulties arising from the clock going backwards...................6
+Table 2 - Collection of values......................................................................................28
+Table 3 - Simple table of timestamps. .........................................................................28
+Table 4 - Collection of timestamps..............................................................................29
+Table 5 - Generic delta table........................................................................................30
+Table 6 - Collection of timestamps with 2 groups.......................................................30
+Table 7 - Larger delta table..........................................................................................31
+vii
+List of Figures
+Figure 1 - How the orbit time can be used...................................................................18
+Figure 2 - Sequence diagram for mobile and stationary node algorithms. ..................24
+Figure 3 - Case 1 Screenshot .......................................................................................34
+Figure 4 - Case 1 Total Error .......................................................................................35
+Figure 5 - Case 2 Screenshot .......................................................................................36
+Figure 6 - Case 2 Total Error. ......................................................................................36
+Figure 7 - Case 3 Screenshot .......................................................................................37
+Figure 8 - Case 3 Total Error. ......................................................................................38
+Figure 9 - Case 4 Screenshot. ......................................................................................39
+Figure 10 - Case 4 Total Error. ....................................................................................40
