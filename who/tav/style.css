@@ -40,12 +40,7 @@ table.title {
   width: 100%;
 }
 
-table.cur-course {
-  background-color: yellow;
-  width: 90%;
-}
-
-table.prev-course {
+table.module {
   background-color: navajowhite;
   width: 90%;
 }
@@ -70,7 +65,7 @@ td.research {
   width: 50%;
 }
 
-td.course {
+td.module {
   vertical-align: top;
   width: 50%;
 }
