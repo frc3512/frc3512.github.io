@@ -1,36 +1,43 @@
 body {
   background-color: white;
   color: black;
+
+  font-family: serif;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
 }
 
 h1.center {
   text-align: center;
 }
 
+p {
+  font-family: arial, sans-serif;
+}
+
+div.center {
+  margin: 0 auto;
+}
+
+table {
+  margin: 0 auto;
+}
+
 table.first {
-  float: center;
-  border: 0;
-  border-spacing: 1px;
   width: 100%;
 }
 
 table.second {
-  float: center;
-  border: 0;
-  border-spacing: 1px;
   width: 90%;
 }
 
 table.title {
   background-color: navajowhite;
   width: 100%;
-}
-
-table.research {
-  float: center;
-  border: 0;
-  border-spacing: 1px;
-  width: 90%;
 }
 
 table.cur-course {
@@ -73,5 +80,9 @@ img {
   border: thin solid rgb(95, 95, 95);
   background-color: rgb(45, 45, 45);
   margin: 12px 0px 0px;
+}
+
+ul#contact {
+  list-style-type: none;
 }
 
