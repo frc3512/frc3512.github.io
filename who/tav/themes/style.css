@@ -1,0 +1,77 @@
+body {
+  background-color: white;
+  color: black;
+}
+
+h1.center {
+  text-align: center;
+}
+
+table.first {
+  float: center;
+  border: 0;
+  border-spacing: 1px;
+  width: 100%;
+}
+
+table.second {
+  float: center;
+  border: 0;
+  border-spacing: 1px;
+  width: 90%;
+}
+
+table.title {
+  background-color: navajowhite;
+  width: 100%;
+}
+
+table.research {
+  float: center;
+  border: 0;
+  border-spacing: 1px;
+  width: 90%;
+}
+
+table.cur-course {
+  background-color: yellow;
+  width: 90%;
+}
+
+table.prev-course {
+  background-color: navajowhite;
+  width: 90%;
+}
+
+td.heading1 {
+  vertical-align: middle;
+  width: 25%;
+}
+
+td.heading2 {
+  vertical-align: middle;
+  width: 30%;
+}
+
+td.heading3 {
+  vertical-align: middle;
+  width: 42%;
+}
+
+td.research {
+  vertical-align: top;
+  width: 50%;
+}
+
+td.course {
+  vertical-align: top;
+  width: 50%;
+}
+
+img {
+  padding: 1px;
+  border: thin solid rgb(95, 95, 95);
+  background-color: rgb(45, 45, 45);
+  margin: 12px 0px 0px;
+}
+
