@@ -23,6 +23,13 @@ div.center {
   margin: 0 auto;
 }
 
+div.module {
+  margin-top: 0%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+}
+
 table {
   margin: 0 auto;
 }
@@ -42,7 +49,7 @@ table.title {
 
 table.module {
   background-color: navajowhite;
-  width: 90%;
+  width: 100%;
 }
 
 td.heading1 {
