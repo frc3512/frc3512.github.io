@@ -20,6 +20,21 @@ p {
   text-align: justify;
 }
 
+p.module {
+  text-align: left;
+}
+
+ol {
+  font-family: arial, sans-serif;
+}
+
+blockquote {
+  background: rgb(238, 238, 238);
+  display: block;
+  margin: 1em 2.5em;
+  padding: 1em;
+}
+
 div.center {
   margin: 0 auto;
 }
@@ -80,8 +95,6 @@ td.module {
 
 img {
   padding: 1px;
-  border: thin solid rgb(95, 95, 95);
-  background-color: rgb(45, 45, 45);
   margin: 12px 0px 0px;
 }
 

@@ -22,9 +22,39 @@
 
   <hr>
 
-  <h2 id="PID_Controller_Basics">PID Controller Basics</h2>
-  <p>
-    <a href="https://en.wikipedia.org/wiki/PID_controller#Control_loop_basics">This section</a> of the PID controller wikipedia page defines various terminology with regards to PID controllers. The <a href="https://en.wikipedia.org/wiki/PID_controller#PID_controller_theory">following section</a> provides a more formal definition.
+  <h2 id="Basics_and_Theory">Basics and Theory</h2>
+  <p class="module">
+    Since Wikipedia does a good job explaining this, I'll refer to their resources on the topic. Read the introduction of <a href="https://en.wikipedia.org/wiki/PID_controller">https://en.wikipedia.org/wiki/PID_controller</a> first. Then read the <a href="https://en.wikipedia.org/wiki/PID_controller#Control_loop_basics">control loop basics</a> section for an example and further explanation. Continue to the next section on <a href="https://en.wikipedia.org/wiki/PID_controller#PID_controller_theory">PID controller theory</a>. You can ignore the small part about the transfer function for now. I'll cover that in a module on state space representation at some point.
+  </p>
+
+  <h2 id="Loop_Tuning">Loop Tuning</h2>
+  <p class="module">
+    Since the team started, we've been tuning PID controllers manually. I follow these steps:
+    <ol>
+      <li>Set K<sub>i</sub> and K<sub>d</sub> to zero.</li>
+      <li>Increase K<sub>p</sub> until the controller starts to oscillate around setpoint.</li>
+      <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
+      <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches setpoint in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
+        <blockquote>
+          &ldquo;Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound.&rdquo;
+        </blockquote>
+        Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
+      </li>
+    </ol>
+  </p>
+
+  <h2 id="Limitations_of_PID_control">Limitations of PID control</h2>
+  <p class="module">
+    Read Wikipedia's section on the <a href="https://en.wikipedia.org/wiki/PID_controller#Limitations_of_PID_control">limitations of PID control</a>.
+  </p>
+  <p class="module">
+    Continuing from the section to which I just linked, another example of a non-linear system is an elevator/carriage assembly which has to operate under gravity. One can have two sets of PID constants for travelling in each direction. We did this on our 2014 robot. A better approach would be applying a feed-forward to compensate for gravity, making the system linear again. One just needs to determine an approximate motor value to add to the output to make the system maintain its position under load.
+  </p>
+  <p class="module">
+    For fixing noise in the derivative, we've used a rolling average filter and a Kalman filter. The latter works better but requires tuning. I'll cover it in <a href="../sig102/index.html">SIG 102</a>.
+  </p>
+  <p class="module">
+    The section on <a href="https://en.wikipedia.org/wiki/PID_controller#Modifications_to_the_PID_algorithm">modifications to the PID algorithm</a> is interesting, but one won't need it unless one is modifying his or her PID controller. I've been working to get some of those modifications integrated into WPILib's PIDController class.
   </p>
 </body>
 </html>
