@@ -24,6 +24,15 @@ p.module {
   text-align: left;
 }
 
+.atomic {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -ms-column-break-inside: avoid;
+  -o-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 ol {
   font-family: arial, sans-serif;
 }
@@ -39,11 +48,18 @@ div.center {
   margin: 0 auto;
 }
 
+#columnContainer {
+  column-width: 30em;
+  -webkit-column-width: 30em;
+  -moz-column-width: 30em;
+  padding-top: 0.25em;
+}
+
 div.module {
+  vertical-align: top;
+
   margin-top: 0%;
-  margin-right: 5%;
   margin-bottom: 5%;
-  margin-left: 5%;
 }
 
 table {
