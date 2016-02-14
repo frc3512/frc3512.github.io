@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Indexer for manuals">
+      <title>Manuals</title>
+      <link rel="stylesheet" type="text/css" href="../style.css">
+   </head>
+   <body>
+      <h1>Uncrustify Installation</h1>
+      <hr>
+      <ol>
+         <li>Go <a href="https://sourceforge.net/projects/uncrustify/">here</a> for getting uncrustify.</li>
+         <li>Download the *.tar.gz file. Check with your lead for the newest version we accept.</li>
+         <li><code>$ cd</code> to where you downloaded it.</li>
+         <li><code>$ tar -xzf uncrustify-*.tar.gz</code></li>
+         <li><code>$ cd uncrustify-*/</code></li>
+         <li><code>$ ./configure</code></li>
+         <li><code>$ make</code></li>
+         <li><code>$ make install prefix=~/uncrustify-bin"</code></li>
+         <li>To check that it installed correctly type <code>$ uncrustify -v</code> If there are errors, contact your lead or try this again.</li>
+      </ol>
+      <ul>
+         <hr>
+         <p>To use uncrustify:
+         <p>
+         <ul>
+            <li>Go to the project directory containg format.sh (Uncrustify will format everything in the directory)</li>
+            <li><code>$ PATH=$PATH:/home/[user]/uncrustify-bin ./format.sh</code></li>
+         </ul>
+      </ul>
+   </body>
+</html>
