@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Indexer for manuals">
+      <title>Manuals</title>
+      <link rel="stylesheet" type="text/css" href="../style.css">
+   </head>
+   <body>
+   <h1>Uncrustify Installation</h1>
+   <hr>
+   <ol>
+      <li>Go <a href="https://sourceforge.net/projects/uncrustify/">here</a> for getting uncrustify.</li>
+      <li>Download the *.tar.gz file, check with your lead for the newest version we accept.</li>
+      <li><code>cd </code> to your downloads folder.</li>
+      <li><code>$ tar -xzf uncrustify-0.62.tar.gz</code></li>
+      <li><code>$ cd uncrustify-*/</code></li>
+      <li><code>$ ./configure DESTDIR=/home/[user]/uncrustify-bin</code></li>
+      <li><code>$ make</code></li>
+      <li><code>$ sudo make install</code></li>
+      <li>To check that it installed correctly type <code>$ uncrustify -v</code> If there are errors, contact your lead or try this again.</li>
+   </ol> 
+   <ul>
+   <br>To use uncrustify:
+   <ul><li>Go to the project directory containg format.sh (Uncrustify will format everything in the directory)</li>
+      <li><code>$ PATH=$PATH:/home/[user]/uncrustify-bin ./format.sh</code></li>
+      <li><code>cd </code> to the folder of the robot and then format using <code>./format.sh</code></li>
+      <li> IE: <code>username@usernamedirectory VirtualBox:~/git/Robot-2016$ ./format.sh</code>
+         <br>That is what your command line should look like before you start it.</li>
+
+   </ul>
+   </body>
+</html>

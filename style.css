@@ -23,3 +23,20 @@ h2 {
 h3 {
     font-size: 1em;
 }
+
+div.key {
+    border-style: groove;
+    border-width: 10px;
+    border-color: orange;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+ol {
+    line-height: 40px;
+}
+
+ul {
+    line-height: 40px;
+}
