@@ -5,135 +5,58 @@
         <meta charset="utf-8">
         <meta name="description" content="A page providing the necessary tools to begin programming in C++">
         <title>Dev Bootstrap</title>
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css">
     </head>
-
     <body>
         <div class="column">
-        <h1>
-            Developer Bootstrap
-        </h1>
+        <h1>Developer Bootstrap</h1>
 
-        <h2>
-            C++
-        </h2>
-        <hr>
+        <h2>Eclipse CDT</h2>
 
-        <h2>
-            Option 1: Qt Creator / MinGW package
-        </h2>
-
-        <h3>
-            Downloads
-        </h3>
-        <a href="http://download.qt.io/official_releases/qt/5.4/5.4.2/qt-opensource-windows-x86-mingw491_opengl-5.4.2.exe">Qt 5.4.2 for Windows 32-bit (MinGW 4.9.1, OpenGL, 842 MB)</a>
-
-        <h3>
-            Description
-        </h3>
-        <p>
-            Qt is a popular library built on top of the C++ programming language which provides high level, platform-independent functionality. This package includes the Qt Creator IDE (similar to Eclipse CDT) and the MinGW toolchain in an easily installable form. This can act as a substitute for the Eclipse CDT and MinGW packages.
-        </p>
-
-        <h2>
-            Option 2.1: Eclipse CDT
-        </h2>
-
-        <h3>
-            Downloads
-        </h3>
+        <h3>Downloads</h3>
         <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/lunar">Eclipse IDE for C/C++ Developers</a>
 
-        <h3>
-            Description
-        </h3>
+        <h3>Description</h3>
         <p>
             Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
         </p>
 
-        <h3>
-            Installation Instructions
-        </h3>
+        <h3>Installation Instructions</h3>
         <p>
             Select the appropriate platform on the page's right. Once the download is complete, extract it to a directory of your choice.
         </p>
 
-        <h2>
-            Option 2.2: MSYS2 Compiler
-        </h2>
+        <h2>MSYS2 Compiler</h2>
 
-        <h3>
-            Downloads
-        </h3>
+        <h3>Downloads</h3>
         <a href="https://msys2.github.io/">https://msys2.github.io/</a>
 
-        <h3>
-            Description
-        </h3>
+        <h3>Description</h3>
         <p>
             This is the compiler Eclipse CDT will use to build the programs you write.
         </p>
 
-        <h3>
-            Installation Instructions
-        </h3>
+        <h3>Installation Instructions</h3>
         <p>
             Follow the instruction on the web page. Use the default installation directory. When installation is complete and everything has been upgraded with pacman, Add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
         </p>
         <p>
-            To actually install the compiler into the environment, open an MSYS2 terminal and run "pacman -S base-devel". This will install make, gcc, and other required tools.
+            To actually install the compiler into the environment, open an MSYS2 terminal and run <code>pacman -S base-devel gcc</code>. This will install make, gcc, and other required tools.
         </p>
 
-        <h2>
-            C++ Tutorial
-        </h2>
-
-        <h3>
-            Description
-        </h3>
+        <h2>Learning C++</h2>
         <p>
-            Once the development environment is set up, start reading the tutorial at <a href="http://www.cplusplus.com/doc/tutorial/">www.cplusplus.com/doc/tutorial</a> to begin learning C++.
+            Once the development environment is set up, one may begin learning C++. We use the textbook <i>Programming: Principles and Practice Using C++ (2<sup>nd</sup> edition)</i> by Bjarne Stroustrup. Either a copy will be provided by the software team or a copy can be bought directly from the publisher <a href="http://www.informit.com/store/programming-principles-and-practice-using-c-plus-plus-9780321992789">here</a>. The current textbook errata are <a href="http://www.stroustrup.com/Programming/PPP2errata.html">here</a>.
         </p>
-
-        <h2>
-            Git
-        </h2>
-
-        <h3>
-            Downloads
-        </h3>
-        <a href="http://git-scm.com/downloads/">Git for Windows</a>
-
-        <h3>
-            Description
-        </h3>
         <p>
-            Git is a version control system used to manage the code one writes. View Git's online documentation <a href="http://git-scm.com/doc/">here</a>.
+            Useful resources for the C++ standard library include <a href="https://cplusplus.com/reference/">http://www.cplusplus.com/reference/</a>.
         </p>
 
-        <br>
-        <h2>
-            Miscellaneous
-        </h2>
-        <hr>
+        <h2>Git</h2>
 
-        <h2>
-            MIT Scratch
-        </h2>
-
-        <h3>
-            Downloads
-        </h3>
-        You can use the <a href="http://scratch.mit.edu/projects/editor/?tip_bar=getStarted">Scratch online editor</a> or <a href="http://scratch.mit.edu/scratch2download/">download the offline editor</a>.
-
-        <h3>
-            Description
-        </h3>
         <p>
-            Scratch is an awesome tool for learning to program. Scratch was developed by MIT.
+            Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and installation instructions.
         </p>
-
         </div>
     </body>
 </html>
-
