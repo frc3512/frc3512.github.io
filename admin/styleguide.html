@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="FIRST Team 3512 software team styleguide">
+        <title>FIRST Team 3512 - Styleguide</title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+    </head>
+    <body>
+        <h1>Styleguide and Best Practices</h1>
+        <p>
+            The following requirements are used by 3512 to keep the code base consistent and readable. This aids in not only finding and fixing bugs quickly, but avoiding them altogether through well-informed design decisions.
+        </p>
+
+        <h2>Correctness of Design and Implemenation</h2>
+        <ul>
+            <li><font color="gray">Incomplete...</font></li>
+        </ul>
+
+        <h2>Maintainability</h2>
+        <ul>
+            <li>Well-commented</li>
+            <li>Readable</li>
+            <li>Good encapsulation of functionality</li>
+            <li>Well-chosen variable, function, and class names</li>
+        </ul>
+
+        <h2>Miscellaneous Rules</h2>
+        <p>
+            Headers should be sorted into newline-delimited sections according to the Google styleguide. Each section's headers should be lexographically ordered. In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test the stuff in dir2/foo2.h, order your includes as follows:
+            <ul>
+                <li>dir2/foo2.h</li>
+                <li>C system files</li>
+                <li>C++ system files</li>
+                <li>Other libraries' .h files</li>
+                <li>Your project's .h files</li>
+            </ul>
+        </p>
+        <p>
+            In addition to the practices and associated justifications presented here, see uncrustify.cfg in our robot code for specific formatting minutiae.
+        </p>
+    </body>
+</html>
