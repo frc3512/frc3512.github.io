@@ -44,10 +44,6 @@ blockquote {
   padding: 1em;
 }
 
-div.center {
-  margin: 0 auto;
-}
-
 #columnContainer {
   column-width: 30em;
   -webkit-column-width: 30em;
@@ -68,10 +64,6 @@ table {
 
 table.first {
   width: 100%;
-}
-
-table.second {
-  width: 90%;
 }
 
 table.title {
@@ -97,16 +89,6 @@ td.heading2 {
 td.heading3 {
   vertical-align: middle;
   width: 42%;
-}
-
-td.research {
-  vertical-align: top;
-  width: 50%;
-}
-
-td.module {
-  vertical-align: top;
-  width: 50%;
 }
 
 img {
