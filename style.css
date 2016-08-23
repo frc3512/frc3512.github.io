@@ -7,7 +7,7 @@ body {
     font-family: arial,sans-serif;
     font-size: 1em;
     text-align: justify;
-    color: rgb(0,0,0);
+    color: rgb(0, 0, 0);
 }
 
 h1 {
@@ -22,4 +22,18 @@ h2 {
 
 h3 {
     font-size: 1em;
+}
+
+ol.sub {
+    counter-reset: item;
+}
+
+ol.sub > li {
+    display: block;
+}
+
+ol.sub > li:before {
+    content: counters(item, ".") ". ";
+    counter-increment: item;
+    font-weight: bold;
 }
