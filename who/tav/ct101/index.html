@@ -105,7 +105,7 @@
     Read Wikipedia's section on the <a href="https://en.wikipedia.org/wiki/PID_controller#Limitations_of_PID_control">limitations of PID control</a>.
   </p>
   <p class="module">
-    Continuing from the section to which I just linked, another example of a non-linear system is an elevator/carriage assembly which has to operate under gravity. One can have two sets of PID constants for travelling in each direction. We did this on our 2015 robot. A better approach would be applying a feed-forward to compensate for gravity, thus making the system linear again. One just needs to determine an approximate motor value to add to the output to make the system maintain its position under load.
+    Continuing from the section to which I just linked, another example of a non-linear system is an elevator/carriage assembly which has to operate under gravity. One can have two sets of PID constants for travelling in each direction. We did this on our 2015 robot. A better approach would be applying a feedforward to compensate for gravity, thus making the system linear again. One just needs to determine an approximate motor value to add to the output to make the system maintain its position under load.
   </p>
   <p class="module">
     For fixing noise in the derivative, we've used a rolling average filter and a Kalman filter. The latter works better but requires tuning. I'll cover each in <a href="../sig101/index.html">SIG 101</a> and <a href="../sig102/index.html">SIG 102</a> respectively.
