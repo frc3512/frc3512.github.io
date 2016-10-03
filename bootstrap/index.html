@@ -9,42 +9,56 @@
     </head>
     <body>
         <div class="column">
-        <h1>Developer Bootstrap</h1>
+        <h1 id="Developer_Bootstrap">Developer Bootstrap</h1>
+        <p>
+            This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, install Eclipse CDT, JDK 8, GCC, Git, and an LLVM package containing clang-format 3.8.1 or newer via that machine's package manager.
+        </p>
 
-        <h2>Eclipse CDT</h2>
+        <h2 id="Eclipse">Eclipse CDT</h2>
 
-        <h3>Downloads</h3>
-        <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/lunar">Eclipse IDE for C/C++ Developers</a>
+        <h3 id="Eclipse_Downloads">Downloads</h3>
+        <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
+        <br>
+        <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
 
-        <h3>Description</h3>
+        <h3 id="Eclipse_Description">Description</h3>
         <p>
             Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
         </p>
 
-        <h3>Installation Instructions</h3>
+        <h3 id="Eclipse_Install">Installation Instructions</h3>
         <p>
-            Select the appropriate platform on the page's right. Once the download is complete, extract it to a directory of your choice.
+            On the Eclipse CDT download page, select the appropriate platform on the page's right. If your machine is 64 bit, choose a 64 bit version. Once the download is complete, extract it to a directory of your choice.
+        </p>
+        <p>
+            On the JDK download page, select the JDK installer for the same operating system and architecture of Eclipse CDT, download it, and run it.
         </p>
 
-        <h2>MSYS2 Compiler</h2>
+        <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
 
-        <h3>Downloads</h3>
+        <h3 id="MSYS2_Downloads">Downloads</h3>
         <a href="https://msys2.github.io/">https://msys2.github.io/</a>
 
-        <h3>Description</h3>
+        <h3 id="MSYS2_Description">Description</h3>
         <p>
             This is the compiler Eclipse CDT will use to build the programs you write.
         </p>
 
-        <h3>Installation Instructions</h3>
+        <h3 id="MSYS2_Install">Installation Instructions</h3>
         <p>
-            Follow the instruction on the web page. Use the default installation directory. When installation is complete and everything has been upgraded with pacman, Add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
+            Follow the instructions on the web page. Use the default installation directory.
         </p>
         <p>
-            To actually install the compiler into the environment, open an MSYS2 terminal and run <code>pacman -S base-devel gcc</code>. This will install make, gcc, and other required tools.
+            When installation is complete and everything has been upgraded with pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
+        </p>
+        <p>
+            You may want to create a desktop shortcut for &ldquo;MSYS2 MSYS&rdquo; to facilitate opening MSYS2 termainals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
+            <br>
+            <br>
+            <code>pacman -S base-devel gcc</code>
         </p>
 
-        <h2>Learning C++</h2>
+        <h2 id="Learning_Cpp">Learning C++</h2>
         <p>
             Once the development environment is set up, one may begin learning C++. We use the textbook <i>Programming: Principles and Practice Using C++ (2<sup>nd</sup> edition)</i> by Bjarne Stroustrup (ISBN: 978-0-321-99278-9). Either a copy will be provided by the software team or a copy can be bought <a href="http://www.informit.com/store/programming-principles-and-practice-using-c-plus-plus-9780321992789">directly from the publisher</a>. The current textbook errata are <a href="http://www.stroustrup.com/Programming/PPP2errata.html">here</a>.
         </p>
@@ -52,10 +66,49 @@
             Chapter 2 of the book requires <a href="std_lib_facilities.h">std_lib_facilities.h</a>. Useful resources for the C++ standard library include <a href="http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a>.
         </p>
 
-        <h2>Git</h2>
-
+        <h2 id="Git">Git</h2>
         <p>
-            Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and installation instructions.
+            Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and detailed setup.
+        </p>
+
+        <h3 id="Git_Install">Installation Instructions</h3>
+        <p>
+            Run <code>pacman -S git</code>
+        </p>
+
+        <h2 id="Gerrit">Gerrit</h2>
+        <p>
+            Gerrit provides web based code review and repository management for the Git version control system. Our Gerrit server is <a href="https://gerrit.frc3512.com/">here</a>. User setup instructions are coming soon.
+        </p>
+
+        <h2 id="Formatter">Formatter</h2>
+        <p>
+            We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior.
+        </p>
+
+        <h3 id="Formatter_Downloads">Downloads</h3>
+        <a href="http://llvm.org/releases/download.html">LLVM</a>
+
+        <h3 id="Formatter_Install">Installation Instructions</h3>
+        <p>
+            On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
+        </p>
+        <p>
+            MSYS2 keeps a separate PATH environment variable from the operating system. Run the following command to add the LLVM installation to it.
+            <br>
+            <br>
+            <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' >> .bashrc</code>
+        </p>
+        <p>
+            The following commands download the WPILib style guide, configure its environment variable, and install Python.
+            <br>
+            <br>
+            <code>git clone git://github.com/wpilibsuite/styleguide $HOME/styleguide</code><br>
+            <code>echo 'export WPI_FORMAT=$HOME/styleguide' >> .bashrc</code><br>
+            <code>pacman -S python</code>
+        </p>
+        <p>
+            After those commands complete, close and reopen the terminal for the environment variable changes to take effect.
         </p>
         </div>
     </body>
