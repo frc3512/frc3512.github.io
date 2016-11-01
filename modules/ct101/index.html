@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CT 101</title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+    });
+  </script>
+  <script type="text/javascript" src="../../../MathJax/MathJax.js"></script>
+</head>
+
+<body>
+  <table class="title">
+    <tr><td>
+      <h1 class="center">
+        Control Theory 101<br> <small>State Machines and PID Controllers</small>
+      </h1>
+    </td></tr>
+  </table>
+
+  <p>
+    <strong>Prerequisite:</strong> <a href="../cs101/">CS 101</a>
+  </p>
+
+  <hr>
+
+  <h2 id="Introduction">Introduction</h2>
+  <p class="module">
+    A control system is a device, or set of devices, that manages, commands, directs or regulates the behavior of other devices or systems. On our robotics team, we have used two types: open loop and closed loop. Open loop controllers don't incorporate feedback from its output. An example would be the driver controlling the robot's speed directly with joysticks. Closed loop controllers are used to automate processes so the driver doesn't have to control them manually. Our 2015 robot, Talos, used a closed loop controller to seek to different elevator level presets automatically. The driver just needed to provide a level number. We used both state machines and PID controllers in that control system.
+  </p>
+
+  <h2 id="State_Machines">State Machines</h2>
+  <p class="module">
+    A state machine is an abstract machine which represents a certain number of states and can only be in one at a time. The state at any given time is called the <i>current state</i>. It can change from one state to another when initiated by a triggering event or condition; this is called a <i>transition</i>. We use <i>finite state machines</i> on our robots, which contain a finite set of states. Typically, code is executed when first transitioning to a state. While in that state, some code is executed to effect the system towards the next state. Also, a condition is checked for state transition. If a transition occurs, code may be executed when leaving a state. Our 2015 robot code had a <a href="https://github.com/Team3512/Talos/blob/master/src/StateMachine.hpp">state machine</a> class to manage state machines and a <a href="https://github.com/Team3512/Talos/blob/master/src/State.hpp">state</a> class to contain lambdas of code to perform the aforementioned actions. As a side note, WPILib's Command-Based programming paradigm, which involves creating and scheduling commands and command groups, is essentially a verbose way of allowing teams to make and use state machines. This verbosity is why our 2015 robot used custom state machine management classes; we only had to assign a few lambdas instead of writing boilerplate classes, like <a href="https://github.com/Team3512/Talos/blob/master/src/AutonomousModes/AutoOneCanLeft.cpp">this</a>.
+  </p>
+  <p class="module">
+    State machines can be used to automate a sequence of actions. We use these predominantly for the autonomous period of our robot code, but this functionality can prove useful for performing user actions as well. For example, we used a state machine in our 2015 robot code to control the auto-stacking process. As goals where reached by the elevator system, the software would advance through the various states defined in the state machine until the idle state was reached. The elevator subsystem used a PID controller to travel to the various goals required for state transitions.
+  </p>
+
+  <h2 id="PID_Basics_and_Theory">PID Basics and Theory</h2>
+  <p class="module">
+    Since Wikipedia does a good job explaining this, I'll refer to their resources on the topic. Read the introduction of <a href="https://en.wikipedia.org/wiki/PID_controller">https://en.wikipedia.org/wiki/PID_controller</a> first. Then read the <a href="https://en.wikipedia.org/wiki/PID_controller#Control_loop_basics">control loop basics</a> section for an example and further explanation. Continue to the next section on <a href="https://en.wikipedia.org/wiki/PID_controller#PID_controller_theory">PID controller theory</a>. You can ignore the small part about the transfer function for now. I'll cover that in a module on state space representation at some point.
+  </p>
+
+  <h2 id="PID_Types">PID Types</h2>
+  <p class="module">
+    Different inputs can be passed to PID controllers, and that will change how the algorithm behaves. For example, the cases described in the Wikipedia article expect discrete positions as input. If a velocity is passed instead, which is a change in position, the behavior of each PID term is affected. This is because given the equation:
+  </p>
+  <p class="module">
+    \[ u(t) = K_p e(t) + K_i \int_{0}^{t}e(\tau)d\tau + K_d \frac{de}{dt} \]
+  </p>
+  <p class="module">
+    passing in the derivative of the error in place of the error gives:
+  </p>
+  <p class="module">
+    \[ u'(t) = K_p \frac{de}{dt} + K_i \int_{0}^{t}\frac{de}{d\tau} d\tau + K_d \frac{d^{2}e}{dt^{2}} \]
+  </p>
+  <p class="module">
+    which simplifies to:
+  </p>
+  <p class="module">
+    \[ u'(t) = K_p \frac{de}{dt} + K_i e(t) + K_d \frac{d^{2}e}{dt^{2}} \]
+  </p>
+  <p class="module">
+    This shows that K<sub>i</sub> produces a proportional response, K<sub>p</sub> produces a derivative response, and K<sub>i</sub> doesn't have an equivalent in the formula as is. If we were to implement one, it would use a double integral. However, it would be of limited use since the K<sub>i</sub> term in the original equation also eliminates steady state error. The equation WPILib's PID controller uses for velocity PID is as follows:
+  </p>
+  <p class="module">
+    \[ u'(t) = K_p \int_{0}^{t}e(\tau) d\tau + K_d e(t) \]
+  </p>
+  <p class="module">
+    So the user can still set K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub> in a similar way to a position PID controller.
+  </p>
+
+  <h2 id="Loop_Tuning">Loop Tuning</h2>
+  <p class="module">
+    Since the team started, we've been tuning PID controllers manually. I follow these steps:
+    <ol>
+      <li>Set K<sub>i</sub> and K<sub>d</sub> to zero.</li>
+      <li>Increase K<sub>p</sub> until the controller starts to oscillate around setpoint.</li>
+      <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
+      <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches setpoint in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
+        <blockquote>
+          &ldquo;Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound.&rdquo;
+        </blockquote>
+        Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
+      </li>
+    </ol>
+  </p>
+  <p class="module">
+    Tuning in this way can require some intuition as to what values produce the desired response. An alternative would be using an auto-tuner that follows something like the <a href="https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method">Ziegler-Nichols method</a>.
+  </p>
+  <p class="module">
+    We've used <a href="https://github.com/Team3512/LiveGrapher/">LiveGrapher</a> in the past to visualize the system response so we can more effectively tune it. We've used it in a production environment with our robots since 2013. The server side of LiveGrapher is in the <a href="https://github.com/Team3512/RobotModules">RobotModules</a> repository.
+  </p>
+
+  <h2 id="Limitations_of_PID_control">Limitations of PID control</h2>
+  <p class="module">
+    Read Wikipedia's section on the <a href="https://en.wikipedia.org/wiki/PID_controller#Limitations_of_PID_control">limitations of PID control</a>.
+  </p>
+  <p class="module">
+    Continuing from the section to which I just linked, another example of a non-linear system is an elevator/carriage assembly which has to operate under gravity. One can have two sets of PID constants for travelling in each direction. We did this on our 2015 robot. A better approach would be applying a feedforward to compensate for gravity, thus making the system linear again. One just needs to determine an approximate motor value to add to the output to make the system maintain its position under load.
+  </p>
+  <p class="module">
+    For fixing noise in the derivative, we've used a rolling average filter and a Kalman filter. The latter works better but requires tuning. I'll cover each in <a href="../sig101/index.html">SIG 101</a> and <a href="../sig102/index.html">SIG 102</a> respectively.
+  </p>
+  <p class="module">
+    The section on <a href="https://en.wikipedia.org/wiki/PID_controller#Modifications_to_the_PID_algorithm">modifications to the PID algorithm</a> is interesting, but one won't need it unless one is modifying his or her PID controller. I've been working to get some of those modifications integrated into WPILib's PIDController class.
+  </p>
+</body>
+</html>
+
