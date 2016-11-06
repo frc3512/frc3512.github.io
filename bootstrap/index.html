@@ -11,20 +11,29 @@
         <div class="column">
         <h1 id="Developer_Bootstrap">Developer Bootstrap</h1>
         <p>
-            This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, install Eclipse CDT, JDK 8, GCC, Git, and an LLVM package containing clang-format 3.8.1 or newer via that machine's package manager.
+            This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, do the following:
         </p>
+        <ul>
+            <li>Install via the machine's package manager:</li>
+            <ul>
+                <li>Eclipse CDT</li>
+                <li>JDK 8</li>
+                <li>GCC</li>
+                <li>Git</li>
+                <li>LLVM package containing clang-format 3.8.1 or newer</li>
+            </ul>
+            <li>Run <code>pip install --user wpiformat</code> to install our formatter</li>
+        </ul>
 
         <h2 id="Eclipse">Eclipse CDT</h2>
+        <p>
+            Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
+        </p>
 
         <h3 id="Eclipse_Downloads">Downloads</h3>
         <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
         <br>
         <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
-
-        <h3 id="Eclipse_Description">Description</h3>
-        <p>
-            Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
-        </p>
 
         <h3 id="Eclipse_Install">Installation Instructions</h3>
         <p>
@@ -35,14 +44,12 @@
         </p>
 
         <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
-
-        <h3 id="MSYS2_Downloads">Downloads</h3>
-        <a href="https://msys2.github.io/">https://msys2.github.io/</a>
-
-        <h3 id="MSYS2_Description">Description</h3>
         <p>
             This is the compiler Eclipse CDT will use to build the programs you write.
         </p>
+
+        <h3 id="MSYS2_Downloads">Downloads</h3>
+        <a href="https://msys2.github.io/">https://msys2.github.io/</a>
 
         <h3 id="MSYS2_Install">Installation Instructions</h3>
         <p>
@@ -103,15 +110,21 @@
             <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' >> .bashrc</code>
         </p>
         <p>
-            The following commands download the WPILib style guide, configure its environment variable, and install Python.
+            The following commands install Python and pip, then use pip to install wpiformat.
             <br>
             <br>
-            <code>git clone git://github.com/wpilibsuite/styleguide $HOME/styleguide</code><br>
-            <code>echo 'export WPI_FORMAT=$HOME/styleguide' >> .bashrc</code><br>
-            <code>pacman -S python</code>
+            <code>pacman -S python</code><br>
+            <code>wget https://bootstrap.pypa.io/get-pip.py</code><br>
+            <code>python get-pip.py</code><br>
+            <code>pip install wpiformat</code>
         </p>
         <p>
-            After those commands complete, close and reopen the terminal for the environment variable changes to take effect.
+            After those commands complete, close and reopen the terminal so the PATH environment variable change from earlier takes effect.
+        </p>
+
+        <h3 id="Formatter_Usage">Usage</h3>
+        <p>
+            To use the formatter, run <code>wpiformat</code> in the Git repository being formatted.
         </p>
         </div>
     </body>
