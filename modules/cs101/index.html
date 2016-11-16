@@ -21,13 +21,88 @@
 
   <h2 id="Bootstrap">Bootstrap</h2>
   <p>
-    Before you begin, install the tools listed <a href="/bootstrap/">here</a>.
+    Before you begin, install the tools listed <a href="/bootstrap/">here</a>, including Git.
   </p>
+
+  <h2 id="Assignment_Submission">Assignment Submission</h2>
+  <p>
+    Assignment submissions will be made via Git. To start, make an account on <a href="https://github.com/">GitHub</a> if you don't already have one, and create a new repository called <code>cs101-assignments</code>. Use <code>git clone</code> to clone the repository to your local machine. <code>git add</code>, <code>git commit</code>, and <code>git push</code> should be used to make snapshots of your work and push it to the remote server. Make commits to your repository as often as you feel is necessary. See <a href="../git101/10GitCommands.pdf">this cheat sheet</a> for an overview of the most commonly used Git commands.
+  </p>
+  <p>
+    The directory structure should be set up as follows. The given names are examples demonstrating the desired format.
+  </p>
+  <ul>
+    <li>Chapter01</li>
+    <ul>
+      <li>Problem02</li>
+      <ul>
+        <li>src</li>
+        <ul>
+          <li>ExampleClass.cpp</li>
+          <li>ExampleClass.hpp</li>
+          <li>Main.cpp</li>
+        </ul>
+      </ul>
+      <li>Problem13</li>
+      <ul>
+        <li>src</li>
+        <ul>
+          <li>Main.cpp</li>
+        </ul>
+      </ul>
+    </ul>
+    <li>Chapter11</li>
+    <ul>
+      <li>Problem14</li>
+      <ul>
+        <li>src</li>
+        <ul>
+          <li>Main.cpp</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+  <p>
+    It's convention to define <code>main()</code> in a file called Main.cpp, but it isn't required and may not make sense for projects with only one file.
+  </p>
+
+  <h3 id="Option_1_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
+  <p>
+    One option for submission using the above format is to make each chapter folder an Eclipse workspace and make each problem folder a project in that workspace. This ensures the Eclipse projects and their metadata are backed up via Git. If you do this, you'll need to include the following entries in a .gitignore in the root directory of your Git repository:
+  </p>
+  <code>
+    *.d<br>
+    *.o<br>
+    .settings/<br>
+    Debug/<br>
+    Release/<br>
+    RemoteSystemsTempFiles/<br>
+  </code>
+
+  <h3 id="Option_2_Alternate Editor">Option 2: Alternate Editor</h3>
+  <p>
+    If you want to use a different IDE such as Vim, provide a Makefile in each problem folder to compile the executable. Here's an <a href="Makefile">example Makefile</a> which recursively finds all the source files in the <code>src</code> directory and compiles Debug and Release versions of them. The <code>NAME</code> field should be edited before use. The following entries should be included in the repository's .gitignore file:
+  </p>
+  <code>
+    *.d<br>
+    *.o<br>
+    Debug/<br>
+    Release/<br>
+  </code>
+
+  <hr>
 
   <h2 id="Assignments">Assignments</h2>
   <p>
-    For now, work through Part 1 of our textbook. We'll have a specific list of problems posted at a later date.
+    In addition to the following problems, do all the drill problems at the end of each chapter. See section 0.1.2 in the textbook for the reasoning behind this and section 0.1.1 for the textbook's general approach. The review questions are good for checking comprehension, but they aren't exhaustive, so still read carefully.
+  </p>
+  <p>
+    We recommend covering at least one chapter per week. There may not be enough time to lecture on all the material in depth in a given week, so individual reading is encouraged. The book is designed for this situation.
+  </p>
+
+  <h3 id="Chapter_4">Chapter 4</h3>
+  <p>
+    Textbook problems 8, 11, 13, 15, 19-21
   </p>
 </body>
 </html>
-
