@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="LiveGrapher Lab">
-  <title>CS 101 - FRC Team 3512</title>
+  <title>CT 101 - FRC Team 3512</title>
   <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 
@@ -12,49 +12,49 @@
   <table class="title">
     <tr><td>
       <h1 class="center">
-        Computer Science 101<br> <small>LiveGrapher Lab</small>
+        Control Theory 101<br> <small>LiveGrapher Lab</small>
       </h1>
     </td></tr>
   </table>
 
   <hr>
 
-  <p>
+  <p class="module">
     In this lab, we'll be using the LiveGrapher real-time graphing application to display various waveforms and tune the parameters of a simulated mechanical system.
   </p>
 
   <h2 id="Installation">Installation</h2>
-  <p>
+  <p class="module">
     As a preface, if your machine has 64-bit MSYS2 installed, always install the 64-bit version of packages. Otherwise, install the 32-bit versions. The versions have "x86_64" and "i686" in their names respectively.
-  <p>
+  <p class="module">
     Open an "MSYS2 MinGW 64-bit" terminal and install Qt Creator with <code>pacman -S mingw-w64-x86_64-qt-creator</code>. The download is large, so it may take a while to install. (We had to open a terminal different from "MSYS2 MSYS" because Qt packages aren't provided in MSYS).
   </p>
-  <p>
+  <p class="module">
     Next, clone the LiveGrapher Git repository with <code>git clone git://github.com/Team3512/LiveGrapher</code>. Follow the instructions in <code>README.md</code> to build it.
   </p>
 
   <h2 id="Sinusoid">Sinusoid</h2>
-  <p>
+  <p class="module">
     LiveGrapher uses a client-server model for data transmission. The program we just built is the LiveGrapher client application. To test your setup, you'll need a server. Clone <code>https://github.com/Team3512/LiveGrapherTest</code> and build it by running <code>make</code>. After the build is complete, start the server.
   </p>
-  <p>
+  <p class="module">
     Edit LiveGrapher's <code>IPSettings.txt</code> to use a <code>robotIP</code> of <code>127.0.0.1</code>. This instructs LiveGrapher to look for a running server on the local machine, known as localhost. The defaults for the other options are fine. Read the README for documentation on the other options.
   </p>
-  <p>
+  <p class="module">
     Start the client and click the "Connect" button. A dialog box should pop up with two check boxes. These correspond to two different graph datasets the server is providing. Select at least one, then click "Ok". You should see a graph start to scroll by. The axes will automatically scale to fit the data the graph contains. To view the other dataset, click the "Connect" button and choose different checkboxes from the dialog.
   </p>
 
   <h2 id="DC_Brushed_Motor_Simulation">DC Brushed Motor Simulation</h2>
-  <p>
+  <p class="module">
     Our robotics team mainly uses LiveGrapher to display the state of mechanical subsystems of our robots in real-time so we can tune their response. This part will walk you through tuning the feedback controller for a simulated <a href="https://en.wikipedia.org/wiki/Brushed_DC_electric_motor">DC brushed motor</a>.
   </p>
-  <p>
+  <p class="module">
     Replace the <code>Main.cpp</code> in LiveGrapherTest with <a href="DCMotor.cpp">this file</a>, rebuild the project, and rerun the server. After reconnecting LiveGrapher, two datasets will be available: "Reference" and "Velocity". Graph both of them.
   </p>
-  <p>
+  <p class="module">
     In robotics, we use feedback controllers to make motors track a desired reference signal. Your goal is to make the motor's rotational velocity track the reference shown on the graph. Do this by modifying the PID constants in <code>DCMotor.cpp</code>, rebuilding and rerunning the server, then watching the response in LiveGrapher. See <a href="https://csweb.frc3512.com/modules/ct101/#Loop_Tuning">https://csweb.frc3512.com/modules/ct101/#Loop_Tuning</a> for advice on manually tuning a PID controller.
   </p>
-  <p>
+  <p class="module">
     Once you feel your motor is tracking the reference step inputs well, hit the "Clear Data" button, let a couple reference changes with the motor response show up on the graph, then save the graph data to a .csv file with the "Save" button. Submit this to your instructor with the <code>DCMotor.cpp</code> containing your modified PID gains.
   </p>
 </body>
