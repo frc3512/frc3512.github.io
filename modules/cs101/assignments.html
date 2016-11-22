@@ -40,32 +40,35 @@
     The directory structure should be set up as follows. The given names are examples demonstrating the desired format. Your source files may have different names from those shown. Some problems will require multiple files, but problems from the earlier chapters typically do not.
   </p>
   <ul>
-    <li>Chapter01</li>
+    <li>cs101-assignments (Git repository root)</li>
     <ul>
-      <li>Drill02</li>
+      <li>Chapter01 (workspace)</li>
       <ul>
-        <li>src</li>
+        <li>Drill02 (project)</li>
         <ul>
-          <li>ExampleClass.cpp</li>
-          <li>ExampleClass.hpp</li>
-          <li>Main.cpp</li>
+          <li>src</li>
+          <ul>
+            <li>ExampleClass.cpp</li>
+            <li>ExampleClass.hpp</li>
+            <li>Main.cpp</li>
+          </ul>
+        </ul>
+        <li>Exercise13 (project)</li>
+        <ul>
+          <li>src</li>
+          <ul>
+            <li>Main.cpp</li>
+          </ul>
         </ul>
       </ul>
-      <li>Exercise13</li>
+      <li>Chapter11 (workspace)</li>
       <ul>
-        <li>src</li>
+        <li>Drill14 (project)</li>
         <ul>
-          <li>Main.cpp</li>
-        </ul>
-      </ul>
-    </ul>
-    <li>Chapter11</li>
-    <ul>
-      <li>Drill14</li>
-      <ul>
-        <li>src</li>
-        <ul>
-          <li>Main.cpp</li>
+          <li>src</li>
+          <ul>
+            <li>Main.cpp</li>
+          </ul>
         </ul>
       </ul>
     </ul>
@@ -76,7 +79,7 @@
 
   <h3 id="Option_1_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
   <p class="module">
-    One option for submission using the above format is to make each chapter folder an Eclipse workspace and make each problem folder a project in that workspace. This ensures the Eclipse projects and their metadata are backed up via Git. If you do this, you'll need to include the following entries in a .gitignore in the root directory of your Git repository:
+    The directory tree above provides an example of which folders should be an Eclipse workspace or project within a workspace (parentheses are not part of the name). This ensures the Eclipse projects and their metadata are backed up via Git. If you do this, you'll need to include the following entries in a .gitignore in the root directory of your Git repository:
   </p>
   <code>
     *.d<br>
@@ -93,7 +96,7 @@
 
   <h3 id="Option_2_Alternate Editor">Option 2: Alternate Editor</h3>
   <p class="module">
-    If you want to use a different IDE such as Vim, provide a Makefile in each problem folder to compile the executable. Here's an <a href="Makefile">example Makefile</a> which recursively finds all the source files in the <code>src</code> directory and compiles Debug and Release versions of them. The <code>NAME</code> field should be edited before use. The following entries should be included in the repository's .gitignore file:
+    If you want to use a different IDE such as Vim, provide a Makefile in each problem folder to compile the executable. "workspaces" and "projects" aren't relevant here, but follow the directory layout. Here's an <a href="Makefile">example Makefile</a> which recursively finds all the source files in the <code>src</code> directory and compiles Debug and Release versions of them. The <code>NAME</code> field should be edited before use. The following entries should be included in the repository's .gitignore file:
   </p>
   <code>
     *.d<br>
