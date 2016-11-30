@@ -73,14 +73,14 @@
     Assignment submissions will be made via Git. To start, make an account on <a href="https://github.com/">GitHub</a> if you don't already have one, and create a new repository called <code>cs101-assignments</code>. Use <code>git clone</code> to clone the repository to your local machine. <code>git add</code>, <code>git commit</code>, and <code>git push</code> should be used to make snapshots of your work and push it to the remote server. Make commits to your repository as often as you feel is necessary. See <a href="../git101/10GitCommands.pdf">this cheat sheet</a> for an overview of the most commonly used Git commands.
   </p>
   <p class="module">
-    The directory structure should be set up as follows. The given names are examples demonstrating the desired format. Your source files may have different names from those shown or not exist. Some problems will require multiple files, but problems from the earlier chapters typically do not.
+    The directory structure should be set up as follows. The given names are examples demonstrating the desired format. Your source files may have different names from those shown or not exist. Folders use lowercase and files use camel case. Some problems will require multiple files, but problems from the earlier chapters typically do not.
   </p>
   <ul>
     <li>cs101-assignments (Git repository root)</li>
     <ul>
-      <li>Chapter01 (workspace)</li>
+      <li>chapter01 (workspace)</li>
       <ul>
-        <li>Drill02 (project)</li>
+        <li>drill02 (project)</li>
         <ul>
           <li>src</li>
           <ul>
@@ -90,7 +90,7 @@
           </ul>
           <li>Makefile</li>
         </ul>
-        <li>Exercise13 (project)</li>
+        <li>exercise13 (project)</li>
         <ul>
           <li>src</li>
           <ul>
@@ -99,9 +99,9 @@
           <li>README.txt</li>
         </ul>
       </ul>
-      <li>Chapter11 (workspace)</li>
+      <li>chapter11 (workspace)</li>
       <ul>
-        <li>Drill14 (project)</li>
+        <li>drill14 (project)</li>
         <ul>
           <li>src</li>
           <ul>
@@ -114,6 +114,9 @@
   </ul>
   <p class="module">
     Source code goes in the <code>src</code> directory while other files like licenses, makefiles, and READMEs go outside of it. It's convention to define <code>main()</code> in a file called Main.cpp, but it isn't required and may not make sense for projects with only one file.
+  </p>
+  <p class="module">
+    Submissions will have our formatter run on them. After setting it up according to <a href="../../bootstrap/#Formatter">these instructions</a>, place <a href="format.py">format.py</a>, <a href=".clang-format">.clang-format</a>, <a href=".styleguide">.styleguide</a>, and <a href=".styleguide-license">.styleguide-license</a> in the root directory of your repository. You may modify <code>.styleguide-license</code> to use your name.
   </p>
 
   <h3 id="Option_1_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
