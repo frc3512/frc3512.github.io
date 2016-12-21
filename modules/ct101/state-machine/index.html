@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="State Machine Lab">
+  <title>CT 101 - FRC Team 3512</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+  <table class="title">
+    <tr><td>
+      <h1 class="center">
+        Control Theory 101<br> <small>State Machine Lab</small>
+      </h1>
+    </td></tr>
+  </table>
+
+  <hr>
+
+  <p class="module">
+    In this lab, we are going to design and implement a simple state machine.
+  </p>
+
+  <h2 id="Understanding_the_Problem">Understanding the Problem</h2>
+  <p class="module">
+    The robot for which we are designing this state machine has an elevator which is controlled by a pulley connected to a DC brushed motor. A digital encoder is used in a feedback controller to control the height of the elevator carriage. On the carriage, there are two tines which can be moved in and out with a solenoid. This elevator assembly is used for lifting and transporting rectangular storage totes.
+  <p class="module">
+    Your goal is to implement a state machine that automates the tote stacking procedure, which is initiated by the robot's user pressing a button. They should be able to repeatedly press the button to stack totes on the ground denoted by a height of zero inches.
+  </p>
+
+  <h2 id="Setup">Setup</h2>
+  <p class="module">
+    Since the purpose of this exercise is practice with state machines, the feedback controller and robot subsystem software is provided for you. Copy the following files into a new project.
+  </p>
+  <ul>
+    <li><a href="Main.cpp">Main.cpp</a></li>
+    <li><a href="RobotMock.cpp">RobotMock.cpp</a></li>
+    <li><a href="RobotMock.hpp">RobotMock.hpp</a></li>
+    <li><a href="Timer.cpp">Timer.cpp</a></li>
+    <li><a href="Timer.hpp">Timer.hpp</a></li>
+  </ul>
+  <p class="module">
+    See the C++ header files (.hpp extension) for a list of available functions. <code>RobotMock</code> and <code>Timer</code> are <i>classes</i>. They are used in C++ for object-oriented programming and defining one's own data types in addition to the built-in ones. They contain a list of variables and member functions which are associated with an object of that type. If there existed an instance of Timer called <code>Timer timer</code>, its <code>Start()</code> member function can be called via <code>timer.Start()</code>.
+  </p>
+
+  <h2 id="Designing_the_State_Machine">Designing the State Machine</h2>
+  <p class="module">
+    TODO: for now, use the state machine diagram we discussed in lecture.
+  </p>
+
+  <h2 id="Implementation">Implementation</h2>
+  <p class="module">
+    Once you are satisfied with your state machine diagram, translate into C++ and test it. <code>Main.cpp</code> provides a template for you to do so. You should need to modify the RobotMock and Timer classes. We recommend adding print statements upon entering and exiting your states so the state machine's progress is externally visible.
+  </p>
+  <p class="module">
+    Once you are confident your state machine works, submit your <code>Main.cpp</code> file to your instructor.
+  </p>
+</body>
+</html>
