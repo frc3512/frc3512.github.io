@@ -3,99 +3,105 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>http://csweb.frc3512.com/index.html</loc>
+        <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/admin/goals.html</loc>
+        <loc>https://csweb.frc3512.com/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/admin/index.html</loc>
+        <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/admin/styleguide.html</loc>
+        <loc>https://csweb.frc3512.com/admin/goals.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/admin/varsity.html</loc>
+        <loc>https://csweb.frc3512.com/admin/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/index.html</loc>
+        <loc>https://csweb.frc3512.com/admin/styleguide.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic01/index.html</loc>
+        <loc>https://csweb.frc3512.com/admin/varsity.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic02-03/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic04/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs101/assignments.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic05/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs101/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic06/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs102/concurrency-atomics.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic07/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs102/high-perf-embedded.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic08/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs102/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic09/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs102/networking.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic10/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs102/parallelism.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic11/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs103/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/assignments/topic12/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs104/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/bootstrap/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs105/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs106/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs107/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs108/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs103/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct101/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs104/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct101/live-grapher/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs105/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct101/state-machine/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/cs106/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct102/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/ct101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct103/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/ct102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct104/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/frc101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/frc101/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/git101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/frc102/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/git102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/git101/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/sig101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/git102/index.html</loc>
     </url>
     <url>
-        <loc>http://csweb.frc3512.com/who/tav/sig102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/rt101/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/modules/sig101/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/modules/sig102/index.html</loc>
     </url>
 </urlset>
