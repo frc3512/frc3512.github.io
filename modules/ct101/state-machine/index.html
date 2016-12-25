@@ -26,6 +26,13 @@
   <h2 id="Understanding_the_Problem">Understanding the Problem</h2>
   <p class="module">
     The robot for which we are designing this state machine has an elevator which is controlled by a pulley connected to a DC brushed motor. A digital encoder is used in a feedback controller to control the height of the elevator carriage. On the carriage, there are two tines which can be moved in and out with a solenoid. This elevator assembly is used for lifting and transporting rectangular storage totes.
+  </p>
+  <table>
+    <tr>
+      <td><img src="carriage-front.jpg" width="282" height="500"/></td>
+      <td><img src="carriage-rear.jpg" width="282" height="500"/></td>
+    </tr>
+  </table>
   <p class="module">
     Your goal is to implement a state machine that automates the tote stacking procedure, which is initiated by the robot's user pressing a button. They should be able to repeatedly press the button to stack totes on the ground denoted by a height of zero inches.
   </p>
