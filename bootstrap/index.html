@@ -25,7 +25,7 @@
             <li>Run <code>pip install --user wpiformat</code> to install our formatter</li>
         </ul>
 
-        <h2 id="Eclipse">Eclipse CDT</h2>
+        <h2 id="Eclipse_CDT">Eclipse CDT</h2>
         <p>
             Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
         </p>
@@ -35,7 +35,7 @@
         <br>
         <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
 
-        <h3 id="Eclipse_Install">Installation Instructions</h3>
+        <h3 id="Eclipse_Installation">Installation</h3>
         <p>
             On the Eclipse CDT download page, select the appropriate platform on the page's right. If your machine is 64 bit, choose a 64 bit version. Once the download is complete, extract it to a directory of your choice.
         </p>
@@ -46,6 +46,22 @@
             For robot software development, follow the instructions <a href="https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">here<a/> to install the FRC plugins and roboRIO ARM toolchain.
         </p>
 
+        <h3 id="Eclipse_Usage">Usage</h3>
+        <p>
+          When creating a new project, don't use "Cross GCC". On Linux, use "Linux GCC" and on Windows, use "Cygwin GCC".
+        </p>
+        <p>
+          Eclipse occasionally shows outdated or false errors in a project file. If this is the case, the project's index needs to be rebuilt. To do so, select the following option.
+        </p>
+        <code>Right-click project > Index > Rebuild</code>
+        <p>
+          Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
+        </p>
+        <p>
+          To configure a project to build with C++14, select "ISOC++1y" from the "Language standard" drop-down menu in the following location.
+        </p>
+        <code>Right-click project > Properties > C/C++ Build > Settings > GCC C++ Compiler > Dialect</code>
+
         <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
         <p>
             This is the compiler Eclipse CDT will use to build the programs you write.
@@ -54,7 +70,7 @@
         <h3 id="MSYS2_Downloads">Downloads</h3>
         <a href="https://msys2.github.io/">https://msys2.github.io/</a>
 
-        <h3 id="MSYS2_Install">Installation Instructions</h3>
+        <h3 id="MSYS2_Installation">Installation</h3>
         <p>
             Follow the instructions on the web page. Use the default installation directory.
         </p>
@@ -84,7 +100,7 @@
             Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and detailed setup.
         </p>
 
-        <h3 id="Git_Install">Installation Instructions</h3>
+        <h3 id="Git_Installation">Installation</h3>
         <p>
             Run <code>pacman -S git</code>
         </p>
@@ -102,7 +118,7 @@
         <h3 id="Formatter_Downloads">Downloads</h3>
         <a href="http://llvm.org/releases/download.html">LLVM</a>
 
-        <h3 id="Formatter_Install">Installation Instructions</h3>
+        <h3 id="Formatter_Installation">Installation</h3>
         <p>
             On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
         </p>
