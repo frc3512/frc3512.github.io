@@ -1,23 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="Shell Scripting">
+  <meta charset="utf-8"/>
+  <meta name="description" content="Shell Scripting"/>
   <title>CS 103 - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 
 <body>
   <table class="title">
     <tr><td>
       <h1 class="center">
-        Computer Science 103<br> <small>Shell Scripting</small>
+        Computer Science 103<br/> <small>Shell Scripting</small>
       </h1>
     </td></tr>
   </table>
 
-  <hr>
+  <hr/>
 
   <h2 id="Introduction">Introduction</h2>
   <p class="module">
@@ -40,22 +40,9 @@
 #!/bin/bash
 
 git checkout -q master
-read -r -a array <<< `git log --reverse --pretty=oneline | cut -d ' ' -f 1`
-declare -i x=0
-rm -f data.csv
-
-declare -i total=$(git log --pretty=oneline | cut -d ' ' -f 1 | wc -l)
-
-for elem in "${array[@]}"; do
-  git checkout -q $elem
-  x=$((x + 1))
-  y=$(find $PWD -type f -regextype posix-extended -regex '.*(\.cpp|\.hpp|\.inl|\.h|\.c|\.java)$' -exec cat {} + | wc -l)
-
-  echo -n $'\r'Parsing commits for data.csv... $x$'/'$total
-  if [ "$x" -lt "1200" ]; then
-    echo $',,'$x$','$y >> data.csv
+read -r -a array &gt; data.csv
   else
-    echo $x$','$y','$x$','$y >> data.csv
+    echo $x$','$y','$x$','$y &gt;&gt; data.csv
   fi
 done
 
@@ -143,12 +130,12 @@ for branch in "${branches[@]}"; do
       git push -f
       ;;
     "rebase")
-      if [ "$base" != "cap-sys-nice" ] &&
-         [ "$base" != "cleanup-command" ] &&
-         [ "$base" != "cleanup-const" ] &&
-         [ "$base" != "getinstance" ] &&
-         [ "$base" != "itable-base" ] &&
-         [ "$base" != "motor-safety-base" ] &&
+      if [ "$base" != "cap-sys-nice" ] &amp;&amp;
+         [ "$base" != "cleanup-command" ] &amp;&amp;
+         [ "$base" != "cleanup-const" ] &amp;&amp;
+         [ "$base" != "getinstance" ] &amp;&amp;
+         [ "$base" != "itable-base" ] &amp;&amp;
+         [ "$base" != "motor-safety-base" ] &amp;&amp;
          [ "$base" != "pid-filter" ]; then
         git rebase master
       fi
@@ -170,4 +157,3 @@ done
   </pre>
 </body>
 </html>
-

@@ -1,11 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="A page providing the necessary tools to begin programming in C++">
+        <meta charset="utf-8"/>
+        <meta name="description" content="A page providing the necessary tools to begin programming in C++"/>
         <title>Developer Bootstrap - FRC Team 3512</title>
-        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css"/>
     </head>
     <body>
         <div class="column">
@@ -32,7 +32,7 @@
 
         <h3 id="Eclipse_Downloads">Downloads</h3>
         <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
-        <br>
+        <br/>
         <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
 
         <h3 id="Eclipse_Installation">Installation</h3>
@@ -43,7 +43,7 @@
             On the JDK download page, select the JDK installer for the same operating system and architecture of Eclipse CDT, download it, and run it.
         </p>
         <p>
-            For robot software development, follow the instructions <a href="https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">here<a/> to install the FRC plugins and roboRIO ARM toolchain.
+            For robot software development, follow the instructions <a href="https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">here</a> to install the FRC plugins and roboRIO ARM toolchain.
         </p>
 
         <h3 id="Eclipse_Usage">Usage</h3>
@@ -53,14 +53,14 @@
         <p>
           Eclipse occasionally shows outdated or false errors in a project file. If this is the case, the project's index needs to be rebuilt. To do so, select the following option.
         </p>
-        <code>Right-click project > Index > Rebuild</code>
+        <code>Right-click project &gt; Index &gt; Rebuild</code>
         <p>
           Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
         </p>
         <p>
           To configure a project to build with C++14, select "ISOC++1y" from the "Language standard" drop-down menu in the following location.
         </p>
-        <code>Right-click project > Properties > C/C++ Build > Settings > GCC C++ Compiler > Dialect</code>
+        <code>Right-click project &gt; Properties &gt; C/C++ Build &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
 
         <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
         <p>
@@ -78,12 +78,12 @@
             When installation is complete and everything has been upgraded with pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
         </p>
         <p>
-            You may want to create a desktop shortcut for &ldquo;MSYS2 MSYS&rdquo; to facilitate opening MSYS2 terminals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
-            <br>
-            <br>
+            You may want to create a desktop shortcut for "MSYS2 MSYS" to facilitate opening MSYS2 terminals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
+            <br/>
+            <br/>
             <code>pacman -S base-devel gcc</code>
-            <br>
-            <br>
+            <br/>
+            <br/>
             When prompted for which packages in the base-devel group to install, press Enter to select the default option (all of them).
         </p>
 
@@ -124,17 +124,17 @@
         </p>
         <p>
             MSYS2 keeps a separate PATH environment variable from the operating system. Run the following command to add the LLVM installation to it.
-            <br>
-            <br>
-            <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' >> .bashrc</code>
+            <br/>
+            <br/>
+            <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt; .bashrc</code>
         </p>
         <p>
             The following commands install Python and pip, then use pip to install wpiformat.
-            <br>
-            <br>
-            <code>pacman -S python</code><br>
-            <code>wget https://bootstrap.pypa.io/get-pip.py</code><br>
-            <code>python get-pip.py</code><br>
+            <br/>
+            <br/>
+            <code>pacman -S python</code><br/>
+            <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
+            <code>python get-pip.py</code><br/>
             <code>pip install wpiformat</code>
         </p>
         <p>

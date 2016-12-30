@@ -1,23 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="LiveGrapher Lab">
+  <meta charset="utf-8"/>
+  <meta name="description" content="LiveGrapher Lab"/>
   <title>CT 101 - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../../style.css">
+  <link rel="stylesheet" type="text/css" href="../../style.css"/>
 </head>
 
 <body>
   <table class="title">
     <tr><td>
       <h1 class="center">
-        Control Theory 101<br> <small>LiveGrapher Lab</small>
+        Control Theory 101<br/> <small>LiveGrapher Lab</small>
       </h1>
     </td></tr>
   </table>
 
-  <hr>
+  <hr/>
 
   <p class="module">
     In this lab, we'll be using the LiveGrapher real-time graphing application to display various waveforms and tune the parameters of a simulated mechanical system.
@@ -26,6 +26,7 @@
   <h2 id="Installation">Installation</h2>
   <p class="module">
     As a preface, if your machine has 64-bit MSYS2 installed, always install the 64-bit version of packages. Otherwise, install the 32-bit versions. The versions have "x86_64" and "i686" in their names respectively.
+  </p>
   <p class="module">
     Open an "MSYS2 MinGW 64-bit" terminal and install Qt Creator with <code>pacman -S mingw-w64-x86_64-qt-creator</code>. The download is large, so it may take a while to install. (We had to open a terminal different from "MSYS2 MSYS" because Qt packages aren't provided in MSYS).
   </p>
@@ -40,7 +41,7 @@
   <ul>
     <li><code>git clone git://github.com/Team3512/LiveGrapherTest</code></li>
     <li><code>cd LiveGrapherTest</code></li>
-    <li><code>rm src/LiveGrapher && ln -s ../LiveGrapher/host/LiveGrapher src/LiveGrapher</code></li>
+    <li><code>rm src/LiveGrapher &amp;&amp; ln -s ../LiveGrapher/host/LiveGrapher src/LiveGrapher</code></li>
     <li><code>make</code></li>
   </ul>
   <p>

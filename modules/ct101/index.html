@@ -1,11 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="State Machines and PID Controllers">
+  <meta charset="utf-8"/>
+  <meta name="description" content="State Machines and PID Controllers"/>
   <title>CT 101 - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -21,7 +21,7 @@
   <table class="title">
     <tr><td>
       <h1 class="center">
-        Control Theory 101<br> <small>State Machines and PID Controllers</small>
+        Control Theory 101<br/> <small>State Machines and PID Controllers</small>
       </h1>
     </td></tr>
   </table>
@@ -30,7 +30,7 @@
     <strong>Prerequisites:</strong> <a href="../cs101/">CS 101</a>
   </p>
 
-  <hr>
+  <hr/>
 
   <h2 id="Submodules">Submodules</h2>
   <ul>
@@ -94,7 +94,7 @@
       <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
       <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches setpoint in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
         <blockquote>
-          &ldquo;Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound.&rdquo;
+          “Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound.”
         </blockquote>
         Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
       </li>
@@ -122,4 +122,3 @@
   </p>
 </body>
 </html>
-

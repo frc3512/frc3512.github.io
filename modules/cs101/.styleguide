@@ -36,6 +36,7 @@ modifiableFolderExclude {
 }
 
 modifiableFileExclude {
+  std_lib_facilities\.h$
 }
 
 includeRelated {

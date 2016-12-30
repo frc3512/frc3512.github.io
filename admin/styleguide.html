@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE html>
-
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="FRC Team 3512 software team style guide">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta charset="utf-8"/>
+        <meta name="description" content="FRC Team 3512 software team style guide"/>
         <title>Style Guide - FRC Team 3512</title>
-        <link rel="stylesheet" type="text/css" href="../style.css">
+        <link rel="stylesheet" type="text/css" href="../style.css"/>
     </head>
     <body>
         <h1>Style Guide and Best Practices</h1>
@@ -29,14 +30,14 @@
         <h2 id="Miscellaneous_Rules">Miscellaneous Rules</h2>
         <p>
             Headers should be sorted into newline-delimited sections according to the Google style guide. Each section's headers should be lexographically ordered. In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test the stuff in dir2/foo2.h, order your includes as follows:
-            <ul>
-                <li>dir2/foo2.h</li>
-                <li>C system files</li>
-                <li>C++ system files</li>
-                <li>Other libraries' .h files</li>
-                <li>Your project's .h files</li>
-            </ul>
         </p>
+        <ul>
+            <li>dir2/foo2.h</li>
+            <li>C system files</li>
+            <li>C++ system files</li>
+            <li>Other libraries' .h files</li>
+            <li>Your project's .h files</li>
+        </ul>
         <p>
             In addition to the practices and associated justifications presented here, see our formatting config file, uncrustify.cfg, in our robot code for specific formatting minutiae.
         </p>
