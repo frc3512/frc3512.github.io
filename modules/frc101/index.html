@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="description" content="Scouting Application"/>
+  <meta name="description" content="Robot Software"/>
   <title>FRC 101 - FRC Team 3512</title>
   <link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
@@ -24,6 +24,70 @@
 
   <hr/>
 
-  <h2 id="TODO">TODO</h2>
+  <h2 id="Installation">Installation</h2>
+  <p>
+    Eclipse should already be installed from following the <a href="../../bootstrap/">bootstrap page</a>. For robot software development, follow the instructions <a href="https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">here</a> to install the FRC plugins and roboRIO ARM toolchain. Other robot software resources can be found <a href="http://wpilib.screenstepslive.com/s/4485/m/13503/c/86641">here</a>.
+  </p>
+
+  <h2 id="Project_Setup">Project Setup</h2>
+  <p>
+    Each year, a new robot project will need to be created in Gerrit (our code review platform) and on GitHub for our competition robot code. First, an admin should create a new empty repository in the Team3512 GitHub organization (no README or license) and in Gerrit. Give them a name and description following the form of the previous years' repositories like "Robot-2017" and "The source code for the 2017 FRC robot.". Next, clone the repository from Gerrit and add the following files to it. See below the list for exceptions in downloading the provided files.
+  </p>
+
+  <h3 id="Generic_Download">Generic Download</h3>
+  <p>
+    These files should be included in all of FRC Team 3512's software projects.
+  </p>
+  <ul>
+    <li><a href="generic/.clang-format">.clang-format</a></li>
+    <li><a href="generic/.gitignore">.gitignore</a></li>
+    <li><a href="generic/.gitreview">.gitreview</a></li>
+    <li><a href="generic/.styleguide">.styleguide</a></li>
+    <li><a href="generic/.styleguide-license">.styleguide-license</a></li>
+    <li><a href="generic/COPYING">COPYING</a></li>
+    <li>README.md</li>
+  </ul>
+  <p>
+    <code>.gitreview</code> will need the project name updated. <code>COPYING</code> will need the initial copyright year updated to the current year. <code>README.md</code> should be edited to be unique to the project.
+  </p>
+
+  <h3 id="Robot_Download">Robot Download</h3>
+  <p>
+    These files should only be included in robot code projects.
+  </p>
+  <ul>
+    <li><a href="robot/CMakeLists.txt">CMakeLists.txt</a></li>
+    <li><a href="robot/README.md">README.md</a></li>
+    <li><a href="robot/send-settings.sh">send-settings.sh</a></li>
+    <li><a href="robot/src/Constants.hpp">src/Constants.hpp</a></li>
+  </ul>
+  <p>
+    <code>README.md</code> will need the year and robot name updated. "?" can be used until the robot name is chosen. <code>src/Constants.hpp</code> is a file we typically use every year and is provided as a placeholder so the <code>src</code> folder is added to Git history.
+  </p>
+
+  <h3 id="Generated_via_Robot_Project">Generated via Robot Project</h3>
+  <ul>
+    <li><a href=".cproject">.cproject</a></li>
+    <li><a href=".project">.project</a></li>
+    <li><a href="build.properties">build.properties</a></li>
+    <li><a href="build.xml">build.xml</a></li>
+  </ul>
+  <p>
+    Change the following Eclipse project properties before copying the metadata files into the Git repository.
+  </p>
+  <ul>
+    <li>Rename the "Debug" configuration to "Release" via the "Manage Configurations..." button</li>
+    <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Optimization" &gt; "Optimization Level" = "Optimize most" with "Other optimization flags" empty</li>
+    <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Debugging" &gt; "Debug Level" = "None"</li>
+    <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Miscellaneous" &gt; "Other flags" = "-c"</li>
+    <li>"Cross G++ Linker" &gt; "General" &gt; "Omit all symbol information (-s)" = true</li>
+  </ul>
+  <p>
+    The optimization level can be restored to "None" with "Other optimization flags" of "-Og" and debug level can be restored to "Maximum" when needed for debugging. However, the settings described here are used for performance and should probably be used in competition.
+  </p>
+
+  <h3 id="Initial_Commit">Initial Commit</h3>
+  <p>
+    After the files are added to the repository, they should be committed in the first commit with the commit message "Initial Commit". This can then be pushed to Gerrit for review or pushed directly to master by admins. Gerrit will automatically mirror commits to master on GitHub.
 </body>
 </html>

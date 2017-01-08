@@ -1,0 +1,47 @@
+cExtensions {
+  c
+  h
+}
+
+cppHeaderExtensions {
+  hpp
+  inl
+}
+
+cppSrcExtensions {
+  cpp
+}
+
+otherExtensions {
+}
+
+genFolderExclude {
+}
+
+genFileExclude {
+}
+
+modifiableFolderExclude {
+  \.git
+  WPILib
+  SFML
+  SFMLNetwork
+}
+
+modifiableFileExclude {
+}
+
+includeRelated {
+}
+
+includeCSys {
+}
+
+includeCppSys {
+}
+
+includeOtherLibs {
+}
+
+includeProject {
+}
