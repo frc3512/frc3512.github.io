@@ -28,7 +28,7 @@ RobotMock::~RobotMock() {
 
 void RobotMock::SetSetpoint(double inches) {
     using namespace std::chrono;
-    auto elapsed = std::chrono::milliseconds(2000 / 90) /
+    auto elapsed = std::chrono::milliseconds(2000 / 90) *
         std::abs(static_cast<int>(m_setpoint - inches));
     m_finishTime = std::chrono::system_clock::now() + elapsed;
     m_setpoint = inches;
