@@ -42,7 +42,7 @@ bool RobotMock::AtSetpoint() const {
     return std::chrono::system_clock::now() >= m_finishTime;
 }
 
-int RobotMock::SetClaw(bool closed) {
+void RobotMock::SetClaw(bool closed) {
     m_isClosed = closed;
 
     std::cout << "Called SetClaw(" << std::to_string(closed) << ")"

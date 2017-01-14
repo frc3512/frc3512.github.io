@@ -23,7 +23,7 @@ public:
     bool AtSetpoint() const;
 
     // Opens/closes claw
-    int SetClaw(bool closed);
+    void SetClaw(bool closed);
 
     // Returns true if claw is closed
     bool GetClaw() const;
