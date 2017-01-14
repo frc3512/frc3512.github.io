@@ -8,6 +8,11 @@ enum class State {
 };
 
 int main() {
+    constexpr double kGround = 0.0;
+    constexpr double kHeightHalf = 7.2;
+    constexpr double kHeight1 = 16.0;
+    constexpr double kHeight2 = 28.76;
+
     RobotMock robot;
     State state = ;  // Assign the initial state here
     Timer timer;
