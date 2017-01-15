@@ -16,12 +16,16 @@ otherExtensions {
 }
 
 genFolderExclude {
+  CMakeFiles
 }
 
 genFileExclude {
   \.d$
-  \.exe$
   \.o$
+  CMakeCache\.txt$
+  FRCUserProgram$
+  Makefile$
+  cmake_install\.cmake$
 }
 
 modifiableFolderExclude {
