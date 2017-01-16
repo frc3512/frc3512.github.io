@@ -29,6 +29,28 @@
     Eclipse should already be installed from following the <a href="../../bootstrap/">bootstrap page</a>. For robot software development, follow the instructions <a href="https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">here</a> to install the FRC plugins and roboRIO ARM toolchain. Other robot software resources can be found <a href="http://wpilib.screenstepslive.com/s/4485/m/13503/c/86641">here</a>.
   </p>
 
+  <h2 id="Design_Patterns">Design Patterns</h2>
+  <p class="module">
+    Design patterns are used all over software development. Expert programmers know the idiomatic design patterns for their language to solve a problem quickly, efficiently, and with few bugs. We have common design patterns in robot software.
+  </p>
+  <ul>
+    <li>Drivetrain with joysticks</li>
+    <li>Toggle solenoid state</li>
+    <li>Spin motor with joystick</li>
+    <li>Actuate motor between several discrete points with encoder feedback</li>
+    <li>SampleRobot control flow (e.g., "while (IsAutonomous()) {")</li>
+    <li>ButtonTracker internals</li>
+  </ul>
+  <p class="module">
+    See <a href="https://wpilib.screenstepslive.com/s/4485/m/13810">this WPILib ScreenSteps page</a> for resources on doing most of these tasks in C++. More targeted documentation and activities are coming soon.
+  </p>
+  <p class="module">
+    See <a href="../ct101/state-machine/">this</a> and <a href="../ct101/event-framework">this</a> for how we implement state machines, since those are common. We have <a href="https://github.com/Team3512/">robot software</a> for previous years on GitHub students can study, understand, and potentially reuse.
+  </p>
+  <p class="module">
+    We want everyone to understand the <i>entire</i> robot's code base each year. Therefore, reusing complicated code from previous year's robots is off-limits unless everyone understands how it works internally (if it breaks, they'll know how to attempt fixing it). Writing documentation or tutorials/labs is encouraged to help other students understand pieces of software quicker in the future.
+  </p>
+
   <h2 id="Project_Setup">Project Setup</h2>
   <p>
     Each year, a new robot project will need to be created in Gerrit (our code review platform) and on GitHub for our competition robot code. First, an admin should create a new empty repository in the Team3512 GitHub organization (no README or license) and in Gerrit. Give them a name and description following the form of the previous years' repositories like "Robot-2017" and "The source code for the 2017 FRC robot.". Next, clone the repository from Gerrit and add the following files to it. See below the list for exceptions in downloading the provided files.
