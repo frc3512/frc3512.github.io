@@ -63,6 +63,12 @@
 
   <h2 id="Designing_the_State_Machine">Designing the State Machine</h2>
   <p class="module">
+    Since the claw uses a solenoid, the current hardware location cannot be known at all times. When the claw actuates in or out, a timer should be used in the state machine to wait for the claw to finish moving.
+  </p>
+  <p class="module">
+    Feedback controllers like the one controlling the elevator height are considered "finished" once they reach their setpoint, so the implementer should poll for the carriage reaching the appropriate height rather than using a timer.
+  </p>
+  <p class="module">
     TODO: for now, use the state machine diagram we discussed in lecture.
   </p>
 
