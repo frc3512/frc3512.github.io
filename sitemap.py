@@ -13,18 +13,14 @@ def main():
         )
         files = [
             os.path.join(dp, f)
-            for dp, dn, fn in os.walk(os.path.expanduser(".")) for f in fn
-            if f.endswith(".html") and "MathJax" not in f
+            for dp, dn, fn in os.walk(os.path.expanduser("."))
+            if "MathJax" not in dp for f in fn if f.endswith(".html")
         ]
-        for name in [
-                os.path.join(dp, f)
-                for dp, dn, fn in os.walk(os.path.expanduser(".")) for f in fn
-        ]:
-            if name.endswith(".html") and "MathJax" not in name:
-                file.write("    <url>\n"
-                           "        <loc>https://csweb.frc3512.com/" + name[2:]
-                           + "</loc>\n"
-                           "    </url>\n")
+        for name in sorted(files):
+            file.write("    <url>\n"
+                       "        <loc>https://csweb.frc3512.com/" + name[2:] +
+                       "</loc>\n"
+                       "    </url>\n")
         file.write("</urlset>\n")
 
 

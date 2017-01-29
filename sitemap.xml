@@ -3,15 +3,6 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
-    </url>
-    <url>
         <loc>https://csweb.frc3512.com/admin/goals.html</loc>
     </url>
     <url>
@@ -24,10 +15,13 @@
         <loc>https://csweb.frc3512.com/admin/varsity.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/index.html</loc>
+        <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs101/assignments.html</loc>
+        <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/modules/cs101/index.html</loc>
@@ -66,6 +60,9 @@
         <loc>https://csweb.frc3512.com/modules/cs108/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/modules/ct101/event-framework/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/modules/ct101/index.html</loc>
     </url>
     <url>
@@ -94,6 +91,9 @@
     </url>
     <url>
         <loc>https://csweb.frc3512.com/modules/git102/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/modules/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/modules/rt101/index.html</loc>
