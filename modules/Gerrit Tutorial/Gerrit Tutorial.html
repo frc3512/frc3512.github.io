@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Basics of C++"/>
+  <title>Gerrit Tutorial - FRC Team 3512</title>
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<table class="title">
+    <tr><td>
+      <h1 class="center">
+        Gerrit Tutorial<br/> <small>How to upload code to Gerrit</small>
+      </h1>
+    </td></tr>
+  </table>
+
+<h2>Instructions</h1>
+<p>Visit Gerrit and sign in/sign up</p>
+
+<pre>gerrit.frc3512.com</pre>
+
+<strong>Create an SSH Key pair:</strong>
+<pre>
+ssh-keygen -t rsa -C "your_email@youremail.com"
+</pre>
+<strong>Copy your public key and add it to Gerrit:</strong>
+<pre>
+cat /home/<local-user>/.ssh/id_rsa.pub
+</pre>
+<p>
+(replace <local-user> with your msys2 username, to find it, use the command whoami)
+
+Copy the entire block, then navigate to the SSH Public Key settings of your user settings on the Gerrit website.
+
+Click "Add Key" and paste the entire key, then click "Add"</p>
+
+<strong>Installing git-review: </strong>
+<pre>
+pacman -S python
+
+wget https://bootstrap.pypa.io/get-pip.py
+
+python get-pip.py
+
+pip install --user git-review
+</pre>
+
+<strong>Setting up git-review:</strong>
+<strong>
+cd to root directory of the local repositrory(i.e. /home/<local-user>/Robot-2017), then run git review -s 
+</strong>
+</body>
+</html>
