@@ -15,6 +15,11 @@ h1.center {
   text-align: center;
 }
 
+code.gray {
+  background-color: rgb(230, 230, 230);
+  padding: 0.5em;
+}
+
 p {
   font-family: arial, sans-serif;
   text-align: justify;
