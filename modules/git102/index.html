@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="description" content="Advanced Git"/>
+  <meta name="description" content="Gerrit"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Git 102 - FRC Team 3512</title>
   <link rel="stylesheet" type="text/css" href="../../style.css"/>
 </head>
 <body>
   <div class="title">
-    <h1>Git 102<br/> <small>Advanced Git</small></h1>
+    <h1>Git 102<br/> <small>Gerrit</small></h1>
     <div class="prereq">
       <strong>Prerequisites:</strong> <a href="../git101/">Git 101</a>
     </div>
@@ -18,9 +18,66 @@
 
   <h2 id="Resources">Resources</h2>
   <ul>
-    <li><a href="https://github.com/Team3512">GitHub</a> - the code we've written for the robotics team resides here.</li>
-      <li>Git's <a href="http://git-scm.com/doc/">online documentation</a>.</li>
-      <li>Git presentation <a href="https://docs.google.com/presentation/d/19qRLBIb8Rw69x2ziEoqxdsM_c39hHeMDhkU2xuTBmWs/view?pli=1#slide=id.g42f35a470_10">slides</a>.</li>
+    <li><a href="https://github.com/Team3512/">GitHub</a> - mirrors of the code we've written for the robotics team reside here.</li>
+    <li><a href="https://gerrit.frc3512.com/">Gerrit</a> - we use Gerrit, which is based on Git, for code review.</li>
+    <li>Git's <a href="http://git-scm.com/doc/">online documentation</a>.</li>
+    <li>Git (advanced usage) presentation <a href="https://docs.google.com/presentation/d/19qRLBIb8Rw69x2ziEoqxdsM_c39hHeMDhkU2xuTBmWs/view?pli=1#slide=id.g42f35a470_10">slides</a>.</li>
   </ul>
+
+  <h2 id="Setup">Setup</h2>
+  <p>
+    Visit <code>gerrit.frc3512.com</code> and sign in / sign up.
+  </p>
+
+  <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
+  <code>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</code>
+
+  <h3 id="Add_public_key_to_Gerrit">Add public key to Gerrit</h3>
+  <code>cat ~/.ssh/id_rsa.pub</code>
+  <p>
+    Copy the entire block, then navigate to the "SSH Public Key" settings of your user settings on Gerrit. Click "Add Key", paste the entire key, then click "Add".
+  </p>
+
+  <h3 id="Installing_git-review">Installing git-review</h3>
+  <code>pacman -S python</code><br>
+  <code>wget https://bootstrap.pypa.io/get-pip.py</code><br>
+  <code>python get-pip.py</code><br>
+  <code>pip install --user git-review</code>
+
+  <h3 id="Configuring_cloned_repository">Configuring cloned repository</h3>
+  <code>git clone ssh://user@gerrit.frc3512.com:29418/Robot-2017</code><br>
+  <code>cd Robot-2017</code><br>
+  <code>git review -s</code>
+
+  <h2 id="Usage">Usage</h2>
+  <p>
+    In Gerrit, features are submitted in branches with one commit per branch. Give each branch a name reflecting its content for easier management.
+  </p>
+
+  <h3 id="New_Revisions">New Revisions</h3>
+  <p>
+    Gerrit manages reviews on a per-commit basis. Any changes should be incorporated into the commit previously pushed by either amending or rebasing (not pushing a new commit on top of the old one). Gerrit tracks the revisions using the "Change-Id" line at the bottom of the commit message. <i>Make sure this line does not change and remains the last line</i> during commit message modifications. Otherwise, a new patchset will be created instead.
+  </p>
+  <p>
+    Verify this was done correctly by inspecting the output of <code>git log master..HEAD</code>
+  </p>
+  <p>
+    There should be only one commit listed and its Change-Id should match the old one.
+  </p>
+
+  <h4 id="Uncommitted_changes">Uncommitted changes</h4>
+  <code>git commit --amend</code>
+
+  <h4 id="Squashing_committed_changes">Squashing committed changes</h4>
+  <p>
+    If a new commit or commits were made while working, they should be squashed into the first before submitting it all as a new revision. To do so, run
+  </p>
+  <code>git rebase -i &lt;commit hash before your commits&gt;</code>
+  <p>
+    The first commit in the resulting generated file should be set to "r" for "reword" if the commit message needs to be altered to include parts of the other two commits. The other commits should be set to "f" for "fixup" so their contents are squashed into the first commit. <code>git rebase</code> descriptions for other options are in the file comment.
+  </p>
+  <p>
+    To clarify, making a new commit on top of it then running <code>git review</code> will make a new patchset. This is bad practice as the new commit is not a stand-alone feature.
+  </p>
 </body>
 </html>
