@@ -1,3 +1,7 @@
+a.module {
+  padding-left: 0.5em;
+}
+
 blockquote {
   background: rgb(238, 238, 238);
   display: block;
@@ -6,12 +10,11 @@ blockquote {
 }
 
 body {
-  width: 98%;
-  margin: 2% auto;
+  margin: 0 auto;
 
   background-color: white;
 
-  font-family: arial,sans-serif;
+  font-family: arial, sans-serif;
   font-size: 1em;
   text-align: justify;
   color: rgb(0, 0, 0);
@@ -25,8 +28,13 @@ code.gray {
 div.module {
   vertical-align: top;
 
-  margin-top: 0%;
-  margin-bottom: 5%;
+  margin-top: 0em;
+  margin-bottom: 2em;
+}
+
+div.module > div.title {
+  padding: 0.5em 0em 0.5em 0em;
+  text-align: left;
 }
 
 div.play-button {
@@ -45,7 +53,7 @@ div.title {
   margin: 0 auto;
   width: 100%;
 
-  font-family: sans-serif;
+  font-family: arial, sans-serif;
   text-align: center;
   vertical-align: middle;
 }
@@ -131,46 +139,6 @@ table {
   margin: 0 auto;
 }
 
-table.first {
-  width: 100%;
-}
-
-table.module {
-  background-color: navajowhite;
-  width: 100%;
-}
-
-table.title {
-  background-color: navajowhite;
-  width: 100%;
-}
-
-td.heading1 {
-  vertical-align: middle;
-  width: 25%;
-}
-
-td.heading2 {
-  vertical-align: middle;
-  width: 30%;
-}
-
-td.heading3 {
-  vertical-align: middle;
-  width: 42%;
-}
-
-ul#contact {
-  list-style-type: none;
-}
-
-#columnContainer {
-  column-width: 30em;
-  -webkit-column-width: 30em;
-  -moz-column-width: 30em;
-  padding-top: 0.25em;
-}
-
 .atomic {
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
@@ -178,6 +146,14 @@ ul#contact {
   -ms-column-break-inside: avoid;
   -o-column-break-inside: avoid;
   page-break-inside: avoid;
+}
+
+#columnContainer {
+  column-width: 30em;
+  -webkit-column-width: 30em;
+  -moz-column-width: 30em;
+  margin: 0.5em;
+  padding-top: 0.25em;
 }
 
 .youtube-container {
