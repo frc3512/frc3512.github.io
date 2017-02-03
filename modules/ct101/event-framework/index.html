@@ -9,35 +9,31 @@
 </head>
 
 <body>
-  <table class="title">
-    <tr><td>
-      <h1 class="center">
-        Control Theory 101<br/> <small>Event Framework Lab</small>
-      </h1>
-    </td></tr>
-  </table>
+  <div class="title">
+    <h1>Control Theory 101<br/> <small>Event Framework Lab</small></h1>
+  </div>
 
   <hr/>
 
-  <p class="module">
+  <p>
     In the previous lab, we used a switch-case structure to implement a state machine. Hopefully, you are now able to understand and implement complex robot actions over time in terms of state machines. In this lab, we are going to learn about the event-driven paradigm and apply it to state machine design.
   </p>
-  <p class="module">
+  <p>
     The previous state machine lab used a switch-case structure to implement the state machine. There are more complicated ways to formulate state machines that provide more expressive power, such as an event-driven paradigm. In this paradigm, any change in external state is considered an event (e.g., button press/release, digital input rising edge, timer expiration). The current state in a state machine can choose to consume the event and initiate a state transition.
   </p>
 
   <h2 id="Hierarchical_State_Machines">Hierarchical State Machines</h2>
-  <p class="module">
+  <p>
     State machines can also serve as states themselves. When the parent state machine transitions to it, events received by the parent state machine are passed down to the child state machine which can consume it first and cause a transition. If the event isn't consumed, it is passed up the hierarchy to parent state machines which can choose to consume it. If none do, the event is discarded.
   </p>
 
   <h2 id="Understanding_the_Problem">Understanding the Problem</h2>
-  <p class="module">
+  <p>
     For this lab, you will modify your solution for the <a href="../state-machine/">previous state machine lab</a> to use our event-driven framework instead of a switch-case structure.
   </p>
 
   <h2 id="Setup">Setup</h2>
-  <p class="module">
+  <p>
     Make another project containing the same files as your previous solution, then copy the following event framework files into it. A new <code>Main.cpp</code> is provided as a starting point.
   </p>
   <ul>
@@ -58,7 +54,7 @@
   </ul>
 
   <h2 id="Implementation">Implementation</h2>
-  <p class="module">
+  <p>
     Our 2016 robot used an event-driven framework for the state machines. It uses a State class with the following function objects which can contain <a href="http://en.cppreference.com/w/cpp/language/lambda">lambda functions</a>. See examples of lambda functions <a href="http://en.cppreference.com/w/cpp/language/lambda#Example">here</a>.
   </p>
   <ul>
@@ -67,24 +63,24 @@
     <li>Run (while within a state)</li>
     <li>Exit (upon exiting a state)</li>
   </ul>
-  <p class="module">
+  <p>
     The StateMachine class handled calling those functions at the appropriate time.
   </p>
-  <p class="module">
+  <p>
     Here's an example state machine from our 2016 robot:
   </p>
   <code>
     TODO: example
   </code>
-  <p class="module">
+  <p>
     TODO: Documentation on example here.
   </p>
-  <p class="module">
+  <p>
     Once you are satisfied with your state machine diagram, translate it into C++ and test it. <code>Main.cpp</code> provides a template for you to do so. You shouldn't need to modify the RobotMock and Timer classes. We recommend adding print statements upon entering and exiting your states so the state machine's progress is externally visible.
   </p>
 
   <h2 id="Submission">Submission</h2>
-  <p class="module">
+  <p>
     Use the folder name <code>event-framework</code> for this project. Once you are confident your state machine works, let your instructor know and they will review your work.
   </p>
 </body>

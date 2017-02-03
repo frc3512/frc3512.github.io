@@ -5,29 +5,22 @@
   <meta charset="utf-8"/>
   <meta name="description" content="Classical Control Theory"/>
   <title>CT 103 - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../style.css"/>
+  <link rel="stylesheet" type="text/css" href="../../style.css"/>
 </head>
 
 <body>
-  <table class="title">
-    <tr><td>
-      <h1 class="center">
-        Control Theory 103<br/> <small>Classical Control Theory</small>
-      </h1>
-    </td></tr>
-  </table>
-
-  <p>
-    <strong>Prerequisites:</strong> <a href="../ct102/">CT 102</a>
-  </p>
-
-  <hr/>
+  <div class="title">
+    <h1>Control Theory 103<br/> <small>Classical Control Theory</small></h1>
+    <div class="prereq">
+      <strong>Prerequisites:</strong> <a href="../ct102/">CT 102</a>
+    </div>
+  </div>
 
   <h2 id="Introduction">Introduction</h2>
-  <p class="module">
+  <p>
     An important concept in control theory is the convolution integral. It allows one to determine the output of a system given an arbitrary input. After obtaining the system's <a href="https://en.wikipedia.org/wiki/Impulse_response">impulse response</a> (the derivative of the <a href="https://en.wikipedia.org/wiki/Step_response">step response</a>, by the way, which may be easier to measure), it can be <a href="https://en.wikipedia.org/wiki/Convolution">convolved</a> with a desired input to get the expected output (See <a href="https://en.wikipedia.org/wiki/Convolution#Derivations">this</a> for an intuitive explanation of what a convolution is.)
   </p>
-  <p class="module">
+  <p>
     Once you have the impulse response, you know everything about how that system will behave; you don't have to try a bunch of different inputs and measure the output of each one. You can then analyze the system offline, which is what FRC teams like 971 do. They start with mathematical models of their systems (a model for a DC brushed motor exists, which we'll cover in <a href="../ct104/index.html">CT 104</a>), measure the step response of each, then tweak their models to match them (measuring the step response is easier than the impulse response).
   </p>
 </body>

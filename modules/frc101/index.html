@@ -5,24 +5,17 @@
   <meta charset="utf-8"/>
   <meta name="description" content="Robot Software"/>
   <title>FRC 101 - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../style.css"/>
+  <link rel="stylesheet" type="text/css" href="../../style.css"/>
 </head>
 
 <body>
-  <table class="title">
-    <tr><td>
-      <h1 class="center">
-        FRC 101<br/> <small>Robot Software</small>
-      </h1>
-    </td></tr>
-  </table>
-
-  <p>
-    <strong>Prerequisites:</strong> <a href="../rt101/">RT 101</a><br/>
-    <strong>Corequisites:</strong> <a href="../cs101/">CS 101</a>, <a href="../ct101/">CT 101</a>
-  </p>
-
-  <hr/>
+  <div class="title">
+    <h1>FRC 101<br/> <small>Robot Software</small></h1>
+    <div class="prereq">
+      <strong>Prerequisites:</strong> <a href="../rt101/">RT 101</a><br/>
+      <strong>Corequisites:</strong> <a href="../cs101/">CS 101</a>, <a href="../ct101/">CT 101</a>
+    </div>
+  </div>
 
   <h2 id="Installation">Installation</h2>
   <p>
@@ -30,7 +23,7 @@
   </p>
 
   <h2 id="Design_Patterns">Design Patterns</h2>
-  <p class="module">
+  <p>
     Design patterns are used all over software development. Expert programmers know the idiomatic design patterns for their language to solve a problem quickly, efficiently, and with few bugs. We have common design patterns in robot software.
   </p>
   <ul>
@@ -41,13 +34,13 @@
     <li>SampleRobot control flow (e.g., "while (IsAutonomous()) {")</li>
     <li>ButtonTracker internals</li>
   </ul>
-  <p class="module">
+  <p>
     See <a href="https://wpilib.screenstepslive.com/s/4485/m/13810">this WPILib ScreenSteps page</a> for resources on doing most of these tasks in C++. More targeted documentation and activities are coming soon.
   </p>
-  <p class="module">
+  <p>
     See <a href="../ct101/state-machine/">this</a> and <a href="../ct101/event-framework">this</a> for how we implement state machines, since those are common. We have <a href="https://github.com/Team3512/">robot software</a> for previous years on GitHub students can study, understand, and potentially reuse.
   </p>
-  <p class="module">
+  <p>
     We want everyone to understand the <i>entire</i> robot's code base each year. Therefore, reusing complicated code from previous year's robots is off-limits unless everyone understands how it works internally (if it breaks, they'll know how to attempt fixing it). Writing documentation or tutorials/labs is encouraged to help other students understand pieces of software quicker in the future.
   </p>
 

@@ -5,15 +5,13 @@
   <meta charset="utf-8"/>
   <meta name="description" content="Software Curriculum"/>
   <title>Software Curriculum - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
 </head>
 
 <body>
-  <table class="title">
-    <tr><td>
-      <h1 class="center">Software Curriculum</h1>
-    </td></tr>
-  </table>
+  <div class="title">
+      <h1>Software Curriculum</h1>
+  </div>
 
   <h2 id="Introduction">Introduction</h2>
   <p>
@@ -265,10 +263,10 @@
   </div>
 
   <h2 id="Submission">Submission</h2>
-  <p class="module">
+  <p>
     Assignment submissions will be made via Git. To start, make an account on <a href="https://github.com/">GitHub</a> if you don't already have one. Solutions for each module's assignments and labs should be within a repository named like <code>cs101-assignments</code> where the part before the hyphen is the module name. Use <code>git clone</code> to clone the repository to your local machine. <code>git add</code>, <code>git commit</code>, and <code>git push</code> should be used to make snapshots of your work and push it to the remote server. Make commits to your repository as often as you feel is necessary. See <a href="git101/10GitCommands.pdf">this cheat sheet</a> for an overview of the most commonly used Git commands.
   </p>
-  <p class="module">
+  <p>
     The directory structure should be set up as follows. The given names are examples demonstrating the desired format. Your source files may have different names from those shown or not exist. Folders use lowercase and files use camel case. Some problems or labs may require multiple files.
   </p>
   <ul>
@@ -320,18 +318,18 @@
       </ul>
     </ul>
   </ul>
-  <p class="module">
+  <p>
     Source code goes in the <code>src</code> directory while other files like licenses, makefiles, READMEs and data go outside of it. It's convention to define <code>main()</code> in a file called <code>Main.cpp</code>, but it isn't required and may not make sense for projects with only one file.
   </p>
-  <p class="module">
+  <p>
     Labs may include more specific instructions on directory structure and which files to submit. If there are none, submit all files used and follow the aformentioned format.
   </p>
-  <p class="module">
+  <p>
     Submissions will have our formatter run on them. After setting it up according to <a href="../bootstrap/#Formatter">these instructions</a>, place <a href=".clang-format">.clang-format</a>, <a href=".styleguide">.styleguide</a>, and <a href=".styleguide-license">.styleguide-license</a> in the root directory of your repository. You may modify <code>.styleguide-license</code> to use your name.
   </p>
 
   <h3 id="Option_1_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
-  <p class="module">
+  <p>
     The directory tree above provides an example of which folders should be an Eclipse workspace or project within a workspace (parentheses are not part of the name). This ensures the Eclipse projects and their metadata are backed up via Git. If you do this, you'll need to include the following entries in a .gitignore in the root directory of your Git repository:
   </p>
   <code>
@@ -348,7 +346,7 @@
   </p>
 
   <h3 id="Option_2_Alternate Editor">Option 2: Alternate Editor</h3>
-  <p class="module">
+  <p>
     If you want to use a different IDE such as Vim, provide a Makefile in each problem folder to compile the executable. "workspaces" and "projects" aren't relevant here, but follow the directory layout. Here's an <a href="Makefile">example Makefile</a> which recursively finds all the source files in the <code>src</code> directory and compiles Debug and Release versions of them. The <code>NAME</code> field should be edited before use. The following entries should be included in the repository's .gitignore file:
   </p>
   <code>

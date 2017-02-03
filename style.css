@@ -1,39 +1,209 @@
+blockquote {
+  background: rgb(238, 238, 238);
+  display: block;
+  margin: 1em 2.5em;
+  padding: 1em;
+}
+
 body {
-    width: 75%;
-    margin: 2% auto;
+  width: 75%;
+  margin: 2% auto;
 
-    background-color: white;
+  background-color: white;
 
-    font-family: arial,sans-serif;
-    font-size: 1em;
-    text-align: justify;
-    color: rgb(0, 0, 0);
+  font-family: arial,sans-serif;
+  font-size: 1em;
+  text-align: justify;
+  color: rgb(0, 0, 0);
+}
+
+code.gray {
+  background-color: rgb(230, 230, 230);
+  padding: 0.5em;
+}
+
+div.module {
+  vertical-align: top;
+
+  margin-top: 0%;
+  margin-bottom: 5%;
+}
+
+div.play-button {
+  height: 72px;
+  width: 72px;
+  left: 50%;
+  top: 50%;
+  margin-left: -36px;
+  margin-top: -36px;
+  position: absolute;
+  background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
+}
+
+div.title {
+  background-color: #FFDEAD;
+  margin: 0 auto;
+  width: 100%;
+
+  font-family: sans-serif;
+  text-align: center;
+  vertical-align: middle;
+}
+
+div.prereq {
+  background-color: #FFF9C8;
+  margin: 0 auto;
+  width: 100%;
+
+  text-align: left;
+  vertical-align: middle;
 }
 
 h1 {
-    font-size: 2.75em;
-    font-weight: bold;
-    text-align: center;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
 }
 
 h2 {
-    font-size: 1.8em;
+  font-size: 2em;
 }
 
 h3 {
-    font-size: 1em;
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+iframe {
+  text-align: center;
+}
+
+img {
+  padding: 1px;
+  margin: 12px 0px 0px;
+}
+
+img.youtube-thumb {
+  bottom: 0;
+  display: block;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: auto;
+}
+
+ol {
+  font-family: sans-serif;
 }
 
 ol.sub {
-    counter-reset: item;
+  counter-reset: item;
 }
 
 ol.sub > li {
-    display: block;
+  display: block;
 }
 
 ol.sub > li:before {
-    content: counters(item, ".") ". ";
-    counter-increment: item;
-    font-weight: bold;
+  content: counters(item, ".") ". ";
+  counter-increment: item;
+  font-weight: bold;
+}
+
+p {
+  font-family: serif;
+  text-align: justify;
+}
+
+p.sans-serif {
+  font-family: sans-serif;
+}
+
+table {
+  margin: 0 auto;
+}
+
+table.first {
+  width: 100%;
+}
+
+table.module {
+  background-color: navajowhite;
+  width: 100%;
+}
+
+table.title {
+  background-color: navajowhite;
+  width: 100%;
+}
+
+td.heading1 {
+  vertical-align: middle;
+  width: 25%;
+}
+
+td.heading2 {
+  vertical-align: middle;
+  width: 30%;
+}
+
+td.heading3 {
+  vertical-align: middle;
+  width: 42%;
+}
+
+ul#contact {
+  list-style-type: none;
+}
+
+#columnContainer {
+  column-width: 30em;
+  -webkit-column-width: 30em;
+  -moz-column-width: 30em;
+  padding-top: 0.25em;
+}
+
+.atomic {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -ms-column-break-inside: avoid;
+  -o-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.youtube-container {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+#youtube-iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.youtube-player {
+  display: block;
+  width: 100%; /* assuming that the video has a 16:9 ratio */
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: hand;
+  cursor: pointer;
+  display: block;
 }
