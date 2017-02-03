@@ -1,144 +1,144 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="description" content="A page providing the necessary tools to begin programming in C++"/>
-        <title>Developer Bootstrap - FRC Team 3512</title>
-        <link rel="stylesheet" type="text/css" href="../style.css"/>
-    </head>
-    <body>
-        <div class="title">
-          <h1 id="Developer_Bootstrap">Developer Bootstrap</h1>
-        </div>
-        <p>
-            This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, do the following:
-        </p>
-        <ul>
-            <li>Install via the machine's package manager</li>
-            <ul>
-                <li>Eclipse CDT</li>
-                <li>JDK 8</li>
-                <li>gcc</li>
-                <li>git</li>
-                <li>LLVM package containing clang-format 3.8.1 or newer</li>
-                <ul>
-                    <li>*buntu: clang-format</li>
-                    <li>Arch Linux: clang</li>
-                </ul>
-                <li>python-pip</li>
-            </ul>
-            <li>Run <code>pip install --user wpiformat</code> to install our formatter</li>
-        </ul>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="A page providing the necessary tools to begin programming in C++"/>
+  <title>Developer Bootstrap - FRC Team 3512</title>
+  <link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+  <div class="title">
+    <h1 id="Developer_Bootstrap">Developer Bootstrap</h1>
+  </div>
+  <p>
+    This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, do the following:
+  </p>
+  <ul>
+    <li>Install via the machine's package manager</li>
+    <ul>
+      <li>Eclipse CDT</li>
+      <li>JDK 8</li>
+      <li>gcc</li>
+      <li>git</li>
+      <li>LLVM package containing clang-format 3.8.1 or newer</li>
+      <ul>
+        <li>*buntu: clang-format</li>
+        <li>Arch Linux: clang</li>
+      </ul>
+      <li>python-pip</li>
+    </ul>
+    <li>Run <code>pip install --user wpiformat</code> to install our formatter</li>
+  </ul>
 
-        <h2 id="Eclipse_CDT">Eclipse CDT</h2>
-        <p>
-            Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
-        </p>
+  <h2 id="Eclipse_CDT">Eclipse CDT</h2>
+  <p>
+    Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
+  </p>
 
-        <h3 id="Eclipse_Downloads">Downloads</h3>
-        <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
-        <br/>
-        <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
+  <h3 id="Eclipse_Downloads">Downloads</h3>
+  <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
+  <br/>
+  <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
 
-        <h3 id="Eclipse_Installation">Installation</h3>
-        <p>
-            On the Eclipse CDT download page, select the appropriate platform on the page's right. If your machine is 64 bit, choose a 64 bit version. Once the download is complete, extract it to a directory of your choice.
-        </p>
-        <p>
-          On the JDK download page, select the JDK installer for the same operating system and architecture of Eclipse CDT, download it, and run it.
-        </p>
+  <h3 id="Eclipse_Installation">Installation</h3>
+  <p>
+    On the Eclipse CDT download page, select the appropriate platform on the page's right. If your machine is 64 bit, choose a 64 bit version. Once the download is complete, extract it to a directory of your choice.
+  </p>
+  <p>
+    On the JDK download page, select the JDK installer for the same operating system and architecture of Eclipse CDT, download it, and run it.
+  </p>
 
-        <h3 id="Eclipse_Usage">Usage</h3>
-        <p>
-          When creating a new project, don't use "Cross GCC". On Linux, use "Linux GCC" and on Windows, use "Cygwin GCC".
-        </p>
-        <p>
-          Eclipse occasionally shows outdated or false errors in a project file. If this is the case, the project's index needs to be rebuilt. To do so, select the following option.
-        </p>
-        <code>Right-click project &gt; Index &gt; Rebuild</code>
-        <p>
-          Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
-        </p>
-        <p>
-          To configure a project to build with C++14, select "ISOC++1y" from the "Language standard" drop-down menu in the following location.
-        </p>
-        <code>Right-click project &gt; Properties &gt; C/C++ Build &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
+  <h3 id="Eclipse_Usage">Usage</h3>
+  <p>
+    When creating a new project, don't use "Cross GCC". On Linux, use "Linux GCC" and on Windows, use "Cygwin GCC".
+  </p>
+  <p>
+    Eclipse occasionally shows outdated or false errors in a project file. If this is the case, the project's index needs to be rebuilt. To do so, select the following option.
+  </p>
+  <code>Right-click project &gt; Index &gt; Rebuild</code>
+  <p>
+    Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
+  </p>
+  <p>
+    To configure a project to build with C++14, select "ISOC++1y" from the "Language standard" drop-down menu in the following location.
+  </p>
+  <code>Right-click project &gt; Properties &gt; C/C++ Build &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
 
-        <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
-        <p>
-            This is the compiler Eclipse CDT will use to build the programs you write.
-        </p>
+  <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
+  <p>
+    This is the compiler Eclipse CDT will use to build the programs you write.
+  </p>
 
-        <h3 id="MSYS2_Downloads">Downloads</h3>
-        <a href="https://msys2.github.io/">https://msys2.github.io/</a>
+  <h3 id="MSYS2_Downloads">Downloads</h3>
+  <a href="https://msys2.github.io/">https://msys2.github.io/</a>
 
-        <h3 id="MSYS2_Installation">Installation</h3>
-        <p>
-            Follow the instructions on the web page. Use the default installation directory.
-        </p>
-        <p>
-            When installation is complete and everything has been upgraded with pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
-        </p>
-        <p>
-            You may want to create a desktop shortcut for "MSYS2 MSYS" to facilitate opening MSYS2 terminals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
-            <br/>
-            <br/>
-            <code>pacman -S base-devel gcc</code>
-            <br/>
-            <br/>
-            When prompted for which packages in the base-devel group to install, press Enter to select the default option (all of them).
-        </p>
+  <h3 id="MSYS2_Installation">Installation</h3>
+  <p>
+    Follow the instructions on the web page. Use the default installation directory.
+  </p>
+  <p>
+    When installation is complete and everything has been upgraded with pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
+  </p>
+  <p>
+    You may want to create a desktop shortcut for "MSYS2 MSYS" to facilitate opening MSYS2 terminals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
+    <br/>
+    <br/>
+    <code>pacman -S base-devel gcc</code>
+    <br/>
+    <br/>
+    When prompted for which packages in the base-devel group to install, press Enter to select the default option (all of them).
+  </p>
 
-        <h2 id="Git">Git</h2>
-        <p>
-            Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and detailed setup.
-        </p>
+  <h2 id="Git">Git</h2>
+  <p>
+    Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and detailed setup.
+  </p>
 
-        <h3 id="Git_Installation">Installation</h3>
-        <p>
-            Run <code>pacman -S git</code>
-        </p>
+  <h3 id="Git_Installation">Installation</h3>
+  <p>
+    Run <code>pacman -S git</code>
+  </p>
 
-        <h2 id="Gerrit">Gerrit</h2>
-        <p>
-            Gerrit provides web based code review and repository management for the Git version control system. Our Gerrit server is <a href="https://gerrit.frc3512.com/">here</a>. User setup instructions are coming soon.
-        </p>
+  <h2 id="Gerrit">Gerrit</h2>
+  <p>
+    Gerrit provides web based code review and repository management for the Git version control system. Our Gerrit server is <a href="https://gerrit.frc3512.com/">here</a>. User setup instructions are coming soon.
+  </p>
 
-        <h2 id="Formatter">Formatter</h2>
-        <p>
-            We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior.
-        </p>
+  <h2 id="Formatter">Formatter</h2>
+  <p>
+    We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior.
+  </p>
 
-        <h3 id="Formatter_Downloads">Downloads</h3>
-        <a href="http://llvm.org/releases/download.html">LLVM</a>
+  <h3 id="Formatter_Downloads">Downloads</h3>
+  <a href="http://llvm.org/releases/download.html">LLVM</a>
 
-        <h3 id="Formatter_Installation">Installation</h3>
-        <p>
-            On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
-        </p>
-        <p>
-            MSYS2 keeps a separate PATH environment variable from the operating system. Run the following command to add the LLVM installation to it.
-            <br/>
-            <br/>
-            <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt; .bashrc</code>
-        </p>
-        <p>
-            The following commands install Python and pip, then use pip to install wpiformat.
-            <br/>
-            <br/>
-            <code>pacman -S python</code><br/>
-            <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
-            <code>python get-pip.py</code><br/>
-            <code>pip install wpiformat</code>
-        </p>
-        <p>
-            After those commands complete, close and reopen the terminal so the PATH environment variable change from earlier takes effect.
-        </p>
+  <h3 id="Formatter_Installation">Installation</h3>
+  <p>
+    On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
+  </p>
+  <p>
+    MSYS2 keeps a separate PATH environment variable from the operating system. Run the following command to add the LLVM installation to it.
+    <br/>
+    <br/>
+    <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt; .bashrc</code>
+  </p>
+  <p>
+    The following commands install Python and pip, then use pip to install wpiformat.
+    <br/>
+    <br/>
+    <code>pacman -S python</code><br/>
+    <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
+    <code>python get-pip.py</code><br/>
+    <code>pip install wpiformat</code>
+  </p>
+  <p>
+    After those commands complete, close and reopen the terminal so the PATH environment variable change from earlier takes effect.
+  </p>
 
-        <h3 id="Formatter_Usage">Usage</h3>
-        <p>
-            To use the formatter, run <code>wpiformat</code> in the Git repository being formatted.
-        </p>
-    </body>
+  <h3 id="Formatter_Usage">Usage</h3>
+  <p>
+    To use the formatter, run <code>wpiformat</code> in the Git repository being formatted.
+  </p>
+</body>
 </html>
