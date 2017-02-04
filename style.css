@@ -10,8 +10,6 @@ blockquote {
 }
 
 body {
-  margin: 0 auto;
-
   background-color: white;
 
   font-family: arial, sans-serif;
@@ -20,9 +18,10 @@ body {
   color: rgb(0, 0, 0);
 }
 
-code.gray {
-  background-color: rgb(230, 230, 230);
-  padding: 0.5em;
+code {
+  background: #e6e6e6;
+  padding: 0.2em;
+  margin: 0.5em;
 }
 
 div.module {
@@ -76,14 +75,17 @@ h1 {
 
 h2 {
   font-size: 2em;
+  text-align: left;
 }
 
 h3 {
   font-size: 1.4em;
+  text-align: left;
 }
 
 h4 {
   font-size: 1em;
+  text-align: left;
 }
 
 iframe {
