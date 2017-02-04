@@ -32,116 +32,116 @@
 
   <h3 id="Cloning_a_remote_repository">1. Cloning a remote repository</h3>
   <p>
-    <code class="gray">git clone &lt;repository&gt; [&lt;directory&gt;]</code>
+    <code>git clone &lt;repository&gt; [&lt;directory&gt;]</code>
   </p>
   <p>
     This downloads the repository at the given URL to the current directory. <code>&lt;directory&gt;</code> overrides the name of the repository's containing folder.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git clone https://github.com/Team3512/DriverStationDisplay</code>
+    <i>example:</i> <code>git clone https://github.com/Team3512/DriverStationDisplay</code>
   </p>
   <p>
-    <i>example:</i> <code class="gray">git clone git@github.com:Team3512/DriverStationDisplay</code>
+    <i>example:</i> <code>git clone git@github.com:Team3512/DriverStationDisplay</code>
   </p>
 
   <h3 id="Adding_files_to_the_staging_area">2. Adding files to the staging area</h3>
   <p>
-    <code class="gray">git add &lt;file&gt;</code>
+    <code>git add &lt;file&gt;</code>
   </p>
   <p>
     This adds new, untracked files as well as changes to already tracked ones.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git add Main.cpp</code>
+    <i>example:</i> <code>git add Main.cpp</code>
   </p>
 
   <h3 id="Removing_files_from_the_staging_area">3. Removing files from the staging area</h3>
   <p>
-    <code class="gray">git rm [--cached] &lt;file&gt;</code>
+    <code>git rm [--cached] &lt;file&gt;</code>
   </p>
   <p>
     This deletes and stops files from being tracked. If the <code>--cached</code> option is provided, it only removes the specified files' changes from the staging area.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git rm UnneededFile.hpp</code><br/>
-    <i>example:</i> <code class="gray">git rm --cached Main.cpp</code>
+    <i>example:</i> <code>git rm UnneededFile.hpp</code><br/>
+    <i>example:</i> <code>git rm --cached Main.cpp</code>
   </p>
 
   <h3 id="Creating_a_commit_in_a_local_repository">4. Creating a commit in a local repository</h3>
   <p>
-    <code class="gray">git commit [-m "commit message"]</code>
+    <code>git commit [-m "commit message"]</code>
   </p>
   <p>
     This commits changes currently in the staging area. If <code>git commit</code> is called without the <code>-m option</code>, an editor will be opened for entering a commit message.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git commit -m "Adding new feature x"</code>
+    <i>example:</i> <code>git commit -m "Adding new feature x"</code>
   </p>
 
   <h3 id="Pushing_commits_to_a_remote_repository">5. Pushing commits to a remote repository</h3>
   <p>
-    <code class="gray">git push [&lt;branchname&gt;]</code>
+    <code>git push [&lt;branchname&gt;]</code>
   </p>
   <p>
     This pushes commits from a branch to the corresponding branch on a remote repository. If <code>&lt;branchname&gt;</code> isn't specified, Git will use the currently checked out branch.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git push my-branch</code>
+    <i>example:</i> <code>git push my-branch</code>
   </p>
 
   <h3 id="Pulling_commits_from_a_remote_repository">6. Pulling commits from a remote repository</h3>
   <p>
-    <code class="gray">git pull --rebase [&lt;refspec&gt;]</code>
+    <code>git pull --rebase [&lt;refspec&gt;]</code>
   </p>
   <p>
     This pulls the ref <code>&lt;refspec&gt;</code> (a branch, commmit, or tag) from the remote repository and rebases it into the current branch. If <code>&lt;refspec&gt;</code> isn't specified, Git will attempt to pull changes from a remote branch with the same name as the currently checked out branch.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git pull origin/master</code>
+    <i>example:</i> <code>git pull origin/master</code>
   </p>
 
   <h3 id="Creating_a_branch">7. Creating a branch</h3>
   <p>
-    <code class="gray">git branch &lt;branchname&gt;</code>
+    <code>git branch &lt;branchname&gt;</code>
   </p>
   <p>
     This creates a new branch starting at the current commit. Omitting <code>&lt;branchname&gt;</code> shows a list of all branches and an asterisk beside the current one.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git branch new-feature</code>
+    <i>example:</i> <code>git branch new-feature</code>
   </p>
 
   <h3 id="Deleting_a_branch">8. Deleting a branch</h3>
   <p>
-    <code class="gray">git branch &lt;branchname&gt;</code>
+    <code>git branch &lt;branchname&gt;</code>
   </p>
   <p>
     This deletes the branch <code>&lt;branchname&gt;</code>. This command won't work if that branch is currently checked out.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git branch -d merged-feature</code>
+    <i>example:</i> <code>git branch -d merged-feature</code>
   </p>
 
   <h3 id="Checking_out_a_branch">9. Checking out a branch</h3>
   <p>
-    <code class="gray">git checkout &lt;branchname&gt;</code>
+    <code>git checkout &lt;branchname&gt;</code>
   </p>
   <p>
     This checks out <code>&lt;branchname&gt;</code>. The default branch when a new project is created is called <code>master</code>.
   </p>
   <p>
-    <i>example:</i> <code class="gray">git checkout other-branch</code>
+    <i>example:</i> <code>git checkout other-branch</code>
   </p>
 
   <h3 id="Merging_a_branch">10. Merging a branch</h3>
   <p>
-    <code class="gray">git merge &lt;branchname&gt;</code>
+    <code>git merge &lt;branchname&gt;</code>
   </p>
   <p>
     This merges commits from the specified branch into the branch currently checked out. In some cases, one may want to delete the branch after merging it (see 8).
   </p>
   <p>
-    <i>example:</i> <code class="gray">git merge new-feature</code>
+    <i>example:</i> <code>git merge new-feature</code>
   </p>
 </body>
 </html>
