@@ -294,15 +294,13 @@
   <p>
     The directory tree above provides an example of which folders should be an Eclipse workspace or project within a workspace (parentheses are not part of the name). This ensures the Eclipse projects and their metadata are backed up via Git. If you do this, you'll need to include the following entries in a .gitignore in the root directory of your Git repository:
   </p>
-  <code>
-    *.d<br/>
-    *.o<br/>
-    .metadata/<br/>
-    .settings/<br/>
-    Debug/<br/>
-    Release/<br/>
-    RemoteSystemsTempFiles/<br/>
-  </code>
+  <pre>*.d
+*.o
+.metadata/
+.settings/
+Debug/
+Release/
+RemoteSystemsTempFiles/</pre>
   <p>
     If you need to clone your repository to a different computer to work projects in what was an existing chapter workspace, choose the chapter folder as a workspace when Eclipse starts up like usual. You can import the problem projects into the workspace by right-clicking on the Project Explorer and selecting "Import...". In the resulting dialog, choose "General &gt; Existing Projects into Workspace".
   </p>
@@ -311,11 +309,9 @@
   <p>
     If you want to use a different IDE such as Vim, provide a Makefile in each problem folder to compile the executable. "workspaces" and "projects" aren't relevant here, but follow the directory layout. Here's an <a href="Makefile">example Makefile</a> which recursively finds all the source files in the <code>src</code> directory and compiles Debug and Release versions of them. The <code>NAME</code> field should be edited before use. The following entries should be included in the repository's .gitignore file:
   </p>
-  <code>
-    *.d<br/>
-    *.o<br/>
-    Debug/<br/>
-    Release/<br/>
-  </code>
+  <pre>*.d
+*.o
+Debug/
+Release/</pre>
 </body>
 </html>

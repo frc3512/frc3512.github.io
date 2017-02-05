@@ -21,7 +21,6 @@ body {
 code {
   background: #e6e6e6;
   padding: 0.2em;
-  margin: 0.5em;
 }
 
 div.module {
@@ -135,6 +134,12 @@ p {
 
 p.sans-serif {
   font-family: sans-serif;
+}
+
+pre {
+  background: #e6e6e6;
+  padding: 0.2em;
+  margin: 0.5em;
 }
 
 table {

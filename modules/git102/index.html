@@ -30,24 +30,24 @@
   </p>
 
   <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
-  <code>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</code>
+  <pre>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</pre>
 
   <h3 id="Add_public_key_to_Gerrit">Add public key to Gerrit</h3>
-  <code>cat ~/.ssh/id_rsa.pub</code>
+  <pre>cat ~/.ssh/id_rsa.pub</pre>
   <p>
     Copy the entire block, then navigate to the "SSH Public Key" settings of your user settings on Gerrit. Click "Add Key", paste the entire key, then click "Add".
   </p>
 
   <h3 id="Installing_git-review">Installing git-review</h3>
-  <code>pacman -S python</code><br/>
-  <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
-  <code>python get-pip.py</code><br/>
-  <code>pip install --user git-review</code>
+  <pre>pacman -S python
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+pip install --user git-review</pre>
 
   <h3 id="Configuring_cloned_repository">Configuring cloned repository</h3>
-  <code>git clone ssh://user@gerrit.frc3512.com:29418/Robot-2017</code><br/>
-  <code>cd Robot-2017</code><br/>
-  <code>git review -s</code>
+  <pre>git clone ssh://user@gerrit.frc3512.com:29418/Robot-2017
+cd Robot-2017
+git review -s</pre>
 
   <h2 id="Usage">Usage</h2>
   <p>
@@ -66,13 +66,13 @@
   </p>
 
   <h4 id="Uncommitted_changes">Uncommitted changes</h4>
-  <code>git commit --amend</code>
+  <pre>git commit --amend</pre>
 
   <h4 id="Squashing_committed_changes">Squashing committed changes</h4>
   <p>
     If a new commit or commits were made while working, they should be squashed into the first before submitting it all as a new revision. To do so, run
   </p>
-  <code>git rebase -i &lt;commit hash before your commits&gt;</code>
+  <pre>git rebase -i &lt;commit hash before your commits&gt;</pre>
   <p>
     The first commit in the resulting generated file should be set to "r" for "reword" if the commit message needs to be altered to include parts of the other two commits. The other commits should be set to "f" for "fixup" so their contents are squashed into the first commit. <code>git rebase</code> descriptions for other options are in the file comment.
   </p>
