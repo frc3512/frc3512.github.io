@@ -83,11 +83,9 @@
   </p>
   <p>
     You may want to create a desktop shortcut for "MSYS2 MSYS" to facilitate opening MSYS2 terminals. Open an MSYS2 terminal and run the following command to install make, gcc, and other required tools.
-    <br/>
-    <br/>
-    <code>pacman -S base-devel gcc</code>
-    <br/>
-    <br/>
+  </p>
+  <code>pacman -S base-devel gcc</code>
+  <p>
     When prompted for which packages in the base-devel group to install, press Enter to select the default option (all of them).
   </p>
 
@@ -120,19 +118,15 @@
   </p>
   <p>
     MSYS2 keeps a separate PATH environment variable from the operating system. Run the following command to add the LLVM installation to it.
-    <br/>
-    <br/>
-    <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt; .bashrc</code>
   </p>
+  <code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt; .bashrc</code>
   <p>
     The following commands install Python and pip, then use pip to install wpiformat.
-    <br/>
-    <br/>
-    <code>pacman -S python</code><br/>
-    <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
-    <code>python get-pip.py</code><br/>
-    <code>pip install wpiformat</code>
   </p>
+  <code>pacman -S python</code><br/>
+  <code>wget https://bootstrap.pypa.io/get-pip.py</code><br/>
+  <code>python get-pip.py</code><br/>
+  <code>pip install wpiformat</code>
   <p>
     After those commands complete, close and reopen the terminal so the PATH environment variable change from earlier takes effect.
   </p>
