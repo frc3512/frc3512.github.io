@@ -19,7 +19,7 @@ body {
 }
 
 code {
-  background: #e6e6e6;
+  background: rgb(238, 238, 238);
   padding: 0.2em;
 }
 
@@ -137,13 +137,33 @@ p.sans-serif {
 }
 
 pre {
-  background: #e6e6e6;
+  background: rgb(238, 238, 238);
   padding: 0.2em;
   margin: 0.5em;
 }
 
 table {
   margin: 0 auto;
+}
+
+#columnContainer {
+  column-width: 30em;
+  -webkit-column-width: 30em;
+  -moz-column-width: 30em;
+  margin: 0.5em;
+  padding-top: 0.25em;
+}
+
+#toc {
+  margin: 1em;
+}
+
+#youtube-iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .atomic {
@@ -155,12 +175,8 @@ table {
   page-break-inside: avoid;
 }
 
-#columnContainer {
-  column-width: 30em;
-  -webkit-column-width: 30em;
-  -moz-column-width: 30em;
-  margin: 0.5em;
-  padding-top: 0.25em;
+.h2 {
+  padding: 0.125em 0em;
 }
 
 .youtube-container {
@@ -168,14 +184,6 @@ table {
   margin: 20px auto;
   width: 100%;
   max-width: 600px;
-}
-
-#youtube-iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .youtube-player {
