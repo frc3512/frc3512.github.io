@@ -54,18 +54,24 @@ git review -s</pre>
 
   <h2 id="Usage">Usage</h2>
   <p>
-    In Gerrit, features are submitted in branches with one commit per branch. Give each branch a name reflecting its content for easier management.
+    In Gerrit, features are submitted in branches with one commit per branch. Give each branch a name reflecting its content for easier management. Submit new patchsets and revisions of existing patchsets via the following command.
+  </p>
+  <pre>git review</pre>
+
+  <h3 id="New_patchset">New patchset</h3>
+  <p>
+    Gerrit manages reviews on a per-commit basis. To start a review on a new patch, make sure the commit is on a separate branch from master. Check out that branch and run <code>git review</code>.
+  </p>
+  <p>
+    Make sure new patchsets are created with <code>git commit</code>. Using <code>git commit --amend</code> will change a commit already merged upstream and lead to conflicts.
   </p>
 
-  <h3 id="New_Revisions">New Revisions</h3>
+  <h3 id="Revisions_to_patchset">Revisions to patchset</h3>
   <p>
-    Gerrit manages reviews on a per-commit basis. Any changes should be incorporated into the commit previously pushed by either amending or rebasing (not pushing a new commit on top of the old one). Gerrit tracks the revisions using the "Change-Id" line at the bottom of the commit message. <i>Make sure this line does not change and remains the last line</i> during commit message modifications. Otherwise, a new patchset will be created instead.
+    Any changes should be incorporated into the commit previously pushed by either amending or rebasing (not pushing a new commit on top of the old one). Gerrit tracks the revisions using the "Change-Id" line at the bottom of the commit message. <i>Make sure this line does not change and remains the last line</i> during commit message modifications. Otherwise, a new patchset will be created instead.
   </p>
   <p>
-    Verify this was done correctly by inspecting the output of <code>git log master..HEAD</code>
-  </p>
-  <p>
-    There should be only one commit listed and its Change-Id should match the old one.
+    Verify this was done correctly by inspecting the output of <code>git log master..HEAD</code>. There should be only one commit listed and its Change-Id should match the old one.
   </p>
 
   <h4 id="Uncommitted_changes">Uncommitted changes</h4>
