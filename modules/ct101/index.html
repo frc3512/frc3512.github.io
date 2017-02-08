@@ -96,7 +96,7 @@
       <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
       <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches setpoint in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
         <blockquote>
-          “Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound.”
+          "Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound."
         </blockquote>
         Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
       </li>
