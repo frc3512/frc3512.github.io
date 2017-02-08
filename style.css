@@ -140,6 +140,7 @@ pre {
   background: rgb(238, 238, 238);
   padding: 0.2em;
   margin: 0.5em;
+  overflow: scroll;
 }
 
 table {
