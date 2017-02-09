@@ -43,7 +43,7 @@ div.play-button {
   margin-left: -36px;
   margin-top: -36px;
   position: absolute;
-  background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
+  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
 }
 
 div.title {
@@ -88,6 +88,7 @@ h4 {
 }
 
 iframe {
+  border-width: 0;
   text-align: center;
 }
 
