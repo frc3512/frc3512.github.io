@@ -15,15 +15,39 @@
 
   <div id="toc"></div>
 
-  <h2 id="Introduction">Introduction</h2>
+  <h2 id="The_Mindset_of_an_Engineer">The Mindset of an Engineer</h2>
+  <p>
+    The following maxim summarizes what we hope to teach students on the software team (with examples drawn from controls engineering).
+  </p>
   <blockquote>
-    "Engineer based on requirements, not an ideology."
+    Engineer based on requirements, not an ideology.
   </blockquote>
+  <p>
+    Engineering is filled with trade-offs. The tools should fit the job, and not every problem is a nail waiting to be struck by a hammer. Instead, assess the requirements for a solution to the task at hand and do only enough work to satisfy them; exceeding your specifications is a waste of time.
+  </p>
+  <p>
+    Controls engineering is very pragmatic in this respect: <i>solve. the. problem</i>. For control of non-linear systems, <a href="http://faculty.washington.edu/devasia/Inversion.html">plant inversion</a> is elegant on paper but doesn't work with an inaccurate model, yet using a theoretically incorrect solution like linear approximations of the non-linear system works well enough to be used industry-wide. There are more sophisticated controllers than PID, but we use PID anyway for its versatility and simplicity. Sometimes the inferior solutions are more effective or have a more desirable cost-benefit ratio than what the control system designer considers ideal or clean. Choose the tool that is most effective.
+  </p>
+  <p>
+    Solutions need to be good enough, but do not need to be perfect. We want to avoid integrators as they introduce instability, but we use them anyway because they work well for meeting tracking specifications. One should not blindly defend a design or follow an ideology, because there is always a case where its antithesis is a better option. The engineer should be able to determine when this is the case, set aside their ego, and do what will meet the specifications of their client (e.g., system response characteristics, maintainability, usability). Preferring one solution over another for pragmatic or technical reasons is fine, but the engineer should not care on a personal level which sufficient solution is chosen.
+  </p>
+  <p>
+    This is egoless engineering.
+  </p>
+
+  <h2 id="Why_I_Mentor">Why I Mentor</h2>
+
+  <h3 id="Tyler_Veness">Tyler Veness</h3>
+  <p>
+    My time as a student in FRC was basically one giant R&amp;D experience for me. By always being on the cutting edge of 3512, I learned a <i>lot</i> along the way (successes and failures included). This exercise in independent learning made a big impact on my future and I want to give students here the same opportunity. I tell college students this often: "Don't let schooling interfere with your education.". Seek out projects that you're interested in and learn everything you can. It opens a lot of avenues for you later. With that...
+  </p>
+
+  <h2 id="Content_Introduction">Content Introduction</h2>
   <p>
     This page serves as a repository of knowledge for topics the software team has explored in the past and topics alumni are learning in college. Students probably won't be able to learn everything in one year, but students are encouraged to learn outside of build sessions to become effective members as soon as possible.
   </p>
   <p>
-    The following sites will prove very useful when working through some of this material.
+    The following sites will prove very useful when working through some of this material. Some of them are obvious, but students forget from time to time that the internet is a valuable resource.
   </p>
   <ul>
     <li><a href="https://www.google.com/">google.com</a></li>
