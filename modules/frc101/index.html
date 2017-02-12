@@ -347,6 +347,16 @@ while (IsOperatorControl() &amp;&amp; IsEnabled()) {
   </p>
   <pre>Solenoid solenoid(1);
 
+if (solenoid.Get()) {
+  solenoid.Set(true);
+} else {
+  solenoid.Set(false);
+}</pre>
+  <p>
+    The following is a more succinct way of doing the same thing.
+  </p>
+  <pre>Solenoid solenoid(1);
+
 solenoid.Set(!solenoid.Get());</pre>
 
   <h3 id="Spin_motor_with_joystick">Spin motor with joystick</h3>
@@ -357,6 +367,9 @@ solenoid.Set(!solenoid.Get());</pre>
 CANTalon motor(1);
 
 motor.Set(-joystick.GetY());</pre>
+  <p>
+    There is a negative sign because <code>GetY()</code> returns negative values when the joystick is pushed forward.
+  </p>
 
   <h3 id="State_machines">State machines</h3>
   <p>
