@@ -16,28 +16,15 @@
   <div id="toc"></div>
 
   <p>
-    This page provides setup instructions for the software team's tools so members can quickly start learning C++. The installation instructions target Microsoft Windows. For Linux machines, do the following:
+    This page provides setup instructions for the software team's tools so members can quickly start learning C++.
   </p>
-  <ul>
-    <li>Install via the machine's package manager</li>
-    <ul>
-      <li>Eclipse CDT</li>
-      <li>JDK 8</li>
-      <li>gcc</li>
-      <li>git</li>
-      <li>LLVM package containing clang-format 3.8.1 or newer</li>
-      <ul>
-        <li>*buntu: clang-format</li>
-        <li>Arch Linux: clang</li>
-      </ul>
-      <li>python-pip</li>
-    </ul>
-    <li>Run <code>pip install --user wpiformat</code> to install our formatter</li>
-  </ul>
 
   <h2 id="Eclipse_CDT">Eclipse CDT</h2>
   <p>
     Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
+  </p>
+  <p>
+    On Linux, install JDK 8 via the machine's package manager. Install Eclipse CDT in the same way only if your distribution does not provide the latest version of Eclipse. Otherwise, follow the instructions below.
   </p>
 
   <h3 id="Eclipse_Downloads">Eclipse Downloads</h3>
@@ -69,15 +56,20 @@
   </p>
   <code>Right-click project &gt; Properties &gt; C/C++ Build &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
 
-  <h2 id="MSYS2_Compiler">MSYS2 Compiler</h2>
+  <h2 id="GCC_Compiler">GCC Compiler</h2>
   <p>
-    This is the compiler Eclipse CDT will use to build the programs you write.
+    This is the compiler Eclipse CDT will use to build the programs you write. MSYS2 provides a Linux-like environment with this compiler.
+  </p>
+  <p>
+    On Linux, install <code>gcc</code> via the machine's package manager instead of following the instructions below.
   </p>
 
-  <h3 id="MSYS2_Downloads">MSYS2 Downloads</h3>
-  <a href="https://msys2.github.io/">https://msys2.github.io/</a>
+  <h3 id="GCC_Downloads">GCC Downloads</h3>
+  <p>
+    GCC is included in MSYS2: <a href="https://msys2.github.io/">https://msys2.github.io/</a>
+  </p>
 
-  <h3 id="MSYS2_Installation">MSYS2 Installation</h3>
+  <h3 id="GCC_Installation">GCC Installation</h3>
   <p>
     Follow the instructions on the web page. Use the default installation directory.
   </p>
@@ -96,6 +88,9 @@
   <p>
     Git is a version control system used to manage the code one writes. See <a href="../who/tav/git101/index.html">Git 101</a> for more information and detailed setup.
   </p>
+  <p>
+    The instructions for Linux are the same as Windows.
+  </p>
 
   <h3 id="Git_Installation">Git Installation</h3>
   <p>
@@ -104,13 +99,24 @@
 
   <h2 id="Gerrit">Gerrit</h2>
   <p>
-    Gerrit provides web based code review and repository management for the Git version control system. Our Gerrit server is <a href="https://gerrit.frc3512.com/">here</a>. User setup instructions are coming soon.
+    Gerrit provides web based code review and repository management for the Git version control system. Our Gerrit server is <a href="https://gerrit.frc3512.com/">here</a>. User setup instructions are <a href="https://csweb.frc3512.com/modules/git102/#Setup">here</a>.
   </p>
 
   <h2 id="Formatter">Formatter</h2>
   <p>
     We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior.
   </p>
+  <p>
+    On Linux, install the following packages depending on your platform, then run <code>pip install --user wpiformat</code> instead of following the instructions below.
+  </p>
+  <ul>
+    <li>LLVM package containing clang-format 3.8.1 or newer</li>
+    <ul>
+      <li>*buntu: clang-format</li>
+      <li>Arch Linux: clang</li>
+    </ul>
+    <li>python-pip</li>
+  </ul>
 
   <h3 id="Formatter_Downloads">Formatter Downloads</h3>
   <a href="http://llvm.org/releases/download.html">LLVM</a>
