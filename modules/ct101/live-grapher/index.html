@@ -39,12 +39,16 @@
 
   <h2 id="Motion_Profile_Data">Motion Profile Data</h2>
   <p>
+    Note: At the moment, the test server only builds on Linux. Until this is resolved, Windows users should skip this section.
+  </p>
+  <p>
     LiveGrapher uses a client-server model for data transmission. The program we just built is the LiveGrapher client application, so a server is needed to test your setup. Our test server will simulate the output of S-curve and trapezoidal motion profiles. Run the following commands in the parent directory of your LiveGrapher repository folder.
   </p>
   <pre>
 git clone git://github.com/Team3512/LiveGrapherTest
 cd LiveGrapherTest
-rm src/LiveGrapher &amp;&amp; ln -s ../LiveGrapher/host/LiveGrapher src/LiveGrapher
+rm -f src/LiveGrapher &amp;&amp; ln -s ../../LiveGrapher/host/LiveGrapher src/LiveGrapher
+rm -f common &amp;&amp; ln -s ../../LiveGrapher/common common
 make</pre>
   <p>
     After the build is complete, start the server.
