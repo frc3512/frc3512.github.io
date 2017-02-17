@@ -21,10 +21,17 @@
 
   <h2 id="Installation">Installation</h2>
   <p>
+    On Linux, install the following package depending on your platform.
+  </p>
+  <ul>
+    <li>*buntu: qt5-default</li>
+    <li>Arch Linux: qt5</li>
+  </ul>
+  <p>
     As a preface, if your machine has 64-bit MSYS2 installed, always install the 64-bit version of packages. Otherwise, install the 32-bit versions. The versions have "x86_64" and "i686" in their names respectively.
   </p>
   <p>
-    Open an "MSYS2 MinGW 64-bit" terminal and install Qt Creator with <code>pacman -S mingw-w64-x86_64-qt-creator</code>. The download is large, so it may take a while to install. (We had to open a terminal different from "MSYS2 MSYS" because Qt packages aren't provided in MSYS).
+    On Windows, open an "MSYS2 MinGW 64-bit" terminal and install Qt 5 with <code>pacman -S mingw-w64-x86_64-qt5</code>. The download is large, so it may take a while to install. (We had to open a terminal different from "MSYS2 MSYS" because Qt packages aren't provided in MSYS).
   </p>
   <p>
     Next, clone the LiveGrapher Git repository with <code>git clone git://github.com/Team3512/LiveGrapher</code>. Follow the instructions in <code>README.md</code> to build it.
@@ -32,7 +39,7 @@
 
   <h2 id="Motion_Profile_Data">Motion Profile Data</h2>
   <p>
-    LiveGrapher uses a client-server model for data transmission. The program we just built is the LiveGrapher client application, so a server is needed to test your setup. Our test server will simulate the output of S-curve and trapezoidal motion profiles. Run the following commands in the directory into which you cloned your LiveGrapher repository.
+    LiveGrapher uses a client-server model for data transmission. The program we just built is the LiveGrapher client application, so a server is needed to test your setup. Our test server will simulate the output of S-curve and trapezoidal motion profiles. Run the following commands in the parent directory of your LiveGrapher repository folder.
   </p>
   <pre>
 git clone git://github.com/Team3512/LiveGrapherTest
