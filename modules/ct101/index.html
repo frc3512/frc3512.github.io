@@ -86,21 +86,35 @@
     So the user can still set K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub> in a similar way to a position PID controller.
   </p>
 
-  <h2 id="Loop_Tuning">Loop Tuning</h2>
+  <h2 id="Controller_Tuning">Controller Tuning</h2>
   <p>
-    Since the team started, we've been tuning PID controllers manually. I follow these steps:
-    <ol>
-      <li>Set K<sub>i</sub> and K<sub>d</sub> to zero.</li>
-      <li>Increase K<sub>p</sub> until the controller starts to oscillate around setpoint.</li>
-      <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
-      <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches setpoint in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
-        <blockquote>
-          "Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound."
-        </blockquote>
-        Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
-      </li>
-    </ol>
+    Since the team started, we've been tuning PID controllers manually.
   </p>
+
+  <h3 id="Position_PID_tuning">Position PID tuning</h3>
+  <ol>
+    <li>Set K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub> to zero.</li>
+    <li>Increase K<sub>p</sub> until the output starts to oscillate around the reference.</li>
+    <li>Increase K<sub>d</sub> as much as possible without introducing jitteriness and instability in the response.</li>
+    <li>If the controller settles at a PV above or below SP, increase K<sub>i</sub> such that the controller reaches the reference in a reasonable time. Beware that if K<sub>i</sub> is too large integral windup can occur. As the <a href="Modifications to the PID algorithm">Modifications to the PID algorithm</a> section of the Wikipedia page states:
+      <blockquote>
+        "Following a large change in setpoint the integral term can accumulate an error larger than the maximal value for the regulation variable (windup), thus the system overshoots and continues to increase until this accumulated error is unwound."
+      </blockquote>
+      Basically, a lot of error is accumulated and it takes a while for the error to unwind so the controller can start heading back toward SP.
+    </li>
+  </ol>
+
+  <h3 id="Velocity_PID_tuning">Velocity PID tuning</h3>
+  <ol>
+    <li>Set K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub> to zero.</li>
+    <li>Increase K<sub>i</sub> until the output starts to oscillate around the reference.</li>
+    <li>Increase K<sub>p</sub> as much as possible without introducing jitteriness and instability in the response.</li>
+  </ol>
+  <p>
+    There is no equivalent to position PID's integral term in velocity PID, but one isn't needed. A velocity controller will not have steady state error for step inputs because the K<sub>i</sub> introduces a pole in the controller.
+  </p>
+
+  <h3 id="Other_Notes">Other Notes</h3>
   <p>
     Tuning in this way can require some intuition as to what values produce the desired response. An alternative would be using an auto-tuner that follows something like the <a href="https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method">Ziegler-Nichols method</a>.
   </p>
