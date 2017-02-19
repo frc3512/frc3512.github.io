@@ -106,22 +106,24 @@
   <p>
     We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior.
   </p>
-  <p>
-    On Linux, install the following packages depending on your platform, then run <code>pip install --user wpiformat</code> instead of following the instructions below.
-  </p>
-  <ul>
-    <li>LLVM package containing clang-format 3.8.1 or newer</li>
-    <ul>
-      <li>*buntu: clang-format</li>
-      <li>Arch Linux: clang</li>
-    </ul>
-    <li>python-pip</li>
-  </ul>
 
   <h3 id="Formatter_Downloads">Formatter Downloads</h3>
   <a href="http://llvm.org/releases/download.html">LLVM</a>
 
   <h3 id="Formatter_Installation">Formatter Installation</h3>
+  <p>
+    On Linux, run the following commands to install the packages relevant to your platform instead of following the Windows instructions below. The clang-format version installed should be 3.8.1 or newer.
+  </p>
+
+  <h4 id=".2Abuntu">*buntu</h4>
+  <pre>sudo apt-get install clang-format python3-pip
+pip3 install --user wpiformat</pre>
+
+  <h4 id="Arch_Linux">Arch Linux</h4>
+  <pre>sudo pacman -S clang python python-pip
+pip install --user wpiformat</pre>
+
+  <h4 id="Windows">Windows</h4>
   <p>
     On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
   </p>
@@ -142,7 +144,7 @@ pip install wpiformat</pre>
 
   <h3 id="Formatter_Usage">Formatter Usage</h3>
   <p>
-    To use the formatter, run <code>wpiformat</code> in the Git repository being formatted.
+    If the <code>--user</code> flag was supplied to pip when installing wpiformat, run <code>python3 -m wpiformat</code> in the Git repository being formatted. Otherwise, run <code>wpiformat</code>. Therefore, if the installation instructions above were followed, use <code>python3 -m wpiformat</code> on Linux and <code>wpiformat</code> on Windows.
   </p>
 </body>
 </html>
