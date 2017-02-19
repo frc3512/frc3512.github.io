@@ -347,17 +347,17 @@ while (IsOperatorControl() &amp;&amp; IsEnabled()) {
   </p>
   <pre>Solenoid solenoid(1);
 
-if (solenoid.Get()) {
-  solenoid.Set(true);
-} else {
-  solenoid.Set(false);
-}</pre>
+solenoid.Set(!solenoid.Get());</pre>
   <p>
-    The following is a more succinct way of doing the same thing.
+    The following is a more verbose way of doing the same thing.
   </p>
   <pre>Solenoid solenoid(1);
 
-solenoid.Set(!solenoid.Get());</pre>
+if (solenoid.Get()) {
+  solenoid.Set(false);
+} else {
+  solenoid.Set(true);
+}</pre>
 
   <h3 id="Spin_motor_with_joystick">Spin motor with joystick</h3>
   <p>
