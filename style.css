@@ -1,7 +1,3 @@
-a.module {
-  padding-left: 0.5em;
-}
-
 blockquote {
   background: rgb(238, 238, 238);
   display: block;
@@ -31,7 +27,7 @@ div.module {
 }
 
 div.module > div.title {
-  padding: 0.5em 0em 0.5em 0em;
+  padding: 0.5em 0em 0.5em 0.5em;
   text-align: left;
 }
 
@@ -56,9 +52,14 @@ div.title {
   vertical-align: middle;
 }
 
+div.title > h3 {
+  margin: 0;
+}
+
 div.prereq {
   background-color: #FFF9C8;
   margin: 0 auto;
+  padding: 0.5em 0em 0.5em 0.5em;
   width: 100%;
 
   text-align: left;
