@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Classical Control Theory"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Classical Control Theory - FRC Team 3512</title>
+  <script src="../../toc.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body onload="tableOfContents();">
+  <div class="title">
+    <h1>Classical Control Theory<br/> <small>Control Theory 3</small></h1>
+  </div>
+  <div class="prereq">
+    <strong>Prerequisites:</strong> <a href="../ct02/">CT 2</a>
+  </div>
+
+  <div id="toc"></div>
+
+  <h2 id="Introduction">Introduction</h2>
+  <p>
+    An important concept in control theory is the convolution integral. It allows one to determine the output of a system given an arbitrary input. After obtaining the system's <a href="https://en.wikipedia.org/wiki/Impulse_response">impulse response</a> (the derivative of the <a href="https://en.wikipedia.org/wiki/Step_response">step response</a>, by the way, which may be easier to measure), it can be <a href="https://en.wikipedia.org/wiki/Convolution">convolved</a> with a desired input to get the expected output (See <a href="https://en.wikipedia.org/wiki/Convolution#Derivations">this</a> for an intuitive explanation of what a convolution is.)
+  </p>
+  <p>
+    Once you have the impulse response, you know everything about how that system will behave; you don't have to try a bunch of different inputs and measure the output of each one. You can then analyze the system offline, which is what FRC teams like 971 do. They start with mathematical models of their systems (a model for a DC brushed motor exists, which we'll cover in <a href="../ct03/">Classical</a> and <a href="../ct04/">Modern</a> Control Theory), measure the step response of each, then tweak their models to match them (measuring the step response is easier than the impulse response).
+  </p>
+</body>
+</html>

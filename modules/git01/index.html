@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Intro to Git"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Intro to Git - FRC Team 3512</title>
+  <script src="../../toc.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body onload="tableOfContents();">
+  <div class="title">
+    <h1>Intro to Git<br/> <small>Git 1</small></h1>
+  </div>
+
+  <div id="toc"></div>
+
+  <h2 id="Resources">Resources</h2>
+  <p>
+    To install Git, run <code>pacman -S git</code> in an MSYS2 terminal.
+  </p>
+  <ul>
+    <li><a href="https://github.com/Team3512/">GitHub</a> - mirrors of the code we've written for the robotics team reside here.</li>
+    <li>Git's <a href="http://git-scm.com/doc/">online documentation</a>.</li>
+    <li>Git presentation <a href="https://docs.google.com/presentation/d/19qRLBIb8Rw69x2ziEoqxdsM_c39hHeMDhkU2xuTBmWs/view">slides</a>.</li>
+  </ul>
+
+  <h2 id="Workflow">Workflow</h2>
+  <p>
+    <code>master</code> is considered the stable branch which contains tested, working code. Work on features and bugfixes should occur on separate branches. Users should make as many commits on experimental branches as they feel is necessary. Before a branch is merged with <code>master</code>, intermediate commits are typically squashed to produce one or several feature, bugfix, or cleanup commits.
+  </p>
+
+  <h2 id="10_Most_Commonly_Used_Git_Commands">10 Most Commonly Used Git Commands</h2>
+
+  <h3 id="1._Cloning_a_remote_repository">1. Cloning a remote repository</h3>
+  <pre>git clone &lt;repository&gt; [&lt;directory&gt;]</pre>
+  <p>
+    This downloads the repository at the given URL to the current directory. <code>&lt;directory&gt;</code> overrides the name of the repository's containing folder.
+  </p>
+  <p>
+    <i>example:</i> <code>git clone https://github.com/Team3512/DriverStationDisplay</code>
+  </p>
+  <p>
+    <i>example:</i> <code>git clone git@github.com:Team3512/DriverStationDisplay</code>
+  </p>
+
+  <h3 id="2._Adding_files_to_the_staging_area">2. Adding files to the staging area</h3>
+  <pre>git add &lt;file&gt;</pre>
+  <p>
+    This adds new, untracked files as well as changes to already tracked ones.
+  </p>
+  <p>
+    <i>example:</i> <code>git add Main.cpp</code>
+  </p>
+
+  <h3 id="3._Removing_files_from_the_staging_area">3. Removing files from the staging area</h3>
+  <pre>git rm [--cached] &lt;file&gt;</pre>
+  <p>
+    This deletes and stops files from being tracked. If the <code>--cached</code> option is provided, it only removes the specified files' changes from the staging area.
+  </p>
+  <p>
+    <i>example:</i> <code>git rm UnneededFile.hpp</code><br/>
+    <i>example:</i> <code>git rm --cached Main.cpp</code>
+  </p>
+
+  <h3 id="4._Creating_a_commit_in_a_local_repository">4. Creating a commit in a local repository</h3>
+  <pre>git commit [-m "commit message"]</pre>
+  <p>
+    This commits changes currently in the staging area. If <code>git commit</code> is called without the <code>-m option</code>, an editor will be opened for entering a commit message.
+  </p>
+  <p>
+    <i>example:</i> <code>git commit -m "Adding new feature x"</code>
+  </p>
+
+  <h3 id="5._Pushing_commits_to_a_remote_repository">5. Pushing commits to a remote repository</h3>
+  <pre>git push [&lt;branchname&gt;]</pre>
+  <p>
+    This pushes commits from a branch to the corresponding branch on a remote repository. If <code>&lt;branchname&gt;</code> isn't specified, Git will use the currently checked out branch.
+  </p>
+  <p>
+    <i>example:</i> <code>git push my-branch</code>
+  </p>
+
+  <h3 id="6._Pulling_commits_from_a_remote_repository">6. Pulling commits from a remote repository</h3>
+  <pre>git pull --rebase [&lt;refspec&gt;]</pre>
+  <p>
+    This pulls the ref <code>&lt;refspec&gt;</code> (a branch, commmit, or tag) from the remote repository and rebases it into the current branch. If <code>&lt;refspec&gt;</code> isn't specified, Git will attempt to pull changes from a remote branch with the same name as the currently checked out branch.
+  </p>
+  <p>
+    <i>example:</i> <code>git pull origin/master</code>
+  </p>
+
+  <h3 id="7._Creating_a_branch">7. Creating a branch</h3>
+  <pre>git branch &lt;branchname&gt;</pre>
+  <p>
+    This creates a new branch starting at the current commit. Omitting <code>&lt;branchname&gt;</code> shows a list of all branches and an asterisk beside the current one.
+  </p>
+  <p>
+    <i>example:</i> <code>git branch new-feature</code>
+  </p>
+
+  <h3 id="8._Deleting_a_branch">8. Deleting a branch</h3>
+  <pre>git branch &lt;branchname&gt;</pre>
+  <p>
+    This deletes the branch <code>&lt;branchname&gt;</code>. This command won't work if that branch is currently checked out.
+  </p>
+  <p>
+    <i>example:</i> <code>git branch -d merged-feature</code>
+  </p>
+
+  <h3 id="9._Checking_out_a_branch">9. Checking out a branch</h3>
+  <pre>git checkout &lt;branchname&gt;</pre>
+  <p>
+    This checks out <code>&lt;branchname&gt;</code>. The default branch when a new project is created is called <code>master</code>.
+  </p>
+  <p>
+    <i>example:</i> <code>git checkout other-branch</code>
+  </p>
+
+  <h3 id="10._Merging_a_branch">10. Merging a branch</h3>
+  <pre>git merge &lt;branchname&gt;</pre>
+  <p>
+    This merges commits from the specified branch into the branch currently checked out. In some cases, one may want to delete the branch after merging it (see 8).
+  </p>
+  <p>
+    <i>example:</i> <code>git merge new-feature</code>
+  </p>
+</body>
+</html>

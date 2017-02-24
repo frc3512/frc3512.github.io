@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="State Machine Lab"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>State Machine Lab - FRC Team 3512</title>
+  <script src="../../../toc.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../../style.css"/>
+</head>
+<body onload="tableOfContents();">
+  <div class="title">
+    <h1>State Machine Lab<br/> <small>Control Theory 1</small></h1>
+  </div>
+
+  <div id="toc"></div>
+
+  <p>
+    In this lab, we are going to design and implement a simple state machine.
+  </p>
+
+  <h2 id="Understanding_the_Problem">Understanding the Problem</h2>
+  <p>
+    The robot for which we are designing this state machine has an elevator which is controlled by a pulley connected to a DC brushed motor. A digital encoder is used in a feedback controller to control the height of the elevator carriage. On the carriage, there are two tines which can be moved in and out with a solenoid. This elevator assembly is used for lifting and transporting rectangular storage totes.
+  </p>
+  <table>
+    <tr>
+      <td><img src="carriage-front.jpg" width="282" height="500"/></td>
+      <td><img src="carriage-rear.jpg" width="282" height="500"/></td>
+    </tr>
+  </table>
+  <p>
+    Your goal is to implement a state machine that automates the tote stacking procedure, which is initiated by the robot's user pressing a button. They should be able to repeatedly press the button to stack totes on the ground denoted by a height of zero inches.
+  </p>
+
+  <h2 id="Setup">Setup</h2>
+  <p>
+    Since the purpose of this exercise is practice with state machines, the feedback controller and robot subsystem software is provided for you. Copy the following files into a new project.
+  </p>
+  <ul>
+    <li><a href="Main.cpp">Main.cpp</a></li>
+    <li><a href="RobotMock.cpp">RobotMock.cpp</a></li>
+    <li><a href="RobotMock.hpp">RobotMock.hpp</a></li>
+    <li><a href="Timer.cpp">Timer.cpp</a></li>
+    <li><a href="Timer.hpp">Timer.hpp</a></li>
+  </ul>
+  <p>
+    See the C++ header files (.hpp extension) for a list of available functions. <code>RobotMock</code> and <code>Timer</code> are <i>classes</i>. They are used in C++ for object-oriented programming and defining one's own data types in addition to the built-in ones. They contain a list of variables and member functions which are associated with an object of that type. If there existed an instance of Timer called and its <code>Start()</code> member function were called, that could be done with:
+  </p>
+  <pre>Timer autonTimer;
+autonTimer.Start();</pre>
+  <p>
+    The template in <code>Main.cpp</code> includes an <i>enum class</i>. Read about their syntax and usage <a href="http://en.cppreference.com/w/cpp/language/enum">here</a>. Examples are provided <a href="http://en.cppreference.com/w/cpp/language/enum#Example">here</a>. The underlying type of the enumeration need not be specified and defaults to <code>int</code>.
+  </p>
+
+  <h2 id="Designing_the_State_Machine">Designing the State Machine</h2>
+  <p>
+    Since the claw uses a solenoid, the current hardware location cannot be known at all times. When the claw actuates in or out, a timer should be used in the state machine to wait for the claw to finish moving.
+  </p>
+  <p>
+    Feedback controllers like the one controlling the elevator height are considered "finished" once they reach their setpoint, so the implementer should poll for the carriage reaching the appropriate height rather than using a timer.
+  </p>
+  <p>
+    TODO: for now, use the state machine diagram we discussed in lecture.
+  </p>
+
+  <h2 id="Implementation">Implementation</h2>
+  <p>
+    Once you are satisfied with your state machine diagram, translate it into C++ and test it. <code>Main.cpp</code> provides a template for you to do so. You shouldn't need to modify the RobotMock and Timer classes. We recommend adding print statements upon entering and exiting your states so the state machine's progress is externally visible.
+  </p>
+
+  <h2 id="Submission">Submission</h2>
+  <p>
+    Use the folder name <code>state-machine</code> for this project. Once you are confident your state machine works, let your instructor know and they will review your work.
+  </p>
+</body>
+</html>
