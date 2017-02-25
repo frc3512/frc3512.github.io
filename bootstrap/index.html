@@ -23,16 +23,25 @@
   <p>
     Eclipse CDT is an integrated development environment which makes it easier to write, build, and test programs written in C and C++.
   </p>
-  <p>
-    On Linux, install JDK 8 via the machine's package manager. Install Eclipse CDT in the same way only if your distribution does not provide the latest version of Eclipse. Otherwise, follow the instructions below.
-  </p>
 
   <h3 id="Eclipse_Downloads">Eclipse Downloads</h3>
+  <p>
+    For Windows:
+  </p>
   <a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse IDE for C/C++ Developers</a>
   <br/>
   <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a>
 
   <h3 id="Eclipse_Installation">Eclipse Installation</h3>
+  <p>
+    <i>Linux</i>
+  </p>
+  <p>
+    Install JDK 8 via the machine's package manager. Install Eclipse CDT in the same way only if your distribution does not provide the latest version of Eclipse. Otherwise, follow the instructions below.
+  </p>
+  <p>
+    <i>Windows</i>
+  </p>
   <p>
     On the Eclipse CDT download page, select the appropriate platform on the page's right. If your machine is 64 bit, choose a 64 bit version. Once the download is complete, extract it to a directory of your choice.
   </p>
@@ -60,18 +69,24 @@
   <p>
     This is the compiler Eclipse CDT will use to build the programs you write. MSYS2 provides a Linux-like environment with this compiler.
   </p>
-  <p>
-    On Linux, install <code>gcc</code> via the machine's package manager instead of following the instructions below.
-  </p>
 
   <h3 id="GCC_Downloads">GCC Downloads</h3>
   <p>
-    GCC is included in MSYS2: <a href="https://msys2.github.io/">https://msys2.github.io/</a>
+    For Windows, GCC is included in MSYS2: <a href="http://www.msys2.org/">http://www.msys2.org/</a>.
   </p>
 
   <h3 id="GCC_Installation">GCC Installation</h3>
+  <i>
+    Linux
+  </i>
   <p>
-    Follow the instructions on the web page. Use the default installation directory.
+    Install <code>gcc</code> via the machine's package manager.
+  </p>
+  <i>
+    Windows
+  </i>
+  <p>
+    Follow the instructions on the web page for MSYS2. Use the default installation directory.
   </p>
   <p>
     When installation is complete and everything has been upgraded with pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide PATH environment variable depending on whether you used the x86_64 installer or i686 installer respectively.
@@ -88,11 +103,11 @@
   <p>
     Git is a version control system used to manage the code one writes. See <a href="../who/tav/git01/index.html">Git 1</a> for more information and detailed setup.
   </p>
+
+  <h3 id="Git_Installation">Git Installation</h3>
   <p>
     The instructions for Linux are the same as Windows.
   </p>
-
-  <h3 id="Git_Installation">Git Installation</h3>
   <p>
     Run <code>pacman -S git</code>
   </p>
@@ -115,15 +130,21 @@
     On Linux, run the following commands to install the packages relevant to your platform instead of following the Windows instructions below. The clang-format version installed should be 3.8.1 or newer.
   </p>
 
-  <h4 id=".2Abuntu">*buntu</h4>
+  <p>
+    <i>*buntu</i>
+  </p>
   <pre>sudo apt-get install clang-format python3-pip
 pip3 install --user wpiformat</pre>
 
-  <h4 id="Arch_Linux">Arch Linux</h4>
+  <p>
+    <i>Arch Linux</i>
+  </p>
   <pre>sudo pacman -S clang python python-pip
 pip install --user wpiformat</pre>
 
-  <h4 id="Windows">Windows</h4>
+  <p>
+    <i>Windows</i>
+  </p>
   <p>
     On the LLVM download page, select the installer for latest version of LLVM corresponding to your operating system and architecture under "Pre-Built Binaries", then run it. The default installation options are fine.
   </p>
