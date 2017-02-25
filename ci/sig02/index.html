@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="description" content="Kalman Filter and Linear Algebra"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="description" content="Kalman Filter and Linear Algebra">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kalman Filter and Linear Algebra - FRC Team 3512</title>
-  <script src="../../toc.js"></script>
-  <link rel="stylesheet" type="text/css" href="../../style.css"/>
+  <script src="../../toc.js">
+  </script>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
 </head>
 <body onload="tableOfContents();">
   <div class="title">
-    <h1>Kalman Filter and Linear Algebra<br/> <small>Signal Processing 2</small></h1>
+    <h1>Kalman Filter and Linear Algebra<br>
+    <small>Signal Processing 2</small></h1>
   </div>
   <div class="prereq">
     <strong>Prerequisites:</strong> <a href="../sig01/">SIG 1</a>
   </div>
-
   <div id="toc"></div>
-
   <h2 id="Introduction">Introduction</h2>
-  <p>
-    When I can, I point to other online resources that sufficiently explain or illustrate material because I don't like duplicating work. <a href="http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/">This</a> guide to Kalman filters is very well written in my opinion and includes graphics which I couldn't hope to replicate (I don't do graphics design well). Apparently he used Photoshop and a stylus.
-  </p>
-
+  <p>When I can, I point to other online resources that sufficiently explain or
+  illustrate material because I don't like duplicating work. <a href=
+  "http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/">This</a>
+  guide to Kalman filters is very well written in my opinion and includes
+  graphics which I couldn't hope to replicate (I don't do graphics design
+  well). Apparently he used Photoshop and a stylus.</p>
   <h2 id="Implementation">Implementation</h2>
-  <p>
-    Now that the theoretical groundwork has been laid, I'm going to present a Kalman filter implementation written in C++ that our team used in 2013. That year, we our robot had a flywheel and we needed to measure its speed. We used a Hall's Effect sensor to produce analog voltage pulses from gear teeth rotating by it. A Schmitt trigger was used to turn these analog voltages into well defined digital values we could count in software. The speeds calculated where really noisy, so we employed a filter to allow the use of larger K<sub>d</sub> terms in the flywheel's PID controller to decrease settling time (see <a href="../ct01/">CT 1</a> for more on PID controllers). This implementation only used one input, so it functioned like a sophisticated averaging technique. It did, however, work much better than a rolling average filter; it filtered the noise out sufficiently while introducing less lag.
-  </p>
-  <a href="KalmanFilter.hpp">KalmanFilter.hpp</a>
-  <br/>
+  <p>Now that the theoretical groundwork has been laid, I'm going to present a
+  Kalman filter implementation written in C++ that our team used in 2013. That
+  year, we our robot had a flywheel and we needed to measure its speed. We used
+  a Hall's Effect sensor to produce analog voltage pulses from gear teeth
+  rotating by it. A Schmitt trigger was used to turn these analog voltages into
+  well defined digital values we could count in software. The speeds calculated
+  where really noisy, so we employed a filter to allow the use of larger
+  K<sub>d</sub> terms in the flywheel's PID controller to decrease settling
+  time (see <a href="../ct01/">CT 1</a> for more on PID controllers). This
+  implementation only used one input, so it functioned like a sophisticated
+  averaging technique. It did, however, work much better than a rolling average
+  filter; it filtered the noise out sufficiently while introducing less
+  lag.</p><a href="KalmanFilter.hpp">KalmanFilter.hpp</a><br>
   <a href="KalmanFilter.cpp">KalmanFilter.cpp</a>
-
   <h2 id="Filter_Tuning">Filter Tuning</h2>
-  <p>
-    Normally, one would gather sample measurements to determine the optimum values for the process noise <i>Q</i> and measurement noise <i>R</i>. I didn't know how to do that in 2013, so I found values that worked through trial and error. That only took about an hour, but I don't see that process working for more complicated systems which use multidimensional Kalman filters.
-  </p>
+  <p>Normally, one would gather sample measurements to determine the optimum
+  values for the process noise <i>Q</i> and measurement noise <i>R</i>. I
+  didn't know how to do that in 2013, so I found values that worked through
+  trial and error. That only took about an hour, but I don't see that process
+  working for more complicated systems which use multidimensional Kalman
+  filters.</p>
 </body>
 </html>

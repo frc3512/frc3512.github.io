@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="description" content="FRC Team 3512 software team style guide"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8">
+  <meta name="description" content="FRC Team 3512 software team style guide">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Style Guide - FRC Team 3512</title>
-  <script src="../toc.js"></script>
-  <link rel="stylesheet" type="text/css" href="../style.css"/>
+  <script src="../toc.js">
+  </script>
+  <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body onload="tableOfContents();">
   <div class="title">
     <h1>Style Guide and Best Practices</h1>
   </div>
-
   <div id="toc"></div>
-
-  <p>
-    The following requirements are used by 3512 to keep the code base consistent and readable. This aids in not only finding and fixing bugs quickly, but avoiding them altogether through well-informed design decisions.
-  </p>
-
-  <h2 id="Correctness_of_Design_and_Implementation">Correctness of Design and Implementation</h2>
+  <p>The following requirements are used by 3512 to keep the code base
+  consistent and readable. This aids in not only finding and fixing bugs
+  quickly, but avoiding them altogether through well-informed design
+  decisions.</p>
+  <h2 id="Correctness_of_Design_and_Implementation">Correctness of Design and
+  Implementation</h2>
   <ul>
-    <li><font color="gray">Incomplete...</font></li>
+    <li>TODO</li>
   </ul>
-
   <h2 id="Maintainability">Maintainability</h2>
   <ul>
     <li>Well-commented</li>
@@ -31,11 +30,11 @@
     <li>Good encapsulation of functionality</li>
     <li>Well-chosen variable, function, and class names</li>
   </ul>
-
   <h2 id="Miscellaneous_Rules">Miscellaneous Rules</h2>
-  <p>
-    Headers should be sorted into newline-delimited sections according to the Google style guide. Each section's headers should be lexographically ordered. In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test the stuff in dir2/foo2.h, order your includes as follows:
-  </p>
+  <p>Headers should be sorted into newline-delimited sections according to the
+  Google style guide. Each section's headers should be lexographically ordered.
+  In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test
+  the stuff in dir2/foo2.h, order your includes as follows:</p>
   <ul>
     <li>dir2/foo2.h</li>
     <li>C system files</li>
@@ -43,8 +42,8 @@
     <li>Other libraries' .h files</li>
     <li>Your project's .h files</li>
   </ul>
-  <p>
-    In addition to the practices and associated justifications presented here, see our formatting config file, uncrustify.cfg, in our robot code for specific formatting minutiae.
-  </p>
+  <p>In addition to the practices and associated justifications presented here,
+  see our formatting config file, uncrustify.cfg, in our robot code for
+  specific formatting minutiae.</p>
 </body>
 </html>
