@@ -24,87 +24,87 @@
         <loc>https://csweb.frc3512.com/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs102/concurrency-atomics.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs02/concurrency-atomics.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs102/high-perf-embedded.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs02/high-perf-embedded.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs02/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs102/networking.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs02/networking.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs102/parallelism.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs02/parallelism.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs103/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs03/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs104/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs04/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs105/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs05/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs106/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs06/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs107/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs07/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs108/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs08/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/cs109/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/cs09/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct101/event-framework/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct01/event-framework/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct101/live-grapher/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct01/live-grapher/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct101/state-machine/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct01/state-machine/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct02/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct103/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct03/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/ct104/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/ct04/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/frc101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/frc01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/frc102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/frc02/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/git101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/git01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/git102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/git02/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/modules/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/rt101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/rt01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/sig101/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/sig01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/modules/sig102/index.html</loc>
+        <loc>https://csweb.frc3512.com/modules/sig02/index.html</loc>
     </url>
 </urlset>

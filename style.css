@@ -1,54 +1,73 @@
 blockquote {
   background: rgb(238, 238, 238);
-  display: block;
+
   margin: 1em 2.5em;
   padding: 1em;
+
+  display: block;
 }
 
 body {
   background-color: white;
+  color: black;
+
+  margin: 0em auto 0em auto;
+  max-width: 800px;
+  padding: 0.75em;
+
+  border-color: rgb(45, 45, 45);
+  border-style: solid;
+  border-width: 0.1em;
 
   font-family: arial, sans-serif;
   font-size: 1em;
   text-align: justify;
-  color: rgb(0, 0, 0);
 }
 
 code {
   background: rgb(238, 238, 238);
+
   padding: 0.2em;
 }
 
 div.module {
-  vertical-align: top;
-
   margin-top: 0em;
   margin-bottom: 2em;
+  vertical-align: top;
 }
 
 div.module > div.title {
+  border-color: rgb(45, 45, 45);
+  border-style: solid;
+  border-width: 0.1em;
+
   text-align: left;
 }
 
 div.play-button {
+  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
+
+  margin-top: -36px;
+  margin-left: -36px;
+
   height: 72px;
   width: 72px;
-  left: 50%;
   top: 50%;
-  margin-left: -36px;
-  margin-top: -36px;
+  left: 50%;
   position: absolute;
-  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
 }
 
 div.title {
   background-color: #FFDEAD;
   margin: 0 auto;
-  width: 100%;
+  vertical-align: middle;
+
+  border-color: rgb(45, 45, 45);
+  border-style: solid;
+  border-width: 0.1em;
 
   font-family: arial, sans-serif;
   text-align: center;
-  vertical-align: middle;
 }
 
 div.title > h3 {
@@ -59,9 +78,13 @@ div.title > h3 {
 div.prereq {
   background-color: #FFF9C8;
   padding: 0.5em;
+  vertical-align: middle;
+
+  border-color: rgb(45, 45, 45);
+  border-style: solid;
+  border-width: 0.1em;
 
   text-align: left;
-  vertical-align: middle;
 }
 
 h1 {
@@ -86,6 +109,10 @@ h4 {
   text-align: left;
 }
 
+html {
+  background-color: #CCCCCC;
+}
+
 iframe {
   border-width: 0;
   text-align: center;
@@ -97,16 +124,17 @@ img {
 }
 
 img.youtube-thumb {
-  bottom: 0;
-  display: block;
-  left: 0;
   margin: auto;
-  max-width: 100%;
-  width: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
+
+  display: block;
   height: auto;
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 0em;
+  left: 0em;
+  bottom: 0em;
+  right: 0em;
 }
 
 ol {
@@ -138,8 +166,10 @@ p.sans-serif {
 
 pre {
   background: rgb(238, 238, 238);
-  padding: 0.2em;
+
   margin: 0.5em;
+  padding: 0.2em;
+
   overflow: scroll;
 }
 
@@ -148,11 +178,12 @@ table {
 }
 
 #columnContainer {
+  margin: 0.5em;
+  padding-top: 0.25em;
+
   column-width: 30em;
   -webkit-column-width: 30em;
   -moz-column-width: 30em;
-  margin: 0.5em;
-  padding-top: 0.25em;
 }
 
 #toc {
@@ -181,21 +212,20 @@ table {
 }
 
 .youtube-container {
-  display: block;
   margin: 20px auto;
+
+  display: block;
   width: 100%;
   max-width: 600px;
 }
 
 .youtube-player {
-  display: block;
-  width: 100%; /* assuming that the video has a 16:9 ratio */
   padding-bottom: 56.25%;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  cursor: hand;
+
   cursor: pointer;
   display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;  /* assuming the video has a 16:9 ratio */
+  height: 100%;
 }
