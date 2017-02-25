@@ -30,13 +30,13 @@ code {
   padding: 0.2em;
 }
 
-div.module {
+div.ci {
   margin-top: 0em;
   margin-bottom: 2em;
   vertical-align: top;
 }
 
-div.module > div.title {
+div.ci > div.title {
   border-color: rgb(45, 45, 45);
   border-style: solid;
   border-width: 0.1em;
