@@ -19,7 +19,7 @@ body {
   border-style: solid;
   border-width: 0.1em;
 
-  font-family: arial, sans-serif;
+  font-family: helvetica, sans-serif;
   font-size: 1em;
   text-align: justify;
 }
@@ -153,15 +153,6 @@ ol.sub > li:before {
   content: counters(item, ".") ". ";
   counter-increment: item;
   font-weight: bold;
-}
-
-p {
-  font-family: serif;
-  text-align: justify;
-}
-
-p.sans-serif {
-  font-family: sans-serif;
 }
 
 pre {
