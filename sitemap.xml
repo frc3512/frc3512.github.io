@@ -3,16 +3,16 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>https://csweb.frc3512.com/admin/goals.html</loc>
+        <loc>https://csweb.frc3512.com/admin/goals/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/admin/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/styleguide.html</loc>
+        <loc>https://csweb.frc3512.com/admin/styleguide/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/varsity.html</loc>
+        <loc>https://csweb.frc3512.com/admin/varsity/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
@@ -21,19 +21,19 @@
         <loc>https://csweb.frc3512.com/ci/cs01/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/concurrency-atomics.html</loc>
+        <loc>https://csweb.frc3512.com/ci/cs02/concurrency-atomics/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/high-perf-embedded.html</loc>
+        <loc>https://csweb.frc3512.com/ci/cs02/high-perf-embedded/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/cs02/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/networking.html</loc>
+        <loc>https://csweb.frc3512.com/ci/cs02/networking/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/parallelism.html</loc>
+        <loc>https://csweb.frc3512.com/ci/cs02/parallelism/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/cs03/index.html</loc>
