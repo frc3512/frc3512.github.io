@@ -9,77 +9,79 @@
   <link rel="stylesheet" type="text/css" href="../../style.css">
 </head>
 <body onload="tableOfContents();">
-  <div class="title">
-    <h1>Intro to C++<br>
-    <small>Computer Science 1</small></h1>
+  <div id="content">
+    <div class="title">
+      <h1>Intro to C++<br>
+      <small>Computer Science 1</small></h1>
+    </div>
+    <div id="toc"></div>
+    <h2 id="Bootstrap">Bootstrap</h2>
+    <p>Before you begin, install the tools listed <a href=
+    "../../bootstrap/">here</a>, including Git.</p>
+    <p>Once the development environment is set up, one may begin learning C++.
+    We use the textbook <i>Programming: Principles and Practice Using C++
+    (2<sup>nd</sup> edition)</i> by Bjarne Stroustrup (ISBN:
+    978-0-321-99278-9). Either a copy will be provided by the software team or
+    a copy can be bought <a href=
+    "http://www.informit.com/store/programming-principles-and-practice-using-c-plus-plus-9780321992789">
+    directly from the publisher</a>. The current textbook errata are <a href=
+    "http://www.stroustrup.com/Programming/PPP2errata.html">here</a>.</p>
+    <h2 id="Assignments">Assignments</h2>
+    <p>Chapter 2 of the book requires <a href=
+    "std_lib_facilities.h">std_lib_facilities.h</a>. Useful resources for the
+    C++ standard library include <a href=
+    "http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a>.</p>
+    <p>In addition to the following exercises, we recommend you do <b>all the
+    drills</b> at the end of each chapter, although it is not required. See
+    section 0.1.2 in the textbook for the reasoning behind this and section
+    0.1.1 for the textbook's general approach. The review questions are good
+    for checking comprehension, but they aren't exhaustive, so still read
+    carefully.</p>
+    <p>We recommend covering at least one chapter per week. There may not be
+    enough time to lecture on all the material in depth in a given week, so
+    individual reading is encouraged. The book is designed for this
+    situation.</p>
+    <p>Provide answers to any essay questions in a README file. Don't forget to
+    read the postscript at the end of each chapter. They provide useful
+    insights.</p>
+    <h3 id="Chapter_2_-_Hello.2C_World.21">Chapter 2 - Hello, World!</h3>
+    <p>p. 52: Drill</p>
+    <p>p. 55: Exercises 1-4</p>
+    <h3 id="Chapter_3_-_Objects.2C_Types.2C_and_Values">Chapter 3 - Objects,
+    Types, and Values</h3>
+    <p>p. 83: Drill</p>
+    <p>p. 85: Exercises 2-5, 9-11</p>
+    <h3 id="Chapter_4_-_Computation">Chapter 4 - Computation</h3>
+    <p>p. 126: Drill</p>
+    <p>p. 128: Exercises 8, 11, 13, 15, 19-21</p>
+    <h3 id="Chapter_5_-_Errors">Chapter 5 - Errors</h3>
+    <p>p. 167: Drill</p>
+    <p>p. 169: Exercises 2-5, 7, 8-10</p>
+    <p>p. 169: Optional 12, 13</p>
+    <p>For exercise 2, provide a working implementation with comments
+    describing how each part was fixed.</p>
+    <h3 id="Chapter_6_-_Writing_a_Program">Chapter 6 - Writing a Program</h3>
+    <p>For now, just read the chapter.</p>
+    <h3 id="Chapter_7_-_Completing_a_Program">Chapter 7 - Completing a
+    Program</h3>
+    <p>For now, just read the chapter.</p>
+    <h3 id="Chapter_8_-_Technicalities.3A_Functions.2C_etc.">Chapter 8 -
+    Technicalities: Functions, etc.</h3>
+    <p>For now, just read the chapter.</p>
+    <h3 id="Chapter_9_-_Technicalities.3A_Classes.2C_etc.">Chapter 9 -
+    Technicalities: Classes, etc.</h3>
+    <p>For now, just read the chapter.</p>
+    <h3 id="Advanced">Advanced</h3>
+    <p>Students wanting to cover more advanced topics of the C++ programming
+    language should read chapters 17-21 from Part III in order. They cover data
+    structures, algorithms, memory management, and templates.</p>
+    <h2 id="Submission">Submission</h2>
+    <p>Note that for files which are modified between assigned problems, there
+    should still be a separate project for each problem. For example, chapter
+    4's exercises 19 through 21 will have a separate project each for
+    <code>exercise19</code>, <code>exercise20</code>, and
+    <code>exercise21</code>. Copy-pasting the previous project's files may make
+    this easier.</p>
   </div>
-  <div id="toc"></div>
-  <h2 id="Bootstrap">Bootstrap</h2>
-  <p>Before you begin, install the tools listed <a href=
-  "../../bootstrap/">here</a>, including Git.</p>
-  <p>Once the development environment is set up, one may begin learning C++. We
-  use the textbook <i>Programming: Principles and Practice Using C++
-  (2<sup>nd</sup> edition)</i> by Bjarne Stroustrup (ISBN: 978-0-321-99278-9).
-  Either a copy will be provided by the software team or a copy can be bought
-  <a href=
-  "http://www.informit.com/store/programming-principles-and-practice-using-c-plus-plus-9780321992789">
-  directly from the publisher</a>. The current textbook errata are <a href=
-  "http://www.stroustrup.com/Programming/PPP2errata.html">here</a>.</p>
-  <h2 id="Assignments">Assignments</h2>
-  <p>Chapter 2 of the book requires <a href=
-  "std_lib_facilities.h">std_lib_facilities.h</a>. Useful resources for the C++
-  standard library include <a href=
-  "http://en.cppreference.com/w/cpp">http://en.cppreference.com/w/cpp</a>.</p>
-  <p>In addition to the following exercises, we recommend you do <b>all the
-  drills</b> at the end of each chapter, although it is not required. See
-  section 0.1.2 in the textbook for the reasoning behind this and section 0.1.1
-  for the textbook's general approach. The review questions are good for
-  checking comprehension, but they aren't exhaustive, so still read
-  carefully.</p>
-  <p>We recommend covering at least one chapter per week. There may not be
-  enough time to lecture on all the material in depth in a given week, so
-  individual reading is encouraged. The book is designed for this
-  situation.</p>
-  <p>Provide answers to any essay questions in a README file. Don't forget to
-  read the postscript at the end of each chapter. They provide useful
-  insights.</p>
-  <h3 id="Chapter_2_-_Hello.2C_World.21">Chapter 2 - Hello, World!</h3>
-  <p>p. 52: Drill</p>
-  <p>p. 55: Exercises 1-4</p>
-  <h3 id="Chapter_3_-_Objects.2C_Types.2C_and_Values">Chapter 3 - Objects,
-  Types, and Values</h3>
-  <p>p. 83: Drill</p>
-  <p>p. 85: Exercises 2-5, 9-11</p>
-  <h3 id="Chapter_4_-_Computation">Chapter 4 - Computation</h3>
-  <p>p. 126: Drill</p>
-  <p>p. 128: Exercises 8, 11, 13, 15, 19-21</p>
-  <h3 id="Chapter_5_-_Errors">Chapter 5 - Errors</h3>
-  <p>p. 167: Drill</p>
-  <p>p. 169: Exercises 2-5, 7, 8-10</p>
-  <p>p. 169: Optional 12, 13</p>
-  <p>For exercise 2, provide a working implementation with comments describing
-  how each part was fixed.</p>
-  <h3 id="Chapter_6_-_Writing_a_Program">Chapter 6 - Writing a Program</h3>
-  <p>For now, just read the chapter.</p>
-  <h3 id="Chapter_7_-_Completing_a_Program">Chapter 7 - Completing a
-  Program</h3>
-  <p>For now, just read the chapter.</p>
-  <h3 id="Chapter_8_-_Technicalities.3A_Functions.2C_etc.">Chapter 8 -
-  Technicalities: Functions, etc.</h3>
-  <p>For now, just read the chapter.</p>
-  <h3 id="Chapter_9_-_Technicalities.3A_Classes.2C_etc.">Chapter 9 -
-  Technicalities: Classes, etc.</h3>
-  <p>For now, just read the chapter.</p>
-  <h3 id="Advanced">Advanced</h3>
-  <p>Students wanting to cover more advanced topics of the C++ programming
-  language should read chapters 17-21 from Part III in order. They cover data
-  structures, algorithms, memory management, and templates.</p>
-  <h2 id="Submission">Submission</h2>
-  <p>Note that for files which are modified between assigned problems, there
-  should still be a separate project for each problem. For example, chapter 4's
-  exercises 19 through 21 will have a separate project each for
-  <code>exercise19</code>, <code>exercise20</code>, and
-  <code>exercise21</code>. Copy-pasting the previous project's files may make
-  this easier.</p>
 </body>
 </html>

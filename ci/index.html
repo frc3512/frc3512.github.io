@@ -9,447 +9,455 @@
   <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body onload="tableOfContents();">
-  <div class="title">
-    <h1>Curriculum and Instruction</h1>
-  </div>
-  <div id="toc"></div>
-  <h2 id="The_Mindset_of_an_Engineer">The Mindset of an Engineer</h2>
-  <p>The following maxim summarizes what we hope to teach students on the
-  software team (with examples drawn from controls engineering).</p>
-  <blockquote>
-    Engineer based on requirements, not an ideology.
-  </blockquote>
-  <p>Engineering is filled with trade-offs. The tools should fit the job, and
-  not every problem is a nail waiting to be struck by a hammer. Instead, assess
-  the minimum requirements (min specs) for a solution to the task at hand and
-  do only enough work to satisfy them; exceeding your specifications is a waste
-  of time and money. If you require performance or maintainability above the
-  min specs, your min specs were chosen incorrectly by definition.</p>
-  <p>Controls engineering is pragmatic in a similar respect: <i>solve. the.
-  problem</i>. For control of non-linear systems, <a href=
-  "http://faculty.washington.edu/devasia/Inversion.html">plant inversion</a> is
-  elegant on paper but doesn't work with an inaccurate model, yet using a
-  theoretically incorrect solution like linear approximations of the non-linear
-  system works well enough to be used industry-wide. There are more
-  sophisticated controllers than PID, but we use PID anyway for its versatility
-  and simplicity. Sometimes the inferior solutions are more effective or have a
-  more desirable cost-benefit ratio than what the control system designer
-  considers ideal or clean. Choose the tool that is most effective.</p>
-  <p>Solutions need to be good enough, but do not need to be perfect. We want
-  to avoid integrators as they introduce instability, but we use them anyway
-  because they work well for meeting tracking specifications. One should not
-  blindly defend a design or follow an ideology, because there is always a case
-  where its antithesis is a better option. The engineer should be able to
-  determine when this is the case, set aside their ego, and do what will meet
-  the specifications of their client (e.g., system response characteristics,
-  maintainability, usability). Preferring one solution over another for
-  pragmatic or technical reasons is fine, but the engineer should not care on a
-  personal level which sufficient solution is chosen.</p>
-  <p>This is egoless engineering.</p>
-  <h2 id="Why_I_Mentor">Why I Mentor</h2>
-  <h3 id="Tyler_Veness">Tyler Veness</h3>
-  <p>My time as a student in FRC was basically one giant R&amp;D experience for
-  me. By always being on the cutting edge of 3512, I learned a <i>lot</i> along
-  the way (successes and failures included). This exercise in independent
-  learning made a big impact on my future and I want to give students here the
-  same opportunity. I tell college students this often: "Don't let schooling
-  interfere with your education.". Seek out projects that you're interested in
-  and learn everything you can. It opens a lot of avenues for you later. With
-  that...</p>
-  <h2 id="Curriculum">Curriculum</h2>
-  <p>This page serves as a repository of knowledge for topics the software team
-  has explored in the past and topics alumni are learning in college. Students
-  probably won't be able to learn everything in one year, but students are
-  encouraged to learn outside of build sessions to become effective members as
-  soon as possible.</p>
-  <p>The following sites will prove very useful when working through some of
-  this material. Some of them are obvious, but students forget from time to
-  time that the internet is a valuable resource.</p>
-  <ul>
-    <li>
-      <a href="https://www.google.com/">google.com</a>
-    </li>
-    <li>
-      <a href="https://scholar.google.com/">scholar.google.com</a>
-    </li>
-    <li>
-      <a href="https://stackoverflow.com/">stackoverflow.com</a>
-    </li>
-    <li>
-      <a href="https://en.wikipedia.org/">en.wikipedia.org</a>
-    </li>
-    <li>
-      <a href="https://en.wikibooks.org/">en.wikibooks.org</a>
-    </li>
-  </ul>
-  <p>Certain pages from these will be linked in the module content where
-  appropriate. See <a href="#Submission">this section</a> for assignment
-  submission instructions.</p>
-  <div id="columnContainer">
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_C.2B.2B">Intro to C++</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs01/">Computer Science 1</a>
-      </div>
-      <p>Introduces the fundamentals of computer programming and software
-      design. Topics include variables, data types, assignment, expressions,
-      basic I/O, control flow, functions and parameters, scope, and data
-      structures.</p>
+  <div id="content">
+    <div class="title">
+      <h1>Curriculum and Instruction</h1>
     </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Advanced_C.2B.2B">Advanced C++</h3>
+    <div id="toc"></div>
+    <h2 id="The_Mindset_of_an_Engineer">The Mindset of an Engineer</h2>
+    <p>The following maxim summarizes what we hope to teach students on the
+    software team (with examples drawn from controls engineering).</p>
+    <blockquote>
+      Engineer based on requirements, not an ideology.
+    </blockquote>
+    <p>Engineering is filled with trade-offs. The tools should fit the job, and
+    not every problem is a nail waiting to be struck by a hammer. Instead,
+    assess the minimum requirements (min specs) for a solution to the task at
+    hand and do only enough work to satisfy them; exceeding your specifications
+    is a waste of time and money. If you require performance or maintainability
+    above the min specs, your min specs were chosen incorrectly by
+    definition.</p>
+    <p>Controls engineering is pragmatic in a similar respect: <i>solve. the.
+    problem</i>. For control of non-linear systems, <a href=
+    "http://faculty.washington.edu/devasia/Inversion.html">plant inversion</a>
+    is elegant on paper but doesn't work with an inaccurate model, yet using a
+    theoretically incorrect solution like linear approximations of the
+    non-linear system works well enough to be used industry-wide. There are
+    more sophisticated controllers than PID, but we use PID anyway for its
+    versatility and simplicity. Sometimes the inferior solutions are more
+    effective or have a more desirable cost-benefit ratio than what the control
+    system designer considers ideal or clean. Choose the tool that is most
+    effective.</p>
+    <p>Solutions need to be good enough, but do not need to be perfect. We want
+    to avoid integrators as they introduce instability, but we use them anyway
+    because they work well for meeting tracking specifications. One should not
+    blindly defend a design or follow an ideology, because there is always a
+    case where its antithesis is a better option. The engineer should be able
+    to determine when this is the case, set aside their ego, and do what will
+    meet the specifications of their client (e.g., system response
+    characteristics, maintainability, usability). Preferring one solution over
+    another for pragmatic or technical reasons is fine, but the engineer should
+    not care on a personal level which sufficient solution is chosen.</p>
+    <p>This is egoless engineering.</p>
+    <h2 id="Why_I_Mentor">Why I Mentor</h2>
+    <h3 id="Tyler_Veness">Tyler Veness</h3>
+    <p>My time as a student in FRC was basically one giant R&amp;D experience
+    for me. By always being on the cutting edge of 3512, I learned a <i>lot</i>
+    along the way (successes and failures included). This exercise in
+    independent learning made a big impact on my future and I want to give
+    students here the same opportunity. I tell college students this often:
+    "Don't let schooling interfere with your education.". Seek out projects
+    that you're interested in and learn everything you can. It opens a lot of
+    avenues for you later. With that...</p>
+    <h2 id="Curriculum">Curriculum</h2>
+    <p>This page serves as a repository of knowledge for topics the software
+    team has explored in the past and topics alumni are learning in college.
+    Students probably won't be able to learn everything in one year, but
+    students are encouraged to learn outside of build sessions to become
+    effective members as soon as possible.</p>
+    <p>The following sites will prove very useful when working through some of
+    this material. Some of them are obvious, but students forget from time to
+    time that the internet is a valuable resource.</p>
+    <ul>
+      <li>
+        <a href="https://www.google.com/">google.com</a>
+      </li>
+      <li>
+        <a href="https://scholar.google.com/">scholar.google.com</a>
+      </li>
+      <li>
+        <a href="https://stackoverflow.com/">stackoverflow.com</a>
+      </li>
+      <li>
+        <a href="https://en.wikipedia.org/">en.wikipedia.org</a>
+      </li>
+      <li>
+        <a href="https://en.wikibooks.org/">en.wikibooks.org</a>
+      </li>
+    </ul>
+    <p>Certain pages from these will be linked in the module content where
+    appropriate. See <a href="#Submission">this section</a> for assignment
+    submission instructions.</p>
+    <div id="columnContainer">
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_C.2B.2B">Intro to C++</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs01/">Computer Science 1</a>
+        </div>
+        <p>Introduces the fundamentals of computer programming and software
+        design. Topics include variables, data types, assignment, expressions,
+        basic I/O, control flow, functions and parameters, scope, and data
+        structures.</p>
       </div>
-      <div class="prereq">
-        <a href="cs02/">Computer Science 2</a>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Advanced_C.2B.2B">Advanced C++</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs02/">Computer Science 2</a>
+        </div>
+        <p>Covers more advanced topics such as threading, synchronization, and
+        concurrency, parallelism, asynchronous data passing (i.e. networking).
+        Proper use of C++11 threads, mutexes, and atomics will be taught. SFML
+        is used to instruct students in the proper use of UDP and TCP sockets,
+        as well as when to use each type.</p>
       </div>
-      <p>Covers more advanced topics such as threading, synchronization, and
-      concurrency, parallelism, asynchronous data passing (i.e. networking).
-      Proper use of C++11 threads, mutexes, and atomics will be taught. SFML is
-      used to instruct students in the proper use of UDP and TCP sockets, as
-      well as when to use each type.</p>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_Shell_Scripting">Intro to Shell Scripting</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs03/">Computer Science 3</a>
+        </div>
+        <p>Introduces writing shell scripts using Bash. Shell scripts will be
+        used to automate sequences of commands to optimize parts of one's
+        workflow.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_Python">Intro to Python</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs04/">Computer Science 4</a>
+        </div>
+        <p>Introduces the scripting language Python. WPILib's <i>wpiformat</i>
+        will be used as a motivating project.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_HTML">Intro to HTML</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs05/">Computer Science 5</a>
+        </div>
+        <p>Introduces website design using HTML, CSS and Javascript. Emphasis
+        is placed on writing HTML5 conformant web pages.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Vision_Processing">Vision Processing</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs06/">Computer Science 6</a>
+        </div>
+        <p>Teaches basic vision processing using the OpenCV computer vision
+        library.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Perceptrons_and_Artificial_Neural_Networks">Perceptrons and
+          Artificial Neural Networks</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs07/">Computer Science 7</a>
+        </div>
+        <p>Introduces the field of machine learning with the perceptron. A
+        basic example in vision processing is presented.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Android_Development">Android Development</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs08/">Computer Science 8</a>
+        </div>
+        <p>Introduces writing applications using the Android SDK. Instruction
+        in the Java programming language is provided as needed.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Graphical_User_Interfaces">Graphical User Interfaces</h3>
+        </div>
+        <div class="prereq">
+          <a href="cs09/">Computer Science 9</a>
+        </div>
+        <p>Introduces designing graphical user interfaces with the Qt graphics
+        toolkit.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_Git">Intro to Git</h3>
+        </div>
+        <div class="prereq">
+          <a href="git01/">Git 1</a>
+        </div>
+        <p>Introduces version control systems and their uses. This module is
+        taught using Git. Installation of Git, setting up user identification
+        for commits, and basic workflow are covered, with emphasis on the use
+        of branches to manage work between repositories.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Gerrit">Gerrit</h3>
+        </div>
+        <div class="prereq">
+          <a href="git02/">Git 2</a>
+        </div>
+        <p>Expands on the set of commands and techniques learned from the
+        previous module. Topics include tags, rebasing, and managing repository
+        history. These tools will be applied to working with Gerrit, a code
+        review system.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_Real-Time_Software">Intro to Real-Time Software</h3>
+        </div>
+        <div class="prereq">
+          <a href="rt01/">Real-Time 1</a>
+        </div>
+        <p>Covers real-time requirements (e.g., predictability) and methods for
+        meeting them.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="State_Machines_and_PID_Controllers">State Machines and PID
+          Controllers</h3>
+        </div>
+        <div class="prereq">
+          <a href="ct01/">Control Theory 1</a>
+        </div>
+        <p>Introduces the topic of control systems and how they can improve the
+        performance of a robot. State machines and PID controllers are
+        presented as simple yet effective tools for most control applications
+        in FRC. The dynamics of PID controllers, their types, and procedures
+        for tuning them effectively are also discussed.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Intro_to_Feedback_Control_Systems">Intro to Feedback Control
+          Systems</h3>
+        </div>
+        <div class="prereq">
+          <a href="ct02/">Control Theory 2</a>
+        </div>
+        <p>Develops a more rigorous understanding of control systems through
+        the analysis and design of continuous linear feedback control systems
+        commonly used in FRC. Feedforwards and motion profiles will also be
+        discussed.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Classical_Control_Theory">Classical Control Theory</h3>
+        </div>
+        <div class="prereq">
+          <a href="ct03/">Control Theory 3</a>
+        </div>
+        <p>Provides an introduction to methods of classical control theory.
+        Frequency domain analysis will be used to characterize systems using
+        their step response. Single input, single output (SISO) systems will be
+        discussed.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Modern_Control_Theory">Modern Control Theory</h3>
+        </div>
+        <div class="prereq">
+          <a href="ct04/">Control Theory 4</a>
+        </div>
+        <p>Provides an introduction to methods of modern control theory.
+        Design, analysis, and control of multiple input, multiple output (MIMO)
+        systems will be performed using their state-space representations.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Filters_and_State_Estimation">Filters and State
+          Estimation</h3>
+        </div>
+        <div class="prereq">
+          <a href="sig01/">Signal Processing 1</a>
+        </div>
+        <p>Discusses filters, why they are necessary, and their application to
+        control theory. Several basic filters are covered such as the rolling
+        average filter, complimentary filter, low-pass filter, and high-pass
+        filter. Each one is studied for its respective use in predicting the
+        state of a system.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Kalman_Filter">Kalman Filter</h3>
+        </div>
+        <div class="prereq">
+          <a href="sig02/">Signal Processing 2</a>
+        </div>
+        <p>The Kalman filter's inner workings as well as its utility in state
+        estimation will be discussed. The implementation of a single-input
+        Kalman filter will be studied to reinforce some concepts and show an
+        implementation for real robot code. Topics include noise distribution
+        and some linear algebra.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Robot_Software">Robot Software</h3>
+        </div>
+        <div class="prereq">
+          <a href="frc01/">FRC 1</a>
+        </div>
+        <p>Applies the various skills learned in RT 1, CS 1, and CT 1 to the
+        control of electromechanical systems in FRC. Robot software design
+        patterns are covered as well as features of WPILib and FRC team 3512's
+        custom classes.</p>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Scouting_Application">Scouting Application</h3>
+        </div>
+        <div class="prereq">
+          <a href="frc02/">FRC 2</a>
+        </div>
+        <p>Focuses on writing a software application for scouting during FRC
+        competitions. This has typically been written in conjunction with a
+        spreadsheet which receives the scouting data. HTML web pages and
+        Android applications have been used in the past.</p>
+      </div>
     </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_Shell_Scripting">Intro to Shell Scripting</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs03/">Computer Science 3</a>
-      </div>
-      <p>Introduces writing shell scripts using Bash. Shell scripts will be
-      used to automate sequences of commands to optimize parts of one's
-      workflow.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_Python">Intro to Python</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs04/">Computer Science 4</a>
-      </div>
-      <p>Introduces the scripting language Python. WPILib's <i>wpiformat</i>
-      will be used as a motivating project.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_HTML">Intro to HTML</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs05/">Computer Science 5</a>
-      </div>
-      <p>Introduces website design using HTML, CSS and Javascript. Emphasis is
-      placed on writing HTML5 conformant web pages.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Vision_Processing">Vision Processing</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs06/">Computer Science 6</a>
-      </div>
-      <p>Teaches basic vision processing using the OpenCV computer vision
-      library.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Perceptrons_and_Artificial_Neural_Networks">Perceptrons and
-        Artificial Neural Networks</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs07/">Computer Science 7</a>
-      </div>
-      <p>Introduces the field of machine learning with the perceptron. A basic
-      example in vision processing is presented.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Android_Development">Android Development</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs08/">Computer Science 8</a>
-      </div>
-      <p>Introduces writing applications using the Android SDK. Instruction in
-      the Java programming language is provided as needed.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Graphical_User_Interfaces">Graphical User Interfaces</h3>
-      </div>
-      <div class="prereq">
-        <a href="cs09/">Computer Science 9</a>
-      </div>
-      <p>Introduces designing graphical user interfaces with the Qt graphics
-      toolkit.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_Git">Intro to Git</h3>
-      </div>
-      <div class="prereq">
-        <a href="git01/">Git 1</a>
-      </div>
-      <p>Introduces version control systems and their uses. This module is
-      taught using Git. Installation of Git, setting up user identification for
-      commits, and basic workflow are covered, with emphasis on the use of
-      branches to manage work between repositories.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Gerrit">Gerrit</h3>
-      </div>
-      <div class="prereq">
-        <a href="git02/">Git 2</a>
-      </div>
-      <p>Expands on the set of commands and techniques learned from the
-      previous module. Topics include tags, rebasing, and managing repository
-      history. These tools will be applied to working with Gerrit, a code
-      review system.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_Real-Time_Software">Intro to Real-Time Software</h3>
-      </div>
-      <div class="prereq">
-        <a href="rt01/">Real-Time 1</a>
-      </div>
-      <p>Covers real-time requirements (e.g., predictability) and methods for
-      meeting them.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="State_Machines_and_PID_Controllers">State Machines and PID
-        Controllers</h3>
-      </div>
-      <div class="prereq">
-        <a href="ct01/">Control Theory 1</a>
-      </div>
-      <p>Introduces the topic of control systems and how they can improve the
-      performance of a robot. State machines and PID controllers are presented
-      as simple yet effective tools for most control applications in FRC. The
-      dynamics of PID controllers, their types, and procedures for tuning them
-      effectively are also discussed.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Intro_to_Feedback_Control_Systems">Intro to Feedback Control
-        Systems</h3>
-      </div>
-      <div class="prereq">
-        <a href="ct02/">Control Theory 2</a>
-      </div>
-      <p>Develops a more rigorous understanding of control systems through the
-      analysis and design of continuous linear feedback control systems
-      commonly used in FRC. Feedforwards and motion profiles will also be
-      discussed.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Classical_Control_Theory">Classical Control Theory</h3>
-      </div>
-      <div class="prereq">
-        <a href="ct03/">Control Theory 3</a>
-      </div>
-      <p>Provides an introduction to methods of classical control theory.
-      Frequency domain analysis will be used to characterize systems using
-      their step response. Single input, single output (SISO) systems will be
-      discussed.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Modern_Control_Theory">Modern Control Theory</h3>
-      </div>
-      <div class="prereq">
-        <a href="ct04/">Control Theory 4</a>
-      </div>
-      <p>Provides an introduction to methods of modern control theory. Design,
-      analysis, and control of multiple input, multiple output (MIMO) systems
-      will be performed using their state-space representations.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Filters_and_State_Estimation">Filters and State Estimation</h3>
-      </div>
-      <div class="prereq">
-        <a href="sig01/">Signal Processing 1</a>
-      </div>
-      <p>Discusses filters, why they are necessary, and their application to
-      control theory. Several basic filters are covered such as the rolling
-      average filter, complimentary filter, low-pass filter, and high-pass
-      filter. Each one is studied for its respective use in predicting the
-      state of a system.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Kalman_Filter">Kalman Filter</h3>
-      </div>
-      <div class="prereq">
-        <a href="sig02/">Signal Processing 2</a>
-      </div>
-      <p>The Kalman filter's inner workings as well as its utility in state
-      estimation will be discussed. The implementation of a single-input Kalman
-      filter will be studied to reinforce some concepts and show an
-      implementation for real robot code. Topics include noise distribution and
-      some linear algebra.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Robot_Software">Robot Software</h3>
-      </div>
-      <div class="prereq">
-        <a href="frc01/">FRC 1</a>
-      </div>
-      <p>Applies the various skills learned in RT 1, CS 1, and CT 1 to the
-      control of electromechanical systems in FRC. Robot software design
-      patterns are covered as well as features of WPILib and FRC team 3512's
-      custom classes.</p>
-    </div>
-    <div class="ci atomic">
-      <div class="title">
-        <h3 id="Scouting_Application">Scouting Application</h3>
-      </div>
-      <div class="prereq">
-        <a href="frc02/">FRC 2</a>
-      </div>
-      <p>Focuses on writing a software application for scouting during FRC
-      competitions. This has typically been written in conjunction with a
-      spreadsheet which receives the scouting data. HTML web pages and Android
-      applications have been used in the past.</p>
-    </div>
-  </div>
-  <h2 id="Submission">Submission</h2>
-  <p>Assignment submissions will be made via Git. To start, make an account on
-  <a href="https://github.com/">GitHub</a> if you don't already have one.
-  Solutions for each module's assignments and labs should be within a
-  repository named like <code>cs01-assignments</code> where the part before the
-  hyphen is the module name. Use <code>git clone</code> to clone the repository
-  to your local machine. <code>git add</code>, <code>git commit</code>, and
-  <code>git push</code> should be used to make snapshots of your work and push
-  it to the remote server. Make commits to your repository as often as you feel
-  is necessary. See <a href="git01/#10_Most_Commonly_Used_Git_Commands">this
-  cheat sheet</a> for an overview of the most commonly used Git commands.</p>
-  <p>The directory structure should be set up as follows. The given names are
-  examples demonstrating the desired format. Your source files may have
-  different names from those shown or not exist. Folders use lowercase and
-  files use camel case. Some problems or labs may require multiple files.</p>
-  <ul>
-    <li>cs01-assignments (Git repository root)</li>
-    <li style="list-style: none; display: inline">
-      <ul>
-        <li>chapter01 (workspace)</li>
-        <li style="list-style: none; display: inline">
-          <ul>
-            <li>drill02 (project)</li>
-            <li style="list-style: none; display: inline">
-              <ul>
-                <li>src</li>
-                <li style="list-style: none; display: inline">
-                  <ul>
-                    <li>ExampleClass.cpp</li>
-                    <li>ExampleClass.hpp</li>
-                    <li>Main.cpp</li>
-                  </ul>
-                </li>
-                <li>Makefile</li>
-              </ul>
-            </li>
-            <li>exercise13 (project)</li>
-            <li style="list-style: none; display: inline">
-              <ul>
-                <li>src</li>
-                <li style="list-style: none; display: inline">
-                  <ul>
-                    <li>Main.cpp</li>
-                  </ul>
-                </li>
-                <li>README.txt</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>chapter11 (workspace)</li>
-        <li style="list-style: none; display: inline">
-          <ul>
-            <li>drill14 (project)</li>
-            <li style="list-style: none; display: inline">
-              <ul>
-                <li>src</li>
-                <li style="list-style: none; display: inline">
-                  <ul>
-                    <li>Main.cpp</li>
-                  </ul>
-                </li>
-                <li>license.txt</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>cool-lab (workspace)</li>
-        <li style="list-style: none; display: inline">
-          <ul>
-            <li>first-section-name (project)</li>
-            <li style="list-style: none; display: inline">
-              <ul>
-                <li>src</li>
-                <li style="list-style: none; display: inline">
-                  <ul>
-                    <li>Main.cpp</li>
-                    <li>SupportFile.cpp</li>
-                    <li>SupportFile.hpp</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <p>Source code goes in the <code>src</code> directory while other files like
-  licenses, makefiles, READMEs and data go outside of it. It's convention to
-  define <code>main()</code> in a file called <code>Main.cpp</code>, but it
-  isn't required and may not make sense for projects with only one file.</p>
-  <p>Labs may include more specific instructions on directory structure and
-  which files to submit. If there are none, submit all files used and follow
-  the aformentioned format.</p>
-  <p>Submissions will have our formatter run on them. After setting it up
-  according to <a href="../bootstrap/#Formatter">these instructions</a>, place
-  <a href=".clang-format">.clang-format</a>, <a href=
-  ".styleguide">.styleguide</a>, and <a href=
-  ".styleguide-license">.styleguide-license</a> in the root directory of your
-  repository. You may modify <code>.styleguide-license</code> to use your
-  name.</p>
-  <h3 id="Option_1.3A_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
-  <p>The directory tree above provides an example of which folders should be an
-  Eclipse workspace or project within a workspace (parentheses are not part of
-  the name). This ensures the Eclipse projects and their metadata are backed up
-  via Git. If you do this, you'll need to include the following entries in a
-  .gitignore in the root directory of your Git repository:</p>
-  <pre>*.d
+    <h2 id="Submission">Submission</h2>
+    <p>Assignment submissions will be made via Git. To start, make an account
+    on <a href="https://github.com/">GitHub</a> if you don't already have one.
+    Solutions for each module's assignments and labs should be within a
+    repository named like <code>cs01-assignments</code> where the part before
+    the hyphen is the module name. Use <code>git clone</code> to clone the
+    repository to your local machine. <code>git add</code>, <code>git
+    commit</code>, and <code>git push</code> should be used to make snapshots
+    of your work and push it to the remote server. Make commits to your
+    repository as often as you feel is necessary. See <a href=
+    "git01/#10_Most_Commonly_Used_Git_Commands">this cheat sheet</a> for an
+    overview of the most commonly used Git commands.</p>
+    <p>The directory structure should be set up as follows. The given names are
+    examples demonstrating the desired format. Your source files may have
+    different names from those shown or not exist. Folders use lowercase and
+    files use camel case. Some problems or labs may require multiple files.</p>
+    <ul>
+      <li>cs01-assignments (Git repository root)</li>
+      <li style="list-style: none; display: inline">
+        <ul>
+          <li>chapter01 (workspace)</li>
+          <li style="list-style: none; display: inline">
+            <ul>
+              <li>drill02 (project)</li>
+              <li style="list-style: none; display: inline">
+                <ul>
+                  <li>src</li>
+                  <li style="list-style: none; display: inline">
+                    <ul>
+                      <li>ExampleClass.cpp</li>
+                      <li>ExampleClass.hpp</li>
+                      <li>Main.cpp</li>
+                    </ul>
+                  </li>
+                  <li>Makefile</li>
+                </ul>
+              </li>
+              <li>exercise13 (project)</li>
+              <li style="list-style: none; display: inline">
+                <ul>
+                  <li>src</li>
+                  <li style="list-style: none; display: inline">
+                    <ul>
+                      <li>Main.cpp</li>
+                    </ul>
+                  </li>
+                  <li>README.txt</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>chapter11 (workspace)</li>
+          <li style="list-style: none; display: inline">
+            <ul>
+              <li>drill14 (project)</li>
+              <li style="list-style: none; display: inline">
+                <ul>
+                  <li>src</li>
+                  <li style="list-style: none; display: inline">
+                    <ul>
+                      <li>Main.cpp</li>
+                    </ul>
+                  </li>
+                  <li>license.txt</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>cool-lab (workspace)</li>
+          <li style="list-style: none; display: inline">
+            <ul>
+              <li>first-section-name (project)</li>
+              <li style="list-style: none; display: inline">
+                <ul>
+                  <li>src</li>
+                  <li style="list-style: none; display: inline">
+                    <ul>
+                      <li>Main.cpp</li>
+                      <li>SupportFile.cpp</li>
+                      <li>SupportFile.hpp</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p>Source code goes in the <code>src</code> directory while other files
+    like licenses, makefiles, READMEs and data go outside of it. It's
+    convention to define <code>main()</code> in a file called
+    <code>Main.cpp</code>, but it isn't required and may not make sense for
+    projects with only one file.</p>
+    <p>Labs may include more specific instructions on directory structure and
+    which files to submit. If there are none, submit all files used and follow
+    the aformentioned format.</p>
+    <p>Submissions will have our formatter run on them. After setting it up
+    according to <a href="../bootstrap/#Formatter">these instructions</a>,
+    place <a href=".clang-format">.clang-format</a>, <a href=
+    ".styleguide">.styleguide</a>, and <a href=
+    ".styleguide-license">.styleguide-license</a> in the root directory of your
+    repository. You may modify <code>.styleguide-license</code> to use your
+    name.</p>
+    <h3 id="Option_1.3A_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
+    <p>The directory tree above provides an example of which folders should be
+    an Eclipse workspace or project within a workspace (parentheses are not
+    part of the name). This ensures the Eclipse projects and their metadata are
+    backed up via Git. If you do this, you'll need to include the following
+    entries in a .gitignore in the root directory of your Git repository:</p>
+    <pre>*.d
 *.o
 .metadata/
 .settings/
 Debug/
 Release/
 RemoteSystemsTempFiles/</pre>
-  <p>If you need to clone your repository to a different computer to work
-  projects in what was an existing chapter workspace, choose the chapter folder
-  as a workspace when Eclipse starts up like usual. You can import the problem
-  projects into the workspace by right-clicking on the Project Explorer and
-  selecting "Import...". In the resulting dialog, choose "General &gt; Existing
-  Projects into Workspace".</p>
-  <h3 id="Option_2.3A_Alternate_Editor">Option 2: Alternate Editor</h3>
-  <p>If you want to use a different IDE such as Vim, provide a Makefile in each
-  problem folder to compile the executable. "workspaces" and "projects" aren't
-  relevant here, but follow the directory layout. Here's an <a href=
-  "Makefile">example Makefile</a> which recursively finds all the source files
-  in the <code>src</code> directory and compiles Debug and Release versions of
-  them. The <code>NAME</code> field should be edited before use. The following
-  entries should be included in the repository's .gitignore file:</p>
-  <pre>*.d
+    <p>If you need to clone your repository to a different computer to work
+    projects in what was an existing chapter workspace, choose the chapter
+    folder as a workspace when Eclipse starts up like usual. You can import the
+    problem projects into the workspace by right-clicking on the Project
+    Explorer and selecting "Import...". In the resulting dialog, choose
+    "General &gt; Existing Projects into Workspace".</p>
+    <h3 id="Option_2.3A_Alternate_Editor">Option 2: Alternate Editor</h3>
+    <p>If you want to use a different IDE such as Vim, provide a Makefile in
+    each problem folder to compile the executable. "workspaces" and "projects"
+    aren't relevant here, but follow the directory layout. Here's an <a href=
+    "Makefile">example Makefile</a> which recursively finds all the source
+    files in the <code>src</code> directory and compiles Debug and Release
+    versions of them. The <code>NAME</code> field should be edited before use.
+    The following entries should be included in the repository's .gitignore
+    file:</p>
+    <pre>*.d
 *.o
 Debug/
 Release/</pre>
+  </div>
 </body>
 </html>

@@ -1,6 +1,11 @@
 blockquote {
   background: rgb(238, 238, 238);
 
+  /* border color is 90% of background color */
+  border-color: rgb(214, 214, 214);
+  border-style: solid;
+  border-width: 0.1em;
+
   margin: 1em 2.5em;
   padding: 1em;
 
@@ -9,23 +14,23 @@ blockquote {
 
 body {
   background-color: white;
-  color: black;
-
-  margin: 0em auto 0em auto;
-  max-width: 800px;
-  padding: 0.75em;
+  margin: 0em auto;
+  max-width: 56.5em;
 
   border-color: rgb(45, 45, 45);
   border-style: solid;
   border-width: 0.1em;
 
-  font-family: helvetica, sans-serif;
-  font-size: 1em;
-  text-align: justify;
+  text-align: center;
 }
 
 code {
   background: rgb(238, 238, 238);
+
+  /* border color is 90% of background color */
+  border-color: rgb(214, 214, 214);
+  border-style: solid;
+  border-width: 0.1em;
 
   padding: 0.2em;
 }
@@ -37,10 +42,6 @@ div.ci {
 }
 
 div.ci > div.title {
-  border-color: rgb(45, 45, 45);
-  border-style: solid;
-  border-width: 0.1em;
-
   text-align: left;
 }
 
@@ -60,9 +61,11 @@ div.play-button {
 div.title {
   background-color: #FFDEAD;
   margin: 0 auto;
+  padding: 0em 0.5em;
   vertical-align: middle;
 
-  border-color: rgb(45, 45, 45);
+  /* border color is 90% of background color */
+  border-color: rgb(229.5, 200, 156);
   border-style: solid;
   border-width: 0.1em;
 
@@ -80,7 +83,8 @@ div.prereq {
   padding: 0.5em;
   vertical-align: middle;
 
-  border-color: rgb(45, 45, 45);
+  /* border color is 90% of background color */
+  border-color: rgb(229.5, 224, 180);
   border-style: solid;
   border-width: 0.1em;
 
@@ -158,6 +162,11 @@ ol.sub > li:before {
 pre {
   background: rgb(238, 238, 238);
 
+  /* border color is 90% of background color */
+  border-color: rgb(214, 214, 214);
+  border-style: solid;
+  border-width: 0.1em;
+
   margin: 0.5em;
   padding: 0.2em;
 
@@ -175,6 +184,19 @@ table {
   column-width: 30em;
   -webkit-column-width: 30em;
   -moz-column-width: 30em;
+}
+
+#content {
+  background-color: white;
+  color: black;
+
+  margin: 0em auto;
+  max-width: 32.5em;
+  padding: 0.75em;
+
+  font-family: helvetica, sans-serif;
+  font-size: 1em;
+  text-align: left;
 }
 
 #toc {
