@@ -16,6 +16,12 @@ def main():
             for dp, dn, fn in os.walk(os.path.expanduser("."))
             if "MathJax" not in dp for f in fn if f.endswith(".html")
         ]
+
+        # Do not include certain files in sitemap
+        skip_strs = ["archives/angelscript/docs"]
+        for skip_str in skip_strs:
+            files = [f for f in files if skip_str not in f]
+
         for name in sorted(files):
             file.write("    <url>\n"
                        "        <loc>https://csweb.frc3512.com/" + name[2:] +

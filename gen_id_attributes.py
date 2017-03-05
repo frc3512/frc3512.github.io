@@ -9,7 +9,13 @@ def main():
         os.path.join(dp, f) for dp, dn, fn in os.walk(os.path.expanduser("."))
         if "MathJax" not in dp for f in fn if f.endswith(".html")
     ]
-    line_regex = re.compile("(?P<open>\s*<h[2-6] )"
+
+    # Do not process certain problematic files
+    skip_strs = ["archives/angelscript/docs"]
+    for skip_str in skip_strs:
+        files = [f for f in files if skip_str not in f]
+
+    line_regex = re.compile("(?P<open>\s*<h[2-6])"
                             "(?P<id>.*id=\"[A-Za-z0-9\-._]*\")?"
                             "(?P<close>>)"
                             "(?P<content>.*)"
@@ -23,7 +29,7 @@ def main():
             for line in input:
                 match = line_regex.search(line)
                 if match:
-                    edit = match["open"] + "id=\""
+                    edit = match["open"] + " id=\""
                     for char in match["content"]:
                         if char == "<":
                             in_tag = True
