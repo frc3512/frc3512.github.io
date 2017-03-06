@@ -67,7 +67,7 @@ div.title {
   /* border color is 90% of background color */
   border-style: solid;
   border-width: 0.1em;
-  border-color: rgb(229.5, 200, 156);
+  border-color: rgb(230, 200, 156);
 
   font-family: arial, sans-serif;
   text-align: center;
@@ -86,7 +86,7 @@ div.prereq {
   /* border color is 90% of background color */
   border-style: solid;
   border-width: 0.1em;
-  border-color: rgb(229.5, 224, 180);
+  border-color: rgb(230, 224, 180);
 
   text-align: left;
 }
