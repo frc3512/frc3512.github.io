@@ -268,7 +268,8 @@
         </div>
         <p>Provides an introduction to methods of modern control theory.
         Design, analysis, and control of multiple input, multiple output (MIMO)
-        systems will be performed using their state-space representations.</p>
+        systems will be performed using their state-space representations.
+        State estimators such as the Kalman filter are also covered.</p>
       </div>
       <div class="ci atomic">
         <div class="title">
@@ -276,26 +277,12 @@
           Estimation</h3>
         </div>
         <div class="prereq">
-          <a href="sig01/">Signal Processing 1</a>
+          <a href="ct05/">Control Theory 5</a>
         </div>
-        <p>Discusses filters, why they are necessary, and their application to
-        control theory. Several basic filters are covered such as the rolling
-        average filter, complimentary filter, low-pass filter, and high-pass
-        filter. Each one is studied for its respective use in predicting the
-        state of a system.</p>
-      </div>
-      <div class="ci atomic">
-        <div class="title">
-          <h3 id="Kalman_Filter">Kalman Filter</h3>
-        </div>
-        <div class="prereq">
-          <a href="sig02/">Signal Processing 2</a>
-        </div>
-        <p>The Kalman filter's inner workings as well as its utility in state
-        estimation will be discussed. The implementation of a single-input
-        Kalman filter will be studied to reinforce some concepts and show an
-        implementation for real robot code. Topics include noise distribution
-        and some linear algebra.</p>
+        <p>Covers why filters are necessary, how to represent them with
+        transfer functions and state-space models, and how to discretize them
+        for use in digital signal processing. A few common ones will be
+        discussed using WPILib's LinearDigitalFilter class for examples.</p>
       </div>
       <div class="ci atomic">
         <div class="title">

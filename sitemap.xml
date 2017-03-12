@@ -87,6 +87,12 @@
         <loc>https://csweb.frc3512.com/ci/ct04/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/ci/ct04/kalman-filter/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/ct05/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/ci/frc01/index.html</loc>
     </url>
     <url>
@@ -103,12 +109,6 @@
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/rt01/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/sig01/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/sig02/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
