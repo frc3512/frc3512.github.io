@@ -107,6 +107,8 @@ Joystick turnJoystick(1);
 
 while (IsOperatorControl() &amp;& IsEnabled()) {
     drive.ArcadeDrive(forwardJoystick.GetX(), turnJoystick.GetY());
+
+    std::this_thread::sleep_for(10ms);
 }</pre>
     <p>While it is easy to use, a creating custom drive scheme allows for more
     complex functionality and features. Alternatively, WPILib may simply not
@@ -324,6 +326,8 @@ while (IsOperatorControl() &amp;& IsEnabled()) {
     // Update step
     oldButtonState = newButtonState;
     newButtonState = joystick.GetRawButton(2);
+
+    std::this_thread::sleep_for(10ms);
 }
     </pre>
     <p>First, the booleans are initialized to <code>false</code> to represent a
@@ -355,6 +359,8 @@ while (IsOperatorControl() &amp;& IsEnabled()) {
 
     // Update step
     joystick2Buttons.Update();
+
+    std::this_thread::sleep_for(10ms);
 }</pre>
     <p>To check other buttons, one has to simply pass a different button number
     to the appropriate member function. To check other joysticks, one has to
@@ -363,9 +369,10 @@ while (IsOperatorControl() &amp;& IsEnabled()) {
     <h3 id="Toggle_solenoid_state">Toggle solenoid state</h3>
     <p>Toggling solenoids to extend or retract mechanisms can be done with the
     following pattern.</p>
-    <pre>Solenoid solenoid(1);
+    <pre>
+Solenoid solenoid(1);
 
-  solenoid.Set(!solenoid.Get());</pre>
+solenoid.Set(!solenoid.Get());</pre>
     <p>The following is a more verbose way of doing the same thing.</p>
     <pre>Solenoid solenoid(1);
 

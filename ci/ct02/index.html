@@ -37,6 +37,18 @@
     system framework</a> that provides a nearly one-to-one mapping between a
     control system diagram and its implementation on an FRC robot. <i>TODO:
     describe how CtrlSys works</i>.</p>
+    <h2 id="Gain_and_phase_margin">Gain and phase margin</h2>
+    <p>Watch <a href="https://youtu.be/ThoA4amCAX4">this video</a> for an
+    explanation of gain and phase margin and its relation to control system
+    stability.</p>
+    <h2 id="Phase_loss">Phase loss</h2>
+    <p>Phase loss is the reduction of phase margin that occurs in digital
+    implementations of feedback controllers from sampling the continuous
+    controller at discrete time intervals. As the sample rate of the controller
+    decreases, the phase margin decreases and will lead to instability once the
+    phase margin reaches zero. See <a href=
+    "https://en.wikibooks.org/wiki/Control_Systems/System_Delays">this
+    article</a> for more on system delays.</p>
     <h2 id="Motion_profiles">Motion profiles</h2>
     <p>When the response of controllers we tune needs to be more controlled, we
     change the setpoint over time in a controlled manner using a motion
