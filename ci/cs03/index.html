@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Intro to Shell Scripting">
+  <meta name="description" content="Advanced C++">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intro to Shell Scripting - FRC Team 3512</title>
+  <title>Advanced C++ - FRC Team 3512</title>
   <script src="../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../style.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
@@ -12,144 +12,78 @@
 <body onload="tableOfContents();">
   <div id="content">
     <div class="title">
-      <h1>Intro to Shell Scripting<br>
+      <h1>Advanced C++<br>
       <small>Computer Science 3</small></h1>
+    </div>
+    <div class="prereq">
+      <strong>Prerequisites:</strong> <a href="../cs01/">CS 1</a>
     </div>
     <div id="toc"></div>
     <h2 id="Introduction">Introduction</h2>
-    <p>Shell scripts are a useful tool for automating repetitive or complex
-    tasks. This module will teach the development of Bash scripts.</p>
-    <h2 id="Tutorial">Tutorial</h2>
-    <p>Here is a <a href=
-    "http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html">tutorial</a> on Bash
-    scripting that I reference often for learning various I need for tasks I'm
-    working on. <a href="https://swtch.com/%7Ersc/regexp/regexp1.html">This</a>
-    provides an interesting background for regular expressions and how they
-    work.</p>
-    <h2 id="Examples">Examples</h2>
-    <p>The following scripts use git commands to manipulate a repository's
-    history. The second uses the plumbing command <i>for-each-ref</i> to
-    enumerate all local branches.</p>
-    <p>loc-generate.sh (Checks out each commit in a Git repository's history
-    and generates a CSV file of number of lines of code in the repository)</p>
-    <pre>
-#!/bin/bash
-
-git checkout -q master
-read -r -a array &gt; data.csv
-  else
-    echo $x$','$y','$x$','$y &gt;&gt; data.csv
-  fi
-done
-
-# Print newline so prompt appears on next line
-echo
-    </pre>
-    <p>mirror.sh (Used for management of 20+ branches in allwpilib Git
-    repository)</p>
-    <pre>
-#!/bin/bash
-
-# ./mirror.sh COMMAND STARTBRANCH
-# 1st argument is command to run
-# 2nd argument is starting branch
-
-if [ $# -eq 0 ]; then
-  exit 1
-fi
-
-# If a starting branch was provided, don't run until that branch is checked out
-if [ $# -eq 2 ]; then
-  run=false
-else
-  run=true
-fi
-
-if [ "$1" == "rebase" ]; then
-  git checkout -q master
-  git pull -q upstream master
-fi
-
-branches=()
-eval "$(git for-each-ref --shell --format='branches+=(%(refname))' refs/heads/)"
-for branch in "${branches[@]}"; do
-  base=$(basename $branch)
-  if [ "$run" = false ]; then
-    if [ "$base" == "$2" ]; then
-      run=true
-    fi
-  fi
-
-  if [ "$run" = true ]; then
-    echo "Switching to branch '$base'"
-    git reset -q --hard HEAD
-    git checkout -q $base
-
-    # Run subcommand
-    case $1 in
-    "build")
-      if [ "$base" == "itable-base" ] ||
-         [ "$base" == "kalman-filter" ] ||
-         [ "$base" == "master" ] ||
-         [ "$base" == "motion-profile" ] ||
-         [ "$base" == "pid-dt" ]; then
-        continue
-      fi
-
-      git apply allwpilib-gradle.patch
-
-      ./gradlew build
-      ;;
-    "buildsim")
-      if [ "$base" == "itable-base" ] ||
-         [ "$base" == "kalman-filter" ] ||
-         [ "$base" == "master" ] ||
-         [ "$base" == "motion-profile" ] ||
-         [ "$base" == "pid-dt" ]; then
-        continue
-      fi
-
-      git apply allwpilib-gradle.patch
-
-      ./gradlew build -PmakeSim
-      ;;
-    "format")
-      ./styleguide/format.py
-      ./license-update.py
-      if [ `git diff | wc -l` != "0" ]; then
-        echo "branch '$base' modified by format.py"
-        exit 1
-      fi
-      ;;
-    "push")
-      git push -f
-      ;;
-    "rebase")
-      if [ "$base" != "cap-sys-nice" ] &amp;&
-         [ "$base" != "cleanup-command" ] &amp;&
-         [ "$base" != "cleanup-const" ] &amp;&
-         [ "$base" != "getinstance" ] &amp;&
-         [ "$base" != "itable-base" ] &amp;&
-         [ "$base" != "motor-safety-base" ] &amp;&
-         [ "$base" != "pid-filter" ]; then
-        git rebase master
-      fi
-      ;;
-    "setorigin")
-      git branch --set-upstream-to origin/$base
-      ;;
-    *)
-      echo '$1' not a valid subcommand
-      exit 1
-      ;;
-    esac
-
-    if [ $? -ne 0 ]; then
-      exit 1
-    fi
-  fi
-done
-    </pre>
+    <p>This module focuses on teaching more advanced, interesting computer
+    science topics. Most of the motivating material is presented through videos
+    since are able to do the topic of discussion more justice than this website
+    could. We highly recommend the <a href=
+    "https://www.youtube.com/user/CppCon">CppCon</a> recordings. For
+    convenience, here's a few of their playlists.</p>
+    <ul>
+      <li>
+        <a href=
+        "https://www.youtube.com/playlist?list=PLHTh1InhhwT75gykhs7pqcR_uSiG601oh">
+        CppCon 2015</a>
+      </li>
+      <li>
+        <a href=
+        "https://www.youtube.com/playlist?list=PLHTh1InhhwT5CG9nJE1sKKHUhz1jOmvjM">
+        CppCon 2015 Lightning Talks</a>
+      </li>
+      <li>
+        <a href=
+        "https://www.youtube.com/playlist?list=PLHTh1InhhwT7J5jl4vAhO1WvGHUUFgUQH">
+        CppCon 2016</a>
+      </li>
+      <li>
+        <a href=
+        "https://www.youtube.com/playlist?list=PLHTh1InhhwT6aWgfHhrvYY3s-lqk0Y9iP">
+        CppCon 2016 Lightning Talks</a>
+      </li>
+    </ul>
+    <p>There are also talks from 2014.</p>
+    <h2 id="Submodules">Submodules</h2>
+    <div id="columnContainer">
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="High_Performance_and_Embedded"><a href=
+          "high-perf-embedded/">High Performance and Embedded</a></h3>
+        </div>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Concurrency_and_Atomics"><a href=
+          "concurrency-atomics/">Concurrency and Atomics</a></h3>
+        </div>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Parallelism"><a href="parallelism/">Parallelism</a></h3>
+        </div>
+      </div>
+      <div class="ci atomic">
+        <div class="title">
+          <h3 id="Networking"><a href="networking/">Networking</a></h3>
+        </div>
+      </div>
+    </div>
+    <h2 id="Selected_C.2B.2B_Topics">Selected C++ Topics</h2>
+    <p>Polymorphism doesn't require a base class with virtual functions and
+    inheritance. The overhead in polymorphism introduced by inheritance can be
+    eliminated by using templates.</p>
+    <p style="text-align: center"><a href=
+    "https://channel9.msdn.com/Events/GoingNative/2013/Inheritance-Is-The-Base-Class-of-Evil/player">
+    Inheritance Is The Base Class of Evil</a></p>
+    <p style="text-align: center"><iframe src=
+    "https://channel9.msdn.com/Events/GoingNative/2013/Inheritance-Is-The-Base-Class-of-Evil/player"
+    width="640" height="360" allowfullscreen></iframe></p>
   </div>
 </body>
 </html>
