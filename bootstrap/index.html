@@ -89,9 +89,15 @@
     "https://gerrit.frc3512.com/">here</a>. User setup instructions are
     <a href="https://csweb.frc3512.com/ci/git02/#Setup">here</a>.</p>
     <h2 id="Formatter">Formatter</h2>
-    <p>We use the Python 3 scripts provided in WPILib's style guide repository
-    and clang-format for source code formatting. We also use Python 3 for
-    optimizing feedback control system behavior.</p>
+    <p>Formatters help ensure style guide conformance by automatically
+    correcting deviations. We use the Python 3 scripts provided in WPILib's
+    style guide repository and clang-format for source code formatting. We also
+    use Python 3 for optimizing feedback control system behavior.</p>
+    <blockquote>
+      <i>Note:</i> The formatter should be considered a safety net. It is good
+      practice to be familiar with the enforced style guide and be able to
+      write code in that style directly.
+    </blockquote>
     <h3 id="Formatter_Downloads">Formatter Downloads</h3>
     <p><a href="http://llvm.org/releases/download.html">LLVM</a></p>
     <h3 id="Formatter_Installation">Formatter Installation</h3>
@@ -99,11 +105,13 @@
     your platform instead of following the Windows instructions below. The
     clang-format version installed should be 3.8.1 or newer.</p>
     <p><i>*buntu</i></p>
-    <pre>sudo apt-get install clang-format python3-pip
-  pip3 install --user wpiformat</pre>
+    <pre>
+sudo apt-get install clang-format python3-pip
+pip3 install --user wpiformat</pre>
     <p><i>Arch Linux</i></p>
-    <pre>sudo pacman -S clang python python-pip
-  pip install --user wpiformat</pre>
+    <pre>
+sudo pacman -S clang python python-pip
+pip install --user wpiformat</pre>
     <p><i>Windows</i></p>
     <p>On the LLVM download page, select the installer for latest version of
     LLVM corresponding to your operating system and architecture under
@@ -115,10 +123,11 @@
     .bashrc</code>
     <p>The following commands install Python and pip, then use pip to install
     wpiformat.</p>
-    <pre>pacman -S python
-  wget https://bootstrap.pypa.io/get-pip.py
-  python get-pip.py
-  pip install wpiformat</pre>
+    <pre>
+pacman -S python
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+pip install wpiformat</pre>
     <p>After those commands complete, close and reopen the terminal so the PATH
     environment variable change from earlier takes effect.</p>
     <h3 id="Formatter_Usage">Formatter Usage</h3>

@@ -132,11 +132,14 @@
         <p>If the controller settles at an output above or below the reference,
         increase K<sub>i</sub> such that the controller reaches the reference
         in a reasonable time.</p>
-        <p><i>Note: adding an integral gain to the controller is an incorrect
-        way to eliminate steady state error</i>. A better approach would be to
-        tune it with an integrator added to the plant, but this requires a
-        system model. Since we are doing output-based rather than model-based
-        control, our only option is to add an integrator to the controller.</p>
+        <blockquote>
+          <i>Note:</i> Adding an integral gain to the controller is an
+          incorrect way to eliminate steady state error. A better approach
+          would be to tune it with an integrator added to the plant, but this
+          requires a system model. Since we are doing output-based rather than
+          model-based control, our only option is to add an integrator to the
+          controller.
+        </blockquote>
         <p>Beware that if K<sub>i</sub> is too large integral windup can occur.
         As the <a href=
         "Modifications%20to%20the%20PID%20algorithm">Modifications to the PID
