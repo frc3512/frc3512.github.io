@@ -3,7 +3,7 @@ blockquote {
 
   /* border color is 90% of background color */
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(214, 214, 214);
 
   margin: 1em 2.5em;
@@ -18,7 +18,7 @@ body {
   max-width: 56.5em;
 
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(45, 45, 45);
 
   text-align: center;
@@ -29,7 +29,7 @@ code {
 
   /* border color is 90% of background color */
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(214, 214, 214);
 
   padding: 0.2em;
@@ -66,7 +66,7 @@ div.title {
 
   /* border color is 90% of background color */
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(230, 200, 156);
 
   font-family: arial, sans-serif;
@@ -85,7 +85,7 @@ div.prereq {
 
   /* border color is 90% of background color */
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(230, 224, 180);
 
   text-align: left;
@@ -164,13 +164,20 @@ pre {
 
   /* border color is 90% of background color */
   border-style: solid;
-  border-width: 0.1em;
+  border-width: 0.05em;
   border-color: rgb(214, 214, 214);
 
   margin: 0.5em;
   padding: 0.2em;
 
   overflow: scroll;
+}
+
+summary {
+  font-size: 1.4em;
+
+  margin: 0em;
+  padding: 0.5em;
 }
 
 table {
@@ -222,6 +229,21 @@ table {
 
 .h2 {
   padding: 0.125em 0em;
+}
+
+.title {
+  background-color: #FFDEAD;
+  margin: 0 auto;
+  padding: 0em 0.5em;
+  vertical-align: middle;
+
+  /* border color is 90% of background color */
+  border-style: solid;
+  border-width: 0.05em;
+  border-color: rgb(230, 200, 156);
+
+  font-family: arial, sans-serif;
+  text-align: left;
 }
 
 .youtube-container {
