@@ -90,16 +90,10 @@
         <loc>https://csweb.frc3512.com/ci/cs10/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/ct01/event-framework/index.html</loc>
-    </url>
-    <url>
         <loc>https://csweb.frc3512.com/ci/ct01/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/ct01/live-grapher/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/ct01/state-machine/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/ct02/index.html</loc>
@@ -117,10 +111,19 @@
         <loc>https://csweb.frc3512.com/ci/ct05/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/ci/frc01/event-framework/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/ci/frc01/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/ci/frc01/state-machine/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/ci/frc02/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/frc03/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/git01/index.html</loc>
