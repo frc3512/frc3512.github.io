@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Git Presentation - FRC Team 3512</title>
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../../reveal-theme.css">
+  <!-- Printing and PDF exports -->
+
+  <script src="../../../reveal-print.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="center title">
+        <h1>Git</h1>
+        <h2>The Stupid Content Tracker</h2><img src="res/git-logo.png" alt=
+        "Git Logo">
+        <h2>Tyler Veness</h2>
+      </section>
+      <section>
+        <h1>What is Git?</h1>
+        <ul>
+          <li>Version Control System (VCS)</li>
+          <ul>
+            <li>Records changes to files</li>
+            <li>Provides a backup plan</li>
+          </ul>
+          <li>Used by major companies and more</li>
+        </ul>
+        <table>
+          <tr>
+            <td><img src="res/google.png" alt="Google" width="1386"></td>
+            <td><img src="res/tux.png" alt="Tux" width="765"></td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h1>Types of VCSs: Centralized</h1>
+        <div style="text-align: center"><img src="res/vcs-central.png" alt=
+        "VCS Centralized"></div>
+        <aside class="notes">
+          <ul>
+            <li>Changes are pushed to and checked out from central server</li>
+            <li>Examples: SVN, CVS</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Types of VCSs: Distributed</h1>
+        <div style="text-align: center"><img src="res/vcs-distributed.png" alt=
+        "VCS Distributed"></div>
+        <aside class="notes">
+          <ul>
+            <li>Computers are peers, so every machine has full copy of
+            history</li>
+            <li>Work can also be done offline</li>
+            <li>Examples: Git, Mercurial</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>How Git Stores Data</h1>
+        <ul>
+          <li>Snapshots instead of diffs</li>
+        </ul>
+        <div style="text-align: center"><img src="res/git-storage1.png" alt=
+        "Git Storage 1"> <img src="res/git-storage2.png" alt=
+        "Git Storage 2"></div>
+        <aside class="notes">
+          <ul>
+            <li>Git stores changed file as compressed object in Git
+            metadata</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Installation</h1>
+        <ul>
+          <li>
+            <a href=
+            "https://csweb.frc3512.com/bootstrap#Git">https://csweb.frc3512.com/bootstrap#Git</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h1>User Configuration</h1><code>git config --global user.name "John
+        Doe"</code><br>
+        <code>git config --global user.email "johndoe@example.com"</code>
+        <aside class="notes">
+          <ul>
+            <li>These commands configure the name and email shown for the
+            author of commits</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="center title">
+        <h1>Workflow</h1>
+        <h2>What you need to know to get things done</h2>
+      </section>
+      <section>
+        <h1>Cloning a Repository</h1><code>git clone
+        git://github.com/schacon/grit.git</code><br>
+        <code>git clone git://github.com/schacon/grit.git mygrit</code>
+        <ul>
+          <li>Three protocols</li>
+          <ul>
+            <li>git://</li>
+            <li>ssh://</li>
+            <li>https://</li>
+          </ul>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>First arg is repo</li>
+            <li>Second arg is optional folder name</li>
+            <li>git:// for anon read-only</li>
+            <li>ssh:// for read/write secured with SSH keys (may or may not
+            have passphrase)</li>
+            <li>https:// for read/write</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Making a Repository</h1><code>git init</code><br>
+        <code>git init --bare</code><br>
+        <br>
+        <ul>
+          <li>Creates .git folder in current directory</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Staging Area</h1>
+        <div style="text-align: center"><img src="res/staging-area.png" alt=
+        "Staging Area"></div>
+        <aside class="notes">
+          <ul>
+            <li>Explain how staging area relates to commits</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Staging Area</h1>
+        <div style="text-align: center">
+          <img src="res/file-status-lifecycle.png" alt="File Status Lifecycle">
+          <table>
+            <tr>
+              <td><code>git add</code></td>
+              <td><code>git add</code></td>
+            </tr>
+            <tr>
+              <td><code>git rm --cached</code></td>
+              <td><code>git commit [-m "message"]</code></td>
+            </tr>
+            <tr>
+              <td><code>git status</code></td>
+              <td><code>git diff [--staged]</code></td>
+            </tr>
+          </table>
+        </div>
+        <aside class="notes">
+          <ul>
+            <li>After first file edit, run "git status"</li>
+            <li>Run "git status" after every command</li>
+            <li>Be sure when creating the file to "git add" it, then edit it
+            again</li>
+            <li>Show output of "git diff" and "git diff --cached" before "git
+            commit"</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Staging Area</h1>
+        <ul>
+          <li>How to keep files out of staging area?</li>
+          <ul>
+            <li>.gitignore file</li>
+          </ul>
+        </ul>
+        <pre>
+# a comment  this is ignored
+*.a       # no .a files
+!lib.a    # but do track lib.a
+/TODO     # only ignore the root TODO file, not subdir/TODO
+build/    # ignore all files in the build/ directory
+doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
+          </pre>
+        <aside class="notes">
+          <ol>
+            <li>Add file to example repo</li>
+            <li>Show "git status"</li>
+            <li>Add it to .gitignore</li>
+            <li>Show "git status"</li>
+          </ol>
+        </aside>
+      </section>
+      <section>
+        <h1>Viewing History and Changes (Diffs)</h1><code>git log [-#] [-p]
+        [--stat]</code><br>
+        <code>git diff [&lt;commit&gt;] [--stat]</code><br>
+        <code>git diff &lt;commit&gt; &lt;commit&gt;</code><br>
+        <br>
+        <p>ex: <code>git diff HEAD~2 HEAD</code></p>
+        <p>ex: <code>git diff HEAD^</code></p>
+        <aside class="notes">
+          <ul>
+            <li>Run each command. Explain each optional arg.</li>
+            <li>Show "git log" of github.com/wpilibsuite/allwpilib</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Exchanging Changes with Others</h1>
+        <ul>
+          <li>"Push" changes out<br>
+          <code>git push [&lt;local branch&gt;]</code><br>
+          ex: <code>git push origin master</code></li>
+          <li>"Pull" changes in (fetch + merge)<br>
+          <code>git pull [&lt;remote branch&gt;]</code><br>
+          ex: <code>git pull origin/master</code></li>
+          <li>"origin" is a remote</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Creating a Branch</h1><code>git branch testing</code>
+        <div style="text-align: center"><img src="res/create-branch-before.png"
+        alt="Create Branch Before"></div>
+      </section>
+      <section>
+        <h1>Creating a Branch</h1><code>git branch testing</code>
+        <div style="text-align: center"><img src="res/create-branch-after.png"
+        alt="Create Branch After"></div>
+      </section>
+      <section>
+        <h1>Checking Out Branches</h1><code>git checkout testing</code>
+        <div style="text-align: center"><img src=
+        "res/checkout-branch-before.png" alt="Checkout Branch Before"></div>
+      </section>
+      <section>
+        <h1>Checking Out Branches</h1><code>git checkout testing</code>
+        <div style="text-align: center"><img src=
+        "res/checkout-branch-after.png" alt="Checkout Branch After"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git branch iss53</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example-before.png" alt="Branch Example Before"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git branch iss53</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src="res/branch-example-after.png"
+        alt="Branch Example After"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git checkout master</code><br>
+        <code>git checkout -b hotfix</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example2-before.png" alt="Branch Example 2 Before"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git checkout master</code><br>
+        <code>git checkout -b hotfix</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example2-after.png" alt="Branch Example 2 After"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git checkout master</code><br>
+        <code>git merge hotfix</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example3-before.png" alt="Branch Example 3 Before"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git checkout master</code><br>
+        <code>git merge hotfix</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example3-after.png" alt="Branch Example 3 After"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git branch -d hotfix</code><br>
+        <code>git checkout iss53</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example4-before.png" alt="Branch Example 4 Before"></div>
+      </section>
+      <section>
+        <h1>Branch Example</h1><code>git branch -d hotfix</code><br>
+        <code>git checkout iss53</code><br>
+        <code>git commit</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example4-after.png" alt="Branch Example 4 After"></div>
+      </section>
+      <section>
+        <h1>Branch Example - Merge</h1>
+        <div style="text-align: center"><img src="res/branch-example-merge.png"
+        alt="Branch Example Merge"></div>
+      </section>
+      <section>
+        <h1>Branch Example - Merge</h1><code>git checkout master</code><br>
+        <code>git merge iss53</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example-merge2-before.png" alt=
+        "Branch Example Merge 2 Before"></div>
+      </section>
+      <section>
+        <h1>Branch Example - Merge</h1><code>git checkout master</code><br>
+        <code>git merge iss53</code>
+        <div style="text-align: center"><img src=
+        "res/branch-example-merge2-after.png" alt=
+        "Branch Example Merge 2 After"></div>
+      </section>
+      <section>
+        <h1>Merge Conflicts</h1>
+        <ul>
+          <li>Find <code>&lt;&lt;&lt;&lt;</code>, <code>----</code>, and
+          <code>&gt;&gt;&gt;&gt;</code></li>
+          <li>Commit result</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Extra Resources</h1>
+        <ul>
+          <li>Windows: <code>git &lt;command&gt; --help</code></li>
+          <li>Linux: <code>man git-&lt;command&gt;</code></li>
+          <li>
+            <a href="https://git-scm.com/doc/">https://git-scm.com/doc/</a>
+          </li>
+          <li>
+            <a href="https://git-scm.com/book/">https://git-scm.com/book/</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <script src="../../../reveal.js/lib/js/head.min.js"></script> 
+  <script src="../../../reveal.js/js/reveal.js"></script> 
+  <script src="../../../reveal-init.js"></script>
+</body>
+</html>
