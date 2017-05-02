@@ -14,7 +14,8 @@ def main():
         files = [
             os.path.join(dp, f)
             for dp, dn, fn in os.walk(os.path.expanduser("."))
-            if "MathJax" not in dp for f in fn if f.endswith(".html")
+            if "MathJax" not in dp and "reveal.js" not in dp for f in fn
+            if f.endswith(".html")
         ]
 
         # Do not include certain files in sitemap

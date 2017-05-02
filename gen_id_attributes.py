@@ -7,7 +7,8 @@ import re
 def main():
     files = [
         os.path.join(dp, f) for dp, dn, fn in os.walk(os.path.expanduser("."))
-        if "MathJax" not in dp for f in fn if f.endswith(".html")
+        if "MathJax" not in dp and "reveal.js" not in dp for f in fn
+        if f.endswith(".html")
     ]
 
     # Do not process certain problematic files
@@ -45,8 +46,7 @@ def main():
                                 edit += "." + format(ord(char), "X")
                             else:
                                 edit += char
-                    edit += "\"" + match["close"] + match["content"] + match[
-                        "end"] + "\n"
+                    edit += "\"" + match["close"] + match["content"] + match["end"] + "\n"
 
                     if line != edit:
                         modified = True
