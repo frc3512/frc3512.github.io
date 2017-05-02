@@ -1,4 +1,6 @@
 Reveal.initialize({
+  center: false,
+  transition: 'none',
   dependencies: [
     { src: '../../../reveal.js/plugin/markdown/marked.js' },
     { src: '../../../reveal.js/plugin/markdown/markdown.js' },
