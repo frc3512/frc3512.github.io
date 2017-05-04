@@ -21,28 +21,29 @@
     <h2 id="Eclipse_CDT">Eclipse CDT</h2>
     <p>Eclipse CDT is an integrated development environment which makes it
     easier to write, build, and test programs written in C and C++.</p>
-    <h3 id="Eclipse_Downloads">Eclipse Downloads</h3>
-    <p>For Windows:</p><a href=
-    "https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/mars2">Eclipse
-    IDE for C/C++ Developers</a><br>
-    <a href=
-    "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
-    JDK 8</a>
     <h3 id="Eclipse_Installation">Eclipse Installation</h3>
-    <p><i>Linux</i></p>
-    <p>Install JDK 8 via the machine's package manager. Install Eclipse CDT in
-    the same way only if your distribution does not provide the latest version
-    of Eclipse. Otherwise, follow the instructions below.</p>
+    <p><i>*buntu</i></p><code>sudo apt-get install openjdk-8-jdk
+    eclipse-cdt</code>
+    <p><i>Arch Linux</i></p><code>sudo pacman -S jdk8-openjdk
+    eclipse-cpp</code>
     <p><i>Windows</i></p>
-    <p>On the Eclipse CDT download page, select the appropriate platform on the
-    page's right. If your machine is 64 bit, choose a 64 bit version. Once the
-    download is complete, extract it to a directory of your choice.</p>
-    <p>On the JDK download page, select the JDK installer for the same
-    operating system and architecture of Eclipse CDT, download it, and run
-    it.</p>
+    <p>On the <a href=
+    "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+    JDK 8 download page</a>, download the JDK installer for the same operating
+    system and architecture (32 vs 64 bit) of your machine and run it.</p>
+    <p>Download the <a href=
+    "https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon3">
+    Eclipse IDE for C/C++ Developers</a>. Select the same operating system and
+    architecture as before. Once the download is complete, extract it to a
+    directory of your choice.</p>
     <h3 id="Eclipse_Usage">Eclipse Usage</h3>
-    <p>When creating a new project, don't use "Cross GCC". On Linux, use "Linux
-    GCC" and on Windows, use "Cygwin GCC".</p>
+    <h4 id="New_Project_Toolchain_Selection">New Project Toolchain
+    Selection</h4>
+    <p><i>Linux</i></p>
+    <p>Use "Linux GCC"</p>
+    <p><i>Windows</i></p>
+    <p>Use "Cygwin GCC"</p>
+    <h4 id="False_Errors">False Errors</h4>
     <p>Eclipse occasionally shows outdated or false errors in a project file.
     If this is the case, the project's index needs to be rebuilt. To do so,
     select the following option.</p><code>Right-click project &gt; Index &gt;
@@ -50,6 +51,7 @@
     <p>Keep in mind errors shown in the IDE aren't authoritative. The console
     build output should be used to determine whether the executable was built
     successfully.</p>
+    <h4 id="C.2B.2B14_Support">C++14 Support</h4>
     <p>To configure a project to build with C++14, select "ISOC++1y" from the
     "Language standard" drop-down menu in the following
     location.</p><code>Right-click project &gt; Properties &gt; C/C++ Build
@@ -57,32 +59,34 @@
     <h2 id="GCC_Compiler">GCC Compiler</h2>
     <p>This is the compiler Eclipse CDT will use to build the programs you
     write. MSYS2 provides a Linux-like environment with this compiler.</p>
-    <h3 id="GCC_Downloads">GCC Downloads</h3>
-    <p>For Windows, GCC is included in MSYS2: <a href=
-    "http://www.msys2.org/">http://www.msys2.org/</a>.</p>
     <h3 id="GCC_Installation">GCC Installation</h3>
-    <p><i>Linux</i></p>
-    <p>Install <code>gcc</code> via the machine's package manager.</p>
+    <p><i>*buntu</i></p><code>sudo apt-get install gcc</code>
+    <p><i>Arch Linux</i></p><code>sudo pacman -S gcc</code>
     <p><i>Windows</i></p>
-    <p>Follow the instructions on the web page for MSYS2. Use the default
-    installation directory.</p>
-    <p>When installation is complete and everything has been upgraded with
-    pacman, add "C:\msys64\usr\bin" or "C:\msys32\usr\bin" to your system-wide
-    PATH environment variable depending on whether you used the x86_64
-    installer or i686 installer respectively.</p>
-    <p>You may want to create a desktop shortcut for "MSYS2 MSYS" to facilitate
-    opening MSYS2 terminals. Open an MSYS2 terminal and run the following
-    command to install make, gcc, and other required tools.</p><code>pacman -S
-    base-devel gcc</code>
-    <p>When prompted for which packages in the base-devel group to install,
-    press Enter to select the default option (all of them).</p>
+    <ol>
+      <li>Download the MSYS2 installer from <a href=
+      "http://www.msys2.org/">this web page</a> and run it. Use the default
+      installation directory.
+      </li>
+      <li><code>pacman -Syu</code>, then close all terminals when directed to
+      do so.</li>
+      <li><code>pacman -Su</code></li>
+      <li>Add MSYS2 to your system-wide PATH environment variable.</li>
+      <ul>
+        <li>32-bit path: "C:\msys32\usr\bin"</li>
+        <li>64-bit path: "C:\msys64\usr\bin"</li>
+      </ul>
+      <li>Create a desktop shortcut for "MSYS2 MSYS" if desired.</li>
+      <li><code>pacman -S base-devel gcc</code>, then when prompted for which
+      packages in the base-devel group to install, press Enter to select the
+      default option (all of them).</li>
+    </ol>
     <h2 id="Git">Git</h2>
     <p>Git is a version control system used to manage the code one writes. See
     <a href="../ci/git01/index.html">Git 1</a> for more information and
     detailed setup.</p>
     <h3 id="Git_Installation">Git Installation</h3>
-    <p>The instructions for Linux are the same as Windows.</p>
-    <p>Run <code>pacman -S git</code></p>
+    <p><i>All Platforms</i></p><code>pacman -S git</code>
     <h2 id="Gerrit">Gerrit</h2>
     <p>Gerrit provides web based code review and repository management for the
     Git version control system. Our Gerrit server is <a href=
@@ -98,25 +102,24 @@
       practice to be familiar with the enforced style guide and be able to
       write code in that style directly.
     </blockquote>
-    <h3 id="Formatter_Downloads">Formatter Downloads</h3>
-    <p><a href="http://llvm.org/releases/download.html">LLVM</a></p>
     <h3 id="Formatter_Installation">Formatter Installation</h3>
-    <p>On Linux, run the following commands to install the packages relevant to
-    your platform instead of following the Windows instructions below. The
-    clang-format version installed should be 3.8.1 or newer.</p>
     <p><i>*buntu</i></p>
     <pre>
 sudo apt-get install clang-format python3-pip
 pip3 install --user wpiformat</pre>
     <p><i>Arch Linux</i></p>
+    <p>This requires a package from the AUR. Use either the manual installation
+    method (shown below) or an AUR helper.</p>
     <pre>
-sudo pacman -S clang python python-pip
-pip install --user wpiformat</pre>
+sudo pacman -S python
+cd /tmp
+git clone https://aur.archlinux.org/python-wpiformat-git
+makepkg -si</pre>
     <p><i>Windows</i></p>
-    <p>On the LLVM download page, select the installer for latest version of
-    LLVM corresponding to your operating system and architecture under
-    "Pre-Built Binaries", then run it. The default installation options are
-    fine.</p>
+    <p>On the <a href="http://llvm.org/releases/download.html">LLVM download
+    page</a>, select the installer for latest version of LLVM corresponding to
+    your operating system and architecture under "Pre-Built Binaries", then run
+    it. The default installation options are fine.</p>
     <p>MSYS2 keeps a separate PATH environment variable from the operating
     system. Run the following command to add the LLVM installation to
     it.</p><code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt;
@@ -131,11 +134,12 @@ pip install wpiformat</pre>
     <p>After those commands complete, close and reopen the terminal so the PATH
     environment variable change from earlier takes effect.</p>
     <h3 id="Formatter_Usage">Formatter Usage</h3>
-    <p>If the <code>--user</code> flag was supplied to pip when installing
-    wpiformat, run <code>python3 -m wpiformat</code> in the Git repository
-    being formatted. Otherwise, run <code>wpiformat</code>. Therefore, if the
-    installation instructions above were followed, use <code>python3 -m
-    wpiformat</code> on Linux and <code>wpiformat</code> on Windows.</p>
+    <p>Run one of the following in the Git repository being formatted.</p>
+    <p><i>*buntu</i></p><code>python3 -m wpiformat</code>
+    <p>The longer command is due to using <code>pip install</code> with the
+    <code>--user</code> flag.</p>
+    <p><i>Arch Linux</i></p><code>wpiformat</code>
+    <p><i>Windows</i></p><code>wpiformat</code>
   </div>
 </body>
 </html>
