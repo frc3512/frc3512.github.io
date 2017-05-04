@@ -33,6 +33,7 @@ code {
   border-color: rgb(214, 214, 214);
 
   padding: 0.2em;
+  white-space: nowrap;
 }
 
 div.ci {
