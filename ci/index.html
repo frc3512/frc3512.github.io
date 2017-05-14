@@ -74,9 +74,8 @@
     "https://scholar.google.com/">Google Scholar</a>, Stack Overflow, and
     Wikipedia. The latter two are most easily utilized through an indexing
     search engine like Google.</p>
-    <p>Certain pages from these will be linked in the module content where
-    appropriate. See <a href="#Submission">this section</a> for assignment
-    submission instructions.</p>
+    <p>See <a href="#Submission">this section</a> for assignment submission
+    instructions.</p>
     <div id="columnContainer">
       <details>
         <summary class="title">
@@ -350,19 +349,12 @@
     <h2 id="Submission">Submission</h2>
     <p>Assignment submissions will be made via Git. To start, make an account
     on <a href="https://github.com/">GitHub</a> if you don't already have one.
-    Solutions for each module's assignments and labs should be within a
-    repository named like <code>cs01-assignments</code> where the part before
-    the hyphen is the module name. Use <code>git clone</code> to clone the
-    repository to your local machine. <code>git add</code>, <code>git
-    commit</code>, and <code>git push</code> should be used to make snapshots
-    of your work and push it to the remote server. Make commits to your
-    repository as often as you feel is necessary. See <a href=
-    "git01/#10_Most_Commonly_Used_Git_Commands">this cheat sheet</a> for an
-    overview of the most commonly used Git commands.</p>
-    <p>The directory structure should be set up as follows. The given names are
-    examples demonstrating the desired format. Your source files may have
-    different names from those shown or not exist. Folders use lowercase and
-    files use camel case. Some problems or labs may require multiple files.</p>
+    See <a href="git01/#10_Most_Commonly_Used_Git_Commands">this cheat
+    sheet</a> for an overview of the most commonly used Git commands. Make
+    commits to your repository as often as you feel is necessary.</p>
+    <p>The following is an example of the desired Git repository structure and
+    naming scheme for the CS 1 module. Your source files may have different
+    names from those shown or not exist.</p>
     <ul>
       <li>cs01-assignments (Git repository root)</li>
       <li style="list-style: none; display: inline">
@@ -436,14 +428,16 @@
         </ul>
       </li>
     </ul>
-    <p>Source code goes in the <code>src</code> directory while other files
-    like licenses, makefiles, READMEs and data go outside of it. It's
-    convention to define <code>main()</code> in a file called
+    <ol>
+      <li>Folders use lowercase and files use camel case</li>
+      <li>Source code goes in the <code>src</code> directory while other files
+      like licenses, makefiles, READMEs and data go outside of it</li>
+      <li>For labs, submit all files used according to this format unless
+      otherwise stated in the lab.</li>
+    </ol>
+    <p>It's convention to define <code>main()</code> in a file called
     <code>Main.cpp</code>, but it isn't required and may not make sense for
     projects with only one file.</p>
-    <p>Labs may include more specific instructions on directory structure and
-    which files to submit. If there are none, submit all files used and follow
-    the aformentioned format.</p>
     <p>Submissions will have our formatter run on them. After setting it up
     according to <a href="../bootstrap/#Formatter">these instructions</a>,
     place <a href=".clang-format">.clang-format</a>, <a href=
@@ -468,8 +462,8 @@ RemoteSystemsTempFiles/</pre>
     projects in what was an existing chapter workspace, choose the chapter
     folder as a workspace when Eclipse starts up like usual. You can import the
     problem projects into the workspace by right-clicking on the Project
-    Explorer and selecting "Import...". In the resulting dialog, choose
-    "General &gt; Existing Projects into Workspace".</p>
+    Explorer and selecting <code>Import...</code>. In the resulting dialog,
+    choose <code>General &gt; Existing Projects into Workspace</code>.</p>
     <h3 id="Option_2.3A_Alternate_Editor">Option 2: Alternate Editor</h3>
     <p>If you want to use a different IDE such as Vim, provide a Makefile in
     each problem folder to compile the executable. "workspaces" and "projects"
