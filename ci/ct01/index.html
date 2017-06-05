@@ -57,29 +57,25 @@
     function for now. I'll cover that in a module on state space representation
     at some point.</p>
     <h2 id="PID_Types">PID Types</h2>
-    <p>Different inputs can be passed to PID controllers, and that will change
-    how the algorithm behaves. For example, the cases described in the
-    Wikipedia article expect discrete positions as input. If a velocity is
-    passed instead, which is a change in position, the behavior of each PID
-    term is affected. This is because given the equation:</p>
+    <p>PID controller inputs of different orders of derivatives, such as
+    position and velocity, affect the system response differently. The position
+    PID controller is defined as</p>
     <p>\[ u(t) = K_p e(t) + K_i \int_{0}^{t}e(\tau)d\tau + K_d \frac{de}{dt}
     \]</p>
-    <p>passing in the derivative of the error in place of the error gives:</p>
+    <p>If a velocity is passed instead, which is a change in position, the
+    equation becomes</p>
     <p>\[ u'(t) = K_p \frac{de}{dt} + K_i \int_{0}^{t}\frac{de}{d\tau} d\tau +
     K_d \frac{d^{2}e}{dt^{2}} \]</p>
-    <p>which simplifies to:</p>
     <p>\[ u'(t) = K_p \frac{de}{dt} + K_i e(t) + K_d \frac{d^{2}e}{dt^{2}}
     \]</p>
     <p>This shows that K<sub>i</sub> produces a proportional response,
     K<sub>p</sub> produces a derivative response, and K<sub>i</sub> doesn't
-    have an equivalent in the formula as is. If we were to implement one, it
+    have an equivalent in the formula as-is. If we were to implement one, it
     would use a double integral. However, it would be of limited use since the
     K<sub>i</sub> term in the original equation also eliminates steady state
-    error. The equation WPILib's PID controller uses for velocity PID is as
-    follows:</p>
+    error for step changes in reference. Relabelling the coefficients to match
+    the position PID controller gives</p>
     <p>\[ u'(t) = K_p \int_{0}^{t}e(\tau) d\tau + K_d e(t) \]</p>
-    <p>So the user can still set K<sub>p</sub>, K<sub>i</sub>, and
-    K<sub>d</sub> in a similar way to a position PID controller.</p>
     <h2 id="Controller_Tuning">Controller Tuning</h2>
     <p>Since the team started, we've been tuning PID controllers manually.</p>
     <h3 id="Position_PID_tuning">Position PID tuning</h3>
