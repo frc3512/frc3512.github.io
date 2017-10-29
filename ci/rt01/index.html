@@ -36,7 +36,8 @@
     will be addressed in order of priority.</p>
     <p>Their effective priority can be maintained by either adjusting their
     real-time priority (if they are set as real-time threads or processes) or
-    adding waits to the ends of their loops.</p>
+    adding waits to the ends of their loops to reduce the rate at which they
+    execute.</p>
     <h3 id="FRC_network_communication_process">FRC network communication
     process</h3>
     <p>This process handles communication between the robot and the driver
@@ -61,7 +62,7 @@
     least important from a real-time perspective. Their impact should be
     minimized in this regard, but they definitely help for feedback controller
     tuning, assessing robot performance, and debugging.</p>
-    <p>Its affect on network bandwidth utilization should also be
+    <p>Its effect on network bandwidth utilization should also be
     monitored.</p>
   </div>
 </body>
