@@ -49,35 +49,41 @@
     robot tasks in C++. We have <a href="https://github.com/Team3512/">robot
     software</a> from previous years on GitHub that students can study,
     understand, and potentially reuse.</p>
-    <h3 id="SampleRobot_control_flow">SampleRobot control flow</h3>
+    <h3 id="General_control_flow">General control flow</h3>
+    <h4 id="Under_the_covers">Under the covers</h4>
+    <p>While we won't be using <code>SampleRobot</code> for writing production
+    robot code, it is helpful to start with it to understand what our control
+    flow abstractions (namely <code>TimedRobot</code>) are doing
+    underneath.</p>
     <p>The <code>SampleRobot</code> robot base class provides several virtual
     functions the subclass can override (see <a href=
-    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/athena/include/SampleRobot.h">
+    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/src/main/native/include/SampleRobot.h">
     SampleRobot.h</a>).</p>
-    <p>The functions <code>Disabled()</code>, <code>Autonomous()</code>, and
-    <code>OperatorControl()</code> correspond to the modes in which the Driver
-    Station can set the robot. They are called once upon switching to each
-    mode. After one of the functions exits, <code>RobotBase</code> will
-    continuously wait for Driver Station data until another mode change occurs.
-    Therefore, code in each function should be run in a while loop until the
-    mode changes. The following is an example Robot.cpp.</p>
+    <p>The functions <code>Disabled()</code>, <code>Autonomous()</code>,
+    <code>OperatorControl()</code>, and <code>Test()</code> correspond to the
+    modes in which the Driver Station can set the robot. They are called once
+    upon switching to each mode. After one of the functions exits,
+    <code>RobotBase</code> will continuously wait for Driver Station data until
+    another mode change occurs. Therefore, code in each function should be run
+    in a while loop until the mode changes. The following is an example
+    Robot.cpp.</p>
     <pre>#include "Robot.hpp"
 
 using namespace std::chrono_literals;
-
-void Robot::Autonomous() {
-    while (IsAutonomous() &amp;& IsEnabled()) {
-        // Perform autonomous tasks
-
-        std::this_thread::sleep_for(10ms);
-    }
-}
 
 void Robot::Disabled() {
     while (IsDisabled()) {
         // Wait for robot to become enabled
 
-        std::this_thread::sleep_for(10ms);
+        std::this_thread::sleep_for(20ms);
+    }
+}
+
+void Robot::Autonomous() {
+    while (IsAutonomous() &amp;& IsEnabled()) {
+        // Perform autonomous tasks
+
+        std::this_thread::sleep_for(20ms);
     }
 }
 
@@ -85,35 +91,91 @@ void Robot::OperatorControl() {
     while (IsOperatorControl() &amp;& IsEnabled()) {
         // Perform normal robot actions and check for user input
 
-        std::this_thread::sleep_for(10ms);
+        std::this_thread::sleep_for(20ms);
+    }
+}
+
+void Robot::Test() {
+    while (IsTest() &amp;& IsEnabled()) {
+        // Perform robot test actions
+
+        std::this_thread::sleep_for(20ms);
     }
 }</pre>
+    <h4 id="TimedRobot">TimedRobot</h4>
+    <p><code>TimedRobot</code> abstracts away the loops required for
+    <code>SampleRobot</code> and provides better timing guarantees. TimedRobot
+    provides <code>Init()</code> functions, which are run upon the Driver
+    Station's transition into the corresponding mode, and
+    <code>Periodic()</code> functions, which are run on an interrupt at a
+    regular interval (~20ms) during the corresponding mode. They include:</p>
+    <ul>
+      <li><code>DisabledInit()</code></li>
+      <li><code>AutonomousInit()</code></li>
+      <li><code>TeleopInit()</code></li>
+      <li><code>TestInit()</code></li>
+    </ul>
+    <ul>
+      <li><code>DisabledPeriodic()</code></li>
+      <li><code>AutonomousPeriodic()</code></li>
+      <li><code>TeleopPeriodic()</code></li>
+      <li><code>TestPeriodic()</code></li>
+    </ul>
+    <p><code>RobotInit()</code> and <code>RobotPeriodic()</code> are run in all
+    modes.</p>
+    <p>TimedRobot's autonomous mode, for example, is roughly analogous to the
+    following in SampleRobot.</p>
+    <pre>using namespace std::chrono_literals;
+
+void Robot::Autonomous() {
+    AutonomousInit();
+
+    while (IsAutonomous() &amp;& IsEnabled()) {
+        AutonomousPeriodic();
+
+        std::this_thread::sleep_for(20ms);
+    }
+}
+</pre>
     <h3 id="Drivetrain_with_joysticks">Drivetrain with joysticks</h3>
     <p>There are multiple ways to drive a robot around; some are in open loop
     (the driver provides direct input to the system) and others are in closed
     loop (autonomous driving using encoders). This section discusses the former
     while the latter is covered in detail in <a href="../ct02/">CT 2</a>.</p>
     <p>The two most common ways to drive a robot manually are with WPILib's
-    RobotDrive class and with another drive class implementing a custom drive
-    scheme (e.g., Cheesy Drive). To make a four-wheeled robot drive around as
-    quick as possible, the following is all that is required.</p>
-    <pre>CANTalon flMotor(0);
-CANTalon frMotor(1);
-CANTalon rlMotor(2);
-CANTalon rrMotor(3);
-RobotDrive drive(flMotor, frMotor, rlMotor, rrMotor);
-Joystick forwardJoystick(0);
-Joystick turnJoystick(1);
+    DifferentialDrive or MecanumDrive classes and with another drive class
+    implementing a custom drive scheme. To make a four-wheeled robot drive
+    around as quick as possible, the following is all that is required
+    (although please don't put function implementations in the header
+    file).</p>
+    <pre>#include &lt;CANTalon.h&gt;
+#include &lt;Drive/DifferentialDrive.h&gt;
+#include &lt;Joystick.h&gt;
+#include &lt;TimedRobot.h&gt;
 
-while (IsOperatorControl() &amp;& IsEnabled()) {
-    drive.ArcadeDrive(forwardJoystick.GetX(), turnJoystick.GetY());
+class Robot : public frc::TimedRobot {
+public:
+    void TeleopPeriodic() {
+        m_drive.CurvatureDrive(m_forwardJoy.GetY(), m_turnJoy.GetX());
+    }
 
-    std::this_thread::sleep_for(10ms);
-}</pre>
-    <p>While it is easy to use, a creating custom drive scheme allows for more
-    complex functionality and features. Alternatively, WPILib may simply not
-    support your drive train configuration. To implement a custom drive scheme,
-    the following is required.</p>
+private:
+    CANTalon m_flMotor(0);
+    CANTalon m_rlMotor(1);
+    frc::SpeedControllerGroup m_leftMotors(m_flMotor, m_rlMotor);
+
+    CANTalon m_frMotor(2);
+    CANTalon m_rrMotor(3);
+    frc::SpeedControllerGroup m_rightMotors(m_frMotor, m_rrMotor);
+
+    frc::DifferentialDrive m_drive(m_leftMotors, m_rightMotors);
+
+    frc::Joystick m_forwardJoy(0);
+    frc::Joystick m_turnJoy(1);
+};</pre>
+    <p>If more complex functionality and features is desired or your drive
+    train is not supported by WPILIb, a custom drive scheme can be used
+    instead. To implement one, the following is required.</p>
     <ul>
       <li>A function taking joystick axis inputs</li>
       <li>A method of converting those inputs from normalized values in the
@@ -122,214 +184,45 @@ while (IsOperatorControl() &amp;& IsEnabled()) {
         kinematics</a>)
       </li>
     </ul>
-    <p>The following is an example of one.</p>
-    <pre>#include &lt;cmath&gt;
-
-void DriveTrain::Drive(double moveValue, double rotateValue) {
-    if (moveValue &gt; 1.0) {
-        moveValue = 1.0;
-    } else if (moveValue &lt; -1.0) {
-        moveValue = -1.0;
-    }
-    if (rotateValue &gt; 1.0) {
-        rotateValue = 1.0;
-    } else if (rotateValue &lt; -1.0) {
-        rotateValue = -1.0;
-    }
-
-    // Local variables to hold the computed PWM values for the motors
-    double leftMotorOutput;
-    double rightMotorOutput;
-
-    if (moveValue &gt; 0.0) {
-        if (rotateValue &gt; 0.0) {
-            leftMotorOutput = moveValue - rotateValue;
-            rightMotorOutput = std::max(moveValue, rotateValue);
-        } else {
-            leftMotorOutput = std::max(moveValue, -rotateValue);
-            rightMotorOutput = moveValue + rotateValue;
-        }
-    } else {
-        if (rotateValue &gt; 0.0) {
-            leftMotorOutput = -std::max(-moveValue, rotateValue);
-            rightMotorOutput = moveValue + rotateValue;
-        } else {
-            leftMotorOutput = moveValue - rotateValue;
-            rightMotorOutput = -std::max(-moveValue, -rotateValue);
-        }
-    }
-
-    SetLeftRightMotorOutputs(leftMotorOutput, rightMotorOutput);
-}</pre>
-    <p>Cheesy Drive is a popular method of driving robots that maintains a
-    constant turning radius at different linear speeds. See <a href=
-    "https://github.com/Team3512/Robot-2017/blob/master/src/Subsystems/DriveTrain.cpp#L38">
-    here</a> for an implementation. The following explains each part of
-    it.</p><br>
-    <p>This function takes a throttle value, a turn value, and a boolean
-    representing whether the center of rotation should be within the robot's
-    chassis.</p>
-    <pre>
-void DriveTrain::Drive(double throttle, double turn, bool isQuickTurn) {</pre><br>
-
-    <p>This simply inverts the throttle since pushing forward on the joystick
-    produces a negative value.</p>
-    <pre>  throttle *= -1;</pre><br>
-    <pre>
-    // Limit values to [-1 .. 1]
-    throttle = Limit(throttle, 1.0);
-    turn = Limit(turn, 1.0);</pre><br>
-    <p>This applies a deadband around the center of the range to compensate for
-    joysticks which give non-zero values for the origin.</p>
-    <pre>
-    /* Apply joystick deadband
-     * (Negate turn since joystick X-axis is reversed)
-     */
-    throttle = ApplyDeadband(throttle, m_deadband);
-    turn = ApplyDeadband(turn, m_deadband);</pre><br>
-    <pre>
-    double turnNonLinearity = k_turnNonLinearity;
-
-    /* Apply a sine function that's scaled to make turning sensitivity feel
-     * better. turnNonLinearity should never be zero, but can be close.
-     */
-    turn = std::sin(M_PI / 2.0 * turnNonLinearity * turn) /
-           std::sin(M_PI / 2.0 * turnNonLinearity);</pre><br>
-    <pre>
-    double angularPower = 0.0;
-    double linearPower = throttle;
-    double leftPwm = linearPower, rightPwm = linearPower;</pre><br>
-    <p>Negative inertia applies a rotation in the direction opposite of
-    rotation when the driver requests a large change in the turning rate. This
-    overcomes the moment of inertia of the robot and makes the robot more
-    responsive. Names prefixed with "k_" are constants.</p>
-    <pre>
-    double negInertia = turn - m_oldTurn;
-    m_oldTurn = turn;
-
-    // Negative inertia!
-    double negInertiaScalar;
-    if (turn * negInertia &gt; 0) {
-        negInertiaScalar = k_inertiaDampen;
-    } else {
-        if (std::fabs(turn) &gt; 0.65) {
-            negInertiaScalar = k_inertiaHighTurn;
-        } else {
-            negInertiaScalar = k_inertiaLowTurn;
-        }
-    }
-
-    m_negInertiaAccumulator +=
-        negInertia * negInertiaScalar;  // adds negInertiaPower
-
-    // Apply negative inertia
-    turn += m_negInertiaAccumulator;
-    if (m_negInertiaAccumulator &gt; 1) {
-        m_negInertiaAccumulator -= 1;
-    } else if (m_negInertiaAccumulator &lt; -1) {
-        m_negInertiaAccumulator += 1;
-    } else {
-        m_negInertiaAccumulator = 0;
-    }</pre><br>
-    <p>QuickTurn allows a turning radius within the robot. The quick stop
-    accumulator performs a similar function to negative inertia by opposing the
-    robot's rotation when the driver requests the turn to stop (the joystick
-    turn value is close to zero). This makes the robot's turns stiffer.</p>
-    <pre>
-    // QuickTurn!
-    if (isQuickTurn) {
-        if (std::fabs(linearPower) &lt; 0.2) {
-            double alpha = 0.1;
-            m_quickStopAccumulator = (1 - alpha) * m_quickStopAccumulator +
-                                     alpha * Limit(turn, 1.0) * 5;
-        }
-
-        angularPower = turn;
-    } else {
-        angularPower =
-            std::fabs(throttle) * turn * m_sensitivity - m_quickStopAccumulator;
-        if (m_quickStopAccumulator &gt; 1) {
-            m_quickStopAccumulator -= 1;
-        } else if (m_quickStopAccumulator &lt; -1) {
-            m_quickStopAccumulator += 1;
-        } else {
-            m_quickStopAccumulator = 0.0;
-        }
-    }</pre><br>
-    <p>This performs calculations to ensure the robot performs the same radius
-    turn at all forward speeds.</p>
-    <pre>
-    // Adjust straight path for turn
-    leftPwm += angularPower;
-    rightPwm -= angularPower;
-
-    // Limit PWM bounds to [-1..1]
-    if (leftPwm &gt; 1.0) {
-        // If overpowered turning enabled
-        if (isQuickTurn) {
-            rightPwm -= (leftPwm - 1.0);
-        }
-
-        leftPwm = 1.0;
-    } else if (rightPwm &gt; 1.0) {
-        // If overpowered turning enabled
-        if (isQuickTurn) {
-            leftPwm -= (rightPwm - 1.0);
-        }
-
-        rightPwm = 1.0;
-    } else if (leftPwm &lt; -1.0) {
-        // If overpowered turning enabled
-        if (isQuickTurn) {
-            rightPwm += (-leftPwm - 1.0);
-        }
-
-        leftPwm = -1.0;
-    } else if (rightPwm &lt; -1.0) {
-        // If overpowered turning enabled
-        if (isQuickTurn) {
-            leftPwm += (-rightPwm - 1.0);
-        }
-
-        rightPwm = -1.0;
-    }</pre><br>
-    <p>This sets the motor speeds to those that were calculated.</p>
-    <pre>
-    m_leftGrbx.Set(leftPwm);
-    m_rightGrbx.Set(rightPwm);
-}</pre>
-    <h3 id="ButtonTracker_internals">ButtonTracker internals</h3>
-    <p>In <code>OperatorControl()</code>, performing actions when the user
+    <p>See <a href=
+    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/src/main/native/cpp/Drive/DifferentialDrive.cpp">
+    DifferentialDrive.cpp</a> for examples.</p>
+    <h3 id="Button_edge_detection">Button edge detection</h3>
+    <p>In <code>TeleopPeriodic()</code>, performing actions when the user
     presses a button is typically required. The simplest way to do this uses a
     Joystick and two booleans for tracking the past and current state of one of
     its buttons.</p>
-    <pre>Joystick joystick(0);
-bool oldButtonState = false;
-bool newButtonState = false;
+    <pre>#include &lt;Joystick.h&gt;
+#include &lt;TimedRobot.h&gt;
 
-while (IsOperatorControl() &amp;& IsEnabled()) {
-    // If button was pressed
-    if (!oldButtonState &amp;& newButtonState) {
-        std::cout &lt;&lt; "Joystick button 2 pressed" &lt;&lt; std::endl;
+class Robot : public frc::TimedRobot {
+public:
+    void TeleopPeriodic() {
+        // If button was pressed
+        if (!oldButtonState &amp;& newButtonState) {
+            std::cout &lt;&lt; "Joystick button 2 pressed" &lt;&lt; std::endl;
+        }
+
+        // If button was released
+        if (oldButtonState &amp;& !newButtonState) {
+            std::cout &lt;&lt; "Joystick button 2 released" &lt;&lt; std::endl;
+        }
+
+        // If button was held
+        if (oldButtonState &amp;& newButtonState) {
+            std::cout &lt;&lt; "Joystick button 2 held" &lt;&lt; std::endl;
+        }
+
+        // Update step
+        oldButtonState = newButtonState;
+        newButtonState = joystick.GetRawButton(2);
     }
 
-    // If button was released
-    if (oldButtonState &amp;& !newButtonState) {
-        std::cout &lt;&lt; "Joystick button 2 released" &lt;&lt; std::endl;
-    }
-
-    // If button was held
-    if (oldButtonState &amp;& newButtonState) {
-        std::cout &lt;&lt; "Joystick button 2 held" &lt;&lt; std::endl;
-    }
-
-    // Update step
-    oldButtonState = newButtonState;
-    newButtonState = joystick.GetRawButton(2);
-
-    std::this_thread::sleep_for(10ms);
-}
-    </pre>
+private:
+    frc::Joystick joystick(0);
+    bool oldButtonState = false;
+    bool newButtonState = false;
+};</pre>
     <p>First, the booleans are initialized to <code>false</code> to represent a
     released button. At the end of every while loop iteration, the current
     state is copied to the old state and a new one is obtained from the
@@ -337,35 +230,30 @@ while (IsOperatorControl() &amp;& IsEnabled()) {
     guaranteed to see every rising or trailing edge and can act on it.</p>
     <p>Unfortunately, as more buttons are checked, this approach becomes messy
     and unmaintainable. Also, the possibility of mistyping a boolean check
-    increases and encourages copy-pasting code. We wrote the <a href=
-    "https://github.com/Team3512/Robot-2016/blob/master/src/ButtonTracker.hpp">ButtonTracker</a>
-    class to provide an abstraction for detecting leading and trailing edges in
-    button state which eliminates boilerplate. See an example of its usage
-    below.</p>
-    <pre>ButtonTracker joystick2Buttons(2);
+    increases and encourages copy-pasting code. WPILib provides functions in
+    the Joystick class for this purpose.</p>
+    <pre>#include &lt;Joystick.h&gt;
+#include &lt;TimedRobot.h&gt;
 
-while (IsOperatorControl() &amp;& IsEnabled()) {
-    if (joystick2Buttons.PressedButton(2)) {
-        std::cout &lt;&lt; "Joystick button 2 pressed" &lt;&lt; std::endl;
+class Robot : public frc::TimedRobot {
+public:
+    void TeleopPeriodic() {
+        if (joystick.GetRawButtonPressed(2)) {
+            std::cout &lt;&lt; "Joystick button 2 pressed" &lt;&lt; std::endl;
+        }
+
+        if (joystick.GetRawButtonReleased(2)) {
+            std::cout &lt;&lt; "Joystick button 2 released" &lt;&lt; std::endl;
+        }
+
+        if (joystick.GetRawButton(2)) {
+            std::cout &lt;&lt; "Joystick button 2 held" &lt;&lt; std::endl;
+        }
     }
 
-    if (joystick2Buttons.ReleasedButton(2)) {
-        std::cout &lt;&lt; "Joystick button 2 released" &lt;&lt; std::endl;
-    }
-
-    if (joystick2Buttons.HeldButton(2)) {
-        std::cout &lt;&lt; "Joystick button 2 held" &lt;&lt; std::endl;
-    }
-
-    // Update step
-    joystick2Buttons.Update();
-
-    std::this_thread::sleep_for(10ms);
-}</pre>
-    <p>To check other buttons, one has to simply pass a different button number
-    to the appropriate member function. To check other joysticks, one has to
-    simply make another instance of ButtonTracker and add it to the update step
-    at the bottom of the while loop.</p>
+private:
+    frc::Joystick joystick(0);
+};</pre>
     <h3 id="Toggle_solenoid_state">Toggle solenoid state</h3>
     <p>Toggling solenoids to extend or retract mechanisms can be done with the
     following pattern.</p>
@@ -400,100 +288,11 @@ motor.Set(-joystick.GetY());</pre>
     position to another reliably and quickly. Note that this should only be
     done when the device could potentially be set to more than two positions
     within its range. If only two are required, a solenoid should be used
-    instead.</p>
-    <p>See the labs in <a href="../ct01/">CT 1</a> for examples on how to do
-    this.</p>
-    <p>The following is the "Encoder" example provided in the 2017 WPILib
-    Eclipse plugins.</p>
-    <pre>
-#include &lt;Encoder.h&gt;
-#include &lt;SampleRobot.h&gt;
-#include &lt;SmartDashboard/SmartDashboard.h&gt;
-#include &lt;Timer.h&gt;
-
-/**
- * Sample program displaying the value of a quadrature encoder on the
- *   SmartDashboard.
- * Quadrature Encoders are digital sensors which can detect the amount the
- *   encoder has rotated since starting as well as the direction in which the
- *   encoder shaft is rotating. However, encoders can not tell you the absolute
- *   position of the encoder shaft (ie, it considers where it starts to be the
- *   zero position, no matter where it starts), and so can only tell you how
- *   much the encoder has rotated since starting.
- * Depending on the precision of an encoder, it will have fewer or greater
- *   ticks per revolution; the number of ticks per revolution will affect the
- *   conversion between ticks and distance, as specified by DistancePerPulse.
- * One of the most common uses of encoders is in the drivetrain, so that the
- *   distance that the robot drives can be precisely controlled during the
- *   autonomous mode.
- */
-class Robot: public frc::SampleRobot {
-    /**
-     * The Encoder object is constructed with 4 parameters, the last two being
-     *   optional.
-     * The first two parameters (1, 2 in this case) refer to the ports on the
-     *   roboRIO which the encoder uses. Because a quadrature encoder has
-     *   two signal wires, the signal from two DIO ports on the roboRIO are used.
-     * The third (optional) parameter is a boolean which defaults to false.
-     *   If you set this parameter to true, the direction of the encoder will
-     *   be reversed, in case it makes more sense mechanically.
-     * The final (optional) parameter specifies encoding rate (k1X, k2X, or k4X)
-     *   and defaults to k4X. Faster (k4X) encoding gives greater positional
-     *   precision but more noise in the rate.
-     */
-    frc::Encoder m_encoder { 1, 2, false, Encoder::k4X };
-
-    /**
-     * Time to wait between updating SmartDashboard values.
-     * It is generally a good idea to stick a short wait in these loops
-     *   to avoid hogging CPU power, especially as there will be no
-     *   perceivable difference in the SmartDashboard display.
-     */
-    static constexpr double kUpdatePeriod = 0.005; // 5milliseconds / 0.005 seconds.
-
-public:
-    Robot() {
-        /* Defines the number of samples to average when determining the rate.
-         * On a quadrature encoder, values range from 1-255; larger values
-         *   result in smoother but potentially less accurate rates than lower
-         *   values.
-         */
-        m_encoder.SetSamplesToAverage(5);
-
-        /* Defines how far the mechanism attached to the encoder moves per pulse.
-         * In this case, we assume that a 360 count encoder is directly attached
-         * to a 3 inch diameter (1.5inch radius) wheel, and that we want to
-         * measure distance in inches.
-         */
-        m_encoder.SetDistancePerPulse(1.0 / 360.0 * 2.0 * 3.1415 * 1.5);
-
-        /* Defines the lowest rate at which the encoder will not be considered
-         *   stopped, for the purposes of the GetStopped() method.
-         * Units are in distance / second, where distance refers to the units
-         *   of distance that you are using, in this case inches.
-         */
-        m_encoder.SetMinRate(1.0);
-    }
-
-    /**
-     * Retrieve various information from the encoder and display it on the
-     *   SmartDashboard.
-     */
-    void OperatorControl() {
-        while (IsOperatorControl() &amp;& IsEnabled()) {
-            // Retrieve the net displacement of the Encoder since the lsat Reset.
-            frc::SmartDashboard::PutNumber("Encoder Distance",
-                    m_encoder.GetDistance());
-
-            // Retrieve the current rate of the encoder.
-            frc::SmartDashboard::PutNumber("Encoder Rate", m_encoder.GetRate());
-
-            frc::Wait(kUpdatePeriod); // Wait a short bit before updating again.
-        }
-    }
-};
-
-START_ROBOT_CLASS(Robot)</pre>
+    instead. See the labs in <a href="../ct01/">CT 1</a> for examples on how to
+    do this.</p>
+    <p><a href=
+    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibcExamples/src/main/cpp/examples/Encoder/src/Robot.cpp">
+    WPILib's encoder example</a> may be helpful.</p>
     <h2 id="Project_Setup">Project Setup</h2>
     <p>Each year, a new robot project will need to be created in Gerrit (our
     code review platform) and on GitHub for our competition robot code. First,
