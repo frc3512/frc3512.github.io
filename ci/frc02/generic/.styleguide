@@ -1,46 +1,12 @@
-cExtensions {
-  c
-  h
+cHeaderFileInclude {
+  \.h$
 }
 
-cppHeaderExtensions {
-  hpp
-  inl
+cppHeaderFileInclude {
+  \.hpp$
+  \.inl$
 }
 
-cppSrcExtensions {
-  cpp
-}
-
-otherExtensions {
-}
-
-genFolderExclude {
-}
-
-genFileExclude {
-  \.d$
-  \.exe$
-  \.o$
-}
-
-modifiableFolderExclude {
-}
-
-modifiableFileExclude {
-}
-
-includeRelated {
-}
-
-includeCSys {
-}
-
-includeCppSys {
-}
-
-includeOtherLibs {
-}
-
-includeProject {
+cppSrcFileInclude {
+  \.cpp$
 }
