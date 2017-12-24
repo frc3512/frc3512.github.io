@@ -17,7 +17,15 @@
     </div>
     <div id="toc"></div>
     <h2 id="Resources">Resources</h2>
-    <p>To install Git, run <code>pacman -S git</code> in an MSYS2 terminal.</p>
+    <p>To install Git, run <code>pacman -S git</code> in an MSYS2 terminal. Set
+    up the commit author information with the following commands.</p>
+    <pre>
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+    </pre>
+    <p>In general, Git tries to be helpful. If you don't know what to do after
+    running a Git command or seeing something fail, read the text Git prints
+    for possible hints or instructions.</p>
     <ul>
       <li>
         <a href="https://github.com/Team3512/">GitHub</a> - mirrors of the code
@@ -90,7 +98,7 @@
     asterisk beside the current one.</p>
     <p><i>example:</i> <code>git branch new-feature</code></p>
     <h3 id="8._Deleting_a_branch">8. Deleting a branch</h3>
-    <pre>git branch &lt;branchname&gt;</pre>
+    <pre>git branch -d &lt;branchname&gt;</pre>
     <p>This deletes the branch <code>&lt;branchname&gt;</code>. This command
     won't work if that branch is currently checked out.</p>
     <p><i>example:</i> <code>git branch -d merged-feature</code></p>
