@@ -20,48 +20,6 @@
     members can quickly start learning C++. Please install 64-bit versions of
     tools if possible and make sure the bitness of all your tools matches by
     using the appropriate archives/installers.</p>
-    <h2 id="The_Tools">The Tools</h2>
-    <h3 id="Eclipse_CDT">Eclipse CDT</h3>
-    <p>Eclipse CDT is an integrated development environment which makes it
-    easier to write, build, and test programs written in C and C++.</p>
-    <h4 id="New_Project_Toolchain_Selection">New Project Toolchain
-    Selection</h4>
-    <p>On Linux, use "Linux GCC". On Windows, use "Cygwin GCC".</p>
-    <h4 id="False_Errors">False Errors</h4>
-    <p>Eclipse occasionally shows outdated or false errors in a project file.
-    If this is the case, the project's index needs to be rebuilt. To do so,
-    select the following option.</p><code>Right-click project &gt; Index &gt;
-    Rebuild</code>
-    <p>Keep in mind errors shown in the IDE aren't authoritative. The console
-    build output should be used to determine whether the executable was built
-    successfully.</p>
-    <h4 id="C.2B.2B14_Support">C++14 Support</h4>
-    <p>To configure a project to build with C++14, select "ISOC++1y" from the
-    "Language standard" drop-down menu in the following
-    location.</p><code>Right-click project &gt; Properties &gt; C/C++ Build
-    &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
-    <h3 id="GCC_Compiler">GCC Compiler</h3>
-    <p>This is the compiler Eclipse CDT will use to build the programs you
-    write. MSYS2 provides a Linux-like environment with this compiler.</p>
-    <h3 id="Git">Git</h3>
-    <p>Git is a version control system used to manage the code you write. See
-    <a href="../ci/git01/index.html">Git 1</a> for more information and
-    detailed setup.</p>
-    <h3 id="Gerrit">Gerrit</h3>
-    <p>Gerrit provides web based code review and repository management for the
-    Git version control system. Our Gerrit server is <a href=
-    "https://gerrit.frc3512.com/">here</a>. User setup instructions are
-    <a href="https://csweb.frc3512.com/ci/git02/#Setup">here</a>.</p>
-    <h3 id="Formatter">Formatter</h3>
-    <p>Formatters help ensure style guide conformance by automatically
-    correcting deviations. We use the Python 3 scripts provided in WPILib's
-    style guide repository and clang-format for source code formatting. We also
-    use Python 3 for optimizing feedback control system behavior.</p>
-    <blockquote>
-      <i>Note:</i> The formatter should be considered a safety net. It is good
-      practice to be familiar with the enforced style guide and be able to
-      write code in that style directly.
-    </blockquote>
     <h2 id=".2Abuntu_Installation">*buntu Installation</h2>
     <p><i>Eclipse CDT</i></p><code>sudo apt-get install openjdk-8-jdk</code>
     <p>Download the <a href=
@@ -105,11 +63,12 @@ makepkg -si</pre>
       <li><code>pacman -Syu</code>, then close all terminals when directed to
       do so.</li>
       <li><code>pacman -Su</code></li>
-      <li>Add MSYS2 to your system-wide PATH environment variable.</li>
-      <ul>
-        <li>32-bit path: "C:\msys32\usr\bin"</li>
-        <li>64-bit path: "C:\msys64\usr\bin"</li>
-      </ul>
+      <li>Add MSYS2 to your system-wide PATH environment variable.
+        <ul>
+          <li>32-bit path: "C:\msys32\usr\bin"</li>
+          <li>64-bit path: "C:\msys64\usr\bin"</li>
+        </ul>
+      </li>
       <li>Create a desktop shortcut for "MSYS2 MSYS" if desired.</li>
       <li><code>pacman -S base-devel gcc</code>, then when prompted for which
       packages in the base-devel group to install, press Enter to select the
@@ -133,6 +92,48 @@ python get-pip.py
 pip install wpiformat</pre>
     <p>After those commands complete, close and reopen the terminal so the PATH
     environment variable change from earlier takes effect.</p>
+    <h2 id="The_Tools">The Tools</h2>
+    <h3 id="Eclipse_CDT">Eclipse CDT</h3>
+    <p>Eclipse CDT is an integrated development environment which makes it
+    easier to write, build, and test programs written in C and C++.</p>
+    <h4 id="New_Project_Toolchain_Selection">New Project Toolchain
+    Selection</h4>
+    <p>On Linux, use "Linux GCC". On Windows, use "Cygwin GCC".</p>
+    <h4 id="False_Errors">False Errors</h4>
+    <p>Eclipse occasionally shows outdated or false errors in a project file.
+    If this is the case, the project's index needs to be rebuilt. To do so,
+    select the following option.</p><code>Right-click project &gt; Index &gt;
+    Rebuild</code>
+    <p>Keep in mind errors shown in the IDE aren't authoritative. The console
+    build output should be used to determine whether the executable was built
+    successfully.</p>
+    <h4 id="C.2B.2B14_Support">C++14 Support</h4>
+    <p>To configure a project to build with C++14, select "ISOC++1y" from the
+    "Language standard" drop-down menu in the following
+    location.</p><code>Right-click project &gt; Properties &gt; C/C++ Build
+    &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
+    <h3 id="GCC_Compiler">GCC Compiler</h3>
+    <p>This is the compiler Eclipse CDT will use to build the programs you
+    write. MSYS2 provides a Linux-like environment with this compiler.</p>
+    <h3 id="Git">Git</h3>
+    <p>Git is a version control system used to manage the code you write. See
+    <a href="../ci/git01/index.html">Git 1</a> for more information and
+    detailed setup.</p>
+    <h3 id="Gerrit">Gerrit</h3>
+    <p>Gerrit provides web based code review and repository management for the
+    Git version control system. Our Gerrit server is <a href=
+    "https://gerrit.frc3512.com/">here</a>. User setup instructions are
+    <a href="https://csweb.frc3512.com/ci/git02/#Setup">here</a>.</p>
+    <h3 id="Formatter">Formatter</h3>
+    <p>Formatters help ensure style guide conformance by automatically
+    correcting deviations. We use the Python 3 scripts provided in WPILib's
+    style guide repository and clang-format for source code formatting. We also
+    use Python 3 for optimizing feedback control system behavior.</p>
+    <blockquote>
+      <i>Note:</i> The formatter should be considered a safety net. It is good
+      practice to be familiar with the enforced style guide and be able to
+      write code in that style directly.
+    </blockquote>
   </div>
 </body>
 </html>
