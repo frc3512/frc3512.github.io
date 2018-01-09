@@ -34,6 +34,76 @@
       <li>Git (advanced usage) lecture <a href="lecture/">slides</a>.
       </li>
     </ul>
+    <h2 id="Git_.28advanced_usage.29_lecture_notes">Git (advanced usage)
+    lecture notes</h2>
+    <h3 id="Versioning">Versioning</h3>
+    <ul>
+      <li>Easily get commit later? (tag)</li>
+      <li>Getting to tagged commit later? (checkout)</li>
+      <ul>
+        <li>now in detached head state</li>
+        <li>can 'git checkout master' to get back to tip of master</li>
+        <li>can make commits</li>
+        <ul>
+          <li>make sure commits are saved?</li>
+          <ul>
+            <li>'git branch temp'</li>
+            <li>'git checkout temp'</li>
+          </ul>
+          <li>Update master to temp... WARNING: destructive!</li>
+          <ul>
+            <li>'git branch -f master temp' (fine if changes on master were
+            bad)</li>
+            <li>'git checkout master'</li>
+          </ul>
+          <li>Or... merge it with HEAD</li>
+          <ul>
+            <li>Find commit from 'git reflog'</li>
+            <li>checkout master</li>
+            <li>'git merge HEAD@{1}' (where HEAD{1} is commit in temp branch
+            from reflog)</li>
+          </ul>
+        </ul>
+        <li>Remove temp branch since it's reachable by master at HEAD now</li>
+        <ul>
+          <li>'git branch -d temp'</li>
+        </ul>
+      </ul>
+      <li>IF you just want to edit the commit checked out and not make a new
+      one</li>
+      <ul>
+        <li>'git rebase -i' with edit mentioned next to commit</li>
+        <ul>
+          <li>triggers commmit --amend scenario -&gt; 'git rebase
+          --continue'</li>
+        </ul>
+      </ul>
+    </ul>
+    <h3 id="Messing_with_history">Messing with history</h3>
+    <ul>
+      <li>Changing last commit</li>
+      <ul>
+        <li>Messed up commit message? (commit --amend)</li>
+        <li>Forgot to add files or added wrong ones? (add/rm then commit
+        --amend)</li>
+      </ul>
+      <li>Want to change a bunch of commits? rebase!</li>
+      <ul>
+        <li>'git rebase -i' is a fantastic tool</li>
+        <li>Clean up a billion local commits that don't make sense apart?</li>
+        <ul>
+          <li>Compress commits w/ squash</li>
+        </ul>
+        <li>Reorder commits</li>
+        <li>Remove commits</li>
+      </ul>
+      <li>WARNING: Only do this with commits that aren't public yet!</li>
+    </ul>
+    <h3 id="Nuclear_option_for_binary_files">Nuclear option for binary
+    files</h3>
+    <ul>
+      <li>'git filter-branch --tree-filter 'rm -f largeFile.out' HEAD</li>
+    </ul>
     <h2 id="Setup">Setup</h2>
     <p>Visit <code>gerrit.frc3512.com</code> and sign in / sign up.</p>
     <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
