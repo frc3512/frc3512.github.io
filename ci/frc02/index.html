@@ -80,7 +80,7 @@ void Robot::Disabled() {
 }
 
 void Robot::Autonomous() {
-    while (IsAutonomous() &amp;&amp; IsEnabled()) {
+    while (IsAutonomous() &amp;& IsEnabled()) {
         // Perform autonomous tasks
 
         std::this_thread::sleep_for(20ms);
@@ -88,7 +88,7 @@ void Robot::Autonomous() {
 }
 
 void Robot::OperatorControl() {
-    while (IsOperatorControl() &amp;&amp; IsEnabled()) {
+    while (IsOperatorControl() &amp;& IsEnabled()) {
         // Perform normal robot actions and check for user input
 
         std::this_thread::sleep_for(20ms);
@@ -96,7 +96,7 @@ void Robot::OperatorControl() {
 }
 
 void Robot::Test() {
-    while (IsTest() &amp;&amp; IsEnabled()) {
+    while (IsTest() &amp;& IsEnabled()) {
         // Perform robot test actions
 
         std::this_thread::sleep_for(20ms);
@@ -130,7 +130,7 @@ void Robot::Test() {
 void Robot::Autonomous() {
     AutonomousInit();
 
-    while (IsAutonomous() &amp;&amp; IsEnabled()) {
+    while (IsAutonomous() &amp;& IsEnabled()) {
         AutonomousPeriodic();
 
         std::this_thread::sleep_for(20ms);
@@ -199,17 +199,17 @@ class Robot : public frc::TimedRobot {
 public:
     void TeleopPeriodic() {
         // If button was pressed
-        if (!oldButtonState &amp;&amp; newButtonState) {
+        if (!oldButtonState &amp;& newButtonState) {
             std::cout &lt;&lt; "Joystick button 2 pressed" &lt;&lt; std::endl;
         }
 
         // If button was released
-        if (oldButtonState &amp;&amp; !newButtonState) {
+        if (oldButtonState &amp;& !newButtonState) {
             std::cout &lt;&lt; "Joystick button 2 released" &lt;&lt; std::endl;
         }
 
         // If button was held
-        if (oldButtonState &amp;&amp; newButtonState) {
+        if (oldButtonState &amp;& newButtonState) {
             std::cout &lt;&lt; "Joystick button 2 held" &lt;&lt; std::endl;
         }
 
