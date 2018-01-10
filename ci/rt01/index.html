@@ -45,10 +45,10 @@
     bandwidth, robot connectivity during competition will be affected.</p>
     <h3 id="Feedback_control_loops">Feedback control loops</h3>
     <p>These run as threads and are typically executed at between 20Hz and
-    200hz (50ms and 5ms respectively). Given that they are digital feedback
-    controllers, they should be run as fast as possible, without starving other
-    processes, to limit <a href="../ct02/#Phase_loss">phase loss</a> in the
-    controller implementation.</p>
+    200hz (periods of 50ms and 5ms respectively). Given that they are digital
+    feedback controllers, they should be run as fast as possible, without
+    starving other processes, to limit <a href="../ct02/#Phase_loss">phase
+    loss</a> in the controller implementation.</p>
     <h3 id="User_input">User input</h3>
     <p>This includes joystick axis movements, button presses, and other control
     actions originating from the driver via the driver station. These can run
