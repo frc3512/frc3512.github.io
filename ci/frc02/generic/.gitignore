@@ -13,6 +13,8 @@ Makefile
 
 /Debug/
 /Release/
+.metadata/
 .settings/
+RemoteSystemsTempFiles/
 sysProps.xml
 *.swp
