@@ -1,50 +1,22 @@
-cExtensions {
-  c
-  h
+cHeaderFileInclude {
+  \.h$
 }
 
-cppHeaderExtensions {
-  hpp
-  inl
+cppHeaderFileInclude {
+  \.hpp$
+  \.inl$
 }
 
-cppSrcExtensions {
-  cpp
-}
-
-otherExtensions {
-}
-
-genFolderExclude {
-  CMakeFiles
-}
-
-genFileExclude {
-  \.d$
-  \.o$
-  CMakeCache\.txt$
-  FRCUserProgram$
-  Makefile$
-  cmake_install\.cmake$
-}
-
-modifiableFolderExclude {
+cppSrcFileInclude {
+  \.cpp$
 }
 
 modifiableFileExclude {
-}
-
-includeRelated {
-}
-
-includeCSys {
-}
-
-includeCppSys {
+  WPILib/
 }
 
 includeOtherLibs {
-}
-
-includeProject {
+  CtrlSys/
+  cscore\.h$
+  ctre/
 }
