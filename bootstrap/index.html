@@ -78,7 +78,11 @@ makepkg -si</pre>
     <p><i>Formatter</i></p>
     <p>Download the latest version of LLVM from <a href=
     "http://releases.llvm.org/download.html">here</a> under "Pre-Built
-    Binaries" and run it. The default installation options are fine.</p>
+    Binaries" and run it. The default installation options are fine. Don't
+    worry if you see the following; it's irrelevant to our use.</p>
+    <pre>Installing MSVC integration...
+Failed to find MSBuild toolsets directory.
+MSVC integration install failed.</pre>
     <p>MSYS2 keeps a separate PATH environment variable from the operating
     system. Run the following command to add the LLVM installation to
     it.</p><code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt;
