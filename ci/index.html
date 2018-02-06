@@ -54,23 +54,36 @@
     <h3 id="Engineering_is_about_meeting_requirements">Engineering is about
     meeting requirements</h3>
     <p>If you can meet your requirements with a simpler, less comprehensive
-    design, go for it.</p>
-    <h3 id="Make_your_code_as_simple_as_possible.2C_but_no_simpler">Make your
-    code as simple as possible, but no simpler</h3>
-    <p>Make your code as simple as you can while still meeting your
+    design, do it. Keep in mind that your requirements can and should include
+    cleanliness, readability, and reusability.</p>
+    <h3 id="Make_your_code_as_simple_as_possible">Make your code as simple as
+    possible</h3>
+    <p>Make your code as simple as possible while still meeting your
     functionality and cleanliness requirements. You'll thank yourself later
     when you have to debug it or reuse it.</p>
-    <p>You can accomplish a lot with open-loop control in a few lines of WPILib
-    and no feedback control. Only start writing big, fancy abstractions when it
-    helps you attain something you wouldn't otherwise be able to do.</p>
+    <p>A lot can be accomplished with no feedback control and a few lines of
+    WPILib. In FRC team 3512's rookie year, their 2011 robot had 100 lines of
+    C++ with fully manual control except for a limit switch for automatically
+    deploying the minibot. It seeded 7th out of 63 teams. Only start writing
+    big, fancy abstractions when it helps attain something that couldn't be
+    done easily otherwise.</p>
+    <h3 id="Know_the_standard_library_and_WPILib">Know the standard library and
+    WPILib</h3>
+    <p>There are a lot of difficult problems in robotics and computer science,
+    but most of the ones relevant to FRC were already solved by experts in
+    those fields. That expertise is made available in libraries such as the
+    <a href="http://cppreference.com/">C++ standard library</a> and <a href=
+    "http://first.wpi.edu/FRC/roborio/release/docs/cpp/">WPILib</a>. Learn
+    their APIs well and use them. There's no use in reinventing the wheel
+    (poorly).</p>
     <h3 id="Be_pragmatic_in_design_and_implementation">Be pragmatic in design
     and implementation</h3>
     <p>PID control isn't a silver bullet, and neither is computer vision. Don't
     decide to implement something just because it's cool. Implement what gives
-    you the highest return on your investment for meeting your requirements.
-    For example, if you want to spend a week on tuning an elevator PID
-    controller, be prepared to show how that will improve your scoring
-    potential compared to manual control of the elevator height.</p>
+    the highest return on investment first for robot performance. For example,
+    if you want to spend a week on tuning an elevator PID controller, be
+    prepared to show how that will improve the robot's scoring potential
+    compared to manual control of the elevator height.</p>
     <h2 id="Why_I_mentor">Why I mentor</h2>
     <h3 id="Tyler_Veness">Tyler Veness</h3>
     <p>My time as a student in FRC was basically one giant R&amp;D experience
