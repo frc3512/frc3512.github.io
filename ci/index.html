@@ -15,7 +15,7 @@
       <h1>Curriculum and Instruction</h1>
     </div>
     <div id="toc"></div>
-    <h2 id="The_Mindset_of_an_Engineer">The Mindset of an Engineer</h2>
+    <h2 id="The_Mindset_of_an_engineer">The Mindset of an engineer</h2>
     <p>The following maxim summarizes what we hope to teach students on the
     software team (with examples drawn from controls engineering).</p>
     <blockquote>
@@ -50,7 +50,28 @@
     another for pragmatic or technical reasons is fine, but the engineer should
     not care on a personal level which sufficient solution is chosen.</p>
     <p>This is egoless engineering.</p>
-    <h2 id="Why_I_Mentor">Why I Mentor</h2>
+    <h2 id="Advice_for_FRC_software_teams">Advice for FRC software teams</h2>
+    <h3 id="Engineering_is_about_meeting_requirements">Engineering is about
+    meeting requirements</h3>
+    <p>If you can meet your requirements with a simpler, less comprehensive
+    design, go for it.</p>
+    <h3 id="Make_your_code_as_simple_as_possible.2C_but_no_simpler">Make your
+    code as simple as possible, but no simpler</h3>
+    <p>Make your code as simple as you can while still meeting your
+    functionality and cleanliness requirements. You'll thank yourself later
+    when you have to debug it or reuse it.</p>
+    <p>You can accomplish a lot with open-loop control in a few lines of WPILib
+    and no feedback control. Only start writing big, fancy abstractions when it
+    helps you attain something you wouldn't otherwise be able to do.</p>
+    <h3 id="Be_pragmatic_in_design_and_implementation">Be pragmatic in design
+    and implementation</h3>
+    <p>PID control isn't a silver bullet, and neither is computer vision. Don't
+    decide to implement something just because it's cool. Implement what gives
+    you the highest return on your investment for meeting your requirements.
+    For example, if you want to spend a week on tuning an elevator PID
+    controller, be prepared to show how that will improve your scoring
+    potential compared to manual control of the elevator height.</p>
+    <h2 id="Why_I_mentor">Why I mentor</h2>
     <h3 id="Tyler_Veness">Tyler Veness</h3>
     <p>My time as a student in FRC was basically one giant R&amp;D experience
     for me. By always being on the cutting edge of 3512, I learned a <i>lot</i>
@@ -450,7 +471,7 @@
     ".styleguide-license">.styleguide-license</a> in the root directory of your
     repository. You may modify <code>.styleguide-license</code> to use your
     name.</p>
-    <h3 id="Option_1.3A_Eclipse_Workspaces">Option 1: Eclipse Workspaces</h3>
+    <h3 id="Option_1.3A_Eclipse_workspaces">Option 1: Eclipse workspaces</h3>
     <p>The directory tree above provides an example of which folders should be
     an Eclipse workspace or project within a workspace (parentheses are not
     part of the name). This ensures the Eclipse projects and their metadata are
@@ -469,7 +490,7 @@ RemoteSystemsTempFiles/</pre>
     problem projects into the workspace by right-clicking on the Project
     Explorer and selecting <code>Import...</code>. In the resulting dialog,
     choose <code>General &gt; Existing Projects into Workspace</code>.</p>
-    <h3 id="Option_2.3A_Alternate_Editor">Option 2: Alternate Editor</h3>
+    <h3 id="Option_2.3A_Alternate_editor">Option 2: Alternate editor</h3>
     <p>If you want to use a different IDE such as Vim, provide a Makefile in
     each problem folder to compile the executable. "workspaces" and "projects"
     aren't relevant here, but follow the directory layout. Here's an <a href=
