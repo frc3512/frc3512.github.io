@@ -152,6 +152,7 @@ ol.sub {
 
 ol.sub > li {
   display: block;
+  margin: 0.5em 0;
 }
 
 ol.sub > li:before {
