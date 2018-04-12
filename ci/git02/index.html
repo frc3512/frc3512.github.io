@@ -176,6 +176,59 @@ git review -s</pre>
     <p>To clarify, making a new commit on top of it then running <code>git
     review</code> will make a new patchset. This is bad practice as the new
     commit is not a stand-alone feature.</p>
+    <h2 id="Useful_Git_features">Useful Git features</h2>
+    <ul>
+      <li>End-of-line conversion (crlf or eol)</li>
+      <li>Custom diff/merge driver</li>
+      <li>textconv gitattribute (converting to text for performing a diff)</li>
+      <li>Other gitattributes (e.g. clean/smudge filter)</li>
+      <li>Word diff: <code>git diff --color-words</code></li>
+      <li>Merge strategy options (e.g. <code>-Xrenormalize</code>)</li>
+      <li>Submodules (subprojects) with <code>git submodule</code></li>
+      <li>Subtree merge (e.g. <code>git subtree</code>, <code>git
+      stree</code>)</li>
+      <li>Partial (sparse) checkout</li>
+      <li>Shallow clone: <code>git clone --depth=</code></li>
+      <li>Multiple worktrees: <code>git worktree</code></li>
+      <li>Searching history for commit message and metadata: <code>git log
+      --grep</code></li>
+      <li>Searching changes in history, pickaxe search: <code>git log -S</code>
+      and <code>git log -G</code></li>
+      <li>Finding errors in history with bisect (also <code>git bisect
+      run</code></li>
+      <li>Tracking code movement with <code>git blame</code> (<code>git blame
+      -M</code>, <code>git gui blame</code>, etc.)</li>
+      <li>History of lines: <code>git log -L</code></li>
+      <li>Detaching HEAD: <code>git checkout --detach</code>, <code>git
+      checkout</code></li>
+      <li>Orphan branches with disconnected history (gh-pages, todo, man,
+      etc.)</li>
+      <li>Merging independent histories, joining different projects together
+      (outside subtree merge)</li>
+      <li>Alternates mechanism (sharing object database), including <code>git
+      clone --reference</code></li>
+      <li>Stash and autostash (also <code>git stash --keep-index</code></li>
+      <li>Commit message templates, and/or commit-related hooks</li>
+      <li>Interactive commit / per-hunk comitting / partial commit / splitting
+      commits</li>
+      <li>Interactive rebase, fixup commits (small scale history editing)</li>
+      <li><code>git filter-branch</code> or equivalent, like BFG Repo Cleaner
+      (large history rewriting)</li>
+      <li>Committing with dirty tree (keeping some changes uncommitted)</li>
+      <li>reflog (including <code>@{1}</code>, <code>@{yesterday}</code>,
+      <code>@{-1}</code> / <code>-</code>, <code>git log -g</code>)</li>
+      <li>Include mechanism for configuration files</li>
+      <li>Client-side hooks (e.g. post-checkout, pre-push, pre-auto-gc,
+      post-rewrite)</li>
+      <li>Server-side hooks (e.g. pre-receive, update, post-receive)</li>
+      <li>git-aware shell prompt</li>
+      <li>Git aliases, shell aliases for git, or own git scripts</li>
+      <li>One-way interaction with other SCMs (from SCM to git)</li>
+      <li>Two-way interaction with other SCMs (from SCM to git, and from git to
+      SCM)</li>
+      <li>Object overlays (<code>git replace</code> or grafts)</li>
+      <li>Object annotation: <code>git notes</code></li>
+    </ul>
   </div>
 </body>
 </html>
