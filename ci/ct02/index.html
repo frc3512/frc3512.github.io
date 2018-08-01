@@ -12,287 +12,32 @@
 <body onload="tableOfContents();">
   <div id="content">
     <div class="title">
-      <h1>Intro to Feedback Control Systems<br>
+      <h1>Modern Control Theory<br>
       <small>Control Theory 2</small></h1>
     </div>
     <div class="prereq">
       <strong>Prerequisites:</strong> <a href="../ct01/">CT 1</a>
     </div>
     <div id="toc"></div>
-    <h2 id="Control_system_diagrams">Control system diagrams</h2>
-    <p>Read the sections on <a href=
-    "https://en.wikibooks.org/wiki/Control_Systems/Gain">gain</a> and <a href=
-    "https://en.wikibooks.org/wiki/Control_Systems/Block_Diagrams">block
-    diagrams</a> for an introduction to what block diagrams are and how they
-    are constructed.</p>
+    <h2 id="Practical_Guide_to_State-space_Control">Practical Guide to
+    State-space Control</h2>
     <p><a href=
-    "https://en.wikibooks.org/wiki/Control_Systems/Feedback_Loops">This
-    section</a> describes how to represent feedback loops within a control
-    system diagram and defines terminology for various parts of it (e.g.,
-    plant, controller, reference input). Sections with "state-space" in their
-    title may be skipped for now as state-space will be revisited in <a href=
-    "../ct04/">Modern Control Theory</a>.</p>
-    <p>3512 has a <a href=
-    "https://github.com/Team3512/Robot-2017/tree/master/src/CtrlSys">control
-    system framework</a> that provides a nearly one-to-one mapping between a
-    control system diagram and its implementation on an FRC robot. <i>TODO:
-    describe how CtrlSys works</i>.</p>
-    <h2 id="Gain_and_phase_margin">Gain and phase margin</h2>
-    <p>Watch <a href="https://youtu.be/ThoA4amCAX4">this video</a> for an
-    explanation of gain and phase margin and its relation to control system
-    stability.</p>
-    <h2 id="Phase_loss">Phase loss</h2>
-    <p>Phase loss is the reduction of phase margin that occurs in digital
-    implementations of feedback controllers from sampling the continuous
-    controller at discrete time intervals. As the sample rate of the controller
-    decreases, the phase margin decreases and will lead to instability once the
-    phase margin reaches zero. See <a href=
-    "https://en.wikibooks.org/wiki/Control_Systems/System_Delays">this
-    article</a> for more on system delays.</p>
-    <h2 id="Motion_profiles">Motion profiles</h2>
-    <p>When the response of controllers we tune needs to be more tightly
-    controlled, we change the setpoint over time in a controlled manner using a
-    motion profile. This produces a more consistent system response.</p>
-    <p>Motion control engineers spend hours optimizing tuning parameters for
-    their servo-based motion controllers. But what if they are using step
-    motors? And what if, no matter how much time they spend on tuning, they
-    cannot get the performance they want?</p>
-    <p>The answer, for many systems, is to focus on the motion profile instead.
-    In the past ten years advanced profiling features such as asymmetric
-    acceleration/deceleration, 7-segment S-curve profiling, change-on-the-fly,
-    and electronic camming have become widely available, providing engineers
-    with new tools to make machines work faster and better. This article will
-    take you through the mathematics of motion profiles, discuss which profiles
-    work best for which applications, and provide insights into how to "tune"
-    your profile for maximum performance.</p>
-    <h3 id="You_can_get_there_from_here">You can get there from here</h3>
-    <p>While there are a lot of different motion profiles in use today, a good
-    starting point is the point-to-point move. For a large number of
-    applications including medical automation, scientific instrumentation,
-    pointing systems, and many types of general automation, the point-to-point
-    move is used more frequently than other other profile. Because of this,
-    optimization of this profile will have the largest overall impact on system
-    performance. Point-to-point means that from a stop, the load is accelerated
-    to a constant velocity, and then decelerated such that the final
-    acceleration, and velocity, are zero at the moment the load arrives at the
-    programmed destination.</p>
-    <p>The two profiles commonly used for point-to-point profiling are the
-    S-curve profile, and its simpler cousin the trapezoidal profile. They are
-    shown in Figure 1 (coming soon).</p>
-    <p>In the context of a point-to-point move, a full S-curve consists of 7
-    distinct phases of motion. Phase 1 starts moving the load from rest at a
-    linearly increasing acceleration until it reaches the maximum acceleration.
-    In phase II. the profile accelerates at this max. acceleration rate until
-    it must start decreasing as it approaches the max. velocity. This occurs in
-    phase III when the acceleration linearly decreases until it reaches zero.
-    In phase IV the velocity is constant until deceleration begins, at which
-    point the profiles decelerates in a manner symmetric to phases I, II and
-    III.</p>
-    <p>A trapezoidal profile, on the other hand, has 3 phases. It is a subset
-    ofi an S-curve profile, having only the phases corresponding to #2 of the
-    S-curve profile (constant acceleration), #4 (constant velocity), and #6
-    (constant deceleration). This reduced number of phases underscores the
-    difference between these two profiles: The S-curve profile has extra motion
-    phases which transition between periods of acceleration, and periods of
-    non-acceleration. The trapezoidal profile has instantaneous transitions
-    between these phases. This can be seen in the acceleration graphs of the
-    corresponding velocity profiles for these two profile types. The motion
-    characteristic that defines the change in acceleration, or transitional
-    period, is known as "jerk". Jerk is defined as the rate of change of
-    acceleration with time. In a trapezoidal profile, the jerk (change in
-    acceleration) is infinite at the phase transitions, while in the S-curve
-    profile the jerk is a constant value, spreading the change in acceleration
-    over a period of time.</p>
-    <h3 id="What_a_jerk">What a jerk</h3>
-    <p>That an S-curve profile is smoother than a trapezoidal profile is
-    evident from the above graphs. Why, however, do the S-curve profile result
-    in less load oscillation? The answer to this has to do with the fact that
-    for a given load, the higher the jerk, the greater the amount of unwanted
-    vibration energy will be generated, and the broader the frequency spectrum
-    of the vibration's energy will be.</p>
-    <p>This means that the more rapid the change in acceleration, the more
-    powerful the vibrations will be, and the larger the number of vibrational
-    modes will be excited. Because vibrational energy is absorbed in the system
-    mechanics, it may cause an increase in settling time or reduced accuracy if
-    the vibration frequency matches resonances in the mechanical and control
-    system.</p>
-    <h3 id="I_wanna_go_fast">I wanna go fast</h3>
-    <p>Since trapezoidal profiles spend their time at full acceleration or full
-    deceleration, they are, from the standpoint of profile execution, faster
-    than S-curve profiles. But if this 'all on'/'all off' approach causes an
-    increase in settling time, the advantage is lost. Often, only a small
-    amount of "S" (transition between acceleration and no acceleration) can
-    substantially reduce induced vibration. And so to optimize throughput the
-    S-curve profile must be 'tuned' for each a given load and given desired
-    transfer speed.</p>
-    <p>What S-curve form is right for a given system? On an application by
-    application basis, the specific choice of the form of the S-curve will
-    depend on the mechanical nature of the system, and the desired performance
-    specifications. For example in medical applications which involve liquid
-    transfers that should not be jostled, it would be appropriate to choose a
-    profile with no phase II and VI segment at all, instead spreading the
-    acceleration transitions out as far as possible, thereby maximizing
-    smoothness.</p>
-    <p>In other applications involving high speed pick and place, overalli
-    transfer speed is most important, so a good choice might be an S-curve with
-    transition phases (phases I, III, V, and VII) that are 5-15% of phase II
-    and VI. In this case the S-curve profile will add a small amount of time to
-    the overall transfer time, but because of reduced load oscillation at the
-    end of the move, the total effective transfer time can be considerably
-    decreased. Trial and error using a motion measurement system is generally
-    the best way to determine the right amount of "S", because modelling the
-    response to vibrations is complicated, and not always accurate.</p>
-    <h4 id="Trapezoidal_profile_equations">Trapezoidal profile equations</h4>
-    <p>The basic math required to execute trapezoidal profiles is
-    straghtforward. There, however, two forms that can be used; the continuous
-    form, that will be familiar from High School Physics, and the discrete time
-    form, which is used in most motion systems that utilize microprocessors or
-    DSPs (Digital Signal Processor) to generate a new set of motion parameters
-    at each tick of the motion 'clock'.</p>
-    <pre>Continuous form
-PT = P0 + V0T + 1/2AT2
-VT = V0 + AT
-and
-Pdecel = V2/2A
-Discrete time form
-PT = PT + VT +1/2A
-VT = VT+A
-where:
-P0 and V0, are the starting position and velocities
-PT and VT, are the position and velocity at time T
-A is the profile acceleration</pre>
-    <h4 id="S-curve_profile_equations">S-curve profile equations</h4>
-    <p>Because they are third versus second-order curves, and because there are
-    seven versus three separate motion segments, point-to-point S-curves are
-    more complicated then Trapezoids. In particular it is not simple to
-    calculate the stopping distance for a given set of profile values.
-    Accordingly, many S-curve profiling systems restrict changes-on-the-fly, or
-    do not allow asymmetric profiles. These restrictions allow information
-    about how long, and over what distance, the profile previously took to
-    accelerate to determine when to start decelerating.</p>
-    <pre>Continuous form
-PT = P0 + V0T + 1/2A0T2 + 1/6JT3
-VT = V0 + A0T + 1/2 JT2
-AT = A0 + JT
-Discrete time form
-PT = PT + VT +1/2AT + 1/6J
-VT = VT+AT + 1/2JT
-AT = AT+JT
-where
-P0, V0, and A0 are the starting position, velocity, and accelerations
-PT , VT, and AT are the position, velocity, and acceleration at time T
-
-J is the profile jerk (time rate of change of acceleration)</pre>
-    <h3 id="Making_your_point-to-point">Making your point-to-point</h3>
-    <p>The ultimate goal of any profile is to match the motion system
-    characteristics to the desired application. Trapezoidal and S-curve
-    profiles work well when the motion system's torque response curve is fairly
-    flat. In other words, when the output torque does not vary that much over
-    the range of velocities the system will be experiencing. This is true for
-    most servo motor systems, whether DC Brush or Brushless DC.</p>
-    <p>Step motors, however, do not have flat torque/speed curves. Torque
-    output is non-linear, sometimes having a large drop at a location called
-    the 'mid-range instability', and generally having drop-off at higher
-    velocities.</p>
-    <p>Mid-range instability occurs at the step frequency when the motor's
-    natural resonance frequency matches the current step rate. To address
-    mid-range instability, the most common technique is to use a non-zero
-    starting velocity. This means that the profile instantly 'jumps' to a
-    programmed velocity upon initial acceleration, and while decelerating.
-    While crude, this technique sometimes provides better results than a smooth
-    ramp for zero, particularly for systems that do not use a microstepping
-    drive technique.</p>
-    <p>To address drop-off of torque at higher velocities, a parabolic profile
-    can be used. The corresponding acceleration curve has the characteristic
-    that the acceleration is smallest when the velocity is highest. This is a
-    good match for step-motor systems, because there is less torque available
-    at higher speeds. But notice that starting and ending accelerations are
-    very high, and there is no "S" phase where the acceleration smoothly
-    transitions to zero. So if load oscillation is a problem, parabolic
-    profiles may not work as well as an S-curve, despite the fact that a
-    standard S-curve profile is not optimized for a step motor from the
-    standpoint of the torque/speed curve.</p>
-    <h4 id="Parabolic_profile_equations">Parabolic profile equations</h4>
-    <p>Parabolic profiles are closely related to S-curves because they are
-    third-order moves. And as was the case for S-curve profiles, calculating
-    the distance to deceleration is complicated, particularly if profile
-    changes-on-the-fly are allowed.</p>
-    <pre>Continuous form
-PT = P0 + V0T + 1/2A0T2 - 1/6JT3
-VT = V0 + A0T - 1/2 JT2
-AT = A0 - JT
-Discrete time form
-PT = PT + VT +1/2AT - 1/6J
-VT = VT+AT - 1/2JT
-AT = AT- JT
-where
-P0, V0, and A0 are the starting position, velocity, and accelerations
-PT , VT, and AT are the position, velocity, and acceleration at time T
-J is the jerk (time rate of change of acceleration)</pre>
-    <h3 id="Table_for_65.2C536_please">Table for 65,536 please</h3>
-    <p>The ultimate in point-to-point profile generation, or in fact for other
-    types of profiles including continuous path generation such as is used in
-    CNC (Computer Numerical Control) machine tools, is to construct a custom
-    profile that compensates for the exact load and motor characteristics of
-    the system. Such a profile would accelerate the motor, taking into account
-    the available motor torque at each velocity point, the mechanical
-    resonances at each velocity point, and the actuator or arm kinematics in
-    the mechanism.</p>
-    <p>Since motor torque curves do not follow simple mathematical principles,
-    and because the equations for kinematic compensation are complex, these
-    calculations are generally calculated in advance, and stored in a table of
-    motion 'vectors'. This table is generally set up as an array of position or
-    time vectors, with a corresponding entry for velocity and acceleration at
-    each point of the curve.</p>
-    <p>In this configuration the motion engine is merely providing a generic
-    capability to download and execute a list of vectors, and the
-    responsibility of the calculations falls to the user. Despite this extra
-    work, if special conditions exist, such as when motors or mechanisms are
-    highly non-linear, table-driven point-to-point profiles can provide a
-    meaningful performance increase, and may be worth the effort.</p>
-    <h3 id="Cam_we_talk.3F">Cam we talk?</h3>
-    <p>Beyond point-to-point moves, there is a broad range of motion
-    applications that require repetitive motion, indexed by a master timer or
-    encoder. Such applications fall under the category of electronic cams,
-    which includes the related but simpler approach known as electronic
-    gearing.</p>
-    <p>Cams typically also use downloadable tables. In this case the tables are
-    used to define a target position for each location of the master encoder or
-    each tick of the master clock. The user can download a trapezoidal profile,
-    an S-curve profile, or more commonly, a custom profile that replicates the
-    function of a specially-shaped mechanical cam.</p>
-    <p>There are a number of ways to specify the relationship between the
-    master clock and the controlled axis. The most common is to define the
-    number of encoder counts that make up a 360 deg 'rotation' of the master
-    encoder, and then allow one or more output points to be defined at each
-    degree position of the table. When executing the table, after reading the
-    last location of the table the motion controller will 'wrap' back, and
-    restart from the first. Because of this, the beginning and ending position
-    targets must be the same, or very similar, to avoid a discontinuous jump in
-    motion.</p>
-    <p>A variation on this approach is to treat each table entry as a relative
-    distance to move rather than as an absolute desired axis location. Using
-    this approach there is no requirement that the first and last entries in
-    the table match up.</p>
-    <p>Electronic Gearing is a simpler version of camming where the
-    relationship between the master can be expressed as a fixed ratio to the
-    driven axis. Gear ratios can be positive or negative, and can be greater or
-    less than one, meaning that the driven axis can amplify, or reduce, the
-    motion specified by the master encoder.</p>
-    <h3 id="Summary">Summary</h3>
-    <p>Choosing the right profile can improve smoothness, reduce wear, and
-    lower transfer times for a broad range of motion control applications.
-    Trapezoidal profiles are useful, but limited, because there is no way to
-    define transitions between acceleration regions. S-curves solve this
-    problem, but are correspondingly more complex mathematically. Another
-    important profile for point-to-point moves is the parabolic profile,
-    generally used only for step-motor based systems. Table-based approaches to
-    motion profiling are also popular, and in particular, downloadable
-    electronic cams are widely used in a number of industries.</p>
-    <p>For most of our control applications, we use trapezoidal motion
-    profiles. FRC teams 254 and 971 gave a <a href=
-    "https://www.youtube.com/watch?v=8319J1BEHwM">talk</a> at FIRST World
-    Championships in 2015 about motion profiles.</p>
+    "https://file.tavsys.net/control/state-space-guide.pdf">state-space-guide.pdf</a></p>
+    <h2 id="Controls_Applications">Controls Applications</h2>
+    <ul>
+      <li>
+        <a href="https://youtu.be/RCXGpEmFbOw">Localized control of
+        quadcopters</a>
+      </li>
+      <li>
+        <a href="https://youtu.be/K926HAKRFvw">Bio-inspired locomotion:
+        salamander and distributed control</a>
+      </li>
+      <li>
+        <a href="https://youtu.be/Wa0amJmJ550">Elliptical runner using only
+        feedforwards</a>
+      </li>
+    </ul>
   </div>
 </body>
 </html>
