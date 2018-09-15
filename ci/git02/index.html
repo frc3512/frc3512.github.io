@@ -233,6 +233,15 @@ git review -s</pre>
       <li>Object overlays (<code>git replace</code> or grafts)</li>
       <li>Object annotation: <code>git notes</code></li>
     </ul>
+    <h2 id="FAQ">FAQ</h2>
+    <ul>
+      <p>Q: What do I do if status does not say there are any changes even
+      though there is no commit or review.</p>
+      <p>A: Use the command <code>git remote -v</code> and see what repos there
+      are. If they aren't what you want them to be then you can change them
+      with <code>git remote set-url SSH/URL</code> or for gerrit you would do
+      <code>git remote set-url gerrit SSH/URL</code></p>
+    </ul>
   </div>
 </body>
 </html>
