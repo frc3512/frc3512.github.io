@@ -237,17 +237,16 @@ git review -s</pre>
     <p><b>Q: What do I do if no new patchset shows up on Gerrit after running
     <code>git review</code>?</b></p>
     <p>A: Make sure the remote is set properly. If the <code>gerrit</code>
-    remote doesn't exist, run <code>git review -s</code> to add it.
-    Otherwise, run <code>git remote -v</code> to list the available remotes.
-    To change a remote such as <code>gerrit</code>, run <code>git remote
-    set-url gerrit SSH/URL</code>.</p>
-    <p><b>Q: How do I push the same patchset to a different
-    repository?</b></p>
-    <p>A: Change the <code>gerrit</code> remote to point to the new
-    repository with <code>git remote set-url gerrit SSH/URL</code>, then run
-    <code>git commit --amend</code> and delete the Change-Id line before
-    saving the commit message. Running <code>git review</code> after that
-    will create a new patchset for that commit.</p>
+    remote doesn't exist, run <code>git review -s</code> to add it. Otherwise,
+    run <code>git remote -v</code> to list the available remotes. To change a
+    remote such as <code>gerrit</code>, run <code>git remote set-url gerrit
+    SSH/URL</code>.</p>
+    <p><b>Q: How do I push the same patchset to a different repository?</b></p>
+    <p>A: Change the <code>gerrit</code> remote to point to the new repository
+    with <code>git remote set-url gerrit SSH/URL</code>, then run <code>git
+    commit --amend</code> and delete the Change-Id line before saving the
+    commit message. Running <code>git review</code> after that will create a
+    new patchset for that commit.</p>
     <p>Since commit hashes change after rebasing, Gerrit uses Change-Ids to
     match up new commits with their corresponding patchset. When a commit is
     made without a Change-Id, a new one is generated automatically and will
