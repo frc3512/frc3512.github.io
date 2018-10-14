@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Event Framework Lab">
+  <meta name="description" content="Event framework lab">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Event Framework Lab - FRC Team 3512</title>
+  <title>Event framework lab - FRC Team 3512</title>
   <script src="../../../js/toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../../css/style.css">
   <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico">
@@ -12,7 +12,7 @@
 <body onload="tableOfContents();">
   <div id="content">
     <div class="title">
-      <h1>Event Framework Lab<br>
+      <h1>Event framework lab<br>
       <small>FRC 1</small></h1>
     </div>
     <div id="toc"></div>
@@ -28,14 +28,14 @@
     event (e.g., button press/release, digital input rising edge, timer
     expiration). The current state in a state machine can choose to consume the
     event and initiate a state transition.</p>
-    <h2 id="Hierarchical_State_Machines">Hierarchical State Machines</h2>
+    <h2 id="Hierarchical_state_machines">Hierarchical state machines</h2>
     <p>State machines can also serve as states themselves. When the parent
     state machine transitions to it, events received by the parent state
     machine are passed down to the child state machine which can consume it
     first and cause a transition. If the event isn't consumed, it is passed up
     the hierarchy to parent state machines which can choose to consume it. If
     none do, the event is discarded.</p>
-    <h2 id="Understanding_the_Problem">Understanding the Problem</h2>
+    <h2 id="Understanding_the_problem">Understanding the problem</h2>
     <p>For this lab, you will modify your solution for the <a href=
     "../state-machine/">previous state machine lab</a> to use our event-driven
     framework instead of a switch-case structure.</p>

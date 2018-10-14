@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="State Machines and PID Controllers">
+  <meta name="description" content="PID controllers">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PID Controllers - FRC Team 3512</title>
+  <title>PID controllers - FRC Team 3512</title>
   <script src="../../js/toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../css/style.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
@@ -20,7 +20,7 @@
 <body onload="tableOfContents();">
   <div id="content">
     <div class="title">
-      <h1>PID Controllers<br>
+      <h1>PID controllers<br>
       <small>Control Theory 1</small></h1>
     </div>
     <div class="prereq">
@@ -44,7 +44,7 @@
     controller to seek to different elevator level presets automatically. The
     driver just needed to provide a level number. We used both state machines
     and PID controllers in that control system.</p>
-    <h2 id="PID_Basics_and_Theory">PID Basics and Theory</h2>
+    <h2 id="PID_basics_and_theory">PID basics and theory</h2>
     <p>Since Wikipedia does a good job explaining this, I'll refer to their
     resources on the topic. Read the introduction of <a href=
     "https://en.wikipedia.org/wiki/PID_controller">https://en.wikipedia.org/wiki/PID_controller</a>
@@ -56,7 +56,7 @@
     controller theory</a>. You can ignore the small part about the transfer
     function for now. I'll cover that in a module on state space representation
     at some point.</p>
-    <h2 id="PID_Types">PID Types</h2>
+    <h2 id="PID_types">PID types</h2>
     <p>PID controller inputs of different orders of derivatives, such as
     position and velocity, affect the system response differently. The position
     PID controller is defined as</p>
@@ -77,7 +77,7 @@
     error for step changes in reference. Relabelling the coefficients to match
     the position PID controller gives</p>
     <p>\[ u'(t) = K_p \int_{0}^{t}e(\tau) d\tau + K_d e(t) \]</p>
-    <h2 id="Controller_Tuning">Controller Tuning</h2>
+    <h2 id="Controller_tuning">Controller tuning</h2>
     <p>Since the team started, we've been tuning PID controllers manually.</p>
     <h3 id="Position_PID_tuning">Position PID tuning</h3>
     <ol>
@@ -125,7 +125,7 @@
     but one isn't needed. A velocity controller will not have steady state
     error for step inputs because the K<sub>i</sub> introduces a pole in the
     controller.</p>
-    <h3 id="Other_Notes">Other Notes</h3>
+    <h3 id="Other_notes">Other notes</h3>
     <p>Tuning in this way can require some intuition as to what values produce
     the desired response. An alternative would be using an auto-tuner that
     follows something like the <a href=

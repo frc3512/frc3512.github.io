@@ -5,7 +5,7 @@
   <meta name="description" content=
   "A page providing the necessary tools to begin programming in C++">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developer Bootstrap - FRC Team 3512</title>
+  <title>Developer bootstrap - FRC Team 3512</title>
   <script src="../js/toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
@@ -13,14 +13,14 @@
 <body onload="tableOfContents();">
   <div id="content">
     <div class="title">
-      <h1 id="Developer_Bootstrap">Developer Bootstrap</h1>
+      <h1 id="Developer_bootstrap">Developer bootstrap</h1>
     </div>
     <div id="toc"></div>
     <p>This page provides setup instructions for the software team's tools so
     members can quickly start learning C++. Please install 64-bit versions of
     tools if possible and make sure the bitness of all your tools matches by
     using the appropriate archives/installers.</p>
-    <h2 id=".2Abuntu_Installation">*buntu Installation</h2>
+    <h2 id=".2Abuntu_installation">*buntu installation</h2>
     <p><i>Eclipse CDT</i></p><code>sudo apt-get install openjdk-8-jdk</code>
     <p>Download the <a href=
     "https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon3">
@@ -32,7 +32,7 @@
     <pre>
 sudo apt-get install clang-format python3-pip
 pip3 install --user wpiformat</pre>
-    <h2 id="Arch_Linux_Installation">Arch Linux Installation</h2>
+    <h2 id="Arch_Linux_installation">Arch Linux installation</h2>
     <p><i>Eclipse CDT</i></p><code>sudo pacman -S jdk8-openjdk
     eclipse-cpp</code>
     <p><i>GCC</i></p><code>sudo pacman -S gcc</code>
@@ -45,7 +45,7 @@ sudo pacman -S python
 cd /tmp
 git clone https://aur.archlinux.org/python-wpiformat-git
 makepkg -si</pre>
-    <h2 id="Windows_Installation">Windows Installation</h2>
+    <h2 id="Windows_installation">Windows installation</h2>
     <p><i>Eclipse CDT</i></p>
     <p>Download the JDK 8 installer from <a href=
     "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
@@ -96,14 +96,14 @@ python get-pip.py
 pip install wpiformat</pre>
     <p>After those commands complete, close and reopen the terminal so the PATH
     environment variable change from earlier takes effect.</p>
-    <h2 id="The_Tools">The Tools</h2>
+    <h2 id="The_tools">The tools</h2>
     <h3 id="Eclipse_CDT">Eclipse CDT</h3>
     <p>Eclipse CDT is an integrated development environment which makes it
     easier to write, build, and test programs written in C and C++.</p>
-    <h4 id="New_Project_Toolchain_Selection">New Project Toolchain
-    Selection</h4>
+    <h4 id="New_project_toolchain_selection">New project toolchain
+    selection</h4>
     <p>On Linux, use "Linux GCC". On Windows, use "Cygwin GCC".</p>
-    <h4 id="False_Errors">False Errors</h4>
+    <h4 id="False_errors">False errors</h4>
     <p>Eclipse occasionally shows outdated or false errors in a project file.
     If this is the case, the project's index needs to be rebuilt. To do so,
     select the following option.</p><code>Right-click project &gt; Index &gt;
@@ -111,12 +111,12 @@ pip install wpiformat</pre>
     <p>Keep in mind errors shown in the IDE aren't authoritative. The console
     build output should be used to determine whether the executable was built
     successfully.</p>
-    <h4 id="C.2B.2B14_Support">C++14 Support</h4>
+    <h4 id="C.2B.2B14_support">C++14 support</h4>
     <p>To configure a project to build with C++14, select "ISOC++1y" from the
     "Language standard" drop-down menu in the following
     location.</p><code>Right-click project &gt; Properties &gt; C/C++ Build
     &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
-    <h3 id="GCC_Compiler">GCC Compiler</h3>
+    <h3 id="GCC_compiler">GCC compiler</h3>
     <p>This is the compiler Eclipse CDT will use to build the programs you
     write. MSYS2 provides a Linux-like environment with this compiler.</p>
     <h3 id="Git">Git</h3>
