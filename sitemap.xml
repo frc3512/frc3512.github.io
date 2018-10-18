@@ -33,10 +33,10 @@
         <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/concurrency-atomics/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/concurrency-and-atomics/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/high-perf-embedded/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/high-performance-and-embedded/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/advanced-cpp/index.html</loc>
