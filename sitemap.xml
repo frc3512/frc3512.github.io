@@ -51,6 +51,9 @@
         <loc>https://csweb.frc3512.com/ci/android-development/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/ci/artificial-neural-networks/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/ci/computer-vision/index.html</loc>
     </url>
     <url>
@@ -91,9 +94,6 @@
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/modern-control-theory/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/perceptrons-and-artificial-neural-networks/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/pid-controllers/index.html</loc>
