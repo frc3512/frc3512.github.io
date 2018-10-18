@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Real-time Software Presentation - FRC Team 3512</title>
+  <link rel="stylesheet" href="../../../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../../../css/reveal-theme.css">
+  <!-- Printing and PDF exports -->
+
+  <script src="../../../js/reveal-print.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class="center title">
+        <h1>Real-time Software</h1><br>
+        <img src="res/real-time-tux.png" alt="Real-time Tux"><br>
+        <br>
+        <h2 id="Tyler_Veness">Tyler Veness</h2>
+      </section>
+      <section>
+        <h1>Definitions of Real-time</h1>
+        <ul>
+          <li>Hard</li>
+          <ul>
+            <li>Can't miss deadlines</li>
+            <li>Aircraft control, pacemaker</li>
+          </ul>
+          <li>Firm</li>
+          <ul>
+            <li>Can miss deadlines, but late results are useless</li>
+            <li>Heads-up display, video stream</li>
+          </ul>
+          <li>Soft</li>
+          <ul>
+            <li>Usefulness of result degrades after deadline</li>
+            <li>Desktop application scheduling</li>
+          </ul>
+        </ul>
+      </section>
+      <section>
+        <h1>Goals</h1>
+        <ul>
+          <li>Predictability</li>
+          <li>Determinism</li>
+          <ul>
+            <li>malloc(), printf(), locks</li>
+          </ul>
+        </ul>
+      </section>
+      <section>
+        <h1>Scheduling and Priority</h1>
+        <ul>
+          <li>Kernel can be preemptible</li>
+          <li>Real-time scheduling</li>
+          <ul>
+            <li>SCHED_FIFO (queues) ∈ SCHED_RR</li>
+            <li>SCHED_DEADLINE (earliest first)</li>
+          </ul>
+          <li>Non-RT</li>
+          <ul>
+            <li>SCHED_OTHER, SCHED_BATCH and niceness ([-20..19])</li>
+          </ul>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>High priority tasks and interrupts won't have to wait for
+            syscall or kernel socket I/O to finish</li>
+            <li>FIFO: higher priority ready threads always preempt lower</li>
+            <ul>
+              <li>When thread is runnable, append to queue</li>
+              <li>Blocking I/O or sched_yield() appends thread</li>
+            </ul>
+            <li>RR: FIFO but each thread appended after time quantum (16 2/3ms
+            on my machine)</li>
+            <li>DEADLINE: Global Earliest Deadline First and Constant Bandwidth
+            Server</li>
+            <li>niceness [-20..19]</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Priority Inversion</h1>
+        <ul>
+          <li>Low priority task preempts high priority task for shared
+          resource</li>
+          <li>High priority task waits on shared resource</li>
+          <li>Solutions</li>
+          <ul>
+            <li>Disable interrupts</li>
+            <li>Priority inheritance</li>
+            <li>Lock-free and atomics</li>
+          </ul>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Given low and high priority tasks</li>
+            <li>Low gets shared resource</li>
+            <li>High waits on it and has reduced effective priority</li>
+            <li>Low is often preempted by high before it can free resource</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Disable Interrupts</h1>
+        <ul>
+          <li>Allow process with shared resource to complete</li>
+          <li>Doesn't scale well</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Preemption can't happen (like giant scheduling lock)</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Priority Inheritance</h1>
+        <ul>
+          <li>Elevate priority to that of highest priority waiting task</li>
+        </ul>
+        <aside class="notes">
+          <ul>
+            <li>Tasks get equal time for resource to be freed</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Lock-free and Atomics</h1>
+        <ul>
+          <li>No locks! (ideally)</li>
+          <li>Lock-free vs wait-free</li>
+          <li>Lock-free data structures</li>
+        </ul>
+        <div style="text-align: center"><img src="res/roundabout.jpg" alt=
+        "Roundabout" width="675"></div>
+        <aside class="notes">
+          <ul>
+            <li>"ideally" because atomics may lock</li>
+            <li>Lock-free</li>
+            <ul>
+              <li>At least one thread makes progress</li>
+              <li>All operations guaranteed to complete</li>
+            </ul>
+            <li>Wait-free</li>
+            <ul>
+              <li>All threads make progress; none starve</li>
+            </ul>
+            <li>Read-copy-update</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="center title">
+        <h1>Lock-free Example</h1><a href=
+        "https://github.com/calcmogul/atomic_lib">https://github.com/calcmogul/atomic_lib</a>
+        <aside class="notes">
+          <ul>
+            <li>Show atomic_forward_list</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Floating Point Unit (FPU)</h1>
+        <ul>
+          <li>
+            <a href=
+            "https://wiki.debian.org/ArmHardFloatPort/VfpComparison/">https://wiki.debian.org/ArmHardFloatPort/VfpComparison/</a>
+          </li>
+          <li>Teensy (hf), roboRIO (softfp w/ NEON)</li>
+          <ul>
+            <li>Technically supports hard-float, but libs not built for it</li>
+          </ul>
+        </ul>
+        <div style="text-align: center"><img src="res/roboRIO.jpg" alt=
+        "roboRIO"></div>
+        <aside class="notes">
+          <ul>
+            <li>ARM Cortex-A9 has efficient hard-float</li>
+            <li>NI built toolchain for softfp. softfp and hf aren't
+            compatible</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="center title">
+        <h1>Robot Code Example</h1>
+        <aside class="notes">
+          <ul>
+            <li>Show Talos Robot.cpp</li>
+          </ul>
+        </aside>
+      </section>
+      <section>
+        <h1>Resources</h1>
+        <ul>
+          <li>Linux scheduling API</li>
+          <ul>
+            <li><code>man 7 sched</code></li>
+          </ul>
+          <li>More real-time software info</li>
+          <ul>
+            <li>
+              <a href=
+              "https://csweb.frc3512.com/ci/intro-to-real-time-software/">https://csweb.frc3512.com/ci/intro-to-real-time-software/</a>
+            </li>
+          </ul>
+          <li>Atomics in C++</li>
+          <ul>
+            <li>
+              <a href=
+              "https://csweb.frc3512.com/ci/advanced-cpp/concurrency-atomics/">https://csweb.frc3512.com/ci/advanced-cpp/concurrency-atomics/</a>
+            </li>
+          </ul>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <script src="../../../reveal.js/lib/js/head.min.js"></script> 
+  <script src="../../../reveal.js/js/reveal.js"></script> 
+  <script src="../../../js/reveal-init.js"></script>
+</body>
+</html>

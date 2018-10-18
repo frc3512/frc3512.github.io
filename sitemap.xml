@@ -33,112 +33,112 @@
         <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs01/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/concurrency-atomics/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/high-perf-embedded/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part1/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part2/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/networking/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part3/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/advanced-cpp/parallelism/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part4/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/android-development/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part5/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/computer-vision/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/part6/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/gerrit/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs02/prologue/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/gerrit/lecture/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/cs03/concurrency-atomics/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs03/high-perf-embedded/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs03/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs03/networking/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs03/parallelism/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs04/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs05/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs06/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs07/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs08/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs09/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/cs10/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/ct01/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/ct01/live-grapher/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/ct02/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/frc01/event-framework/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/frc01/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/frc01/state-machine/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/frc02/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/frc03/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/git01/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/git01/lecture/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/git02/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/git02/lecture/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/graphical-user-interfaces/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/rt01/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/intro-to-cpp/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/rt01/lecture/index.html</loc>
+        <loc>https://csweb.frc3512.com/ci/intro-to-git/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-git/lecture/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-html/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-python/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-real-time-software/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-real-time-software/lecture/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/intro-to-shell-scripting/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/modern-control-theory/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/perceptrons-and-artificial-neural-networks/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/pid-controllers/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/pid-controllers/live-grapher/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part1/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part2/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part3/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part4/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part5/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/part6/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/program-design/prologue/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/robot-software/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/scouting-application/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/state-machines/event-framework/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/state-machines/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/state-machines/state-machine/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
