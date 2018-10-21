@@ -57,6 +57,12 @@
         <loc>https://csweb.frc3512.com/ci/computer-vision/index.html</loc>
     </url>
     <url>
+        <loc>https://csweb.frc3512.com/ci/control-theory/index.html</loc>
+    </url>
+    <url>
+        <loc>https://csweb.frc3512.com/ci/control-theory/live-grapher/index.html</loc>
+    </url>
+    <url>
         <loc>https://csweb.frc3512.com/ci/gerrit/index.html</loc>
     </url>
     <url>
@@ -91,15 +97,6 @@
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/intro-to-shell-scripting/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/modern-control-theory/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/pid-controllers/index.html</loc>
-    </url>
-    <url>
-        <loc>https://csweb.frc3512.com/ci/pid-controllers/live-grapher/index.html</loc>
     </url>
     <url>
         <loc>https://csweb.frc3512.com/ci/program-design/index.html</loc>
