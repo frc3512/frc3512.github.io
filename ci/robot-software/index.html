@@ -293,7 +293,7 @@ motor.Set(-joystick.GetY());</pre>
     instead. See the labs in the <a href="../state-machines/">state
     machines</a> module for examples on how to do this.</p>
     <p><a href=
-    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibcExamples/src/main/cpp/examples/Encoder/src/Robot.cpp">
+    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibcExamples/src/main/cpp/examples/Encoder/cpp/Robot.cpp">
     WPILib's encoder example</a> may be helpful.</p>
     <h2 id="Project_setup">Project setup</h2>
     <p>Each year, a new robot project will need to be created in Gerrit (our
@@ -353,40 +353,6 @@ motor.Set(-joystick.GetY());</pre>
     can be used until the robot name is chosen. <code>src/Constants.hpp</code>
     is a file we typically use every year and is provided as a placeholder so
     the <code>src</code> folder is added to Git history.</p>
-    <h3 id="Generated_via_Robot_Project">Generated via Robot Project</h3>
-    <ul>
-      <li>
-        <a href=".cproject">.cproject</a>
-      </li>
-      <li>
-        <a href=".project">.project</a>
-      </li>
-      <li>
-        <a href="build.properties">build.properties</a>
-      </li>
-      <li>
-        <a href="build.xml">build.xml</a>
-      </li>
-    </ul>
-    <p>Change the following Eclipse project properties before copying the
-    metadata files into the Git repository.</p>
-    <ul>
-      <li>Rename the "Debug" configuration to "Release" via the "Manage
-      Configurations..." button</li>
-      <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Optimization"
-      &gt; "Optimization Level" = "Optimize most" with "Other optimization
-      flags" empty</li>
-      <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Debugging" &gt;
-      "Debug Level" = "None"</li>
-      <li>"Cross GCC Compiler" and "Cross G++ Compiler" &gt; "Miscellaneous"
-      &gt; "Other flags" = "-c"</li>
-      <li>"Cross G++ Linker" &gt; "General" &gt; "Omit all symbol information
-      (-s)" = true</li>
-    </ul>
-    <p>The optimization level can be restored to "None" with "Other
-    optimization flags" of "-Og" and debug level can be restored to "Maximum"
-    when needed for debugging. However, the settings described here are used
-    for performance and should probably be used in competition.</p>
     <h3 id="Initial_commit">Initial commit</h3>
     <p>After the files are added to the repository, they should be committed in
     the first commit with the commit message "Initial Commit". This can then be
