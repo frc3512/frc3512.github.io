@@ -133,11 +133,15 @@
     <p>Copy the entire block, then navigate to the "SSH Public Key" settings of
     your user settings on Gerrit. Click "Add Key", paste the entire key, then
     click "Add".</p>
-    <h3 id="Installing_git-review">Installing git-review</h3>
-    <pre>pacman -S python
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-pip install --user git-review</pre>
+    <h3 id="Installing_git-review">Installing git-review</h3>Install Python via
+    <code>sudo pacman -S python</code> on Arch Linux or <code>sudo apt install
+    python3</code> on Ubuntu, then install git-review via <code>pip install
+    --user git-review</code>.
+    <p>Verify <code>~/.local/bin</code> is in the PATH environment
+    variable.</p>
+    <pre>echo $PATH</pre>If it's not, add <code>export
+    PATH=$PATH:~/.local/bin</code> to <code>~/.bashrc</code>. You'll need to
+    repoen the terminal for the changes to take effect.
     <h3 id="Configuring_cloned_repository">Configuring cloned repository</h3>
     <pre>git clone ssh://user@gerrit.frc3512.com:29418/Robot-2017
 cd Robot-2017
