@@ -23,21 +23,27 @@ git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
     </pre>
     <p>The following configuration commands are also recommended.</p>
-    <pre>
-git config --global branch.autosetuprebase always
-    </pre>
     <p>This configures rebasing by default instead of merging when pulling a
     branch.</p>
     <pre>
-git config --global merge.conflictstyle diff3
+git config --global branch.autosetuprebase always
     </pre>
     <p>This enables 3-way diffs during merge conflicts. This gives context for
     both changes from a common base, which is much easier to resolve.</p>
     <pre>
-git config --global merge.ff only
+git config --global merge.conflictstyle diff3
     </pre>
     <p>This enforces fast-forward merges, effectively disallowing merge commits
     (they clutter up history).</p>
+    <pre>
+git config --global merge.ff only
+    </pre>
+    <p>This disables auto-conversions of line endings to CRLF on Windows, which
+    avoids entire files showing as conflicting during merge conflicts when the
+    files have differing line endings between two branches.</p>
+    <pre>
+git config --global core.autocrlf false
+    </pre>
     <p>In general, Git tries to be helpful. If you don't know what to do after
     running a Git command or seeing something fail, read the text Git prints
     for possible hints or instructions.</p>
