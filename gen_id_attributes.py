@@ -6,8 +6,10 @@ import re
 
 def main():
     files = [
-        os.path.join(dp, f) for dp, dn, fn in os.walk(os.path.expanduser("."))
-        if "MathJax" not in dp and "reveal.js" not in dp for f in fn
+        os.path.join(dp, f)
+        for dp, dn, fn in os.walk(os.path.expanduser("."))
+        if "MathJax" not in dp and "reveal.js" not in dp
+        for f in fn
         if f.endswith(".html")
     ]
 
@@ -16,11 +18,13 @@ def main():
     for skip_str in skip_strs:
         files = [f for f in files if skip_str not in f]
 
-    line_regex = re.compile("(?P<open>\s*<h[2-6])"
-                            "(?P<id>.*id=\"[A-Za-z0-9\-._]*\")?"
-                            "(?P<close>>)"
-                            "(?P<content>.*)"
-                            "(?P<end></h[2-6]>.*)")
+    line_regex = re.compile(
+        "(?P<open>\s*<h[2-6])"
+        '(?P<id>.*id="[A-Za-z0-9\-._]*")?'
+        "(?P<close>>)"
+        "(?P<content>.*)"
+        "(?P<end></h[2-6]>.*)"
+    )
     char_regex = re.compile("[^A-Za-z0-9\-._]")
     for name in files:
         lines = ""
@@ -30,7 +34,7 @@ def main():
             for line in input:
                 match = line_regex.search(line)
                 if match:
-                    edit = match["open"] + " id=\""
+                    edit = match["open"] + ' id="'
                     for char in match["content"]:
                         if char == "<":
                             in_tag = True
@@ -46,7 +50,9 @@ def main():
                                 edit += "." + format(ord(char), "X")
                             else:
                                 edit += char
-                    edit += "\"" + match["close"] + match["content"] + match["end"] + "\n"
+                    edit += (
+                        '"' + match["close"] + match["content"] + match["end"] + "\n"
+                    )
 
                     if line != edit:
                         modified = True

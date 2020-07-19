@@ -1,0 +1,26 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        pip3 install black
+        sudo apt-get install tidy -y
+        wget https://github.com/htacg/tidy-html5/releases/download/5.4.0/tidy-5.4.0-64bit.deb
+        sudo dpkg -i tidy-5.4.0-64bit.deb
+
+    - name: Run linters
+      run: |
+        ./format.py
+        ./gen_id_attributes.py
+        ./sitemap.py
+
+    - name: Verify linters made no changes
+      run: git --no-pager diff --exit-code HEAD
