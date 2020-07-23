@@ -24,3 +24,22 @@ jobs:
 
     - name: Verify linters made no changes
       run: git --no-pager diff --exit-code HEAD
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get install -y \
+          texlive-generic-extra \
+          texlive-latex-extra \
+          latexmk
+
+    - name: Generate figures
+      run: |
+        cd ci/state-machines/state-machine/state-diagram && (./make.sh || true)
+
+    - name: Verify state-diagram.png was generated
+      run: test -f ci/state-machines/state-machine/state-diagram/state-diagram.png

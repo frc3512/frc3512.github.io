@@ -83,8 +83,12 @@ autonTimer.Start();</pre>
     considered "finished" once they reach their setpoint, so the implementer
     should poll for the carriage reaching the appropriate height rather than
     using a timer.</p>
-    <p>TODO: for now, use the state machine diagram we discussed in
-    lecture.</p>
+    <figure>
+      <figcaption style="text-align:center">
+        Tote auto-stacking state machine diagram
+      </figcaption><img src="state-diagram/state-diagram.png" alt=
+      "state diagram" style="width:100%">
+    </figure>
     <h2 id="Implementation">Implementation</h2>
     <p>Once you are satisfied with your state machine diagram, translate it
     into C++ and test it. <code>Main.cpp</code> provides a template for you to
