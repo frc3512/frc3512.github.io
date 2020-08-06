@@ -5,22 +5,15 @@
   <meta name="description" content="Robot software">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Robot software - FRC Team 3512</title>
-  <script src="../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1>Robot software</h1>
-    </div>
-    <div class="prereq">
-      <strong>Prerequisites:</strong> <a href=
-      "../intro-to-real-time-software/">Intro to real-time software</a><br>
-      <strong>Corequisites:</strong> <a href="../intro-to-cpp/">Intro to
-      C++</a>, <a href="../pid-controllers/">PID controllers</a>
-    </div>
-    <div id="toc"></div>
+<body>
+  <div class="body">
+    <h1>Robot software</h1><strong>Prerequisites:</strong> <a href=
+    "../intro-to-real-time-software/">Intro to real-time software</a><br>
+    <strong>Corequisites:</strong> <a href="../intro-to-cpp/">Intro to C++</a>,
+    <a href="../pid-controllers/">PID controllers</a>
     <h2 id="Disclaimer">Disclaimer</h2>
     <p>While the goal every year is to create the most competitive robot
     possible with the tools and abstractions we've built up so far, we want
@@ -44,11 +37,10 @@
     a problem quickly, efficiently, and with few bugs. We have common design
     patterns in robot software. A list of design patterns with descriptions,
     usage advice, and examples is provided below.</p>
-    <p>See <a href="https://wpilib.screenstepslive.com/s/4485/m/13810">this
-    WPILib ScreenSteps page</a> for more resources on performing various common
-    robot tasks in C++. We have <a href="https://github.com/frc3512/">robot
-    software</a> from previous years on GitHub that students can study,
-    understand, and potentially reuse.</p>
+    <p>See <a href="https://docs.wpilib.org">docs.wpilib.org</a> for more
+    resources on performing various common robot tasks in C++. We have <a href=
+    "https://github.com/frc3512/">robot software</a> from previous years on
+    GitHub that students can study, understand, and potentially reuse.</p>
     <h3 id="General_control_flow">General control flow</h3>
     <h4 id="Under_the_covers">Under the covers</h4>
     <p>While we won't be using <code>SampleRobot</code> for writing production
@@ -135,8 +127,7 @@ void Robot::Autonomous() {
 
         std::this_thread::sleep_for(20ms);
     }
-}
-</pre>
+}</pre>
     <h3 id="Drivetrain_with_joysticks">Drivetrain with joysticks</h3>
     <p>There are multiple ways to drive a robot around; some are in open loop
     (the driver provides direct input to the system) and others are in closed

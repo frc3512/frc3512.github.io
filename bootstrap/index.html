@@ -6,16 +6,12 @@
   "A page providing the necessary tools to begin programming in C++">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Developer bootstrap - FRC Team 3512</title>
-  <script src="../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../main.css">
   <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1 id="Developer_bootstrap">Developer bootstrap</h1>
-    </div>
-    <div id="toc"></div>
+<body>
+  <div class="body">
+    <h1 id="Developer_bootstrap">Developer bootstrap</h1>
     <p>This page provides setup instructions for the software team's tools so
     members can quickly start learning C++. Please install 64-bit versions of
     tools if possible and make sure the bitness of all your tools matches by
@@ -68,19 +64,18 @@
     hands more dirty. For this tutorial, I'll be referencing this article by
     Chris Hoffman on HowToGeek.com on how to do this. The website is <a href=
     "https://www.howtogeek.com/187410/how-to-install-and-dual-boot-linux-on-a-mac/">
-    here.
+    here</a>.</p>
     <p>Before doing anything, make sure that you have full-disk encryption
     disabled. Otherwise, you may come across some weird issues when setting up
     the necessary tools to start the dual-boot process.</p>
     <p>First, you need to install rEFInd onto your Macbook, which allows you to
     boot onto many other operating systems installed onto your
-    machine.</p></a><a href="https://sourceforge.net/projects/refind/">Download
-    it here</a>. Select the .zip file of the latest, stable build. Open a
-    terminal window, drag the install.sh file on to the window, and press enter
-    to begin the installation process. It may require your password (or admin
-    password if you are not the admin) to allow this action, so have that
-    handy. Once it is done, restart your Mac and you should see the boot
-    manager menu.</p>
+    machine.</p><a href="https://sourceforge.net/projects/refind/">Download it
+    here</a>. Select the .zip file of the latest, stable build. Open a terminal
+    window, drag the install.sh file on to the window, and press enter to begin
+    the installation process. It may require your password (or admin password
+    if you are not the admin) to allow this action, so have that handy. Once it
+    is done, restart your Mac and you should see the boot manager menu.
     <p>Next, we need to shrink the existing Mac OS space to make some space for
     Ubuntu. This can be achieved by using the Disk Utility tool preinstalled
     onto your Mac. Just open the tool and shrink your current storage amount

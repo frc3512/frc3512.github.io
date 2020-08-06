@@ -5,49 +5,29 @@
   <meta name="description" content="Concurrency and atomics">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Concurrency and atomics - FRC Team 3512</title>
-  <script src="../../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1>Advanced C++<br>
-      <small>Concurrency and atomics</small></h1>
-    </div>
-    <div id="toc"></div>
-    <h2 id="Concurrency_and_atomics">Concurrency and atomics</h2>
+<body>
+  <div class="body">
+    <h1>Advanced C++<br>
+    <small>Concurrency and atomics</small></h1>
     <p>These talks discuss concurrency, atomics, and the C++ memory model.</p>
-    <p style="text-align: center"><a href=
-    "https://youtu.be/c1gO9aB9nbs">Lock-Free Programming (or, Juggling Razor
-    Blades), Part 1</a></p>
-    <div class="youtube-container">
-      <div class="youtube-player" data-id="c1gO9aB9nbs"></div>
-    </div><br>
-    <p style="text-align: center"><a href=
-    "https://youtu.be/CmxkPChOcvw">Lock-Free Programming (or, Juggling Razor
-    Blades), Part 2</a></p>
-    <div class="youtube-container">
-      <div class="youtube-player" data-id="CmxkPChOcvw"></div>
-    </div><br>
-    <p style="text-align: center"><a href=
-    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-1-of-2/player">
-    atomic&lt;&gt; Weapons - The C++ Memory Model and Modern Hardware, Part
-    1</a></p>
-    <p style="text-align: center"><iframe src=
-    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-1-of-2/player"
-    width="640" height="360" allowfullscreen></iframe></p><br>
-    <p style="text-align: center"><a href=
-    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-2-of-2/player">
-    atomic&lt;&gt; Weapons - The C++ Memory Model and Modern Hardware, Part
-    2</a> <iframe src=
-    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-2-of-2/player"
-    width="640" height="360" allowfullscreen></iframe></p><br>
-    <p style="text-align: center"><a href="https://youtu.be/9hJkWwHDDxs">The
-    speed of concurrency (is lock-free faster?)</a></p>
-    <div class="youtube-container">
-      <div class="youtube-player" data-id="9hJkWwHDDxs"></div>
-    </div>
+    <h2>Lock-Free Programming (or, Juggling Razor Blades), Part
+    1</h2><iframe width="640" height="360" allowfullscreen src=
+    "https://youtube.com/embed/c1gO9aB9nbs"></iframe>
+    <h2>Lock-Free Programming (or, Juggling Razor Blades), Part
+    2</h2><iframe width="640" height="360" allowfullscreen src=
+    "https://youtube.com/embed/CmxkPChOcvw"></iframe>
+    <h2>atomic&lt;&gt; Weapons - The C++ Memory Model and Modern Hardware, Part
+    1</h2><iframe width="640" height="360" allowfullscreen src=
+    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-1-of-2/player"></iframe>
+    <h2>atomic&lt;&gt; Weapons - The C++ Memory Model and Modern Hardware, Part
+    2</h2><iframe width="640" height="360" allowfullscreen src=
+    "https://channel9.msdn.com/Shows/Going+Deep/Cpp-and-Beyond-2012-Herb-Sutter-atomic-Weapons-2-of-2/player"></iframe>
+    <h2>The speed of concurrency (is lock-free faster?)</h2><iframe width="640"
+    height="360" allowfullscreen src=
+    "https://youtube.com/embed/9hJkWwHDDxs"></iframe>
     <h2 id="Examples_of_Lock-Free_Data_Structures">Examples of Lock-Free Data
     Structures</h2>
     <p>An atomic std::forward_list implementation: <a href=
@@ -58,7 +38,6 @@
     atomic_stack.h</a>.</p>
     <p>Beware of implementation bugs. If any are found, file a bug at <a href=
     "https://github.com/calcmogul/atomic_lib/">https://github.com/calcmogul/atomic_lib/</a>.</p>
-    <script src="youtube.js"></script>
   </div>
 </body>
 </html>

@@ -5,16 +5,12 @@
   <meta name="description" content="Intro to real-time software">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intro to real-time software - FRC Team 3512</title>
-  <script src="../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1>Intro to real-time software</h1>
-    </div>
-    <div id="toc"></div>
+<body>
+  <div class="body">
+    <h1>Intro to real-time software</h1>
     <h2 id="Assignments">Assignments</h2>
     <p>Read chapter 25 from <i>Programming: Principles and Practice Using C++
     (2<sup>nd</sup> edition)</i> for an introduction to embedded systems
@@ -61,8 +57,9 @@
     at lower sample rates since a human's response time to stimuli is much
     slower than the tasks previously mentioned. That is, responding immediately
     is less important.</p>
-    <p>A good sample rate for user input is 10ms. See <a href=
-    "../robot-software/#Design_patterns">FRC 1</a> for examples.</p>
+    <p>A good sample rate for user input is 20ms. See <a href=
+    "../robot-software/#Design_patterns">robot software design patterns</a> for
+    examples.</p>
     <h3 id="Telemetry_and_logging">Telemetry and logging</h3>
     <p>Information like graph data, print statements, and event logging are the
     least important from a real-time perspective. Their impact should be

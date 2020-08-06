@@ -19,10 +19,10 @@ def main():
         files = [f for f in files if skip_str not in f]
 
     line_regex = re.compile(
-        "(?P<open>\s*<h[2-6])"
-        '(?P<id>.*id="[A-Za-z0-9\-._]*")?'
+        "(?P<open>\s*<h[2-6])\s+"
+        '(?P<id>id="[A-Za-z0-9\-._]*")?'
         "(?P<close>>)"
-        "(?P<content>.*)"
+        "(?P<content>.*?)"
         "(?P<end></h[2-6]>.*)"
     )
     char_regex = re.compile("[^A-Za-z0-9\-._]")

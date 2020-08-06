@@ -5,17 +5,13 @@
   <meta name="description" content="LiveGrapher lab">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LiveGrapher lab - FRC Team 3512</title>
-  <script src="../../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1>Control theory<br>
-      <small>LiveGrapher lab</small></h1>
-    </div>
-    <div id="toc"></div>
+<body>
+  <div class="body">
+    <h1>Control theory<br>
+    <small>LiveGrapher lab</small></h1>
     <p>In this lab, we'll be using the LiveGrapher real-time graphing
     application to display various waveforms and tune the parameters of a
     simulated mechanical system.</p>
@@ -79,7 +75,7 @@ make</pre>
     track the reference shown on the graph. Do this by modifying the PID
     constants in <code>DCMotor.cpp</code>, rebuilding and rerunning the server,
     then watching the response in LiveGrapher. See <a href=
-    "https://file.tavsys.net/control/state-space-guide.pdf">state-space-guide.pdf</a>
+    "https://file.tavsys.net/control/controls-engineering-in-frc.pdf">controls-engineering-in-frc.pdf</a>
     for advice on manually tuning a PID controller.</p>
     <h2 id="Submission">Submission</h2>
     <p>Use the folder name <code>live-grapher</code> for this project. Once you

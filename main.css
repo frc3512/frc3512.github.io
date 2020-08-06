@@ -13,15 +13,13 @@ blockquote {
 }
 
 body {
-  background-color: white;
-  margin: 0em auto;
-  max-width: 56.5em;
-
-  border-style: solid;
-  border-width: 0.05em;
-  border-color: rgb(45, 45, 45);
-
-  text-align: center;
+  background-color: #f7f7f7;
+  color: #444;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4em;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 code {
@@ -32,133 +30,22 @@ code {
   border-width: 0.05em;
   border-color: rgb(214, 214, 214);
 
-  padding: 0.2em;
   white-space: nowrap;
 }
 
-div.ci {
-  margin-top: 0em;
-  margin-bottom: 2em;
-  vertical-align: top;
+div.body {
+  margin: 2em auto;
+  max-width: 38.75em;
+  padding: 1em;
 }
 
-div.ci > div.title {
-  text-align: left;
-}
-
-div.play-button {
-  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
-
-  margin-top: -36px;
-  margin-left: -36px;
-
-  height: 72px;
-  width: 72px;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-}
-
-div.title {
-  background-color: #FFDEAD;
-  margin: 0 auto;
-  padding: 0em 0.5em;
-  vertical-align: middle;
-
-  /* border color is 90% of background color */
-  border-style: solid;
-  border-width: 0.05em;
-  border-color: rgb(230, 200, 156);
-
-  font-family: arial, sans-serif;
-  text-align: center;
-}
-
-div.title > h3 {
-  margin: 0em;
-  padding: 0.5em;
-}
-
-div.prereq {
-  background-color: #FFF9C8;
-  padding: 0.5em;
-  vertical-align: middle;
-
-  /* border color is 90% of background color */
-  border-style: solid;
-  border-width: 0.05em;
-  border-color: rgb(230, 224, 180);
-
-  text-align: left;
+figure figcaption {
+  font-size: 0.7em;
+  line-height: 1.3em;
 }
 
 h1 {
-  display: inline-block;
-  font-size: 2em;
-  font-weight: bold;
   text-align: center;
-}
-
-h2 {
-  font-size: 2em;
-  text-align: left;
-}
-
-h3 {
-  font-size: 1.4em;
-  text-align: left;
-}
-
-h4 {
-  font-size: 1em;
-  text-align: left;
-}
-
-html {
-  background-color: #CCCCCC;
-}
-
-iframe {
-  border-width: 0;
-  text-align: center;
-}
-
-img {
-  padding: 1px;
-  margin: 12px 0px 0px;
-}
-
-img.youtube-thumb {
-  margin: auto;
-
-  display: block;
-  height: auto;
-  width: 100%;
-  max-width: 100%;
-  position: absolute;
-  top: 0em;
-  left: 0em;
-  bottom: 0em;
-  right: 0em;
-}
-
-ol {
-  font-family: sans-serif;
-}
-
-ol.sub {
-  counter-reset: item;
-}
-
-ol.sub > li {
-  display: block;
-  margin: 0.5em 0;
-}
-
-ol.sub > li:before {
-  content: counters(item, ".") ". ";
-  counter-increment: item;
-  font-weight: bold;
 }
 
 pre {
@@ -173,97 +60,4 @@ pre {
   padding: 0.2em;
 
   overflow: scroll;
-}
-
-summary {
-  cursor: pointer;
-  font-size: 1.4em;
-
-  margin: 0em;
-  padding: 0.5em;
-}
-
-table {
-  margin: 0 auto;
-}
-
-#columnContainer {
-  margin: 0.5em;
-  padding-top: 0.25em;
-
-  column-width: 30em;
-  -webkit-column-width: 30em;
-  -moz-column-width: 30em;
-}
-
-#content {
-  background-color: white;
-  color: black;
-
-  margin: 0em auto;
-  max-width: 32.5em;
-  padding: 0.75em;
-
-  font-family: helvetica, sans-serif;
-  font-size: 1em;
-  text-align: left;
-}
-
-#toc {
-  margin: 1em;
-}
-
-#youtube-iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.atomic {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  -ms-column-break-inside: avoid;
-  -o-column-break-inside: avoid;
-  page-break-inside: avoid;
-}
-
-.h2 {
-  padding: 0.125em 0em;
-}
-
-.title {
-  background-color: #FFDEAD;
-  margin: 0 auto;
-  padding: 0em 0.5em;
-  vertical-align: middle;
-
-  /* border color is 90% of background color */
-  border-style: solid;
-  border-width: 0.05em;
-  border-color: rgb(230, 200, 156);
-
-  font-family: arial, sans-serif;
-  text-align: left;
-}
-
-.youtube-container {
-  margin: 20px auto;
-
-  display: block;
-  width: 100%;
-  max-width: 600px;
-}
-
-.youtube-player {
-  padding-bottom: 56.25%;
-
-  cursor: pointer;
-  display: block;
-  overflow: hidden;
-  position: relative;
-  width: 100%;  /* assuming the video has a 16:9 ratio */
-  height: 100%;
 }

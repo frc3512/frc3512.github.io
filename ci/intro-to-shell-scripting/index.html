@@ -5,16 +5,12 @@
   <meta name="description" content="Intro to shell scripting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intro to shell scripting - FRC Team 3512</title>
-  <script src="../../toc.js"></script>
   <link rel="stylesheet" type="text/css" href="../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
 </head>
-<body onload="tableOfContents();">
-  <div id="content">
-    <div class="title">
-      <h1>Intro to shell scripting</h1>
-    </div>
-    <div id="toc"></div>
+<body>
+  <div class="body">
+    <h1>Intro to shell scripting</h1>
     <h2 id="Introduction">Introduction</h2>
     <p>Shell scripts are a useful tool for automating repetitive or complex
     tasks. This module will teach the development of Bash scripts.</p>
@@ -56,8 +52,7 @@ read -r -a array &gt; data.csv
 done
 
 # Print newline so prompt appears on next line
-echo
-    </pre>
+echo</pre>
     <p>mirror.sh (Used for management of 20+ branches in allwpilib Git
     repository)</p>
     <pre>
@@ -161,8 +156,7 @@ for branch in "${branches[@]}"; do
       exit 1
     fi
   fi
-done
-    </pre>
+done</pre>
   </div>
 </body>
 </html>
