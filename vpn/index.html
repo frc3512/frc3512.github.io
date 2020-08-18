@@ -84,11 +84,10 @@ AllowedIPs = 10.35.12.0/24</pre>
     <p>Ask the VPN administrator for a unique number to replace <code>x</code>
     in <code>10.35.12.x/24</code>. The VPN administrator has to assign them to
     avoid conflicts with other peers.</p>
-    <h2 id="Enable_on_boot">Enable on boot</h2>
+    <h2 id="Enable_VPN_on_boot">Enable VPN on boot</h2>
     <pre>
 sudo systemctl enable wg-quick@wg0
-sudo systemctl start wg-quick@wg0
-sudo wg show</pre>
+sudo systemctl start wg-quick@wg0</pre>
     <p>Now, clients should be able to ping <code>10.35.12.1</code> (kase's
     internal gateway IP) and get a response.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
