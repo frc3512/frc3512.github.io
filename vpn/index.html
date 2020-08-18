@@ -64,7 +64,8 @@ PostDown = sysctl -w net.ipv4.ip_forward=0; iptables -D FORWARD -i %i -j ACCEPT;
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = kase.acfsys.net:51820
-AllowedIPs = 10.1.0.0/24</pre>
+AllowedIPs = 10.1.0.0/24
+PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     <p>The interface <code>wlan0</code> should be replaced with the actual
     wireless interface name that's connected to the robot network.</p>
     <h2 id="Client_conf_file">Client conf file</h2>
