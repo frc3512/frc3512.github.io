@@ -37,18 +37,18 @@ cat public_key</pre>
 PrivateKey = &lt;server private key&gt;
 PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT
-Address = 10.35.12.1/24
+Address = 10.1.0.1/24
 ListenPort = 51820
 
 # Build room gateway
 [Peer]
 PublicKey = &lt;client public key&gt;
-AllowedIPs = 10.35.12.2/32
+AllowedIPs = 10.1.0.2/32
 
 # Student's laptop
 [Peer]
 PublicKey = &lt;client public key&gt;
-AllowedIPs = 10.35.12.x/32</pre>
+AllowedIPs = 10.1.0.x/32</pre>
     <p>Peers are appended to the file as shown. The developer should provide a
     public key to the VPN administrator, and the VPN administrator should
     assign their machine a unique IP address.</p>
@@ -56,7 +56,7 @@ AllowedIPs = 10.35.12.x/32</pre>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
-Address = 10.35.12.2/24
+Address = 10.1.0.2/24
 PrivateKey = &lt;client private key&gt;
 PostUp = sysctl -w net.ipv4.ip_forward=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
 PostDown = sysctl -w net.ipv4.ip_forward=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
@@ -64,38 +64,40 @@ PostDown = sysctl -w net.ipv4.ip_forward=0; iptables -D FORWARD -i %i -j ACCEPT;
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = kase.acfsys.net:51820
-AllowedIPs = 10.35.12.0/24</pre>
+AllowedIPs = 10.1.0.0/24</pre>
     <p>The interface <code>wlan0</code> should be replaced with the actual
     wireless interface name that's connected to the robot network.</p>
     <h2 id="Client_conf_file">Client conf file</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
-Address = 10.35.12.x/24
+Address = 10.1.0.x/24
 PrivateKey = &lt;client private key&gt;
+PostUp = ip route add 10.35.12.0/24 via 10.1.0.2
+PostDown = ip route del 10.35.12.0/24 via 10.1.0.2
 
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = kase.acfsys.net:51820
-AllowedIPs = 10.35.12.0/24</pre>
+AllowedIPs = 10.1.0.0/24</pre>
     <p>Replace <code>&lt;client private key&gt;</code> with the client private
     key generated earlier, and replace <code>&lt;server public key&gt;</code>
     with <code>OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=</code>.</p>
     <p>Ask the VPN administrator for a unique number to replace <code>x</code>
-    in <code>10.35.12.x/24</code>. The VPN administrator has to assign them to
+    in <code>10.1.0.x/24</code>. The VPN administrator has to assign them to
     avoid conflicts with other peers.</p>
     <h2 id="Enable_VPN_on_boot">Enable VPN on boot</h2>
     <pre>
 sudo systemctl enable wg-quick@wg0
 sudo systemctl start wg-quick@wg0</pre>
-    <p>Now, clients should be able to ping <code>10.35.12.1</code> (kase's
+    <p>Now, clients should be able to ping <code>10.1.0.1</code> (kase's
     internal gateway IP) and get a response.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
     <p>If the service startup failed with an "unsupported protocol" error,
     rebooting should fix it. The status of the wireguard service can be
     determined with <code>systemctl status wg-quick@wg0</code>.</p>
     <p>If the connection is working, <code>sudo wg show</code> should print
-    something like the following after pinging <code>10.35.12.1</code> at least
+    something like the following after pinging <code>10.1.0.1</code> at least
     once. Note how the peer private key matches kase's server public key and
     the endpoint matches one of kase's public IP addresses.</p>
     <pre>
@@ -107,7 +109,7 @@ interface: wg0
 
 peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
   endpoint: 174.136.111.136:51820
-  allowed ips: 10.35.12.0/24
+  allowed ips: 10.1.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
 </pre>
@@ -120,7 +122,7 @@ interface: wg0
 
 peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
   endpoint: [2607:f2f8:a0e0:5::8]:51820
-  allowed ips: 10.35.12.0/24
+  allowed ips: 10.1.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
 </pre>
