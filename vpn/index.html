@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="VPN setup instructions">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPN setup instructions - FRC Team 3512</title>
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
+</head>
+<body>
+  <div id="content">
+    <h1 id="VPN_setup_instructions">VPN setup instructions</h1>
+    <p>In our network topology, we host a VPN gateway on a cloud VM
+    (kase.acfsys.net) and have peers connect to it. By having a Linux machine
+    inside the build room and developer laptops outside the build room
+    connected to the same VPN gateway, we can deploy code to a robot network
+    inside the build room.</p>
+    <p>The following setup instructions apply to both servers and clients
+    unless a specific step notes otherwise. Students should ignore the server
+    configuration section.</p>
+    <h2 id="Install_wireguard_tools">Install wireguard tools</h2>
+    <pre>
+sudo apt-get install wireguard # Ubuntu
+sudo pacman -S wireguard-tools # Arch</pre>
+    <h2 id="Generate_keypair">Generate keypair</h2>
+    <pre>
+wg genkey | tee private_key | wg pubkey &gt; public_key
+cat private_key
+cat public_key</pre>
+    <p>Students should give their public key to the VPN administrator so they
+    can be given access to kase's VPN.</p>
+    <h2 id="Server_configuration_file">Server configuration file</h2>
+    <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
+    <pre>
+[Interface]
+PrivateKey = &lt;server private key&gt;
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT
+Address = 10.35.12.1/24
+ListenPort = 51820
+
+# Linux gateway in build room
+[Peer]
+PublicKey = &lt;client public key&gt;
+AllowedIPs = 10.35.12.2/32
+
+# Student's laptop
+[Peer]
+PublicKey = &lt;client public key&gt;
+AllowedIPs = 10.35.12.x/32</pre>
+    <p>Peers are appended to the file as shown. The developer should provide a
+    public key to the VPN administrator, and the VPN administrator should
+    assign their machine a unique IP address.</p>
+    <h2 id="Client_configuration_file">Client configuration file</h2>
+    <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
+    <pre>
+[Interface]
+Address = 10.35.12.x/24
+PrivateKey = &lt;client private key&gt;
+
+[Peer]
+PublicKey = &lt;server public key&gt;
+Endpoint = kase.acfsys.net:51820
+AllowedIPs = 10.35.12.0/24</pre>
+    <p>Replace <code>&lt;client private key&gt;</code> with the client private
+    key generated earlier, and replace <code>&lt;server public key&gt;</code>
+    with <code>OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=</code>.</p>
+    <p>Ask the VPN administrator for a unique number to replace <code>x</code>
+    in <code>10.35.12.x/24</code>. The VPN administrator has to assign them to
+    avoid conflicts with other peers.</p>
+    <h2 id="Enable_on_boot">Enable on boot</h2>
+    <pre>
+sudo systemctl enable wg-quick@wg0
+sudo systemctl start wg-quick@wg0
+sudo wg show</pre>
+    <p>Now, clients should be able to ping <code>10.35.12.1</code> (kase's
+    internal gateway IP) and get a response.</p>
+    <h2 id="Troubleshooting">Troubleshooting</h2>
+    <p>If the service startup failed with an "unsupported protocol" error,
+    rebooting should fix it. The status of the wireguard service can be
+    determined with <code>systemctl status wg-quick@wg0</code>.</p>
+    <p>If the connection is working, <code>sudo wg show</code> should print
+    something like the following after pinging <code>10.35.12.1</code> at least
+    once. Note how the peer private key matches kase's server public key and
+    the endpoint matches one of kase's public IP addresses.</p>
+    <pre>
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
+  endpoint: 174.136.111.136:51820
+  allowed ips: 10.35.12.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+</pre>
+    <pre>
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
+  endpoint: [2607:f2f8:a0e0:5::8]:51820
+  allowed ips: 10.35.12.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+</pre>
+  </div>
+</body>
+</html>
