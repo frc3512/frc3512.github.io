@@ -18,7 +18,7 @@
     inside the build room.</p>
     <p>The following setup instructions apply to both servers and clients
     unless a specific step notes otherwise. Students should ignore the server
-    configuration section.</p>
+    and build room gateway conf sections.</p>
     <h2 id="Install_wireguard_tools">Install wireguard tools</h2>
     <pre>
 sudo apt-get install wireguard # Ubuntu
@@ -30,7 +30,7 @@ cat private_key
 cat public_key</pre>
     <p>Students should give their public key to the VPN administrator so they
     can be given access to kase's VPN.</p>
-    <h2 id="Server_configuration_file">Server configuration file</h2>
+    <h2 id="Server_conf_file">Server conf file</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
@@ -40,7 +40,7 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACC
 Address = 10.35.12.1/24
 ListenPort = 51820
 
-# Linux gateway in build room
+# Build room gateway
 [Peer]
 PublicKey = &lt;client public key&gt;
 AllowedIPs = 10.35.12.2/32
@@ -52,7 +52,22 @@ AllowedIPs = 10.35.12.x/32</pre>
     <p>Peers are appended to the file as shown. The developer should provide a
     public key to the VPN administrator, and the VPN administrator should
     assign their machine a unique IP address.</p>
-    <h2 id="Client_configuration_file">Client configuration file</h2>
+    <h2 id="Build_room_gateway_conf_file">Build room gateway conf file</h2>
+    <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
+    <pre>
+[Interface]
+Address = 10.35.12.2/24
+PrivateKey = &lt;client private key&gt;
+PostUp = sysctl -w net.ipv4.ip_forward=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+PostDown = sysctl -w net.ipv4.ip_forward=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
+
+[Peer]
+PublicKey = &lt;server public key&gt;
+Endpoint = kase.acfsys.net:51820
+AllowedIPs = 10.35.12.0/24</pre>
+    <p>The interface <code>wlan0</code> should be replaced with the actual
+    wireless interface name that's connected to the robot network.</p>
+    <h2 id="Client_conf_file">Client conf file</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
