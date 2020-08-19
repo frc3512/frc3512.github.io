@@ -18,7 +18,7 @@
     inside the build room.</p>
     <p>The following setup instructions apply to both servers and clients
     unless a specific step notes otherwise. Students should ignore the server
-    and build room gateway conf sections.</p>
+    and build room gateway WireGuard configuration sections.</p>
     <h2 id="Install_WireGuard_tools">Install WireGuard tools</h2>
     <pre>
 sudo apt-get install wireguard # Ubuntu
@@ -30,7 +30,7 @@ cat private_key
 cat public_key</pre>
     <p>Students should give their public key to the VPN administrator so they
     can be given access to kase's VPN.</p>
-    <h2 id="Server_conf_file">Server conf file</h2>
+    <h2 id="Configure_WireGuard_on_server">Configure WireGuard on server</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
@@ -52,7 +52,8 @@ AllowedIPs = 10.1.0.x/32</pre>
     <p>Peers are appended to the file as shown. The developer should provide a
     public key to the VPN administrator, and the VPN administrator should
     assign their machine a unique IP address.</p>
-    <h2 id="Build_room_gateway_conf_file">Build room gateway conf file</h2>
+    <h2 id="Configure_WireGuard_on_build_room_gateway">Configure WireGuard on
+    build room gateway</h2>
     <p>Copy this file to <code>/etc/wireguard/forward_up.sh</code> and run
     <code>chmod +x /etc/wireguard/forward_up.sh</code>.</p>
     <pre>
@@ -88,7 +89,7 @@ PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     wireless interface name that's connected to the robot network.</p>
     <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote login
     for establishing wireless connections to the robot network.</p>
-    <h2 id="Client_conf_file">Client conf file</h2>
+    <h2 id="Configure_WireGuard_on_client">Configure WireGuard on client</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
@@ -105,10 +106,15 @@ AllowedIPs = 10.1.0.0/24, 10.35.12.0/24</pre>
     <p>Ask the VPN administrator for a unique number to replace <code>x</code>
     in <code>10.1.0.x/24</code>. The VPN administrator has to assign them to
     avoid conflicts with other peers.</p>
-    <h2 id="Enable_VPN_on_boot">Enable VPN on boot</h2>
+    <h2 id="Connect_to_VPN">Connect to VPN</h2>
+    <p>The following command will enable the WireGuard service so that it
+    starts on boot, as well as start the service immediately.</p>
     <pre>
-sudo systemctl enable wg-quick@wg0
-sudo systemctl start wg-quick@wg0</pre>
+sudo systemctl --now enable wg-quick@wg0</pre>
+    <p>It can also be started on demand with <code>sudo systemctl start
+    wg-quick@wg0</code>, stopped with <code>sudo systemctl stop
+    wg-quick@wg0</code> or restarted with <code>sudo systemctl restart
+    wg-quick@wg0</code>.</p>
     <p>Now, clients should be able to ping <code>10.1.0.1</code> (kase's
     internal gateway IP) and get a response.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
