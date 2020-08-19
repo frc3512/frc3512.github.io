@@ -117,6 +117,9 @@ sudo systemctl --now enable wg-quick@wg0</pre>
     wg-quick@wg0</code>.</p>
     <p>Now, clients should be able to ping <code>10.1.0.1</code> (kase's
     internal gateway IP) and get a response.</p>
+    <p>Typical developer operations like <code>./gradlew deploy</code> should
+    work transparently via the robot network connected to the build room
+    gateway.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
     <p>If the connection is working, <code>sudo wg show</code> should print
     something like the following after pinging <code>10.1.0.1</code> at least
