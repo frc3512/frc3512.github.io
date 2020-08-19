@@ -19,7 +19,7 @@
     <p>The following setup instructions apply to both servers and clients
     unless a specific step notes otherwise. Students should ignore the server
     and build room gateway conf sections.</p>
-    <h2 id="Install_wireguard_tools">Install wireguard tools</h2>
+    <h2 id="Install_WireGuard_tools">Install WireGuard tools</h2>
     <pre>
 sudo apt-get install wireguard # Ubuntu
 sudo pacman -S wireguard-tools # Arch</pre>
@@ -112,9 +112,6 @@ sudo systemctl start wg-quick@wg0</pre>
     <p>Now, clients should be able to ping <code>10.1.0.1</code> (kase's
     internal gateway IP) and get a response.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
-    <p>If the service startup failed with an "unsupported protocol" error,
-    rebooting should fix it. The status of the wireguard service can be
-    determined with <code>systemctl status wg-quick@wg0</code>.</p>
     <p>If the connection is working, <code>sudo wg show</code> should print
     something like the following after pinging <code>10.1.0.1</code> at least
     once. Note how the peer private key matches kase's server public key and
@@ -145,6 +142,61 @@ peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
 </pre>
+    <h3 id="Unsupported_protocol_error">Unsupported protocol error</h3>
+    <p>If the service startup failed with an "unsupported protocol" error,
+    rebooting should fix it. The status of the wireguard service can be
+    determined with <code>systemctl status wg-quick@wg0</code>.</p>
+    <h3 id="Possible_tunnel_configuration_errors">Possible tunnel configuration
+    errors</h3>
+    <p>We've performed the following actions so far.</p>
+    <ul>
+      <li>Installed WireGuard at both ends</li>
+      <li>Set up a NAT rule on the remote side</li>
+      <li>Created a private and public key on each side</li>
+      <li>Put each public key in the opposite side's [Peer] config</li>
+      <li>Put a suitable IP address on each side</li>
+    </ul>
+    <p>There are several mistakes we could have made in this process.</p>
+    <ul>
+      <li>Broken routing on the client PC</li>
+      <li>Broken NAT on the remote router</li>
+      <li>Broken routing on the remote PC</li>
+      <li>Broken wg0 configuration on one side</li>
+      <li>Lack of TCP forwarding on the remote computer</li>
+      <li>Lack of proxy ARP on the remote computer</li>
+    </ul>
+    <p>If the roboRIO isn't responding to pings, run tcpdump.</p>
+    <pre>
+tcpdump -i wg0 # on the remote server
+ping -c1 10.35.12.2 # on the local machine</pre>
+    <p>If the packets are reaching the build room gateway, tcpdump will report
+    traffic. If it doesn't, it's not getting through the tunnel (as opposed to
+    there being a packet forwarding issue on the build room gateway).</p>
+    <h3 id="Required_key_not_available_error">Required key not available
+    error</h3>
+    <pre>
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.1.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Required key not available</pre>
+    <p>This occurs when the AllowedIPs key is set too strictly. What we're
+    pinging is routable, but it isn't within the AllowedIPs range, so there was
+    no applicable key for the packet. This was fixed by adding
+    <code>10.35.12.0/24</code> to the build room gateway's allowed IPs.</p>
+    <h3 id="Destination_address_required_error">Destination address required
+    error</h3>
+    <pre>
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.1.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Destination address required</pre>
+    <p>This occurs when the wg0 interface can't see the 10.35.12.0/24 route via
+    the build room gateway. Assuming the build room gateway can ping
+    10.35.12.2, the most reliable way to fix this seems to be restarting the
+    client WireGuard service.</p>
+    <pre>
+sudo systemctl restart wg-quick@wg0</pre>
+    <p>If the problem persists, the build room gateway WireGuard service may
+    need to be restarted. The ssh connection will close, but it can be
+    reestablished once the WireGuard service comes back up.</p>
   </div>
 </body>
 </html>
