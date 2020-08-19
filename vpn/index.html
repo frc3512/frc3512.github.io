@@ -43,7 +43,7 @@ ListenPort = 51820
 # Build room gateway
 [Peer]
 PublicKey = &lt;client public key&gt;
-AllowedIPs = 10.1.0.2/32
+AllowedIPs = 10.1.0.2/32, 10.35.12.0/24
 
 # Student's laptop
 [Peer]
@@ -53,13 +53,31 @@ AllowedIPs = 10.1.0.x/32</pre>
     public key to the VPN administrator, and the VPN administrator should
     assign their machine a unique IP address.</p>
     <h2 id="Build_room_gateway_conf_file">Build room gateway conf file</h2>
+    <p>Copy this file to <code>/etc/wireguard/forward_up.sh</code> and run
+    <code>chmod +x /etc/wireguard/forward_up.sh</code>.</p>
+    <pre>
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=1
+iptables -A FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -A FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE</pre>
+    <p>Copy this file to <code>/etc/wireguard/forward_down.sh</code> and run
+    <code>chmod +x /etc/wireguard/forward_down.sh</code>.</p>
+    <pre>
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=0
+iptables -D FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -D FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE</pre>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
 Address = 10.1.0.2/24
 PrivateKey = &lt;client private key&gt;
-PostUp = sysctl -w net.ipv4.ip_forward=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
-PostDown = sysctl -w net.ipv4.ip_forward=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
+PostUp = /etc/wireguard/forward_up.sh
+PostDown = /etc/wireguard/forward_down.sh
 
 [Peer]
 PublicKey = &lt;server public key&gt;
@@ -74,13 +92,11 @@ PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
 [Interface]
 Address = 10.1.0.x/24
 PrivateKey = &lt;client private key&gt;
-PostUp = ip route add 10.35.12.0/24 via 10.1.0.2
-PostDown = ip route del 10.35.12.0/24 via 10.1.0.2
 
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = kase.acfsys.net:51820
-AllowedIPs = 10.1.0.0/24</pre>
+AllowedIPs = 10.1.0.0/24, 10.35.12.0/24</pre>
     <p>Replace <code>&lt;client private key&gt;</code> with the client private
     key generated earlier, and replace <code>&lt;server public key&gt;</code>
     with <code>OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=</code>.</p>
