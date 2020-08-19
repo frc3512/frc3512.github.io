@@ -86,6 +86,8 @@ AllowedIPs = 10.1.0.0/24
 PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     <p>The interface <code>wlan0</code> should be replaced with the actual
     wireless interface name that's connected to the robot network.</p>
+    <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote login
+    for establishing wireless connections to the robot network.</p>
     <h2 id="Client_conf_file">Client conf file</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
