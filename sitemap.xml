@@ -3,150 +3,150 @@
     xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
     xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
-        <loc>https://csweb.frc3512.com/admin/goals/index.html</loc>
+        <loc>https://frc3512.github.io/admin/goals/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/index.html</loc>
+        <loc>https://frc3512.github.io/admin/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/software-for-non-software-team-members/index.html</loc>
+        <loc>https://frc3512.github.io/admin/software-for-non-software-team-members/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/styleguide/index.html</loc>
+        <loc>https://frc3512.github.io/admin/styleguide/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/admin/varsity/index.html</loc>
+        <loc>https://frc3512.github.io/admin/varsity/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/archives/angelscript/download/index.html</loc>
+        <loc>https://frc3512.github.io/archives/angelscript/download/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/archives/angelscript/index.html</loc>
+        <loc>https://frc3512.github.io/archives/angelscript/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/archives/history/index.html</loc>
+        <loc>https://frc3512.github.io/archives/history/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/archives/index.html</loc>
+        <loc>https://frc3512.github.io/archives/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/bootstrap/index.html</loc>
+        <loc>https://frc3512.github.io/bootstrap/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/concurrency-and-atomics/index.html</loc>
+        <loc>https://frc3512.github.io/ci/advanced-cpp/concurrency-and-atomics/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/high-performance-and-embedded/index.html</loc>
+        <loc>https://frc3512.github.io/ci/advanced-cpp/high-performance-and-embedded/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/index.html</loc>
+        <loc>https://frc3512.github.io/ci/advanced-cpp/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/networking/index.html</loc>
+        <loc>https://frc3512.github.io/ci/advanced-cpp/networking/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/advanced-cpp/parallelism/index.html</loc>
+        <loc>https://frc3512.github.io/ci/advanced-cpp/parallelism/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/android-development/index.html</loc>
+        <loc>https://frc3512.github.io/ci/android-development/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/artificial-neural-networks/index.html</loc>
+        <loc>https://frc3512.github.io/ci/artificial-neural-networks/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/computer-vision/index.html</loc>
+        <loc>https://frc3512.github.io/ci/computer-vision/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/control-theory/index.html</loc>
+        <loc>https://frc3512.github.io/ci/control-theory/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/control-theory/live-grapher/index.html</loc>
+        <loc>https://frc3512.github.io/ci/control-theory/live-grapher/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/gerrit/index.html</loc>
+        <loc>https://frc3512.github.io/ci/gerrit/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/gerrit/lecture/index.html</loc>
+        <loc>https://frc3512.github.io/ci/gerrit/lecture/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/graphical-user-interfaces/index.html</loc>
+        <loc>https://frc3512.github.io/ci/graphical-user-interfaces/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/index.html</loc>
+        <loc>https://frc3512.github.io/ci/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-cpp/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-cpp/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-git/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-git/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-git/lecture/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-git/lecture/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-html/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-html/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-python/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-python/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-real-time-software/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-real-time-software/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-real-time-software/lecture/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-real-time-software/lecture/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/intro-to-shell-scripting/index.html</loc>
+        <loc>https://frc3512.github.io/ci/intro-to-shell-scripting/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part1/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part1/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part2/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part2/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part3/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part3/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part4/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part4/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part5/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part5/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/part6/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/part6/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/program-design/prologue/index.html</loc>
+        <loc>https://frc3512.github.io/ci/program-design/prologue/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/robot-software/index.html</loc>
+        <loc>https://frc3512.github.io/ci/robot-software/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/state-machines/event-framework/index.html</loc>
+        <loc>https://frc3512.github.io/ci/state-machines/event-framework/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/state-machines/index.html</loc>
+        <loc>https://frc3512.github.io/ci/state-machines/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/ci/state-machines/state-machine/index.html</loc>
+        <loc>https://frc3512.github.io/ci/state-machines/state-machine/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/google6564018b40b55c22.html</loc>
+        <loc>https://frc3512.github.io/google6564018b40b55c22.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/index.html</loc>
+        <loc>https://frc3512.github.io/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/other/fll/index.html</loc>
+        <loc>https://frc3512.github.io/other/fll/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/other/index.html</loc>
+        <loc>https://frc3512.github.io/other/index.html</loc>
     </url>
     <url>
-        <loc>https://csweb.frc3512.com/vpn/index.html</loc>
+        <loc>https://frc3512.github.io/vpn/index.html</loc>
     </url>
 </urlset>

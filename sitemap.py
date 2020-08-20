@@ -27,7 +27,7 @@ def main():
         for name in sorted(files):
             file.write(
                 "    <url>\n"
-                "        <loc>https://csweb.frc3512.com/" + name[2:] + "</loc>\n"
+                "        <loc>https://frc3512.github.io/" + name[2:] + "</loc>\n"
                 "    </url>\n"
             )
         file.write("</urlset>\n")

@@ -1,1 +1,1 @@
-Sitemap: https://csweb.frc3512.com/sitemap.xml
+Sitemap: https://frc3512.github.io/sitemap.xml
