@@ -10,52 +10,38 @@
 </head>
 <body>
   <div class="body">
-    <h1>FLL</h1>
-    <h2 id="Tournament">Tournament</h2>
-    <h3 id="Tasks">Tasks</h3>
-    <p>Currently the tasks software has is:</p>
+    <h1>FLL tournament tasks</h1>
+    <h2 id="Set_up_Wi-Fi_based_cameras">Set up Wi-Fi based cameras</h2>
+    <h3 id="Find_the_IP">Find the IP</h3>
     <ul>
-      <li>To setup WiFi based cameras</li>
-      <li>To setup sound systems</li>
+      <li>Try a previous IP</li>
+      <li>Use the amcrest tool to find it</li>
+      <li>Use <code>ping</code></li>
     </ul>
-    <h3 id="Procedures">Procedures</h3>
-    <p>To accomplish the above tasks use this to help</p>
-    <h4 id="Setting_up_WiFi_based_cameras">Setting up WiFi based cameras</h4>
+    <p>If the camera cannot be found, it may not be connected to Wi-Fi. Use the
+    amcrest app to connect it. Refer to the data portion for more information
+    about the cameras.</p>
+    <h3 id="Open_the_stream_in_VLC">Open the stream in VLC</h3>
+    <p>Open VLC and go to "Open Stream" in the task bar. Use
+    <code>rtsp://username:password@IP-Address</code> to connect to and start
+    the stream.</p>
+    <p>Ensure that the cameras are oriented correctly and video quality
+    settings are okay.</p>
+    <p>In the event there are video quality or bandwidth issues, feel free to
+    edit the camera settings if you know how and are confident in what you're
+    doing.</p>
+    <h4 id="Wi-Fi_camera_info">Wi-Fi camera info</h4>
+    <p>The serial numbers of the cameras are:</p>
     <ul>
-      <li>Find the IP</li>
-      <ul>
-        <li>Try a previous IP</li>
-        <li>Use the tool to find it</li>
-        <li>Use a ping tool</li>
-        <ul>
-          <li>If all else fails troubleshoot, most likely the cameras not
-          connected to the WiFi (use the amcrest app to connect it) refer to
-          the data portion for more info about the cameras.</li>
-        </ul>
-      </ul>
+      <li><code>AMC019J764NRRH1HZV</code></li>
+      <li><code>AMC019DE95WJ8ZPG2C</code></li>
     </ul>
-    <ul>
-      <li>Open VLC and go to Open Stream in the task bar</li>
-      <ul>
-        <li>Use <code>rtsp://username:password@IP-Address</code>(thanks Will)
-        to connect start the stream.</li>
-      </ul>
-      <li>Ensure that the cameras are oriented correctly and video quality
-      settings are okay</li>
-      <ul>
-        <li>In the event there are video quality or bandwidth issues feel free
-        to edit the camera settings if you know how to and are confident in
-        what your doing</li>
-      </ul>
-    </ul>
-    <h4 id="WiFi_camera_info">WiFi camera info</h4>
-    <p><i>Beware of 0 or O, the tags do not denote which it is</i></p>
-    <ul>
-      <li>S/N: AMC019J764NRRH1HZV</li>
-      <li>S/N: AMC019DE95WJ8ZPG2C</li>
-    </ul>
-    <p>Username: <b>Admin</b></p>
-    <p>Password: <b>FIRST3512</b></p>
+    <p><i>Beware of <code>0</code> vs <code>O</code>. The serial number tags do
+    not differentiate between them.</i></p>
+    <p>Username: <code>Admin</code><br>
+    Password: <code>FIRST3512</code></p>
+    <h2 id="Set_up_sound_systems">Set up sound systems</h2>
+    <p>TBD</p>
   </div>
 </body>
 </html>
