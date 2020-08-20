@@ -123,7 +123,7 @@ git config --global core.autocrlf false
     <ul>
       <li>Most of work will be done in them</li>
       <li>Making a branch (branch)</li>
-      <li>Moving onto a branch (checkout)</li>
+      <li>Moving onto a branch (switch)</li>
       <li>Moving work onto master (merge)</li>
       <ul>
         <li>What if merge goes wrong?</li>
@@ -200,11 +200,11 @@ git config --global core.autocrlf false
     <p>This deletes the branch <code>&lt;branchname&gt;</code>. This command
     won't work if that branch is currently checked out.</p>
     <p><i>example:</i> <code>git branch -d merged-feature</code></p>
-    <h3 id="9._Checking_out_a_branch">9. Checking out a branch</h3>
-    <pre>git checkout &lt;branchname&gt;</pre>
+    <h3 id="9._Switching_to_a_branch">9. Switching to a branch</h3>
+    <pre>git switch &lt;branchname&gt;</pre>
     <p>This checks out <code>&lt;branchname&gt;</code>. The default branch when
     a new project is created is called <code>master</code>.</p>
-    <p><i>example:</i> <code>git checkout other-branch</code></p>
+    <p><i>example:</i> <code>git switch other-branch</code></p>
     <h3 id="10._Merging_a_branch">10. Merging a branch</h3>
     <pre>git merge &lt;branchname&gt;</pre>
     <p>This merges commits from the specified branch into the branch currently

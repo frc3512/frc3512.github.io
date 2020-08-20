@@ -48,7 +48,7 @@
     <pre>
 #!/bin/bash
 
-git checkout -q master
+git switch -q master
 read -r -a array &gt; data.csv
   else
     echo $x$','$y','$x$','$y &gt;&gt; data.csv
@@ -79,7 +79,7 @@ else
 fi
 
 if [ "$1" == "rebase" ]; then
-  git checkout -q master
+  git switch -q master
   git pull -q upstream master
 fi
 
@@ -96,7 +96,7 @@ for branch in "${branches[@]}"; do
   if [ "$run" = true ]; then
     echo "Switching to branch '$base'"
     git reset -q --hard HEAD
-    git checkout -q $base
+    git switch -q $base
 
     # Run subcommand
     case $1 in

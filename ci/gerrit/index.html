@@ -59,27 +59,27 @@
     <h3 id="Versioning">Versioning</h3>
     <ul>
       <li>Easily get commit later? (tag)</li>
-      <li>Getting to tagged commit later? (checkout)</li>
+      <li>Getting to tagged commit later? (switch)</li>
       <ul>
         <li>now in detached head state</li>
-        <li>can 'git checkout master' to get back to tip of master</li>
+        <li>can 'git switch master' to get back to tip of master</li>
         <li>can make commits</li>
         <ul>
           <li>make sure commits are saved?</li>
           <ul>
             <li>'git branch temp'</li>
-            <li>'git checkout temp'</li>
+            <li>'git switch temp'</li>
           </ul>
           <li>Update master to temp... WARNING: destructive!</li>
           <ul>
             <li>'git branch -f master temp' (fine if changes on master were
             bad)</li>
-            <li>'git checkout master'</li>
+            <li>'git switch master'</li>
           </ul>
           <li>Or... merge it with HEAD</li>
           <ul>
             <li>Find commit from 'git reflog'</li>
-            <li>checkout master</li>
+            <li>switch master</li>
             <li>'git merge HEAD@{1}' (where HEAD{1} is commit in temp branch
             from reflog)</li>
           </ul>
@@ -154,7 +154,7 @@ git review -s</pre>
     <pre>git review</pre>
     <h3 id="New_patchset">New patchset</h3>
     <p>Gerrit manages reviews on a per-commit basis. To start a review on a new
-    patch, make sure the commit is on a separate branch from master. Check out
+    patch, make sure the commit is on a separate branch from master. Switch to
     that branch and run <code>git review</code>.</p>
     <p>Make sure new patchsets are created with <code>git commit</code>. Using
     <code>git commit --amend</code> will change a commit already merged
@@ -195,7 +195,7 @@ git review -s</pre>
       <li>Submodules (subprojects) with <code>git submodule</code></li>
       <li>Subtree merge (e.g. <code>git subtree</code>, <code>git
       stree</code>)</li>
-      <li>Partial (sparse) checkout</li>
+      <li>Partial (sparse) switch</li>
       <li>Shallow clone: <code>git clone --depth=</code></li>
       <li>Multiple worktrees: <code>git worktree</code></li>
       <li>Searching history for commit message and metadata: <code>git log
@@ -207,8 +207,8 @@ git review -s</pre>
       <li>Tracking code movement with <code>git blame</code> (<code>git blame
       -M</code>, <code>git gui blame</code>, etc.)</li>
       <li>History of lines: <code>git log -L</code></li>
-      <li>Detaching HEAD: <code>git checkout --detach</code>, <code>git
-      checkout</code></li>
+      <li>Detaching HEAD: <code>git switch --detach</code>, <code>git
+      switch</code></li>
       <li>Orphan branches with disconnected history (gh-pages, todo, man,
       etc.)</li>
       <li>Merging independent histories, joining different projects together
@@ -226,8 +226,7 @@ git review -s</pre>
       <li>reflog (including <code>@{1}</code>, <code>@{yesterday}</code>,
       <code>@{-1}</code> / <code>-</code>, <code>git log -g</code>)</li>
       <li>Include mechanism for configuration files</li>
-      <li>Client-side hooks (e.g. post-checkout, pre-push, pre-auto-gc,
-      post-rewrite)</li>
+      <li>Client-side hooks (e.g. post-update, pre-push)</li>
       <li>Server-side hooks (e.g. pre-receive, update, post-receive)</li>
       <li>git-aware shell prompt</li>
       <li>Git aliases, shell aliases for git, or own git scripts</li>

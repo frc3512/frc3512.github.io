@@ -29,7 +29,7 @@
           </ul>
           <li>Getting to the tagged commit later?</li>
           <ul>
-            <li><code>git checkout &lt;tag name&gt;</code></li>
+            <li><code>git switch &lt;tag name&gt;</code></li>
             <li>Now in "detached head state" (more on this next)</li>
           </ul>
         </ul>
@@ -39,7 +39,7 @@
         <ul>
           <li>How to leave detached head state?</li>
           <ul>
-            <li><code>git checkout master</code></li>
+            <li><code>git switch master</code></li>
             <li>Sets current HEAD to master's HEAD</li>
           </ul>
           <li>Commits can be made here!</li>
@@ -47,7 +47,7 @@
             <li>Saving commits</li>
             <ul>
               <li><code>git branch temp</code></li>
-              <li><code>git checkout temp</code></li>
+              <li><code>git switch temp</code></li>
             </ul>
           </ul>
         </ul>
@@ -61,13 +61,13 @@
             <ul>
               <li><code>git branch -f master temp</code></li>
               <li>Fine if changes on master were bad</li>
-              <li><code>git checkout master</code></li>
+              <li><code>git switch master</code></li>
             </ul>
             <li>Or... merge it with HEAD</li>
             <ul>
               <li>Find temp branch commit in reflog (ex: HEAD@{1})</li>
               <ul>
-                <li><code>git checkout master</code></li>
+                <li><code>git switch master</code></li>
                 <li><code>git merge HEAD@{1}</code></li>
               </ul>
             </ul>
@@ -165,13 +165,13 @@ pick 380719d Added noop autonomous
         "Rebase Example 2"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git checkout master</code><br>
+        <h1>Rebase Example</h1><code>git switch master</code><br>
         <code>git merge client</code>
         <div style="text-align: center"><img src="res/rebase-example2.png" alt=
         "Rebase Example 2"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git checkout master</code><br>
+        <h1>Rebase Example</h1><code>git switch master</code><br>
         <code>git merge client</code>
         <div style="text-align: center"><img src="res/rebase-example3.png" alt=
         "Rebase Example 3"></div>
@@ -187,7 +187,7 @@ pick 380719d Added noop autonomous
         "Rebase Example 4"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git checkout master</code><br>
+        <h1>Rebase Example</h1><code>git switch master</code><br>
         <code>git merge server</code><br>
         <code>git branch -d client</code><br>
         <code>git branch -d server</code>
@@ -195,7 +195,7 @@ pick 380719d Added noop autonomous
         "Rebase Example 4"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git checkout master</code><br>
+        <h1>Rebase Example</h1><code>git switch master</code><br>
         <code>git merge server</code><br>
         <code>git branch -d client</code><br>
         <code>git branch -d server</code>
