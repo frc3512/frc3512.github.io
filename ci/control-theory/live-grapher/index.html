@@ -42,10 +42,8 @@
     S-curve and trapezoidal motion profiles. Run the following commands in the
     parent directory of your LiveGrapher repository folder.</p>
     <pre>
-git clone git://github.com/frc3512/LiveGrapherTest
-cd LiveGrapherTest
-rm -f src/LiveGrapher &amp;& ln -s ../../LiveGrapher/host/LiveGrapher src/LiveGrapher
-rm -f common &amp;& ln -s ../../LiveGrapher/common common
+git clone git://github.com/frc3512/LiveGrapher
+cd LiveGrapher/test
 make</pre>
     <p>After the build is complete, start the server.</p>
     <p>Edit LiveGrapher's <code>IPSettings.txt</code> to use a
@@ -66,7 +64,7 @@ make</pre>
     for a simulated <a href=
     "https://en.wikipedia.org/wiki/Brushed_DC_electric_motor">DC brushed
     motor</a>.</p>
-    <p>Replace the <code>Main.cpp</code> in LiveGrapherTest with <a href=
+    <p>Replace <code>LiveGrapher/test/src/Main.cpp</code> with <a href=
     "DCMotor.cpp">this file</a>, rebuild the project, and rerun the server.
     After reconnecting LiveGrapher, two datasets will be available: "Reference"
     and "Velocity". Graph both of them.</p>

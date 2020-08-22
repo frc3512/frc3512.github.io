@@ -13,7 +13,7 @@
     <h1>Robot software</h1><strong>Prerequisites:</strong> <a href=
     "../intro-to-real-time-software/">Intro to real-time software</a><br>
     <strong>Corequisites:</strong> <a href="../intro-to-cpp/">Intro to C++</a>,
-    <a href="../pid-controllers/">PID controllers</a>
+    <a href="../control-theory/">Control theory</a>
     <h2 id="Disclaimer">Disclaimer</h2>
     <p>While the goal every year is to create the most competitive robot
     possible with the tools and abstractions we've built up so far, we want
@@ -27,74 +27,19 @@
     <p>Eclipse should already be installed from following the <a href=
     "../../bootstrap/">bootstrap page</a>. For robot software development,
     follow the instructions <a href=
-    "https://wpilib.screenstepslive.com/s/4485/m/13503/l/145002-installing-eclipse-c-java">
-    here</a> to install the FRC plugins and roboRIO ARM toolchain. Other robot
-    software resources can be found <a href=
-    "https://wpilib.screenstepslive.com/s/4485/m/13503/c/86641">here</a>.</p>
+    "https://docs.wpilib.org/en/stable/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html">
+    here</a> to install WPILib and roboRIO ARM toolchain. Other robot software
+    resources can be found <a href=
+    "https://docs.wpilib.org/en/stable/">here</a>.</p>
     <h2 id="Design_patterns">Design patterns</h2>
     <p>Design patterns are used all over software development. Expert
     programmers know the idiomatic design patterns for their language to solve
     a problem quickly, efficiently, and with few bugs. We have common design
     patterns in robot software. A list of design patterns with descriptions,
-    usage advice, and examples is provided below.</p>
-    <p>See <a href="https://docs.wpilib.org">docs.wpilib.org</a> for more
-    resources on performing various common robot tasks in C++. We have <a href=
+    usage advice, and examples is provided below. Also, we have <a href=
     "https://github.com/frc3512/">robot software</a> from previous years on
     GitHub that students can study, understand, and potentially reuse.</p>
-    <h3 id="General_control_flow">General control flow</h3>
-    <h4 id="Under_the_covers">Under the covers</h4>
-    <p>While we won't be using <code>SampleRobot</code> for writing production
-    robot code, it is helpful to start with it to understand what our control
-    flow abstractions (namely <code>TimedRobot</code>) are doing
-    underneath.</p>
-    <p>The <code>SampleRobot</code> robot base class provides several virtual
-    functions the subclass can override (see <a href=
-    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/src/main/native/include/SampleRobot.h">
-    SampleRobot.h</a>).</p>
-    <p>The functions <code>Disabled()</code>, <code>Autonomous()</code>,
-    <code>OperatorControl()</code>, and <code>Test()</code> correspond to the
-    modes in which the Driver Station can set the robot. They are called once
-    upon switching to each mode. After one of the functions exits,
-    <code>RobotBase</code> will continuously wait for Driver Station data until
-    another mode change occurs. Therefore, code in each function should be run
-    in a while loop until the mode changes. The following is an example
-    Robot.cpp.</p>
-    <pre>#include "Robot.hpp"
-
-using namespace std::chrono_literals;
-
-void Robot::Disabled() {
-    while (IsDisabled()) {
-        // Wait for robot to become enabled
-
-        std::this_thread::sleep_for(20ms);
-    }
-}
-
-void Robot::Autonomous() {
-    while (IsAutonomous() &amp;& IsEnabled()) {
-        // Perform autonomous tasks
-
-        std::this_thread::sleep_for(20ms);
-    }
-}
-
-void Robot::OperatorControl() {
-    while (IsOperatorControl() &amp;& IsEnabled()) {
-        // Perform normal robot actions and check for user input
-
-        std::this_thread::sleep_for(20ms);
-    }
-}
-
-void Robot::Test() {
-    while (IsTest() &amp;& IsEnabled()) {
-        // Perform robot test actions
-
-        std::this_thread::sleep_for(20ms);
-    }
-}</pre>
-    <h4 id="TimedRobot">TimedRobot</h4>
+    <h3 id="TimedRobot">TimedRobot</h3>
     <p><code>TimedRobot</code> abstracts away the loops required for
     <code>SampleRobot</code> and provides better timing guarantees. TimedRobot
     provides <code>Init()</code> functions, which are run upon the Driver
@@ -133,8 +78,7 @@ void Robot::Autonomous() {
     (the driver provides direct input to the system) and others are in closed
     loop (autonomous driving using encoders). This section discusses the former
     while the latter is covered in detail in the <a href=
-    "../pid-controllers/">PID controllers</a> and <a href=
-    "../modern-control-theory">modern control theory</a> modules.</p>
+    "../control-theory/">control theory</a> module.</p>
     <p>The two most common ways to drive a robot manually are with WPILib's
     DifferentialDrive or MecanumDrive classes and with another drive class
     implementing a custom drive scheme. To make a four-wheeled robot drive
@@ -178,7 +122,7 @@ private:
       </li>
     </ul>
     <p>See <a href=
-    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/src/main/native/cpp/Drive/DifferentialDrive.cpp">
+    "https://github.com/wpilibsuite/allwpilib/blob/master/wpilibc/src/main/native/cpp/drive/DifferentialDrive.cpp">
     DifferentialDrive.cpp</a> for examples.</p>
     <h3 id="Button_edge_detection">Button edge detection</h3>
     <p>In <code>TeleopPeriodic()</code>, performing actions when the user

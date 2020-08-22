@@ -99,7 +99,7 @@
     <h2 id="Tools_installation_on_Ubuntu">Tools installation on Ubuntu</h2>
     <p><i>Eclipse CDT</i></p><code>sudo apt-get install openjdk-8-jdk</code>
     <p>Download the <a href=
-    "https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon3">
+    "https://www.eclipse.org/downloads/packages/release/2020-06/r/eclipse-ide-cc-developers">
     Eclipse IDE for C/C++ Developers</a>. Once the download is complete,
     extract it to a directory of your choice.</p>
     <p><i>GCC</i></p><code>sudo apt-get install gcc</code>
@@ -125,17 +125,17 @@ makepkg -si</pre>
     <h2 id="Tools_installation_on_Windows">Tools installation on Windows</h2>
     <p><i>Eclipse CDT</i></p>
     <p>Download the JDK 8 installer from <a href=
-    "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+    "https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">
     here</a> and run it.</p>
     <p>Download the <a href=
-    "https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon3">
+    "https://www.eclipse.org/downloads/packages/release/2020-06/r/eclipse-ide-cc-developers">
     Eclipse IDE for C/C++ Developers</a>, then extract it to a directory of
     your choice.</p>
     <p><i>GCC Compiler</i></p>
     <ol>
       <li>Download the MSYS2 installer from <a href=
-      "http://www.msys2.org/">here</a> and run it. Use the default installation
-      directory.
+      "https://www.msys2.org/">here</a> and run it. Use the default
+      installation directory.
       </li>
       <li><code>pacman -Syu</code>, then close all terminals when directed to
       do so.</li>
@@ -154,7 +154,7 @@ makepkg -si</pre>
     <p><i>Git</i></p><code>pacman -S git</code>
     <p><i>Formatter</i></p>
     <p>Download the latest version of LLVM from <a href=
-    "http://releases.llvm.org/download.html">here</a> under "Pre-Built
+    "https://releases.llvm.org/download.html">here</a> under "Pre-Built
     Binaries" and run it. The default installation options are fine. Don't
     worry if you see the following; it's irrelevant to our use.</p>
     <pre>Installing MSVC integration...
@@ -200,11 +200,11 @@ pip install wpiformat</pre>
     <p>Git is a version control system used to manage the code you write. See
     <a href="../ci/intro-to-git/index.html">Git 1</a> for more information and
     detailed setup.</p>
-    <h3 id="Gerrit">Gerrit</h3>
-    <p>Gerrit provides web based code review and repository management for the
-    Git version control system. Our Gerrit server is <a href=
-    "https://gerrit.frc3512.com/">here</a>. User setup instructions are
-    <a href="https://frc3512.github.io/ci/gerrit/#Setup">here</a>.</p>
+    <h3 id="GitHub">GitHub</h3>
+    <p>GitHub provides web based code review and repository management for the
+    Git version control system. Our GitHub organization is <a href=
+    "https://github.com/frc3512/">here</a>. User setup instructions are
+    <a href="../ci/github/#Setup">here</a>.</p>
     <h3 id="Formatter">Formatter</h3>
     <p>Formatters help ensure style guide conformance by automatically
     correcting deviations. We use the Python 3 scripts provided in WPILib's

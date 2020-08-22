@@ -18,6 +18,7 @@ jobs:
 
     - name: Run linters
       run: |
+        ./check_links.py
         ./format.py
         ./gen_id_attributes.py
         ./sitemap.py

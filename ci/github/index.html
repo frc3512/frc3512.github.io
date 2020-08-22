@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Gerrit">
+  <meta name="description" content="GitHub">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gerrit - FRC Team 3512</title>
+  <title>GitHub - FRC Team 3512</title>
   <link rel="stylesheet" type="text/css" href="../../main.css">
   <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
 </head>
 <body>
   <div class="body">
-    <h1>Gerrit</h1><strong>Prerequisites:</strong> <a href=
+    <h1>GitHub</h1><strong>Prerequisites:</strong> <a href=
     "../intro-to-git/">Intro to Git</a>
     <h2 id="Resources">Resources</h2>
     <ul>
@@ -18,18 +18,14 @@
         <a href="https://github.com/frc3512/">GitHub</a> - mirrors of the code
         we've written for the robotics team reside here.
       </li>
-      <li>
-        <a href="https://gerrit.frc3512.com/">Gerrit</a> - we use Gerrit, which
-        is based on Git, for code review.
-      </li>
       <li>Git's <a href="https://git-scm.com/doc/">online documentation</a>.
       </li>
       <li>Git (advanced usage) lecture <a href="lecture/">slides</a>.
       </li>
       <li>
         <a href=
-        "http://tom.preston-werner.com/2009/05/19/the-git-parable.html">The Git
-        Parable</a> - an alternate explanation of Git terminology.
+        "https://tom.preston-werner.com/2009/05/19/the-git-parable.html">The
+        Git Parable</a> - an alternate explanation of Git terminology.
       </li>
       <li>
         <a href="https://chris.beams.io/posts/git-commit/">How and why to write
@@ -42,7 +38,7 @@
       </li>
       <li>
         <a href=
-        "https://github.com/pluralsight/git-internals-pdf/releases/latest">PDF
+        "https://github.com/pluralsight/git-internals-pdf/releases/tag/v2.0">PDF
         on Git internals</a> for those curious about how Git stores files and
         revisions.
       </li>
@@ -118,37 +114,24 @@
       <li>'git filter-branch --tree-filter 'rm -f largeFile.out' HEAD</li>
     </ul>
     <h2 id="Setup">Setup</h2>
-    <p>Visit <code>gerrit.frc3512.com</code> and sign in / sign up.</p>
+    <p>Create an account on <a href="https://github.com/">GitHub</a>.</p>
     <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
     <pre>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</pre>
-    <h3 id="Add_public_key_to_Gerrit">Add public key to Gerrit</h3>
+    <p>See <a href=
+    "https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">
+    this</a> for more.</p>
+    <h3 id="Add_public_key_to_GitHub">Add public key to GitHub</h3>
     <pre>cat ~/.ssh/id_rsa.pub</pre>
-    <p>Copy the entire block, then navigate to the "SSH Public Key" settings of
-    your user settings on Gerrit. Click "Add Key", paste the entire key, then
-    click "Add".</p>
-    <h3 id="Installing_git-review">Installing git-review</h3>Install Python via
-    <code>sudo pacman -S python</code> on Arch Linux or <code>sudo apt install
-    python3</code> on Ubuntu, then install git-review via <code>pip install
-    --user git-review</code>.
-    <p>Verify <code>~/.local/bin</code> is in the PATH environment
-    variable.</p>
-    <pre>echo $PATH</pre>If it's not, add <code>export
-    PATH=$PATH:~/.local/bin</code> to <code>~/.bashrc</code>. You'll need to
-    repoen the terminal for the changes to take effect.
-    <h3 id="Configuring_cloned_repository">Configuring cloned repository</h3>
-    <pre>git clone ssh://user@gerrit.frc3512.com:29418/Robot-2017
-cd Robot-2017
-git review -s</pre>
+    <p>Copy the entire block, then follow the instructions <a href=
+    "https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">
+    here</a> to add it to your account.</p>
     <h2 id="Usage">Usage</h2>
     <p>In Gerrit, features are submitted in branches with one commit per
     branch. Give each branch a name reflecting its content for easier
     management. Submit new patchsets and revisions of existing patchsets via
     the following command.</p>
-    <pre>git review</pre>
+    <pre>git push --force-with-lease</pre>
     <h3 id="New_patchset">New patchset</h3>
-    <p>Gerrit manages reviews on a per-commit basis. To start a review on a new
-    patch, make sure the commit is on a separate branch from master. Switch to
-    that branch and run <code>git review</code>.</p>
     <p>Make sure new patchsets are created with <code>git commit</code>. Using
     <code>git commit --amend</code> will change a commit already merged
     upstream and lead to conflicts.</p>
@@ -174,9 +157,6 @@ git review -s</pre>
     the other two commits. The other commits should be set to "f" for "fixup"
     so their contents are squashed into the first commit. <code>git
     rebase</code> descriptions for other options are in the file comment.</p>
-    <p>To clarify, making a new commit on top of it then running <code>git
-    review</code> will make a new patchset. This is bad practice as the new
-    commit is not a stand-alone feature.</p>
     <h2 id="Useful_Git_features">Useful Git features</h2>
     <ul>
       <li>End-of-line conversion (crlf or eol)</li>
@@ -229,25 +209,6 @@ git review -s</pre>
       <li>Object overlays (<code>git replace</code> or grafts)</li>
       <li>Object annotation: <code>git notes</code></li>
     </ul>
-    <h2 id="FAQ">FAQ</h2>
-    <p><b>Q: What do I do if no new patchset shows up on Gerrit after running
-    <code>git review</code>?</b></p>
-    <p>A: Make sure the remote is set properly. If the <code>gerrit</code>
-    remote doesn't exist, run <code>git review -s</code> to add it. Otherwise,
-    run <code>git remote -v</code> to list the available remotes. To change a
-    remote such as <code>gerrit</code>, run <code>git remote set-url gerrit
-    SSH/URL</code>.</p>
-    <p><b>Q: How do I push the same patchset to a different repository?</b></p>
-    <p>A: Change the <code>gerrit</code> remote to point to the new repository
-    with <code>git remote set-url gerrit SSH/URL</code>, then run <code>git
-    commit --amend</code> and delete the Change-Id line before saving the
-    commit message. Running <code>git review</code> after that will create a
-    new patchset for that commit.</p>
-    <p>Since commit hashes change after rebasing, Gerrit uses Change-Ids to
-    match up new commits with their corresponding patchset. When a commit is
-    made without a Change-Id, a new one is generated automatically and will
-    show up as a new patchset when pushed to Gerrit with <code>git
-    review.</code></p>
   </div>
 </body>
 </html>
