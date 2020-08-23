@@ -12,7 +12,7 @@
   <div class="body">
     <h1 id="VPN_setup_instructions">VPN setup instructions</h1>
     <p>In our network topology, we host a VPN gateway on a cloud VM
-    (kase.acfsys.net) and have peers connect to it. By having a Linux machine
+    (vpn.tavsys.net) and have peers connect to it. By having a Linux machine
     inside the build room and developer laptops outside the build room
     connected to the same VPN gateway, we can deploy code to a robot network
     inside the build room.</p>
@@ -29,7 +29,7 @@ wg genkey | tee private_key | wg pubkey &gt; public_key
 cat private_key
 cat public_key</pre>
     <p>Students should give their public key to the VPN administrator so they
-    can be given access to kase's VPN.</p>
+    can be given access to the server's VPN.</p>
     <h2 id="Configure_WireGuard_on_server">Configure WireGuard on server</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
@@ -82,7 +82,7 @@ PostDown = /etc/wireguard/forward_down.sh
 
 [Peer]
 PublicKey = &lt;server public key&gt;
-Endpoint = kase.acfsys.net:51820
+Endpoint = vpn.tavsys.net:51820
 AllowedIPs = 10.1.0.0/24
 PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     <p>The interface <code>wlan0</code> should be replaced with the actual
@@ -98,11 +98,11 @@ PrivateKey = &lt;client private key&gt;
 
 [Peer]
 PublicKey = &lt;server public key&gt;
-Endpoint = kase.acfsys.net:51820
+Endpoint = vpn.tavsys.net:51820
 AllowedIPs = 10.1.0.0/24, 10.35.12.0/24</pre>
     <p>Replace <code>&lt;client private key&gt;</code> with the client private
     key generated earlier, and replace <code>&lt;server public key&gt;</code>
-    with <code>OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=</code>.</p>
+    with <code>Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=</code>.</p>
     <p>Ask the VPN administrator for a unique number to replace <code>x</code>
     in <code>10.1.0.x/24</code>. The VPN administrator has to assign them to
     avoid conflicts with other peers.</p>
@@ -115,7 +115,7 @@ sudo systemctl --now enable wg-quick@wg0</pre>
     wg-quick@wg0</code>, stopped with <code>sudo systemctl stop
     wg-quick@wg0</code> or restarted with <code>sudo systemctl restart
     wg-quick@wg0</code>.</p>
-    <p>Now, clients should be able to ping <code>10.1.0.1</code> (kase's
+    <p>Now, clients should be able to ping <code>10.1.0.1</code> (server's
     internal gateway IP) and get a response.</p>
     <p>Typical developer operations like <code>./gradlew deploy</code> should
     work transparently via the robot network connected to the build room
@@ -123,8 +123,8 @@ sudo systemctl --now enable wg-quick@wg0</pre>
     <h2 id="Troubleshooting">Troubleshooting</h2>
     <p>If the connection is working, <code>sudo wg show</code> should print
     something like the following after pinging <code>10.1.0.1</code> at least
-    once. Note how the peer private key matches kase's server public key and
-    the endpoint matches one of kase's public IP addresses.</p>
+    once. Note that the peer's public key matches the server's and the endpoint
+    matches the server's public IP address.</p>
     <pre>
 [tav@myriad ~]$ sudo wg show
 interface: wg0
@@ -132,8 +132,8 @@ interface: wg0
   private key: (hidden)
   listening port: 37902
 
-peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
-  endpoint: 174.136.111.136:51820
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: 64.227.60.179:51820
   allowed ips: 10.1.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
@@ -145,8 +145,8 @@ interface: wg0
   private key: (hidden)
   listening port: 37902
 
-peer: OQNROzC3WxGhWU13/1wR8J2PEyCT+e3EFgkqNuDuhEc=
-  endpoint: [2607:f2f8:a0e0:5::8]:51820
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: [2604:a880:2:d1::2a7:2001]:51820
   allowed ips: 10.1.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
