@@ -72,6 +72,14 @@ iptables -D FORWARD -i wg0 -o wlan0 -j ACCEPT
 iptables -D FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
          -j ACCEPT
 iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE</pre>
+    <p>The interface <code>wlan0</code> in both files should be replaced with
+    the actual wireless interface name that's connected to the robot network.
+    <code>ip addr | grep wl</code> will list all wireless interfaces and their
+    associated IP addresses (<code>wl</code> is the wireless prefix and
+    <code>en</code> is the ethernet prefix). For example:</p>
+    <pre>kyle@waffle:~$ ip addr | grep wl
+3: wlo1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    inet 10.35.12.5/24 brd 10.35.12.255 scope global dynamic noprefixroute wlo1</pre>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
@@ -85,8 +93,6 @@ PublicKey = &lt;server public key&gt;
 Endpoint = vpn.tavsys.net:51820
 AllowedIPs = 10.1.0.0/24
 PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
-    <p>The interface <code>wlan0</code> should be replaced with the actual
-    wireless interface name that's connected to the robot network.</p>
     <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote login
     for establishing wireless connections to the robot network.</p>
     <h2 id="Configure_WireGuard_on_client">Configure WireGuard on client</h2>
