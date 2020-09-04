@@ -50,18 +50,18 @@ cat public_key</pre>
 PrivateKey = &lt;server private key&gt;
 PostUp = sysctl -w net.ipv4.ip_forward=1; sysctl -w net.ipv6.conf.all.forwarding=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
 PostDown = sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv6.conf.all.forwarding=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT
-Address = 10.1.0.1/24
+Address = 10.2.0.1/24
 ListenPort = 51820
 
 # Build room gateway
 [Peer]
 PublicKey = &lt;client public key&gt;
-AllowedIPs = 10.1.0.2/32, 10.35.12.0/24
+AllowedIPs = 10.2.0.2/32, 10.35.12.0/24
 
 # Student's laptop
 [Peer]
 PublicKey = &lt;client public key&gt;
-AllowedIPs = 10.1.0.x/32</pre>
+AllowedIPs = 10.2.0.x/32</pre>
     <p>Peers are appended to the file as shown. The developer should provide a
     public key to the VPN administrator, and the VPN administrator should
     assign their machine a unique IP address.</p>
@@ -96,7 +96,7 @@ iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE</pre>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
-Address = 10.1.0.2/24
+Address = 10.2.0.2/24
 PrivateKey = &lt;client private key&gt;
 PostUp = /etc/wireguard/forward_up.sh
 PostDown = /etc/wireguard/forward_down.sh
@@ -104,7 +104,7 @@ PostDown = /etc/wireguard/forward_down.sh
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = vpn.tavsys.net:51820
-AllowedIPs = 10.1.0.0/24
+AllowedIPs = 10.2.0.0/24
 PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote login
     for establishing wireless connections to the robot network.</p>
@@ -112,18 +112,18 @@ PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
 [Interface]
-Address = 10.1.0.x/24
+Address = 10.2.0.x/24
 PrivateKey = &lt;client private key&gt;
 
 [Peer]
 PublicKey = &lt;server public key&gt;
 Endpoint = vpn.tavsys.net:51820
-AllowedIPs = 10.1.0.0/24, 10.35.12.0/24</pre>
+AllowedIPs = 10.2.0.0/24, 10.35.12.0/24</pre>
     <p>Replace <code>&lt;client private key&gt;</code> with the client private
     key generated earlier, and replace <code>&lt;server public key&gt;</code>
     with <code>Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=</code>.</p>
     <p>Ask the VPN administrator for a unique number to replace <code>x</code>
-    in <code>10.1.0.x/24</code>. The VPN administrator has to assign them to
+    in <code>10.2.0.x/24</code>. The VPN administrator has to assign them to
     avoid conflicts with other peers.</p>
     <h2 id="Connect_to_VPN">Connect to VPN</h2>
     <p>The following command will enable the WireGuard service so that it
@@ -134,14 +134,14 @@ sudo systemctl --now enable wg-quick@wg0</pre>
     wg-quick@wg0</code>, stopped with <code>sudo systemctl stop
     wg-quick@wg0</code> or restarted with <code>sudo systemctl restart
     wg-quick@wg0</code>.</p>
-    <p>Now, clients should be able to ping <code>10.1.0.1</code> (server's VPN
+    <p>Now, clients should be able to ping <code>10.2.0.1</code> (server's VPN
     interface IP) and get a response.</p>
     <p>Typical developer operations like <code>./gradlew deploy</code> should
     work transparently via the robot network connected to the build space
     gateway.</p>
     <h2 id="Troubleshooting">Troubleshooting</h2>
     <p>If the connection is working, <code>sudo wg show</code> should print
-    something like the following after pinging <code>10.1.0.1</code> at least
+    something like the following after pinging <code>10.2.0.1</code> at least
     once. Note that the peer's public key matches the server's and the endpoint
     matches the server's public IP address.</p>
     <pre>
@@ -153,7 +153,7 @@ interface: wg0
 
 peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
   endpoint: 64.227.60.179:51820
-  allowed ips: 10.1.0.0/24
+  allowed ips: 10.2.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
 </pre>
@@ -166,7 +166,7 @@ interface: wg0
 
 peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
   endpoint: [2604:a880:2:d1::2a7:2001]:51820
-  allowed ips: 10.1.0.0/24
+  allowed ips: 10.2.0.0/24
   latest handshake: 16 minutes, 20 seconds ago
   transfer: 696 B received, 872 B sent
 </pre>
@@ -204,7 +204,7 @@ ping -c1 10.35.12.2 # on the local machine</pre>
     error</h3>
     <pre>
 PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
-From 10.1.0.1 icmp_seq=1 Destination Host Unreachable
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
 ping: sendmsg: Required key not available</pre>
     <p>This occurs when the AllowedIPs key is set too strictly. What we're
     pinging is routable, but it isn't within the AllowedIPs range, so there was
@@ -214,7 +214,7 @@ ping: sendmsg: Required key not available</pre>
     error</h3>
     <pre>
 PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
-From 10.1.0.1 icmp_seq=1 Destination Host Unreachable
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
 ping: sendmsg: Destination address required</pre>
     <p>This occurs when the wg0 interface can't see the 10.35.12.0/24 route via
     the build space gateway. Assuming the build space gateway can ping
