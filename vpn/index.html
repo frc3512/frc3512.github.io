@@ -25,12 +25,12 @@
     the robot network, so GradleRIO deploys, tools like OutlineViewer, and ssh
     will function as if the developer's machine was connected directly to the
     robot network.</p>
+    <p>From here on, developer machines will be referred to as
+    <i>clients</i>.</p>
     <p>The cloud VM and build space machine must run Linux because they do IP
     masquerading/forwarding, but all other clients can use any operating system
     that supports WireGuard (Windows, Linux, macOS, etc.).</p>
-    <p>The following setup instructions apply to both servers and clients
-    unless a specific step notes otherwise. Students should ignore the server
-    and build space gateway WireGuard configuration sections.</p>
+    <p>Follow these instructions to configure your VPN connection.</p>
     <h2 id="Install_WireGuard_tools">Install WireGuard tools</h2>
     <pre>
 sudo apt install wireguard # Ubuntu
@@ -44,8 +44,12 @@ cat public_key</pre>
     <p>Students should give their public key to the VPN administrator so they
     can be allowed access to the VPN.</p>
     <h2 id="Configure_WireGuard_on_server">Configure WireGuard on server</h2>
-    <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
-    <pre>
+    <details>
+      <summary>
+        Skip this for clients
+      </summary>
+      <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
+      <pre>
 [Interface]
 PrivateKey = &lt;server private key&gt;
 PostUp = sysctl -w net.ipv4.ip_forward=1; sysctl -w net.ipv6.conf.all.forwarding=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
@@ -62,39 +66,44 @@ AllowedIPs = 10.2.0.2/32, 10.35.12.0/24
 [Peer]
 PublicKey = &lt;client public key&gt;
 AllowedIPs = 10.2.0.x/32</pre>
-    <p>Peers are appended to the file as shown. The developer should provide a
-    public key to the VPN administrator, and the VPN administrator should
-    assign their machine a unique IP address.</p>
+      <p>Peers are appended to the file as shown. The developer should provide
+      a public key to the VPN administrator, and the VPN administrator should
+      assign their machine a unique IP address.</p>
+    </details>
     <h2 id="Configure_WireGuard_on_build_space_gateway">Configure WireGuard on
     build space gateway</h2>
-    <p>Copy this file to <code>/etc/wireguard/forward_up.sh</code> and run
-    <code>chmod +x /etc/wireguard/forward_up.sh</code>.</p>
-    <pre>
+    <details>
+      <summary>
+        Skip this for clients
+      </summary>
+      <p>Copy this file to <code>/etc/wireguard/forward_up.sh</code> and run
+      <code>chmod +x /etc/wireguard/forward_up.sh</code>.</p>
+      <pre>
 #!/bin/bash
 sysctl -w net.ipv4.ip_forward=1
 iptables -A FORWARD -i wg0 -o wlan0 -j ACCEPT
 iptables -A FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
          -j ACCEPT
 iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE</pre>
-    <p>Copy this file to <code>/etc/wireguard/forward_down.sh</code> and run
-    <code>chmod +x /etc/wireguard/forward_down.sh</code>.</p>
-    <pre>
+      <p>Copy this file to <code>/etc/wireguard/forward_down.sh</code> and run
+      <code>chmod +x /etc/wireguard/forward_down.sh</code>.</p>
+      <pre>
 #!/bin/bash
 sysctl -w net.ipv4.ip_forward=0
 iptables -D FORWARD -i wg0 -o wlan0 -j ACCEPT
 iptables -D FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
          -j ACCEPT
 iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE</pre>
-    <p>The interface <code>wlan0</code> in both files should be replaced with
-    the actual wireless interface name that's connected to the robot network.
-    <code>ip addr | grep wl</code> will list all wireless interfaces and their
-    associated IP addresses (<code>wl</code> is the wireless prefix and
-    <code>en</code> is the ethernet prefix). For example:</p>
-    <pre>kyle@waffle:~$ ip addr | grep wl
+      <p>The interface <code>wlan0</code> in both files should be replaced with
+      the actual wireless interface name that's connected to the robot network.
+      <code>ip addr | grep wl</code> will list all wireless interfaces and
+      their associated IP addresses (<code>wl</code> is the wireless prefix and
+      <code>en</code> is the ethernet prefix). For example:</p>
+      <pre>kyle@waffle:~$ ip addr | grep wl
 3: wlo1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
     inet 10.35.12.5/24 brd 10.35.12.255 scope global dynamic noprefixroute wlo1</pre>
-    <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
-    <pre>
+      <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
+      <pre>
 [Interface]
 Address = 10.2.0.2/24
 PrivateKey = &lt;client private key&gt;
@@ -106,8 +115,9 @@ PublicKey = &lt;server public key&gt;
 Endpoint = vpn.tavsys.net:51820
 AllowedIPs = 10.2.0.0/24
 PersistentKeepalive = 25 # Keeps recv connection through NAT open</pre>
-    <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote login
-    for establishing wireless connections to the robot network.</p>
+      <p>Run <code>sudo systemctl --now enable sshd</code> to allow remote
+      login for establishing wireless connections to the robot network.</p>
+    </details>
     <h2 id="Configure_WireGuard_on_client">Configure WireGuard on client</h2>
     <p>Copy this file to <code>/etc/wireguard/wg0.conf</code>.</p>
     <pre>
