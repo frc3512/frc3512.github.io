@@ -136,7 +136,15 @@
     <h3 id="New_patchset">New patchset</h3>
     <p>Make sure new patchsets are created with <code>git commit</code>. Using
     <code>git commit --amend</code> will change a commit already merged
-    upstream and lead to conflicts.</p>
+    upstream and lead to conflicts. Commit messages should have a format like
+    this:</p>
+    <pre>Implement a thing
+    
+      Optional extended description that should be complete sentences.
+    
+      Fixes #number.</pre>
+    <p>The last line ensures the issue is automatically closed when the PR is
+    merged. Make sure each issue resolution is a separate branch and PR.</p>
     <h3 id="Revisions_to_patchset">Revisions to patchset</h3>
     <p>Any changes should be incorporated into the commit previously pushed by
     either amending or rebasing (not pushing a new commit on top of the old
