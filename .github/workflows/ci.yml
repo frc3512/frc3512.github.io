@@ -9,19 +9,37 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
     - name: Install dependencies
       run: |
-        pip3 install black
-        sudo apt-get install tidy -y
-        wget https://github.com/htacg/tidy-html5/releases/download/5.4.0/tidy-5.4.0-64bit.deb
-        sudo dpkg -i tidy-5.4.0-64bit.deb
+        pip3 install black requests
+        #sudo apt-get install tidy -y
 
-    - name: Run linters
+    - name: Install tidy
       run: |
-        ./check_links.py
-        ./format.py
-        ./gen_id_attributes.py
-        ./sitemap.py
+        git clone git://github.com/htacg/tidy-html5
+        cd tidy-html5/build/cmake
+        cmake ../.. -DCMAKE_BUILD_TYPE=Release -DCPACK_GENERATOR=DEB
+        make package -j$(nproc)
+        sudo dpkg -i tidy-5.7.28-64bit.deb
+        cd ../../..
+        rm -r tidy-html5
+
+    - name: Check links
+      run: python3 check_links.py
+
+    - name: Run formatter
+      run: python3 format.py
+
+    - name: Generate ID attributes
+      run: python3 gen_id_attributes.py
+
+    - name: Generate sitemap
+      run: python3 sitemap.py
 
     - name: Verify linters made no changes
       run: git --no-pager diff --exit-code HEAD
