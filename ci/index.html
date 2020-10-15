@@ -307,7 +307,8 @@
     commits to your repository as often as you feel is necessary.</p>
     <p>The following is an example of the desired Git repository structure and
     naming scheme for the Intro to C++ module. Your source files may have
-    different names from those shown or not exist.</p>
+    different names from those shown or not exist. This may look confusing so
+    feel free to ask for help!</p>
     <ul>
       <li>frc3512-assignments (Git repository root)</li>
       <li style="list-style: none; display: inline">
@@ -382,7 +383,8 @@
       </li>
     </ul>
     <ol>
-      <li>Folders use lowercase and files use camel case</li>
+      <li>Folders use lowercase only and files use camel case (first letter of
+      each word capitalized and the rest lowercase)</li>
       <li>Source code goes in the <code>src</code> directory while other files
       like licenses, makefiles, READMEs and data go outside of it</li>
       <li>For labs, submit all files used according to this format unless
@@ -398,25 +400,23 @@
     "robot-software/generic/.styleguide-license">.styleguide-license</a> in the
     root directory of your repository. You may modify
     <code>.styleguide-license</code> to use your name.</p>
-    <h3 id="Option_1.3A_Eclipse_workspaces">Option 1: Eclipse workspaces</h3>
-    <p>The directory tree above provides an example of which folders should be
-    an Eclipse workspace or project within a workspace (parentheses are not
-    part of the name). This ensures the Eclipse projects and their metadata are
-    backed up via Git. If you do this, you'll need to include the following
-    entries in a .gitignore in the root directory of your Git repository:</p>
-    <pre>*.d
-*.o
-.metadata/
-.settings/
-Debug/
-Release/
-RemoteSystemsTempFiles/</pre>
-    <p>If you need to clone your repository to a different computer to work
-    projects in what was an existing chapter workspace, choose the chapter
-    folder as a workspace when Eclipse starts up like usual. You can import the
-    problem projects into the workspace by right-clicking on the Project
-    Explorer and selecting <code>Import...</code>. In the resulting dialog,
-    choose <code>General &gt; Existing Projects into Workspace</code>.</p>
+    <h3 id="Option_1.3A_VS_Code_Workspace">Option 1: VS Code Workspace</h3>
+    <ol>
+      <li>Create a folder/directory that will be the root directory of your
+      project</li>
+      <li>Open that folder in VS Code with <code>File &gt; Open Folder</code>
+      in the menu bar</li>
+      <li>Install the CMake Tools extension</li>
+      <li>Press Ctrl+Shift+P to open the command pallete or use <code>View &gt;
+      Command Pallete</code> in the menu bar</li>
+      <li>Type in <code>CMake: Quick Start</code>, choose a name for the
+      project, and select an executable</li>
+    </ol>
+    <p>To run your code, type <code>CMake: Build</code> in the command pallete.
+    You may need to modify the executable and include path.</p>
+    <p>Include the following in the .gitignore in the root directory of your
+    Git repository:</p>
+    <pre>build/</pre>
     <h3 id="Option_2.3A_Alternate_editor">Option 2: Alternate editor</h3>
     <p>If you want to use a different IDE such as Vim, provide a Makefile in
     each problem folder to compile the executable. "workspaces" and "projects"
