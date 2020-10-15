@@ -13,13 +13,17 @@
   <div class="body">
     <h1 id="Developer_bootstrap">Developer bootstrap</h1>
     <p>This page provides setup instructions for the software team's tools so
-    members can quickly start learning C++. Please install 64-bit versions of
-    tools if possible and make sure the bitness of all your tools matches by
-    using the appropriate archives/installers.</p>
-    <p>Note To Those Installing Ubuntu on Their PC for The First Time: there is
-    a risk of wiping your existing os on complete accident. Therefore, it is
-    highly recommended that all of your valuable data should be backed up in a
-    seperate location to prevent your complete loss of data.</p>
+    members can quickly start learning C++. If anything doesn't make sense or
+    you need help, please contact a team member or mentor.</p>
+    <p>Please install 64-bit versions of tools if possible and make sure the
+    bitness of all your tools matches by using the appropriate
+    archives/installers.</p>
+    <blockquote>
+      <i>Note:</i> To those installing Ubuntu on their PC for the first time,
+      there is a risk of wiping your existing OS on accident. Therefore, it is
+      highly recommended to back up all of your valuable data to a seperate
+      location to avoid data loss.
+    </blockquote>
     <h2 id="Dual-booting_Ubuntu_on_a_PC">Dual-booting Ubuntu on a PC</h2>
     <p>The first thing to do is to make space for your Ubuntu installation.
     Most of the time, the best way of achieving this is to shrink your existing
@@ -38,10 +42,10 @@
     USB stick. Some USB creators include <a href=
     "https://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal
     USB Installer (or UUI)</a> and <a href=
-    "https://unetbootin.github.io/">UNetbootin</a>. Instructions are provided
-    on both of the websites on how to use each individual creator.</p>
-    <p>After doing so, you can then closed the installer once it states that
-    the bootable USB is ready. At this point, you can restart your PC enable to
+    "https://www.balena.io/etcher/">Balena Etcher</a>. Instructions are
+    provided on both of the websites on how to use each individual creator.</p>
+    <p>After doing so, you can then close the installer once it states that the
+    bootable USB is ready. At this point, you can restart your PC enable to
     start the installation process.</p>
     <p>To boot off your newly-created USB, you would need to access your
     computer's BIOS. This can be access by pressing a certain key(s) when you
@@ -58,7 +62,7 @@
     created using the Windows shrinking tool and select next. After that,
     installation is pretty straight forward.</p>
     <p>Congrats! You now have Ubuntu and Windows at the same time!</p>
-    <h2 id="Dual-boting_Ubuntu_on_a_Macbook">Dual-boting Ubuntu on a
+    <h2 id="Dual-booting_Ubuntu_on_a_Macbook">Dual-booting Ubuntu on a
     Macbook</h2>
     <p>Dual-booting any Linux distro on a Macbook requires you to get your
     hands more dirty. For this tutorial, I'll be referencing this article by
@@ -97,24 +101,26 @@
     <p>Tutorial for this coming soon. For now, refer to <a href=
     "https://wiki.archlinux.org/index.php/Installation_guide">here</a>.</p>
     <h2 id="Tools_installation_on_Ubuntu">Tools installation on Ubuntu</h2>
-    <p><i>Eclipse CDT</i></p><code>sudo apt-get install openjdk-8-jdk</code>
-    <p>Download the <a href=
-    "https://www.eclipse.org/downloads/packages/release/2020-06/r/eclipse-ide-cc-developers">
-    Eclipse IDE for C/C++ Developers</a>. Once the download is complete,
-    extract it to a directory of your choice.</p>
-    <p><i>GCC</i></p><code>sudo apt-get install gcc</code>
-    <p><i>Git</i></p><code>sudo apt-get install git</code>
-    <p><i>Formatter</i></p>
+    <h4><i>Visual Studio Code</i></h4>Follow the installation guide from
+    <a href=
+    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
+    WPILib Docs</a>.
+    <h4><i>GCC</i></h4><code>sudo apt-get install gcc</code>
+    <h4><i>Git</i></h4><code>sudo apt-get install git</code>
+    <h4><i>Formatter</i></h4>
     <pre>
 sudo apt-get install clang-format python3-pip
 pip3 install --user wpiformat</pre>
+    <h4><i>CMake</i></h4><code>sudo apt-get cmake</code>
     <h2 id="Tools_installation_on_Arch_Linux">Tools installation on Arch
     Linux</h2>
-    <p><i>Eclipse CDT</i></p><code>sudo pacman -S jdk8-openjdk
-    eclipse-cpp</code>
-    <p><i>GCC</i></p><code>sudo pacman -S gcc</code>
-    <p><i>Git</i></p><code>sudo pacman -S git</code>
-    <p><i>Formatter</i></p>
+    <h4><i>Visual Studio Code</i></h4>Follow the installation guide from
+    <a href=
+    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
+    WPILib Docs</a>.
+    <h4><i>GCC</i></h4><code>sudo pacman -S gcc</code>
+    <h4><i>Git</i></h4><code>sudo pacman -S git</code>
+    <h4><i>Formatter</i></h4>
     <p>This requires a package from the AUR. Use either the manual installation
     method (shown below) or an AUR helper.</p>
     <pre>
@@ -122,16 +128,15 @@ sudo pacman -S python
 cd /tmp
 git clone https://aur.archlinux.org/python-wpiformat-git
 makepkg -si</pre>
+    <h4 id="CMake">CMake</h4><code>sudo pacman -S cmake</code>
     <h2 id="Tools_installation_on_Windows">Tools installation on Windows</h2>
-    <p><i>Eclipse CDT</i></p>
-    <p>Download the JDK 8 installer from <a href=
-    "https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">
-    here</a> and run it.</p>
-    <p>Download the <a href=
-    "https://www.eclipse.org/downloads/packages/release/2020-06/r/eclipse-ide-cc-developers">
-    Eclipse IDE for C/C++ Developers</a>, then extract it to a directory of
-    your choice.</p>
-    <p><i>GCC Compiler</i></p>
+    <h4><i>Visual Studio Code</i></h4>Follow the installation guide from
+    <a href=
+    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
+    WPILib Docs</a>.
+    <p>Make sure to have everything checked as it will download everything that
+    you need to build and deploy the robot projects.</p>
+    <h4><i>GCC Compiler</i></h4>
     <ol>
       <li>Download the MSYS2 installer from <a href=
       "https://www.msys2.org/">here</a> and run it. Use the default
@@ -151,8 +156,8 @@ makepkg -si</pre>
       for which packages in the base-devel group to install, press Enter to
       select the default option (all of them).</li>
     </ol>
-    <p><i>Git</i></p><code>pacman -S git</code>
-    <p><i>Formatter</i></p>
+    <h4><i>Git</i></h4><code>pacman -S git</code>
+    <h4><i>Formatter</i></h4>
     <p>Download the latest version of LLVM from <a href=
     "https://releases.llvm.org/download.html">here</a> under "Pre-Built
     Binaries" and run it. The default installation options are fine. Don't
@@ -173,29 +178,52 @@ python get-pip.py
 pip install wpiformat</pre>
     <p>After those commands complete, close and reopen the terminal so the PATH
     environment variable change from earlier takes effect.</p>
+    <h4>CMake</h4>
+    <p>Download the CMake installer from <a href=
+    "https://cmake.org/download/">here</a> under the latest releases. When
+    running the installer make sure to add CMake to PATH (Either for all users
+    or just one). Again close and repopen terminal so the PATH enviroment
+    variable changes from the installation.</p>
     <h2 id="The_tools">The tools</h2>
-    <h3 id="Eclipse_CDT">Eclipse CDT</h3>
-    <p>Eclipse CDT is an integrated development environment which makes it
-    easier to write, build, and test programs written in C and C++.</p>
-    <h4 id="New_project_toolchain_selection">New project toolchain
-    selection</h4>
-    <p>On Linux, use "Linux GCC". On Windows, use "Cygwin GCC".</p>
-    <h4 id="False_errors">False errors</h4>
-    <p>Eclipse occasionally shows outdated or false errors in a project file.
-    If this is the case, the project's index needs to be rebuilt. To do so,
-    select the following option.</p><code>Right-click project &gt; Index &gt;
-    Rebuild</code>
+    <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
+    <p>Visual Studio Code is an integrated development environment which makes
+    it easier to write, build, and test programs written in C++, Python, and
+    more! Once set up using one of the installation methods above, then all you
+    need to know is how to use the terminal and a little bit of git to get
+    started.</p>
+    <h3 id="False_errors">False errors</h3>
+    <p>Visual Studio Code occasionally shows outdated or false errors in a
+    project file. Currently there is no workaround and should instead just use
+    gradle to build your project.</p>
     <p>Keep in mind errors shown in the IDE aren't authoritative. The console
     build output should be used to determine whether the executable was built
     successfully.</p>
-    <h4 id="C.2B.2B14_support">C++14 support</h4>
-    <p>To configure a project to build with C++14, select "ISOC++1y" from the
-    "Language standard" drop-down menu in the following
-    location.</p><code>Right-click project &gt; Properties &gt; C/C++ Build
-    &gt; Settings &gt; GCC C++ Compiler &gt; Dialect</code>
     <h3 id="GCC_compiler">GCC compiler</h3>
-    <p>This is the compiler Eclipse CDT will use to build the programs you
+    <p>This is the compiler gradle or CMake will use to build the programs you
     write. MSYS2 provides a Linux-like environment with this compiler.</p>
+    <h3>CMake</h3>
+    <p>CMake will be used to build your personal projects. For better
+    integration with VS Code, download the "CMake Tools" extension under VS
+    Code's extensions tab.</p>
+    <h3 id="Gradle">Gradle</h3>
+    <p>Gradle is a build automation tool that we use to build the robot
+    project. To use it, just run one of the scripts in the project. Here's an
+    overview of what each of them does.</p>
+    <dl>
+      <dt><code>./gradlew build</code></dt>
+      <dd>This builds the robot code for the roboRIO and desktop and
+      builds/runs the tests.</dd>
+      <dt><code>./gradlew-build-athena.sh</code></dt>
+      <dd>This builds the robot code for the roboRIO.</dd>
+      <dt><code>./gradlew-desktop.sh</code></dt>
+      <dd>This builds the robot code for desktop and runs the simulation
+      GUI.</dd>
+      <dt><code>./gradlew-docs.sh</code></dt>
+      <dd>This builds the in-source documentation for the robot code.</dd>
+      <dt><code>./gradlew-test.sh</code></dt>
+      <dd>This builds and runs the robot code's unit tests. They verify certain
+      parts of the code are working correctly.</dd>
+    </dl>
     <h3 id="Git">Git</h3>
     <p>Git is a version control system used to manage the code you write. See
     <a href="../ci/intro-to-git/index.html">Git 1</a> for more information and
@@ -209,12 +237,16 @@ pip install wpiformat</pre>
     <p>Formatters help ensure style guide conformance by automatically
     correcting deviations. We use the Python 3 scripts provided in WPILib's
     style guide repository and clang-format for source code formatting. We also
-    use Python 3 for optimizing feedback control system behavior.</p>
+    use Python 3 for optimizing feedback control system behavior. To run the
+    formatter on a project, run:</p><code>python3 -m wpiformat</code>
     <blockquote>
       <i>Note:</i> The formatter should be considered a safety net. It is good
       practice to be familiar with the enforced style guide and be able to
       write code in that style directly.
     </blockquote>
+    <h2>What to do now?</h2>
+    <p>Once you have setup your computer, you can now learn more about <a href=
+    "../ci/index.html">programming</a>!</p>
   </div>
 </body>
 </html>
