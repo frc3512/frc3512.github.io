@@ -36,7 +36,6 @@ code {
 div.body {
   margin: 2em auto;
   max-width: 38.75em;
-  padding: 1em;
 }
 
 figure figcaption {
@@ -64,4 +63,39 @@ pre {
   padding: 0.2em;
 
   overflow: scroll;
+}
+
+#navbar {
+  width: 100%;
+  background-color: grey;
+  overflow: auto;
+  margin: auto;
+}
+
+#navbar a {
+  float: left;
+  padding: 0.4em;
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+#navbar li {
+  list-style: none;
+}
+
+#navbar a:hover {
+  background-color: grey;
+  color: white;
+}
+
+#navbar ul li a.active {
+  color: whitesmoke;
+}
+
+@media screen and (max-width: 44em) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
 }
