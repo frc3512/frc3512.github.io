@@ -48,6 +48,10 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-style: italic;
+}
+
 pre {
   background: rgb(238, 238, 238);
 
