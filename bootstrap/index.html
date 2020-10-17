@@ -180,10 +180,10 @@ pip install wpiformat</pre>
     environment variable change from earlier takes effect.</p>
     <h4>CMake</h4>
     <p>Download the CMake installer from <a href=
-    "https://cmake.org/download/">here</a> under the latest releases. When
-    running the installer make sure to add CMake to PATH (Either for all users
-    or just one). Again close and repopen terminal so the PATH enviroment
-    variable changes from the installation.</p>
+    "https://cmake.org/download/">here</a> under "Latest Release". When running
+    the installer, make sure to add CMake to the PATH environment variable
+    (either for all users or just one). Any existing terminals will need to be
+    closed and reopened to receive the PATH update.</p>
     <h2 id="The_tools">The tools</h2>
     <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
     <p>Visual Studio Code is an integrated development environment which makes
@@ -191,13 +191,11 @@ pip install wpiformat</pre>
     more! Once set up using one of the installation methods above, then all you
     need to know is how to use the terminal and a little bit of git to get
     started.</p>
-    <h3 id="False_errors">False errors</h3>
-    <p>Visual Studio Code occasionally shows outdated or false errors in a
-    project file. Currently there is no workaround and should instead just use
-    gradle to build your project.</p>
-    <p>Keep in mind errors shown in the IDE aren't authoritative. The console
-    build output should be used to determine whether the executable was built
-    successfully.</p>
+    <p>Note: Visual Studio Code occasionally shows outdated or false errors in
+    a project file. There is no workaround, so instead just use gradle/CMake to
+    build your project. Keep in mind errors shown in the IDE aren't
+    authoritative. The console build output should be used to determine whether
+    the executable was built successfully.</p>
     <h3 id="GCC_compiler">GCC compiler</h3>
     <p>This is the compiler gradle or CMake will use to build the programs you
     write. MSYS2 provides a Linux-like environment with this compiler.</p>
