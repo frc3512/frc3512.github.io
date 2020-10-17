@@ -100,6 +100,64 @@
     <h2 id="Dual-booting_Arch_Linux">Dual-booting Arch Linux</h2>
     <p>Tutorial for this coming soon. For now, refer to <a href=
     "https://wiki.archlinux.org/index.php/Installation_guide">here</a>.</p>
+    <h2 id="The_tools">The tools</h2>
+    <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
+    <p>Visual Studio Code is an integrated development environment which makes
+    it easier to write, build, and test programs written in C++, Python, and
+    more! Once set up using one of the installation methods above, then all you
+    need to know is how to use the terminal and a little bit of git to get
+    started.</p>
+    <p>Note: Visual Studio Code occasionally shows outdated or false errors in
+    a project file. There is no workaround, so instead just use gradle/CMake to
+    build your project. Keep in mind errors shown in the IDE aren't
+    authoritative. The console build output should be used to determine whether
+    the executable was built successfully.</p>
+    <h3 id="GCC_compiler">GCC compiler</h3>
+    <p>This is the compiler gradle or CMake will use to build the programs you
+    write. MSYS2 provides a Linux-like environment with this compiler.</p>
+    <h3>CMake</h3>
+    <p>CMake will be used to build your personal projects. For better
+    integration with VS Code, download the "CMake Tools" extension under VS
+    Code's extensions tab.</p>
+    <h3 id="Gradle">Gradle</h3>
+    <p>Gradle is a build automation tool that we use to build the robot
+    project. To use it, just run one of the scripts in the project. Here's an
+    overview of what each of them does.</p>
+    <dl>
+      <dt><code>./gradlew build</code></dt>
+      <dd>This builds the robot code for the roboRIO and desktop and
+      builds/runs the tests.</dd>
+      <dt><code>./gradlew-build-athena.sh</code></dt>
+      <dd>This builds the robot code for the roboRIO.</dd>
+      <dt><code>./gradlew-desktop.sh</code></dt>
+      <dd>This builds the robot code for desktop and runs the simulation
+      GUI.</dd>
+      <dt><code>./gradlew-docs.sh</code></dt>
+      <dd>This builds the in-source documentation for the robot code.</dd>
+      <dt><code>./gradlew-test.sh</code></dt>
+      <dd>This builds and runs the robot code's unit tests. They verify certain
+      parts of the code are working correctly.</dd>
+    </dl>
+    <h3 id="Git">Git</h3>
+    <p>Git is a version control system used to manage the code you write. See
+    <a href="../ci/intro-to-git/index.html">Git 1</a> for more information and
+    detailed setup.</p>
+    <h3 id="GitHub">GitHub</h3>
+    <p>GitHub provides web based code review and repository management for the
+    Git version control system. Our GitHub organization is <a href=
+    "https://github.com/frc3512/">here</a>. User setup instructions are
+    <a href="../ci/github/#Setup">here</a>.</p>
+    <h3 id="Formatter">Formatter</h3>
+    <p>Formatters help ensure style guide conformance by automatically
+    correcting deviations. We use the Python 3 scripts provided in WPILib's
+    style guide repository and clang-format for source code formatting. We also
+    use Python 3 for optimizing feedback control system behavior. To run the
+    formatter on a project, run:</p><code>python3 -m wpiformat</code>
+    <blockquote>
+      <i>Note:</i> The formatter should be considered a safety net. It is good
+      practice to be familiar with the enforced style guide and be able to
+      write code in that style directly.
+    </blockquote>
     <h2 id="Tools_installation_on_Ubuntu">Tools installation on Ubuntu</h2>
     <h4><i>Visual Studio Code</i></h4>Follow the installation guide from
     <a href=
@@ -184,64 +242,6 @@ pip install wpiformat</pre>
     the installer, make sure to add CMake to the PATH environment variable
     (either for all users or just one). Any existing terminals will need to be
     closed and reopened to receive the PATH update.</p>
-    <h2 id="The_tools">The tools</h2>
-    <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
-    <p>Visual Studio Code is an integrated development environment which makes
-    it easier to write, build, and test programs written in C++, Python, and
-    more! Once set up using one of the installation methods above, then all you
-    need to know is how to use the terminal and a little bit of git to get
-    started.</p>
-    <p>Note: Visual Studio Code occasionally shows outdated or false errors in
-    a project file. There is no workaround, so instead just use gradle/CMake to
-    build your project. Keep in mind errors shown in the IDE aren't
-    authoritative. The console build output should be used to determine whether
-    the executable was built successfully.</p>
-    <h3 id="GCC_compiler">GCC compiler</h3>
-    <p>This is the compiler gradle or CMake will use to build the programs you
-    write. MSYS2 provides a Linux-like environment with this compiler.</p>
-    <h3>CMake</h3>
-    <p>CMake will be used to build your personal projects. For better
-    integration with VS Code, download the "CMake Tools" extension under VS
-    Code's extensions tab.</p>
-    <h3 id="Gradle">Gradle</h3>
-    <p>Gradle is a build automation tool that we use to build the robot
-    project. To use it, just run one of the scripts in the project. Here's an
-    overview of what each of them does.</p>
-    <dl>
-      <dt><code>./gradlew build</code></dt>
-      <dd>This builds the robot code for the roboRIO and desktop and
-      builds/runs the tests.</dd>
-      <dt><code>./gradlew-build-athena.sh</code></dt>
-      <dd>This builds the robot code for the roboRIO.</dd>
-      <dt><code>./gradlew-desktop.sh</code></dt>
-      <dd>This builds the robot code for desktop and runs the simulation
-      GUI.</dd>
-      <dt><code>./gradlew-docs.sh</code></dt>
-      <dd>This builds the in-source documentation for the robot code.</dd>
-      <dt><code>./gradlew-test.sh</code></dt>
-      <dd>This builds and runs the robot code's unit tests. They verify certain
-      parts of the code are working correctly.</dd>
-    </dl>
-    <h3 id="Git">Git</h3>
-    <p>Git is a version control system used to manage the code you write. See
-    <a href="../ci/intro-to-git/index.html">Git 1</a> for more information and
-    detailed setup.</p>
-    <h3 id="GitHub">GitHub</h3>
-    <p>GitHub provides web based code review and repository management for the
-    Git version control system. Our GitHub organization is <a href=
-    "https://github.com/frc3512/">here</a>. User setup instructions are
-    <a href="../ci/github/#Setup">here</a>.</p>
-    <h3 id="Formatter">Formatter</h3>
-    <p>Formatters help ensure style guide conformance by automatically
-    correcting deviations. We use the Python 3 scripts provided in WPILib's
-    style guide repository and clang-format for source code formatting. We also
-    use Python 3 for optimizing feedback control system behavior. To run the
-    formatter on a project, run:</p><code>python3 -m wpiformat</code>
-    <blockquote>
-      <i>Note:</i> The formatter should be considered a safety net. It is good
-      practice to be familiar with the enforced style guide and be able to
-      write code in that style directly.
-    </blockquote>
     <h2>What to do now?</h2>
     <p>Once you have setup your computer, you can now learn more about <a href=
     "../ci/index.html">programming</a>!</p>
