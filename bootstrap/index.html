@@ -147,9 +147,14 @@
     <h2 id="Tools_installation_on_Ubuntu">Tools installation on Ubuntu</h2>
     <p>The command blocks below should be run in a terminal, where each line is
     entered separately and followed by the Enter key.</p>
-    <h3>Visual Studio Code</h3>Follow the installation guide from <a href=
+    <h3>Visual Studio Code</h3>
+    <p>Follow the installation guide from <a href=
     "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
-    WPILib Docs</a>.
+    WPILib Docs</a>.</p>
+    <p>To build robot projects in a terminal, run the following command to set
+    JAVA_HOME in <code>~/.bashrc</code>:</p>
+    <p><code>echo 'export JAVA_HOME=~/wpilib/2021/jdk' &gt;&gt;
+    ~/.bashrc</code></p>
     <h3>GCC</h3><code>sudo apt-get install gcc</code>
     <h3>Git</h3><code>sudo apt-get install git</code>
     <h3>Formatter</h3>
@@ -159,9 +164,13 @@ pip3 install --user wpiformat</pre>
     <h3>CMake</h3><code>sudo apt-get install cmake</code>
     <h2 id="Tools_installation_on_Arch_Linux">Tools installation on Arch
     Linux</h2>
-    <h3>Visual Studio Code</h3>Follow the installation guide from <a href=
+    <h3>Visual Studio Code</h3>
+    <p>Follow the installation guide from <a href=
     "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
-    WPILib Docs</a>.
+    WPILib Docs</a>.</p>
+    <p>To build robot projects in a terminal, run the following command to set
+    JAVA_HOME in <code>~/.bashrc</code>:</p><code>echo 'export
+    JAVA_HOME=~/wpilib/2021/jdk' &gt;&gt; ~/.bashrc</code>
     <h3>GCC</h3><code>sudo pacman -S gcc</code>
     <h3>Git</h3><code>sudo pacman -S git</code>
     <h3>Formatter</h3>
@@ -174,11 +183,10 @@ git clone https://aur.archlinux.org/python-wpiformat-git
 makepkg -si</pre>
     <h3 id="CMake">CMake</h3><code>sudo pacman -S cmake</code>
     <h2 id="Tools_installation_on_Windows">Tools installation on Windows</h2>
-    <h3>Visual Studio Code</h3>Follow the installation guide from <a href=
+    <h3>Visual Studio Code</h3>
+    <p>Follow the installation guide from <a href=
     "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
-    WPILib Docs</a>.
-    <p>Make sure to have everything checked as it will download everything that
-    you need to build and deploy the robot projects.</p>
+    WPILib Docs</a>.</p>
     <h3>GCC Compiler</h3>
     <ol>
       <li>Download the MSYS2 installer from <a href=
@@ -209,9 +217,9 @@ makepkg -si</pre>
 Failed to find MSBuild toolsets directory.
 MSVC integration install failed.</pre>
     <p>MSYS2 keeps a separate PATH environment variable from the operating
-    system. Run the following command to add the LLVM installation to
-    it.</p><code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt;
-    ~/.bashrc</code>
+    system. Run the following command to add the LLVM installation to it.</p>
+    <p><code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt;
+    ~/.bashrc</code></p>
     <p>The following commands install Python and pip, then use pip to install
     wpiformat.</p>
     <pre>
