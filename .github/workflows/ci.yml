@@ -55,7 +55,6 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update -q && sudo apt-get install -y \
-          texlive-generic-extra \
           texlive-latex-extra \
           latexmk
 
