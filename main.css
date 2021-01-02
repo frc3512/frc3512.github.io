@@ -36,6 +36,7 @@ code {
 div.body {
   margin: 2em auto;
   max-width: 38.75em;
+  padding: 1em;
 }
 
 figure figcaption {
@@ -67,15 +68,17 @@ pre {
 
 #navbar {
   width: 100%;
-  background-color: grey;
+  background-color: darkblue;
   overflow: auto;
   margin: auto;
+  position: fixed;
+  top: 0;
 }
 
 #navbar a {
   float: left;
-  padding: 0.4em;
-  color: black;
+  padding: 0.4em 0.8em 0.4em 0.8em;
+  color: white;
   text-decoration: none;
   font-size: 1em;
 }
@@ -85,12 +88,11 @@ pre {
 }
 
 #navbar a:hover {
-  background-color: grey;
-  color: white;
+  color: lightblue;
 }
 
 #navbar ul li a.active {
-  color: whitesmoke;
+  color: lightslategray;
 }
 
 @media screen and (max-width: 44em) {
@@ -98,4 +100,11 @@ pre {
     float: none;
     display: block;
   }
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 2.8em; /* fixed header height */
+  margin: -2.8em 0 0; /* negative fixed header height */
 }
