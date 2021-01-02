@@ -5,6 +5,44 @@ import re
 import subprocess
 
 
+def get_linesep(lines):
+    """Returns string containing autodetected line separator for file.
+
+    Keyword arguments:
+    lines -- file contents string
+    """
+    # Find potential line separator
+    pos = lines.find("\n")
+
+    # If a newline character was found and the character preceding it is a
+    # carriage return, assume CRLF line endings. LF line endings are assumed
+    # for empty files.
+    if pos > 0 and lines[pos - 1] == "\r":
+        return "\r\n"
+    else:
+        return "\n"
+
+
+def strip_trailing_whitespace(filename):
+    """Removes trailing whitespace from the file.
+
+    Keyword arguments:
+    filename -- name of file to strip
+    """
+    with open(filename) as input:
+        lines = input.read()
+    linesep = get_linesep(lines)
+
+    output = ""
+    for line in lines.splitlines():
+        line = line[: len(line)].rstrip()
+        output += line + linesep
+
+    if lines != output:
+        with open(filename, "wb") as file:
+            file.write(output.encode())
+
+
 def main():
     # Format HTML
     files = [
@@ -34,6 +72,7 @@ def main():
                 f,
             ]
         )
+        strip_trailing_whitespace(f)
 
     # Format Python
     files = [
@@ -44,6 +83,7 @@ def main():
     ]
     for f in files:
         subprocess.check_output(["python3", "-m", "black", "-q", f])
+        strip_trailing_whitespace(f)
 
 
 if __name__ == "__main__":
