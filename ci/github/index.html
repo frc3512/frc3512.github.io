@@ -37,39 +37,65 @@
   <div class="body">
     <h1>GitHub</h1><strong>Prerequisites:</strong> <a href=
     "../intro-to-git/">Intro to Git</a>
-    <h2 id="Resources">Resources</h2>
-    <ul>
-      <li>
-        <a href="https://github.com/frc3512/">GitHub</a> - mirrors of the code
-        we've written for the robotics team reside here.
-      </li>
-      <li>Git's <a href="https://git-scm.com/doc/">online documentation</a>.
-      </li>
-      <li>Git (advanced usage) lecture <a href="lecture/">slides</a>.
-      </li>
-      <li>
-        <a href=
-        "https://tom.preston-werner.com/2009/05/19/the-git-parable.html">The
-        Git Parable</a> - an alternate explanation of Git terminology.
-      </li>
-      <li>
-        <a href="https://chris.beams.io/posts/git-commit/">How and why to write
-        a good commit message</a>
-      </li>
-      <li>
-        <a href=
-        "https://github.com/k88hudson/git-flight-rules/blob/master/README.md">Flight
-        rules for Git</a>: solutions to common problems.
-      </li>
-      <li>
-        <a href=
-        "https://github.com/pluralsight/git-internals-pdf/releases/tag/v2.0">PDF
-        on Git internals</a> for those curious about how Git stores files and
-        revisions.
-      </li>
-    </ul>
+    <h2 id="Setup">Setup</h2>
+    <p>Create an account on <a href="https://github.com/">GitHub</a>.</p>
+    <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
+    <pre>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</pre>
+    <p>See <a href=
+    "https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">
+    this</a> for more.</p>
+    <h3 id="Add_public_key_to_GitHub">Add public key to GitHub</h3>
+    <pre>cat ~/.ssh/id_rsa.pub</pre>
+    <p>Copy the entire block, then follow the instructions <a href=
+    "https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">
+    here</a> to add it to your account.</p>
+    <h2 id="Usage">Usage</h2>
+    <p>To push an updated commit, it's best to use this command to not
+    overwrite a teammates commit. If you cannot push by running this command
+    then update your local repo by pulling and rebasing, then run this command
+    again.</p>
+    <pre>git push --force-with-lease</pre>
+    <h3 id="New_patchset">New patchset</h3>
+    <p>Make sure new patchsets are created with <code>git commit</code>. Using
+    <code>git commit --amend</code> will change a commit already merged
+    upstream and lead to conflicts. Commit messages should have a format like
+    this:</p>
+    <pre>Implement a thing
+
+Optional extended description that should be complete sentences.
+
+Fixes #42.</pre>
+    <p>where <code>42</code> would be the issue number being closed by this PR.
+    The last line ensures the issue is automatically closed when the PR is
+    merged. Make sure each issue resolution is a separate branch and PR.</p>
+    <h3 id="Revisions_to_patchset">Revisions to patchset</h3>
+    <p>Any changes should be incorporated into the commit previously pushed by
+    either amending or rebasing (not pushing a new commit on top of the old
+    one). Gerrit tracks the revisions using the "Change-Id" line at the bottom
+    of the commit message. <i>Make sure this line does not change and remains
+    the last line</i> during commit message modifications. Otherwise, a new
+    patchset will be created instead.</p>
+    <p>Verify this was done correctly by inspecting the output of <code>git log
+    main..HEAD</code>. There should be only one commit listed and its Change-Id
+    should match the old one.</p>
+    <h4 id="Uncommitted_changes">Uncommitted changes</h4>
+    <pre>git commit --amend</pre>
+    <h4 id="Squashing_committed_changes">Squashing committed changes</h4>
+    <p>If a new commit or commits were made while working, they should be
+    squashed into the first before submitting it all as a new revision. To do
+    so, run</p>
+    <pre>git rebase -i &lt;commit hash before your commits&gt;</pre>
+    <p>The first commit in the resulting generated file should be set to "r"
+    for "reword" if the commit message needs to be altered to include parts of
+    the other two commits. The other commits should be set to "f" for "fixup"
+    so their contents are squashed into the first commit. <code>git
+    rebase</code> descriptions for other options are in the file comment.</p>
     <h2 id="Git_.28advanced_usage.29_lecture_notes">Git (advanced usage)
     lecture notes</h2>
+    <ul>
+      <li>Git (advanced usage) lecture <a href="lecture/">slides</a>
+      </li>
+    </ul>
     <h3 id="Versioning">Versioning</h3>
     <ul>
       <li>Easily get commit later? (tag)</li>
@@ -139,59 +165,6 @@
       <li><code>git filter-branch --tree-filter 'rm -f largeFile.out'
       HEAD</code></li>
     </ul>
-    <h2 id="Setup">Setup</h2>
-    <p>Create an account on <a href="https://github.com/">GitHub</a>.</p>
-    <h3 id="Create_SSH_key_pair">Create SSH key pair</h3>
-    <pre>ssh-keygen -t rsa -b 4096 -C "your_email@youremail.com"</pre>
-    <p>See <a href=
-    "https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">
-    this</a> for more.</p>
-    <h3 id="Add_public_key_to_GitHub">Add public key to GitHub</h3>
-    <pre>cat ~/.ssh/id_rsa.pub</pre>
-    <p>Copy the entire block, then follow the instructions <a href=
-    "https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">
-    here</a> to add it to your account.</p>
-    <h2 id="Usage">Usage</h2>
-    <p>In Gerrit, features are submitted in branches with one commit per
-    branch. Give each branch a name reflecting its content for easier
-    management. Submit new patchsets and revisions of existing patchsets via
-    the following command.</p>
-    <pre>git push --force-with-lease</pre>
-    <h3 id="New_patchset">New patchset</h3>
-    <p>Make sure new patchsets are created with <code>git commit</code>. Using
-    <code>git commit --amend</code> will change a commit already merged
-    upstream and lead to conflicts. Commit messages should have a format like
-    this:</p>
-    <pre>Implement a thing
-
-Optional extended description that should be complete sentences.
-
-Fixes #42.</pre>
-    <p>where <code>42</code> would be the issue number being closed by this PR.
-    The last line ensures the issue is automatically closed when the PR is
-    merged. Make sure each issue resolution is a separate branch and PR.</p>
-    <h3 id="Revisions_to_patchset">Revisions to patchset</h3>
-    <p>Any changes should be incorporated into the commit previously pushed by
-    either amending or rebasing (not pushing a new commit on top of the old
-    one). Gerrit tracks the revisions using the "Change-Id" line at the bottom
-    of the commit message. <i>Make sure this line does not change and remains
-    the last line</i> during commit message modifications. Otherwise, a new
-    patchset will be created instead.</p>
-    <p>Verify this was done correctly by inspecting the output of <code>git log
-    main..HEAD</code>. There should be only one commit listed and its Change-Id
-    should match the old one.</p>
-    <h4 id="Uncommitted_changes">Uncommitted changes</h4>
-    <pre>git commit --amend</pre>
-    <h4 id="Squashing_committed_changes">Squashing committed changes</h4>
-    <p>If a new commit or commits were made while working, they should be
-    squashed into the first before submitting it all as a new revision. To do
-    so, run</p>
-    <pre>git rebase -i &lt;commit hash before your commits&gt;</pre>
-    <p>The first commit in the resulting generated file should be set to "r"
-    for "reword" if the commit message needs to be altered to include parts of
-    the other two commits. The other commits should be set to "f" for "fixup"
-    so their contents are squashed into the first commit. <code>git
-    rebase</code> descriptions for other options are in the file comment.</p>
     <h2 id="Useful_Git_features">Useful Git features</h2>
     <ul>
       <li>End-of-line conversion (crlf or eol)</li>
