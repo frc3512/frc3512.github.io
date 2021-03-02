@@ -39,8 +39,8 @@
         <ul>
           <li>How to leave detached head state?</li>
           <ul>
-            <li><code>git switch master</code></li>
-            <li>Sets current HEAD to master's HEAD</li>
+            <li><code>git switch main</code></li>
+            <li>Sets current HEAD to main's HEAD</li>
           </ul>
           <li>Commits can be made here!</li>
           <ul>
@@ -57,22 +57,22 @@
         <ul>
           <li>Options for temp branch</li>
           <ul>
-            <li>Update master to temp... WARNING: destructive!</li>
+            <li>Update main to temp... WARNING: destructive!</li>
             <ul>
-              <li><code>git branch -f master temp</code></li>
-              <li>Fine if changes on master were bad</li>
-              <li><code>git switch master</code></li>
+              <li><code>git branch -f main temp</code></li>
+              <li>Fine if changes on main were bad</li>
+              <li><code>git switch main</code></li>
             </ul>
             <li>Or... merge it with HEAD</li>
             <ul>
               <li>Find temp branch commit in reflog (ex: HEAD@{1})</li>
               <ul>
-                <li><code>git switch master</code></li>
+                <li><code>git switch main</code></li>
                 <li><code>git merge HEAD@{1}</code></li>
               </ul>
             </ul>
           </ul>
-          <li>temp is now reachable by master at HEAD</li>
+          <li>temp is now reachable by main at HEAD</li>
           <ul>
             <li><code>git branch -d temp</code></li>
           </ul>
@@ -154,39 +154,39 @@ pick 380719d Added noop autonomous
 #  x, exec = run command (the rest of the line) using shell</pre>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git rebase --onto master client</code>
+        <h1>Rebase Example</h1><code>git rebase --onto main client</code>
         <div style="text-align: center"><img src="res/rebase-example1.png" alt=
         "Rebase Example 1"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git rebase --onto master client</code>
+        <h1>Rebase Example</h1><code>git rebase --onto main client</code>
         <div style="text-align: center"><img src="res/rebase-example2.png" alt=
         "Rebase Example 2"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git switch master</code><br>
+        <h1>Rebase Example</h1><code>git switch main</code><br>
         <code>git merge client</code>
         <div style="text-align: center"><img src="res/rebase-example2.png" alt=
         "Rebase Example 2"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git switch master</code><br>
+        <h1>Rebase Example</h1><code>git switch main</code><br>
         <code>git merge client</code>
         <div style="text-align: center"><img src="res/rebase-example3.png" alt=
         "Rebase Example 3"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git rebase --onto master server</code>
+        <h1>Rebase Example</h1><code>git rebase --onto main server</code>
         <div style="text-align: center"><img src="res/rebase-example3.png" alt=
         "Rebase Example 3"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git rebase --onto master server</code>
+        <h1>Rebase Example</h1><code>git rebase --onto main server</code>
         <div style="text-align: center"><img src="res/rebase-example4.png" alt=
         "Rebase Example 4"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git switch master</code><br>
+        <h1>Rebase Example</h1><code>git switch main</code><br>
         <code>git merge server</code><br>
         <code>git branch -d client</code><br>
         <code>git branch -d server</code>
@@ -194,7 +194,7 @@ pick 380719d Added noop autonomous
         "Rebase Example 4"></div>
       </section>
       <section>
-        <h1>Rebase Example</h1><code>git switch master</code><br>
+        <h1>Rebase Example</h1><code>git switch main</code><br>
         <code>git merge server</code><br>
         <code>git branch -d client</code><br>
         <code>git branch -d server</code>

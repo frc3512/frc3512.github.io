@@ -140,7 +140,7 @@ git config --global core.autocrlf false</pre>
       <li>Most of work will be done in them</li>
       <li>Making a branch (branch)</li>
       <li>Moving onto a branch (switch)</li>
-      <li>Moving work onto master (merge)</li>
+      <li>Moving work onto main (merge)</li>
       <ul>
         <li>What if merge goes wrong?</li>
         <ul>
@@ -151,12 +151,12 @@ git config --global core.autocrlf false</pre>
       <li>Deleting a branch (branch -d)</li>
     </ul>
     <h2 id="Workflow">Workflow</h2>
-    <p><code>master</code> is considered the stable branch which contains
-    tested, working code. Work on features and bugfixes should occur on
-    separate branches. Users should make as many commits on experimental
-    branches as they feel is necessary. Before a branch is merged with
-    <code>master</code>, intermediate commits are typically squashed to produce
-    one or several feature, bugfix, or cleanup commits.</p>
+    <p><code>main</code> is considered the stable branch which contains tested,
+    working code. Work on features and bugfixes should occur on separate
+    branches. Users should make as many commits on experimental branches as
+    they feel is necessary. Before a branch is merged with <code>main</code>,
+    intermediate commits are typically squashed to produce one or several
+    feature, bugfix, or cleanup commits.</p>
     <h2 id="10_most_commonly_used_Git_commands">10 most commonly used Git
     commands</h2>
     <h3 id="1._Cloning_a_remote_repository">1. Cloning a remote repository</h3>
@@ -204,7 +204,7 @@ git config --global core.autocrlf false</pre>
     <code>&lt;refspec&gt;</code> isn't specified, Git will attempt to pull
     changes from a remote branch with the same name as the currently checked
     out branch.</p>
-    <p><i>example:</i> <code>git pull origin/master</code></p>
+    <p><i>example:</i> <code>git pull origin/main</code></p>
     <h3 id="7._Creating_a_branch">7. Creating a branch</h3>
     <pre>git branch &lt;branchname&gt;</pre>
     <p>This creates a new branch starting at the current commit. Omitting
@@ -219,7 +219,7 @@ git config --global core.autocrlf false</pre>
     <h3 id="9._Switching_to_a_branch">9. Switching to a branch</h3>
     <pre>git switch &lt;branchname&gt;</pre>
     <p>This checks out <code>&lt;branchname&gt;</code>. The default branch when
-    a new project is created is called <code>master</code>.</p>
+    a new project is created is called <code>main</code>.</p>
     <p><i>example:</i> <code>git switch other-branch</code></p>
     <h3 id="10._Merging_a_branch">10. Merging a branch</h3>
     <pre>git merge &lt;branchname&gt;</pre>

@@ -76,8 +76,7 @@
       <li>Getting to tagged commit later? (switch)</li>
       <ul>
         <li>now in detached head state</li>
-        <li>can <code>git switch master</code> to get back to tip of
-        master</li>
+        <li>can <code>git switch main</code> to get back to tip of main</li>
         <li>can make commits</li>
         <ul>
           <li>make sure commits are saved?</li>
@@ -85,21 +84,21 @@
             <li><code>git branch temp</code></li>
             <li><code>git switch temp</code></li>
           </ul>
-          <li>Update master to temp... WARNING: destructive!</li>
+          <li>Update main to temp... WARNING: destructive!</li>
           <ul>
-            <li><code>git branch -f master temp</code> (fine if changes on
-            master were bad)</li>
-            <li><code>git switch master</code></li>
+            <li><code>git branch -f main temp</code> (fine if changes on main
+            were bad)</li>
+            <li><code>git switch main</code></li>
           </ul>
           <li>Or... merge it with HEAD</li>
           <ul>
             <li>Find commit from <code>git reflog</code></li>
-            <li><code>git switch master</code></li>
+            <li><code>git switch main</code></li>
             <li><code>git merge HEAD@{1}</code> (where <code>HEAD{1}</code> is
             commit in temp branch from reflog)</li>
           </ul>
         </ul>
-        <li>Remove temp branch since it's reachable by master at HEAD now</li>
+        <li>Remove temp branch since it's reachable by main at HEAD now</li>
         <ul>
           <li><code>git branch -d temp</code></li>
         </ul>
@@ -179,8 +178,8 @@ Fixes #42.</pre>
     the last line</i> during commit message modifications. Otherwise, a new
     patchset will be created instead.</p>
     <p>Verify this was done correctly by inspecting the output of <code>git log
-    master..HEAD</code>. There should be only one commit listed and its
-    Change-Id should match the old one.</p>
+    main..HEAD</code>. There should be only one commit listed and its Change-Id
+    should match the old one.</p>
     <h4 id="Uncommitted_changes">Uncommitted changes</h4>
     <pre>git commit --amend</pre>
     <h4 id="Squashing_committed_changes">Squashing committed changes</h4>
