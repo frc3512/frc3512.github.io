@@ -66,6 +66,17 @@ pre {
   overflow: scroll;
 }
 
+summary.curriculum {
+  font-size: xx-large;
+  padding: 0.5em;
+  background: darkblue;
+  color: white;
+}
+
+summary.curriculum:hover {
+  color: lightblue;
+}
+
 #navbar {
   width: 100%;
   background-color: darkblue;
