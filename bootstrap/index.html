@@ -125,6 +125,36 @@
     <h2 id="Dual-booting_Arch_Linux">Dual-booting Arch Linux</h2>
     <p>Tutorial for this coming soon. For now, refer to <a href=
     "https://wiki.archlinux.org/title/Installation_guide">here</a>,</p>
+    <h2 id="Setting_Up_WSL2">Setting up WSL2 on Windows 10/11</h2>
+    <p>For those who aren't aware, WSL2 (short for Windows Linux Subsystem 2)
+    allows users to build and run Linux applications within their Windows
+    environment. This is a great alternative to students who have no interest
+    in setting up a dual boot of Windows and a Linux distro.</p>
+    <p>First, we need to enable two different features: HyperV and WSL2 itself.
+    This can be achieved by opening up PowerShell as an administrator and
+    running the following commands:</p>
+    <h3>HyperV</h3><code>dism.exe /online /enable-feature
+    /featurename:VirtualMachinePlatform /all /norestart</code>
+    <h3>WSL2</h3><code>dism.exe /online /enable-feature
+    /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code>
+    <blockquote>
+      <i>Note:</i> The previous iteration, WSL1, is also avaliable when
+      installing new distros onto your system. To ensure you are using WSL2
+      when installing any distro: run the following command: <code>wsl
+      --set-default-version 2</code>
+    </blockquote>
+    <p>Next, you can open up the <a href="https://aka.ms/wslstore">Microsoft
+    Store WSL page</a> and select a distro you wish to install We recommend
+    using Ubuntu, the <a href=
+    "https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6">latest version</a>
+    will work fine. To install, press the "Get" button. Please note a Microsoft
+    account is required to download</p>
+    <p>Once it's finished, launch the app from the Start Menu. A terminal will
+    fire up and ask for a new username and password if being used for the first
+    time. Set them to your preference, but choose a password you will remember
+    as it will be needed when performing some commands like installing any
+    packages.</p>
+    <p><i>Congrats!</i> Your new WSL2 system is ready to be used.</p>
     <h2 id="The_tools">The tools</h2>
     <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
     <p>Visual Studio Code is an integrated development environment which makes
@@ -139,7 +169,7 @@
     the executable was built successfully.</p>
     <h3 id="GCC_compiler">GCC compiler</h3>
     <p>This is the compiler gradle or CMake will use to build the programs you
-    write. MSYS2 provides a Linux-like environment with this compiler.</p>
+    write.</p>
     <h3>CMake</h3>
     <p>CMake will be used to build your personal projects. For better
     integration with VS Code, download the "CMake Tools" extension under VS
@@ -169,6 +199,31 @@
       practice to be familiar with the enforced style guide and be able to
       write code in that style directly.
     </blockquote>
+    <h2 id="Tools_installation_on_Windows">Tools installation on Windows
+    (WSL2)</h2>
+    <h4><i>Note:</i> These commands only apply to you if Ubuntu was installed
+    in the setup process.</h4>
+    <p>The command blocks below should be run in a terminal, where each line is
+    entered separately and followed by the Enter key.</p>
+    <h3>Visual Studio Code</h3>
+    <p>Follow the installation guide from <a href=
+    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
+    WPILib Docs</a>.</p>
+    <p>To build robot projects in a terminal, run the following command to set
+    JAVA_HOME in <code>~/.bashrc</code>:</p>
+    <p><code>echo 'export JAVA_HOME=~/wpilib/2021/jdk' &gt;&gt;
+    ~/.bashrc</code></p>
+    <p>Since WSL2 runs seperately from base Windows, a seperate extension is
+    needed for VSCode to have the ability of accessing WSL2 file system. This
+    extension can be downloaded by opening Quick Search (Ctrl+P) and typing in:
+    <code>ext install ms-vscode-remote.remote-wsl</code> to install it.</p>
+    <h3>GCC</h3><code>sudo apt-get install gcc</code>
+    <h3>Git</h3><code>sudo apt-get install git</code>
+    <h3>Formatter</h3>
+    <pre>
+  sudo apt-get install clang-format python3-pip
+  pip3 install --user wpiformat</pre>
+    <h3>CMake</h3><code>sudo apt-get install cmake</code>
     <h2 id="Tools_installation_on_Ubuntu">Tools installation on Ubuntu</h2>
     <p>The command blocks below should be run in a terminal, where each line is
     entered separately and followed by the Enter key.</p>
@@ -207,60 +262,6 @@ cd /tmp
 git clone https://aur.archlinux.org/python-wpiformat-git
 makepkg -si</pre>
     <h3 id="CMake">CMake</h3><code>sudo pacman -S cmake</code>
-    <h2 id="Tools_installation_on_Windows">Tools installation on Windows</h2>
-    <h3>Visual Studio Code</h3>
-    <p>Follow the installation guide from <a href=
-    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
-    WPILib Docs</a>.</p>
-    <h3>GCC Compiler</h3>
-    <ol>
-      <li>Download the MSYS2 installer from <a href=
-      "https://www.msys2.org/">here</a> and run it. Use the default
-      installation directory.
-      </li>
-      <li><code>pacman -Syu</code>, then close all terminals when directed to
-      do so.</li>
-      <li><code>pacman -Su</code></li>
-      <li>Add MSYS2 to your system-wide PATH environment variable.
-        <ul>
-          <li>32-bit path: "C:\msys32\usr\bin"</li>
-          <li>64-bit path: "C:\msys64\usr\bin"</li>
-        </ul>
-      </li>
-      <li>Create a desktop shortcut for "MSYS2 MSYS" if desired.</li>
-      <li><code>pacman -S --needed base-devel gcc</code>, then when prompted
-      for which packages in the base-devel group to install, press Enter to
-      select the default option (all of them).</li>
-    </ol>
-    <h3>Git</h3><code>pacman -S git</code>
-    <h3>Formatter</h3>
-    <p>Download the latest version of LLVM from <a href=
-    "https://releases.llvm.org/download.html">here</a> under "Pre-Built
-    Binaries" and run it. The default installation options are fine. Don't
-    worry if you see the following; it's irrelevant to our use.</p>
-    <pre>Installing MSVC integration...
-Failed to find MSBuild toolsets directory.
-MSVC integration install failed.</pre>
-    <p>MSYS2 keeps a separate PATH environment variable from the operating
-    system. Run the following command to add the LLVM installation to it.</p>
-    <p><code>echo 'export PATH=$PATH:/c/Program\ Files/LLVM/bin' &gt;&gt;
-    ~/.bashrc</code></p>
-    <p>The following commands install Python and pip, then use pip to install
-    wpiformat.</p>
-    <pre>
-pacman -S python
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py
-pip install wpiformat</pre>
-    <p>After those commands complete, close and reopen the terminal so the PATH
-    environment variable change from earlier takes effect.</p>
-    <h3>CMake</h3>
-    <p>Download the CMake installer from <a href=
-    "https://cmake.org/download/">here</a> under "Latest Release". When running
-    the installer, make sure to add CMake to the PATH environment variable
-    (either for all users or just one). Any existing terminals will need to be
-    closed and reopened to receive the PATH update.</p>
-    <h2>What to do now?</h2>
     <p>Once you have setup your computer, you can now learn more about <a href=
     "../ci/index.html">programming</a>!</p>
   </div>
