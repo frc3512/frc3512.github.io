@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content=
+  "A page providing the necessary tools to begin programming in C++ on Arch Linux">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer bootstrap - FRC Team 3512</title>
+  <link rel="stylesheet" type="text/css" href="../../main.css">
+  <link rel="shortcut icon" type="image/ico" href="../../favicon.ico">
+</head>
+<body>
+  <header id="navbar">
+    <ul>
+      <li>
+        <a href="../../">Home</a>
+      </li>
+      <li>
+        <a href="../../admin/">Admin</a>
+      </li>
+      <li>
+        <a href="../" class="active">Developer Bootstrap</a>
+      </li>
+      <li>
+        <a href="../../vpn/">VPN Setup</a>
+      </li>
+      <li>
+        <a href="../../ci/">Curriculum</a>
+      </li>
+      <li>
+        <a href="../../fll/">FLL</a>
+      </li>
+      <li>
+        <a href="../../archives/">Archives</a>
+      </li>
+    </ul>
+  </header>
+  <div class="body">
+    <h1 id="Arch_Linux_bootstrap">Arch Linux bootstrap</h1>
+    <h2 id="Dual-booting_Arch_Linux_on_a_PC">Dual-booting Arch Linux on a
+    PC</h2>
+    <p>Tutorial for this coming soon. For now, refer to <a href=
+    "https://wiki.archlinux.org/title/Installation_guide">here</a>,</p>
+    <h2 id="Tools_installation">Tools installation</h2>
+    <h3>Visual Studio Code</h3>
+    <p>Follow the installation guide from <a href=
+    "https://docs.wpilib.org/en/latest/docs/zero-to-robot/step-2/wpilib-setup.html">
+    WPILib Docs</a>.</p>
+    <p>To build robot projects in a terminal, run the following command to set
+    JAVA_HOME in <code>~/.bashrc</code>:</p><code>echo 'export
+    JAVA_HOME=~/wpilib/2021/jdk' &gt;&gt; ~/.bashrc</code>
+    <h3>GCC</h3><code>sudo pacman -S gcc</code>
+    <h3>Git</h3><code>sudo pacman -S git</code>
+    <h3>Formatter</h3>
+    <p>This requires a package from the AUR. Use either the manual installation
+    method (shown below) or an AUR helper.</p>
+    <pre>
+sudo pacman -S python
+cd /tmp
+git clone https://aur.archlinux.org/python-wpiformat-git
+makepkg -si</pre>
+    <h3 id="CMake">CMake</h3><code>sudo pacman -S cmake</code>
+  </div>
+</body>
+</html>
