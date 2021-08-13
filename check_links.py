@@ -31,6 +31,11 @@ def verify_url(filename, line_number, url):
     True if verification succeeded or False otherwise
     """
     if url.startswith("http://") or url.startswith("https://"):
+        # Ignore .ms links since they only return success on Windows
+        m = re.search(r"^https?://([^/]+)/.*?$", url)
+        if m.group(1).endswith(".ms"):
+            return True
+
         try:
             r = requests.head(url, headers={"User-Agent": "Python Requests"})
             if r.status_code != 200:
