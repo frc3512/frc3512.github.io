@@ -32,7 +32,7 @@ def verify_url(filename, line_number, url):
     """
     if url.startswith("http://") or url.startswith("https://"):
         # Ignore .ms links since they only return success on Windows
-        m = re.search(r"^https?://([^/]+)/.*?$", url)
+        m = re.search(r"^https?://([^/]+).*?$", url)
         if m.group(1).endswith(".ms"):
             return True
 
