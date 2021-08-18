@@ -37,42 +37,43 @@
   </header>
   <div class="body">
     <h1 id="Windows_bootstrap">Windows bootstrap</h1>
-    <h2 id="Setting_up_WSL2_on_Windows_10_11">Setting up WSL2 on Windows
+    <h2 id="Setting_up_WSL_2_on_Windows_10_11">Setting up WSL 2 on Windows
     10/11</h2>
-    <p>WSL2 (short for "Windows Subsystem for Linux 2") allows users to build
+    <p>WSL 2 (short for "Windows Subsystem for Linux 2") allows users to build
     and run Linux applications within their Windows environment. This is a
     great alternative to students who have no interest in setting up a dual
     boot of Windows and a Linux distro.</p>
-    <p>First, we need to enable two different features: HyperV and WSL2 itself.
-    This can be achieved by opening up PowerShell as an administrator and
-    running the following commands:</p>
-    <h3>HyperV</h3><code>dism.exe /online /enable-feature
-    /featurename:VirtualMachinePlatform /all /norestart</code>
-    <h3>WSL2</h3><code>dism.exe /online /enable-feature
-    /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart</code>
-    <blockquote>
-      <i>Note:</i> The previous iteration, WSL1, is also available when
-      installing new distros onto your system. To ensure you are using WSL2
-      when installing any distro: run the following command: <code>wsl
-      --set-default-version 2</code>
-    </blockquote>
+    <p>First, we need to enable two different features: HyperV and WSL 2
+    itself. Open PowerShell as an administrator and running the following
+    commands:</p><code>dism.exe /online /enable-feature
+    /featurename:VirtualMachinePlatform /all /norestart</code> <code>dism.exe
+    /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all
+    /norestart</code>
+    <p>Restart your computer to complete the feature enable process.</p>
+    <p>To ensure your distros are run with WSL 2 instead of WSL 1, run
+    <code>wsl --set-default-version 2</code>. If it prints "WSL 2 requires an
+    update to its kernel component", download and run the MSI installer at
+    <a href="https://aka.ms/wsl2kernel">https://aka.ms/wsl2kernel</a>.</p>
+    <p>If you already have distros using WSL 1, you can convert them with
+    <code>wsl --set-version distro-name-here 2</code> where "distro-name-here"
+    is the distro name from <code>wsl --list</code>.</p>
     <p>Next, you can open up the <a href="https://aka.ms/wslstore">Microsoft
     Store WSL page</a> and select a distro you wish to install We recommend
     using Ubuntu, the <a href=
     "https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6">latest version</a>
     will work fine. To install, press the "Get" button. Please note a Microsoft
     account is required to download.</p>
-    <p>Once it's finished, launch the app from the Start Menu. A terminal will
-    fire up and ask for a new username and password if being used for the first
-    time. Set them to your preference, but choose a password you will remember
-    as it will be needed when performing some commands like installing any
-    packages.</p>
-    <p><i>Congrats!</i> Your new WSL2 system is ready to be used.</p>
+    <p>Once it's finished, launch the WSL app from the Start Menu. A terminal
+    window will open and ask for a new username and password if being used for
+    the first time. Set them to your preference, but choose a password you will
+    remember as it will be needed when performing some commands like installing
+    any packages.</p>
+    <p><i>Congrats!</i> Your new WSL 2 system is ready to be used.</p>
     <h2 id="Tools_installation">Tools installation</h2>
     <p>See <a href="../ubuntu/#Tools_installation">Ubuntu tools
     installation</a>.</p>
-    <p>Since WSL2 runs seperately from base Windows, a seperate extension is
-    needed for VSCode to have the ability of accessing WSL2 file system. This
+    <p>Since WSL 2 runs seperately from base Windows, a seperate extension is
+    needed for VSCode to have the ability of accessing WSL 2 file system. This
     extension can be downloaded by opening Quick Search (Ctrl+P) and typing in:
     <code>ext install ms-vscode-remote.remote-wsl</code> to install it.</p>
   </div>
