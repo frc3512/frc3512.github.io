@@ -30,7 +30,19 @@
         <loc>https://frc3512.github.io/archives/index.html</loc>
     </url>
     <url>
+        <loc>https://frc3512.github.io/bootstrap/archlinux/index.html</loc>
+    </url>
+    <url>
         <loc>https://frc3512.github.io/bootstrap/index.html</loc>
+    </url>
+    <url>
+        <loc>https://frc3512.github.io/bootstrap/macos/index.html</loc>
+    </url>
+    <url>
+        <loc>https://frc3512.github.io/bootstrap/ubuntu/index.html</loc>
+    </url>
+    <url>
+        <loc>https://frc3512.github.io/bootstrap/windows/index.html</loc>
     </url>
     <url>
         <loc>https://frc3512.github.io/ci/advanced-cpp/concurrency-and-atomics/index.html</loc>
