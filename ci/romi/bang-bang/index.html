@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Romi Project #1: Bang-Bang">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Romi Project #1: Bang Bang</title>
+  <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico">
+</head>
+<body>
+  <header id="navbar">
+    <ul>
+      <li>
+        <a href="../../../">Home</a>
+      </li>
+      <li>
+        <a href="../../../admin/">Admin</a>
+      </li>
+      <li>
+        <a href="../../../bootstrap/">Developer Bootstrap</a>
+      </li>
+      <li>
+        <a href="../../../vpn/">VPN Setup</a>
+      </li>
+      <li>
+        <a href="../../../ci/">Curriculum</a>
+      </li>
+      <li>
+        <a href="../../../fll/">FLL</a>
+      </li>
+      <li>
+        <a href="../../../archives/">Archives</a>
+      </li>
+    </ul>
+  </header>
+  <div class="body">
+    <h1>Romi Project #1: Bang Bang</h1>
+    <h2 id="Introduction">Introduction</h2>
+    <p>A Bang-bang controller is defined as controlling a plant with two
+    states: on and off. This on state is applied when we went are system to
+    perform an action, while off serves as the "idle" state. In our specific
+    example, the drivetrain of the Romi would continue to drive until its
+    distance equals or is higher than the desired distance. If you are
+    interested in learning more, this <a href=
+    "https://en.wikipedia.org/wiki/Bang%E2%80%93bang_control">Wikipedia</a>
+    article is a great starting point.</p>
+    <h2 id="Goal">Project Goal</h2>
+    <p>Your goal is simply to have the Romi drivetrain move forward and then
+    stop after a certain distance.</p>
+    <h2 id="Recommendation">Recommendation</h2>
+    <p>While there are many different solutions to achieve the goal, one
+    recoomendation could be:</p>
+    <ul>
+      <li>Make a drive function that takes in a distance (in meters)</li>
+      <li>Apply voltage to the Romi motors constantly</li>
+      <li>Have logic to set the voltage to 0 once that distance is met</li>
+    </ul>
+    <blockquote>
+      <i>Note:</i> For this project, it does not matter if you run your code in
+      either the telop or autonomous period. However, its recommended to place
+      your code into autonomous to practice creating autons.
+    </blockquote>
+    <h2 id="Tutorial">Project Setup</h2>
+    <p>Type CTRL+SHIFT+P in Visual Studio Code, and type "Create a new project"
+    (Should have WPILib tagged in front of it). The wizard should appear. For
+    the project type, select "Template", "cpp", and then "Romi - Timed Robot".
+    Next, selected where to store your project. Team number doesn't matter, but
+    you may type your team number if you want to. Make sure to select "Desktop
+    Support". Once done, click "Create".</p>
+    <blockquote>
+      <i>Note:</i> The project needs to have an empty folder to be created. If
+      you intend to place your robot project into a Git repo, create it
+      somewhere else, and then copy it into it.
+    </blockquote>
+  </div>
+</body>
+</html>
