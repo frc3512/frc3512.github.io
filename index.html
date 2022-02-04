@@ -10,16 +10,29 @@
   <link rel="shortcut icon" type="image/ico" href="favicon.ico">
 </head>
 <body>
-  <header id="navbar">
-    <ul>
+  <input type="checkbox" id="ham-menu">
+  <label for="ham-menu">
+    <div class="hide-des">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </div>
+
+  </label>
+  <div class="full-page-blue"></div>
+  <div class="ham-menu">
+    <ul class="centre-text bold-text">
       <li>
-        <a href="/" class="active">Home</a>
+        <a href="/">Home</a>
       </li>
       <li>
         <a href="admin/">Admin</a>
       </li>
       <li>
-        <a href="bootstrap/">Developer Bootstrap</a>
+        <a href="bootstrap/">Developer Bootstraps</a>
       </li>
       <li>
         <a href="vpn/">VPN Setup</a>
@@ -34,10 +47,10 @@
         <a href="archives/">Archives</a>
       </li>
     </ul>
-  </header>
+  </div>
   <div class="body">
     <h1>FRC 3512 Software Team</h1>
-    <div class="Who_we_are_sec">
+    <div class="Info">
       <h2 id="Who_we_are">Who We Are</h2>
       <p>We are the software subteam of <a href=
       "https://www.spartatroniks.com/">FRC Team 3512</a> located in Orcutt,
@@ -47,8 +60,8 @@
       <p>This website is a collection of student and mentor knowledge and a
       teaching aid.</p>
     </div>
-    <div class="Our_vision_sec">
-      <h2 id="Our_vision">Our vision</h2>
+    <div class="Info">
+      <h2 id="Our_vision">Our Vision</h2>
       <p>Produce competent software engineers who:</p>
       <ol>
         <li>Understand the tradeoff between maintainability and performance.</li>
@@ -56,73 +69,79 @@
         right fit for a problem.</li>
       </ol>
     </div>
-    <div class="What_students_will_learn_sec">
-      <h2 id="What_students_will_learn">What students will learn</h2>
+    <div class="Info">
+      <h2 id="What_students_will_learn">What Students Learn</h2>
     <p>The software subteam programs the robot to make it move and automate
     parts of its functionality. Our goal is to expose you to the software
     engineering process in a low-risk, collaborative learning environment so
     that if you eventually move on to computer science in college or in
     industry, you'll have all the tools you need to succeed.</p>
-    <p>You will learn the following throughout your tenure as a software
-    subteam member:</p>
-    <ol>
-      <li>The mindset software engineers use to break down and solve problems
-      (how to think like a programmer).
-        <ul>
-          <li>What tools programming languages offer, and when/how to apply
-          them solve problems in a manner that is effective, efficient, and
-          promotes the long-term maintainability of the software project.</li>
-        </ul>
-      </li>
-      <li>The tools and methodologies software engineers use to collaborate
-      with each other and manage the complexity of a software project.</li>
-      <li>Software engineering principles for real-time and embedded
-      systems.</li>
-      <li>Control theory, which lets us do two things:
-        <ul>
-          <li>Model our robots mathematically so we can test our software's
-          correctness before the hardware is completed.</li>
-          <li>Design and test controllers for those models that ensure actions
-          like "move the elevator to this position" will work with minimal
-          trial-and-error on the real hardware.</li>
-        </ul>
-      </li>
-      <li>How to write automated tests that ensure our software continues to
-      work as we add features and perform cleanups.</li>
-    </ol>
+    <button type="button" class="collapsible">
+      What to expect our students to learn:
+    </button>
+    <div class="content">
+      <ol>
+        <li>The mindset software engineers use to break down and solve problems
+        (how to think like a programmer).
+          <ul>
+            <li>What tools programming languages offer, and when/how to apply
+            them solve problems in a manner that is effective, efficient, and
+            promotes the long-term maintainability of the software project.</li>
+          </ul>
+        </li>
+        <li>The tools and methodologies software engineers use to collaborate
+        with each other and manage the complexity of a software project.</li>
+        <li>Software engineering principles for real-time and embedded
+        systems.</li>
+        <li>Control theory, which lets us do two things:
+          <ul>
+            <li>Model our robots mathematically so we can test our software's
+            correctness before the hardware is completed.</li>
+            <li>Design and test controllers for those models that ensure actions
+            like "move the elevator to this position" will work with minimal
+            trial-and-error on the real hardware.</li>
+          </ul>
+        </li>
+        <li>How to write automated tests that ensure our software continues to
+        work as we add features and perform cleanups.</li>
+      </ol>
     </div>
-    <div class="Admin_sec">
+    </div>
+    <script src="Collapse.js"></script>
+    <div class="Contain_links">
+      <div class="Direct_links_1">
       <h2 id="Administration"><a href="admin/">Administration</a></h2>
         <p>Describes the software team's goals, its organization, and how it's
         run.</p>
     </div>
-    <div class="Dev_bootstraps-sec">
+    <div class="Direct_links_1">
       <h2 id="Developer_bootstrap"><a href="bootstrap/">Developer
-      bootstrap</a></h2>
+      bootstraps</a></h2>
         <p>Provides the necessary tools to begin programming in C++.</p>
     </div>
-    <div class="VPN_setup_sec">
+    <div class="Direct_links_1">
       <h2 id="VPN_setup"><a href="vpn/">VPN setup</a></h2>
         <p>Instructions for connecting to our robot VPN.</p>
     </div>
-    <div class="Curriculum_sec">
+    <div class="Direct_links_1">
       <h2 id="Curriculum_and_instruction"><a href="ci/">Curriculum and
-        instruction</a></h2>
+        Instruction</a></h2>
         <p>Contains the software team teaching materials.</p>
     </div>
-    <div class="Github_sec">
+    <div class="Direct_links_1">
       <h2 id="GitHub"><a href="https://github.com/frc3512/">GitHub</a></h2>
         <p>The software team's GitHub organization, which contains mirrors of our
         Git repositories.</p>
     </div>
-    <div class="FLL_sec">
+    <div class="Direct_links_1">
       <h2 id="FLL"><a href="fll/">FLL</a></h2>
         <p>FLL-related stuff the software team deals with on an annual basis.</p>
     </div>
-    <div class="Archives_sec">
+    <div class="Direct_links_2">
       <h2 id="Archives"><a href="archives/">Archives</a></h2>
         <p>Contains legacy projects and resources from throughout the team's
         history.</p>
+    </div>
     </div>
   </div>
 </body>

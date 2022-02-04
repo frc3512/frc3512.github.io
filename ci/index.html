@@ -9,8 +9,21 @@
   <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
 </head>
 <body>
-  <header id="navbar">
-    <ul>
+  <input type="checkbox" id="ham-menu">
+  <label for="ham-menu">
+    <div class="hide-des">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </div>
+
+  </label>
+  <div class="full-page-blue"></div>
+  <div class="ham-menu">
+    <ul class="centre-text bold-text">
       <li>
         <a href="../">Home</a>
       </li>
@@ -18,13 +31,13 @@
         <a href="../admin/">Admin</a>
       </li>
       <li>
-        <a href="../bootstrap/">Developer Bootstrap</a>
+        <a href="../bootstrap/">Developer Bootstraps</a>
       </li>
       <li>
         <a href="../vpn/">VPN Setup</a>
       </li>
       <li>
-        <a href="./" class="active">Curriculum</a>
+        <a href="/">Curriculum</a>
       </li>
       <li>
         <a href="../fll/">FLL</a>
@@ -33,9 +46,9 @@
         <a href="../archives/">Archives</a>
       </li>
     </ul>
-  </header>
+  </div>
   <div class="body">
-    <h1>Curriculum and instruction</h1>
+    <h1>Curriculum</h1>
     <h2 id="The_mindset_of_an_egoless_engineer">The mindset of an egoless
     engineer</h2>
     <p>The following maxim summarizes what we hope to teach students on the
@@ -97,31 +110,6 @@
     <a href="https://en.cppreference.com/w/cpp">C++ standard library</a> and
     <a href="https://docs.wpilib.org/en/stable/">WPILib</a>. Learn their APIs
     well and use them. There's no use in reinventing the wheel (poorly).</p>
-    <h3 id="Be_pragmatic_in_design_and_implementation">Be pragmatic in design
-    and implementation</h3>
-    <p>PID control isn't a silver bullet, and neither is computer vision. Don't
-    decide to implement something just because it's cool. Implement what gives
-    the highest return on investment first for robot performance. For example,
-    if you want to spend a week on tuning an elevator PID controller, be
-    prepared to show how that will improve the robot's scoring potential
-    compared to manual control of the elevator height.</p>
-    <h2 id="Minimum_laptop_specifications">Minimum laptop specifications</h2>
-    <p>For FRC-specific C++ software development, we suggest the following
-    minimum laptop specifications.</p>
-    <ul>
-      <li>Intel i3 (i5 is preferred)</li>
-      <li>4GB of RAM</li>
-      <li>64GB SSD (128GB if a dual boot is desired)</li>
-      <li>Capable of running Linux</li>
-    </ul>
-    <p>SSDs are preferred because hard disk drives are slow, are typically a
-    performance bottleneck, and can be damaged by drops at competition.</p>
-    <p>While Linux is not required, students generally have a nicer development
-    experience in Linux than in Windows. A virtual machine works for this
-    purpose, but it's slower and more resource-intensive than dual-booting.
-    WPILib officially supports <a href=
-    "https://ubuntu.com/download">Ubuntu</a>, but a mentor uses <a href=
-    "https://archlinux.org/download/">Arch</a>.</p>
     <h2 id="Curriculum">Curriculum</h2>
     <p>This page serves as a repository of knowledge for topics the software
     team has explored in the past and topics alumni are learning in college.
@@ -233,90 +221,6 @@
     </details>
     <p><a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS
     Education</a></p>
-    <h2 id="Lesson_plan">Lesson plan</h2>
-    <h3 id="Offseason">Offseason</h3>
-    <ul>
-      <li>Rookie training</li>
-      <ul>
-        <li>Teach C++ first in offseason with <a href="intro-to-cpp/">Intro to
-        C++</a> module
-        </li>
-        <li>Start state machines and labs in November</li>
-      </ul>
-      <li>Veteran training</li>
-      <ul>
-        <li>Improvements to prev year's robot code in offseason</li>
-        <li>Learn modern control theory</li>
-      </ul>
-    </ul>
-    <h3 id="Build_season">Build season</h3>
-    <p>Document what students have done at the end of each build session
-    (provides external and internal documentation for hand-off and use by other
-    subteams).</p>
-    <p>Parentheses at end of line have date range. End of range is due date.
-    Due date uses end of day. Can be M, T, W, Th, F, St, or Sn.</p>
-    <h4 id="Week_1">Week 1</h4>
-    <ul>
-      <li>Rookie training</li>
-      <ul>
-        <li>Git lecture (M)</li>
-        <li>As much C++ as we can (M-St)</li>
-      </ul>
-      <li>Veteran training</li>
-      <ul>
-        <li>Quick review of Git and C++ fundamentals (M-T)</li>
-        <li>Cover chapters from <a href="intro-to-cpp/">Intro to C++</a> module
-        not covered last year (Th-F)
-        </li>
-      </ul>
-      <li>Drive code (F-St)</li>
-    </ul>
-    <h4 id="Week_2">Week 2</h4>
-    <ul>
-      <li>Rookie training</li>
-      <ul>
-        <li>As much C++ as we can finish (M-T)</li>
-        <li>State machines (simple and event-driven, Th-St)</li>
-      </ul>
-      <li>Veteran training</li>
-      <ul>
-        <li>Selected topics in C++</li>
-        <ul>
-          <li>Real-time software design (M)</li>
-          <li>Threading, sockets (M-T)</li>
-        </ul>
-      </ul>
-      <li>Develop subsystem abstractions (Depends: mechanical subsystem
-      designs, Th-St)</li>
-    </ul>
-    <h4 id="Week_3">Week 3</h4>
-    <ul>
-      <li>Rookie training</li>
-      <ul>
-        <li>WPILib, <a href="robot-software/#Design_patterns">robot design
-        patterns</a> (M-T)
-        </li>
-      </ul>
-      <li>Veteran training</li>
-      <ul>
-        <li>Feedback control abstractions (M-T)</li>
-        <li>Feedforward and models?</li>
-      </ul>
-      <li>Decide what should use feedback control (M-St)</li>
-    </ul>
-    <h4 id="Week_4">Week 4</h4>
-    <ul>
-      <li>Start autonomous (M-St)</li>
-      <li>Refine subsystems (M-St)</li>
-    </ul>
-    <h4 id="Week_5">Week 5</h4>
-    <ul>
-      <li>Testing and feedback control tuning (M-St)</li>
-    </ul>
-    <h4 id="Week_6">Week 6</h4>
-    <ul>
-      <li>Testing and feedback control tuning (M-St)</li>
-    </ul>
     <h2 id="Instruction_notes">Instruction notes</h2>
     <p>The C++ teaching material has weekly assignments the students are
     expected to work on outside of build sessions and submit via Git. Mentors
@@ -336,80 +240,6 @@
     naming scheme for the Intro to C++ module. Your source files may have
     different names from those shown or not exist. This may look confusing so
     feel free to ask for help!</p>
-    <ul>
-      <li>frc3512-assignments (Git repository root)</li>
-      <li style="list-style: none; display: inline">
-        <ul>
-          <li>chapter01 (workspace)</li>
-          <li style="list-style: none; display: inline">
-            <ul>
-              <li>drill02 (project)</li>
-              <li style="list-style: none; display: inline">
-                <ul>
-                  <li>src</li>
-                  <li style="list-style: none; display: inline">
-                    <ul>
-                      <li>ExampleClass.cpp</li>
-                      <li>ExampleClass.hpp</li>
-                      <li>Main.cpp</li>
-                    </ul>
-                  </li>
-                  <li>Makefile</li>
-                </ul>
-              </li>
-              <li>exercise13 (project)</li>
-              <li style="list-style: none; display: inline">
-                <ul>
-                  <li>src</li>
-                  <li style="list-style: none; display: inline">
-                    <ul>
-                      <li>Main.cpp</li>
-                    </ul>
-                  </li>
-                  <li>README.txt</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>chapter11 (workspace)</li>
-          <li style="list-style: none; display: inline">
-            <ul>
-              <li>drill14 (project)</li>
-              <li style="list-style: none; display: inline">
-                <ul>
-                  <li>src</li>
-                  <li style="list-style: none; display: inline">
-                    <ul>
-                      <li>Main.cpp</li>
-                    </ul>
-                  </li>
-                  <li>license.txt</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>cool-lab (workspace)</li>
-          <li style="list-style: none; display: inline">
-            <ul>
-              <li>first-section-name (project)</li>
-              <li style="list-style: none; display: inline">
-                <ul>
-                  <li>src</li>
-                  <li style="list-style: none; display: inline">
-                    <ul>
-                      <li>Main.cpp</li>
-                      <li>SupportFile.cpp</li>
-                      <li>SupportFile.hpp</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <ol>
       <li>Folders use lowercase only and files use camel case (first letter of
       each word capitalized and the rest lowercase)</li>
       <li>Source code goes in the <code>src</code> directory while other files
@@ -427,36 +257,6 @@
     "robot-software/generic/.styleguide-license">.styleguide-license</a> in the
     root directory of your repository. You may modify
     <code>.styleguide-license</code> to use your name.</p>
-    <h3 id="Option_1.3A_VS_Code_Workspace">Option 1: VS Code Workspace</h3>
-    <ol>
-      <li>Create a folder/directory that will be the root directory of your
-      project</li>
-      <li>Open that folder in VS Code with <code>File &gt; Open Folder</code>
-      in the menu bar</li>
-      <li>Install the CMake Tools extension</li>
-      <li>Press Ctrl+Shift+P to open the command pallete or use <code>View &gt;
-      Command Pallete</code> in the menu bar</li>
-      <li>Type in <code>CMake: Quick Start</code>, choose a name for the
-      project, and select an executable</li>
-    </ol>
-    <p>To run your code, type <code>CMake: Build</code> in the command pallete.
-    You may need to modify the executable and include path.</p>
-    <p>Include the following in the .gitignore in the root directory of your
-    Git repository:</p>
-    <pre>build/</pre>
-    <h3 id="Option_2.3A_Alternate_editor">Option 2: Alternate editor</h3>
-    <p>If you want to use a different IDE such as Vim, provide a Makefile in
-    each problem folder to compile the executable. "workspaces" and "projects"
-    aren't relevant here, but follow the directory layout. Here's an <a href=
-    "Makefile">example Makefile</a> which recursively finds all the source
-    files in the <code>src</code> directory and compiles Debug and Release
-    versions of them. The <code>NAME</code> field should be edited before use.
-    The following entries should be included in the repository's .gitignore
-    file:</p>
-    <pre>*.d
-*.o
-Debug/
-Release/</pre>
   </div>
 </body>
 </html>

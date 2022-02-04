@@ -1,0 +1,12 @@
+cHeaderFileInclude {
+  \.h$
+}
+
+cppHeaderFileInclude {
+  \.hpp$
+  \.inl$
+}
+
+cppSrcFileInclude {
+  \.cpp$
+}
