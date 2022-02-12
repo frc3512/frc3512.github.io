@@ -1,53 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="VPN setup instructions">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VPN setup instructions - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../main.css">
-  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
-</head>
-<body>
-  <input type="checkbox" id="ham-menu">
-  <label for="ham-menu">
-    <div class="hide-des">
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-    </div>
-
-  </label>
-  <div class="full-page-blue"></div>
-  <div class="ham-menu">
-    <ul class="centre-text bold-text">
-      <li>
-        <a href="../">Home</a>
-      </li>
-      <li>
-        <a href="../admin/">Admin</a>
-      </li>
-      <li>
-        <a href="../bootstrap/">Developer Bootstraps</a>
-      </li>
-      <li>
-        <a href="/">VPN Setup</a>
-      </li>
-      <li>
-        <a href="../ci/">Curriculum</a>
-      </li>
-      <li>
-        <a href="../fll/">FLL</a>
-      </li>
-      <li>
-        <a href="../archives/">Archives</a>
-      </li>
-    </ul>
-  </div>
-  <div class="body">
-  </div>
-</body>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Setup - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <div id="Sidenav" class="sidenav">
+        <a href="../index.html">Home</a>
+        <a href="../bootstrap/index.html">Bootstraps</a>
+        <a href="../ci/index.html">Curriculum</a>
+        <a href="../vpn/index.html">VPN Setup</a>
+        <a href="../fll/index.html">FLL</a>
+        <a href="../admin/index.html">Admin</a>
+        <a href="../archives/index.html">Archives</a>
+        <div class="Media_Wrapper"> 
+          <a href="https://github.com/frc3512">
+            <img 
+              src="/Assets/github.png"
+              alt="Our Github">
+          </a>           
+          <a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+          </a> 
+        </div>
+      </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+        </div>
+      <div class="Footer">
+        <p>FRC 3512 2022</p>
+      </div>
+  </body>
 </html>
+
+<!-- 
+
+VPN setup
+This VPN facilitates a work-from-home arrangement for FRC software developers. That is, they can build and deploy code from their computers at home to a robot in their build space.
+
+The network topology is as follows:
+
+VPN endpoint on a Linux cloud VM (vpn.tavsys.net)
+Linux machine in the build space that provides a network bridge from the cloud VM to a robot in the build space
+Developer machines that connect to the cloud VM
+The build space machine is configured to forward traffic destined for the robot network, so GradleRIO deploys, tools like OutlineViewer, and ssh will function as if the developer's machine was connected directly to the robot network.
+
+From here on, developer machines will be referred to as clients.
+
+The cloud VM and build space machine must run Linux because they do IP masquerading/forwarding, but all other clients can use any operating system that supports WireGuard (Windows, Linux, macOS, etc.).
+
+Follow these instructions to configure your VPN connection.
+
+Install WireGuard tools
+sudo apt install wireguard # Ubuntu
+sudo pacman -S wireguard-tools # Arch
+# See https://www.wireguard.com/install/ for more OSes
+Generate keypair
+wg genkey | tee private_key | wg pubkey > public_key
+cat private_key
+cat public_key
+Students should give their public key to the VPN administrator so they can be allowed access to the VPN.
+
+Configure WireGuard on server
+Skip this for clients
+Configure WireGuard on build space gateway
+Skip this for clients
+Configure WireGuard on client
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+Address = 10.2.0.x/24
+PrivateKey = <client private key>
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = vpn.tavsys.net:51820
+AllowedIPs = 10.2.0.0/24, 10.35.12.0/24
+Replace <client private key> with the client private key generated earlier, and replace <server public key> with Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=.
+
+Ask the VPN administrator for a unique number to replace x in 10.2.0.x/24. The VPN administrator has to assign them to avoid conflicts with other peers.
+
+Connect to VPN
+The following command will enable the WireGuard service so that it starts on boot, as well as start the service immediately.
+
+sudo systemctl --now enable wg-quick@wg0
+It can also be started on demand with sudo systemctl start wg-quick@wg0, stopped with sudo systemctl stop wg-quick@wg0 or restarted with sudo systemctl restart wg-quick@wg0.
+
+Now, clients should be able to ping 10.2.0.1 (server's VPN interface IP) and get a response.
+
+Typical developer operations like ./gradlew deploy should work transparently via the robot network connected to the build space gateway.
+
+Troubleshooting
+If the connection is working, sudo wg show should print something like the following after pinging 10.2.0.1 at least once. Note that the peer's public key matches the server's and the endpoint matches the server's public IP address.
+
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: 64.227.60.179:51820
+  allowed ips: 10.2.0.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: [2604:a880:2:d1::2a7:2001]:51820
+  allowed ips: 10.2.0.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+Unsupported protocol error
+If the service startup failed with an "unsupported protocol" error, rebooting should fix it. The status of the wireguard service can be determined with systemctl status wg-quick@wg0.
+
+Possible tunnel configuration errors
+We've performed the following actions so far.
+
+Installed WireGuard at both ends
+Set up a NAT rule on the remote side
+Created a private and public key on each side
+Put each public key in the opposite side's [Peer] config
+Put a suitable IP address on each side
+There are several mistakes we could have made in this process.
+
+Broken routing on the client PC
+Broken NAT on the remote router
+Broken routing on the remote PC
+Broken wg0 configuration on one side
+Lack of TCP forwarding on the remote computer
+Lack of proxy ARP on the remote computer
+If the roboRIO isn't responding to pings, run tcpdump.
+
+tcpdump -i wg0 # on the remote server
+ping -c1 10.35.12.2 # on the local machine
+If the packets are reaching the build space gateway, tcpdump will report traffic. If it doesn't, it's not getting through the tunnel (as opposed to there being a packet forwarding issue on the build space gateway).
+
+Required key not available error
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Required key not available
+This occurs when the AllowedIPs key is set too strictly. What we're pinging is routable, but it isn't within the AllowedIPs range, so there was no applicable key for the packet. This was fixed by adding 10.35.12.0/24 to the build space gateway's allowed IPs.
+
+Destination address required error
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Destination address required
+This occurs when the wg0 interface can't see the 10.35.12.0/24 route via the build space gateway. Assuming the build space gateway can ping 10.35.12.2, the most reliable way to fix this seems to be restarting the client WireGuard service.
+
+sudo systemctl restart wg-quick@wg0
+If the problem persists, the build space gateway WireGuard service may need to be restarted. The ssh connection will close, but it can be reestablished once the WireGuard service comes back up.
+ -->

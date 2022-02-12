@@ -1,54 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="description" content=
-  "A page providing the necessary tools to begin programming in C++">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developer bootstrap - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../main.css">
-  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
-</head>
-<body>
-  <input type="checkbox" id="ham-menu">
-  <label for="ham-menu">
-    <div class="hide-des">
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-    </div>
-
-  </label>
-  <div class="full-page-blue"></div>
-  <div class="ham-menu">
-    <ul class="centre-text bold-text">
-      <li>
-        <a href="../">Home</a>
-      </li>
-      <li>
-        <a href="../admin/">Admin</a>
-      </li>
-      <li>
-        <a href="/">Developer Bootstraps</a>
-      </li>
-      <li>
-        <a href="../vpn/">VPN Setup</a>
-      </li>
-      <li>
-        <a href="../ci/">Curriculum</a>
-      </li>
-      <li>
-        <a href="../fll/">FLL</a>
-      </li>
-      <li>
-        <a href="../archives/">Archives</a>
-      </li>
-    </ul>
-  </div>
-  <div class="body">
-  </div>
-</body>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Bootstraps - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <div id="Sidenav" class="sidenav">
+        <a href="../index.html">Home</a>
+        <a href="../bootstrap/index.html">Bootstraps</a>
+        <a href="../ci/index.html">Curriculum</a>
+        <a href="../vpn/index.html">VPN Setup</a>
+        <a href="../fll/index.html">FLL</a>
+        <a href="../admin/index.html">Admin</a>
+        <a href="../archives/index.html">Archives</a>
+        <div class="Media_Wrapper"> 
+          <a href="https://github.com/frc3512">
+            <img 
+              src="/Assets/github.png"
+              alt="Our Github">
+          </a>           
+          <a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+          </a> 
+        </div>
+      </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+        </div>
+      <div class="Footer">
+        <p>FRC 3512 2022</p>
+      </div>
+  </body>
 </html>
+<!-- Developer bootstrap
+This page provides setup instructions for the software team's tools so members can quickly start learning C++. If anything doesn't make sense or you need help, please contact a team member or mentor.
+
+Please install 64-bit versions of tools if possible and make sure the bitness of all your tools matches by using the appropriate archives/installers.
+
+Note: To those installing Ubuntu on their PC for the first time, there is a risk of wiping your existing OS on accident. Therefore, it is highly recommended to back up all of your valuable data to a seperate location to avoid data loss.
+Windows bootstrap
+Ubuntu bootstrap
+Arch Linux bootstrap
+macOS bootstrap
+The tools
+Visual Studio Code
+Visual Studio Code is an integrated development environment which makes it easier to write, build, and test programs written in C++, Python, and more! Once set up using one of the installation methods above, then all you need to know is how to use the terminal and a little bit of git to get started.
+
+Note: Visual Studio Code occasionally shows outdated or false errors in a project file. There is no workaround, so instead just use gradle/CMake to build your project. Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
+
+GCC compiler
+This is the compiler gradle or CMake will use to build the programs you write.
+
+CMake
+CMake will be used to build your personal projects. For better integration with VS Code, download the "CMake Tools" extension under VS Code's extensions tab.
+
+Gradle
+Gradle is a build automation tool that we use to build the robot project. To use it, just run one of the scripts in the robot project. See here for more.
+
+Git
+Git is a version control system used to manage the code you write. See Intro to Git for more information and detailed setup.
+
+GitHub
+GitHub provides web based code review and repository management for the Git version control system. Our GitHub organization is here. User setup instructions are here.
+
+Formatter
+Formatters help ensure style guide conformance by automatically correcting deviations. We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior. To run the formatter on a project, run:
+
+python3 -m wpiformat
+Note: The formatter should be considered a safety net. It is good practice to be familiar with the enforced style guide and be able to write code in that style directly.
+ -->

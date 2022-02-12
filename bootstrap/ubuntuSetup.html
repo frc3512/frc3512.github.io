@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Bootstraps - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <div id="Sidenav" class="sidenav">
+        <a href="../index.html">Home</a>
+        <a href="../bootstrap/index.html">Bootstraps</a>
+        <a href="../ci/index.html">Curriculum</a>
+        <a href="../vpn/index.html">VPN Setup</a>
+        <a href="../fll/index.html">FLL</a>
+        <a href="../admin/index.html">Admin</a>
+        <a href="../archives/index.html">Archives</a>
+        <div class="Media_Wrapper"> 
+          <a href="https://github.com/frc3512">
+            <img 
+              src="/Assets/github.png"
+              alt="Our Github">
+          </a>           
+          <a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+          </a> 
+        </div>
+      </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+        </div>
+      <div class="Footer">
+        <p>FRC 3512 2022</p>
+      </div>
+  </body>
+</html>
+
+<!-- Ubuntu bootstrap
+Note: To those installing Ubuntu on their PC for the first time, there is a risk of wiping your existing OS on accident. Therefore, it is highly recommended to back up all of your valuable data to a seperate location to avoid data loss.
+Dual-booting Ubuntu on a PC
+The first thing to do is to make space for your Ubuntu installation. Most of the time, the best way of achieving this is to shrink your existing OS partition (In this tutorial, we will be dealing with dual-booting with Windows. If you are a Mac user, please use the tutorial on dual-booting for a Mac.)
+
+Windows has its own built-in partition creator. Here is a really simple tutorial on dummies.com that can help you with that. The link is here.
+
+To begin the creation of your USB, grab an empty USB stick and download an Ubuntu .iso file (you have a choice between the stable and lastest releases. Stable versions are recommended.) at the official Ubuntu website.
+
+Next, you need to install a "USB creator" to help create your bootable USB stick. Some USB creators include Universal USB Installer (or UUI) and Balena Etcher. Instructions are provided on both of the websites on how to use each individual creator.
+
+After doing so, you can then close the installer once it states that the bootable USB is ready. At this point, you can restart your PC enable to start the installation process.
+
+To boot off your newly-created USB, you would need to access your computer's BIOS. This can be access by pressing a certain key(s) when you first boot up. Your BIOS keys depend on your PC's manufacturer, which can usually be found with a quick Google search.
+
+After you have successfully accessed your BIOS, press your appropriate key to open up your boot options. Select your USB device that with the Ubuntu installer installed onto it. Once you see the Ubuntu start up screen, all you have to do is to follow onscreen instructions. When Ubuntu asks for where you would like to have the Ubuntu OS installed, click "Something Else". Only select this option, as the others may mess up your existing Windows installation. It would then ask you to select an empty partition for you to install on. Select the empty partition that you created using the Windows shrinking tool and select next. After that, installation is pretty straight forward.
+
+Congrats! You now have Ubuntu and Windows at the same time!
+
+
+Dual-booting Ubuntu on a Macbook
+Dual-booting any Linux distro on a Macbook requires you to get your hands more dirty. For this tutorial, I'll be referencing this article by Chris Hoffman on HowToGeek.com on how to do this. The website is here.
+
+Before doing anything, make sure that you have full-disk encryption disabled. Otherwise, you may come across some weird issues when setting up the necessary tools to start the dual-boot process.
+
+First, you need to install rEFInd onto your Macbook, which allows you to boot onto many other operating systems installed onto your machine.
+
+Download it here. Select the .zip file of the latest, stable build. Open a terminal window, drag the install.sh file on to the window, and press enter to begin the installation process. It may require your password (or admin password if you are not the admin) to allow this action, so have that handy. Once it is done, restart your Mac and you should see the boot manager menu.
+Next, we need to shrink the existing Mac OS space to make some space for Ubuntu. This can be achieved by using the Disk Utility tool preinstalled onto your Mac. Just open the tool and shrink your current storage amount for the Mac OSX. Although the minimum storage limit for Ubuntu is 5GB, it is recommended allow storage greater than 5GBs. Most recommend 20GB to 30GB, but it depends on what you want. Just leave adequate amount of room for OSX is you plan on continuing to add data to your machine. Don't create a partition, just leave the empty storage alone.
+
+Create your USB creator as usual (software is compatable with Mac). After creation, simply restart your computer and you will approach the boot menu for rEFInd. Select the inserted USB stick with the Ubuntu installer installed to boot into the boot launcher. From there, installation is the same as what is descibed in the Windows tutorial. After the installation, your Mac will boot into the same menu at startup always. From there, you can change between booting into Mac and booting into Ubuntu.
+
+That is all you have to do! You can also follow the article I used (link at top) to do this tutorial as well.
+
+Tools installation
+The command blocks below should be run in a terminal, where each line is entered separately and followed by the Enter key.
+
+Visual Studio Code
+Follow the installation guide from WPILib Docs.
+
+To build robot projects in a terminal, run the following command to set JAVA_HOME in ~/.bashrc:
+
+echo 'export JAVA_HOME=~/wpilib/2021/jdk' >> ~/.bashrc
+
+GCC
+sudo apt-get install gcc
+Git
+sudo apt-get install git
+Formatter
+sudo apt-get install clang-format python3-pip
+pip3 install --user wpiformat
+CMake
+sudo apt-get install cmake
+ -->

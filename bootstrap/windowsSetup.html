@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Bootstraps - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <div id="Sidenav" class="sidenav">
+        <a href="../index.html">Home</a>
+        <a href="../bootstrap/index.html">Bootstraps</a>
+        <a href="../ci/index.html">Curriculum</a>
+        <a href="../vpn/index.html">VPN Setup</a>
+        <a href="../fll/index.html">FLL</a>
+        <a href="../admin/index.html">Admin</a>
+        <a href="../archives/index.html">Archives</a>
+        <div class="Media_Wrapper"> 
+          <a href="https://github.com/frc3512">
+            <img 
+              src="/Assets/github.png"
+              alt="Our Github">
+          </a>           
+          <a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+          </a> 
+        </div>
+      </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+        </div>
+      <div class="Footer">
+        <p>FRC 3512 2022</p>
+      </div>
+  </body>
+</html>
+<!-- 
+
+Windows bootstrap
+Setting up WSL 2 on Windows 10/11
+WSL 2 (short for "Windows Subsystem for Linux 2") allows users to build and run Linux applications within their Windows environment. This is a great alternative to students who have no interest in setting up a dual boot of Windows and a Linux distro.
+
+First, we need to enable two different features: HyperV and WSL 2 itself. Open PowerShell as an administrator and running the following commands:
+
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+Restart your computer to complete the feature enable process.
+
+To ensure your distros are run with WSL 2 instead of WSL 1, run wsl --set-default-version 2. If it prints "WSL 2 requires an update to its kernel component", download and run the MSI installer at https://aka.ms/wsl2kernel.
+
+If you already have distros using WSL 1, you can convert them with wsl --set-version distro-name-here 2 where "distro-name-here" is the distro name from wsl --list.
+
+Next, you can open up the Microsoft Store WSL page and select a distro you wish to install We recommend using Ubuntu, the latest version will work fine. To install, press the "Get" button. Please note a Microsoft account is required to download.
+
+Once it's finished, launch the WSL app from the Start Menu. A terminal window will open and ask for a new username and password if being used for the first time. Set them to your preference, but choose a password you will remember as it will be needed when performing some commands like installing any packages.
+
+Congrats! Your new WSL 2 system is ready to be used.
+
+Tools installation
+See Ubuntu tools installation.
+
+Since WSL 2 runs seperately from base Windows, a seperate extension is needed for VSCode to have the ability of accessing WSL 2 file system. This extension can be downloaded by opening Quick Search (Ctrl+P) and typing in: ext install ms-vscode-remote.remote-wsl to install it.
+ -->

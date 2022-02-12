@@ -7,7 +7,7 @@
       content="The subdomain of the Spartatroniks Software Team"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum - FRC Team 3512</title>
+    <title>Style Guide - FRC Team 3512</title>
     <link rel="stylesheet" type="text/css" href="../main.css" />
     <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
   </head>
@@ -43,3 +43,25 @@
       </div>
   </body>
 </html>
+ <!-- Style guide and best practices
+The following requirements are used by 3512 to keep the code base consistent and readable. This aids in not only finding and fixing bugs quickly, but avoiding them altogether through well-informed design decisions.
+
+Correctness of design and implementation
+One shouldn't cut corners in design. More often than not, it bites us later at competition when we have to implement something new in a time crunch or fix a bug.
+https://en.wikipedia.org/wiki/Code_smell
+Maintainability
+Well-commented
+Readable
+Good encapsulation of functionality
+Well-chosen variable, function, and class names
+Miscellaneous rules
+Headers should be sorted into newline-delimited sections according to the Google style guide. Each section's headers should be lexographically ordered. In dir/foo.cc or dir/foo_test.cc, whose main purpose is to implement or test the stuff in dir2/foo2.h, order your includes as follows:
+
+dir2/foo2.h
+C system files
+C++ system files
+Other libraries' .h files
+Your project's .h files
+In addition to the practices and associated justifications presented here, see our formatting config file, uncrustify.cfg, in our robot code for specific formatting minutiae.
+
+ -->
