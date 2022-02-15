@@ -45,7 +45,6 @@
 </html>
 
 <!-- 
-
 VPN setup
 This VPN facilitates a work-from-home arrangement for FRC software developers. That is, they can build and deploy code from their computers at home to a robot in their build space.
 
@@ -74,8 +73,64 @@ Students should give their public key to the VPN administrator so they can be al
 
 Configure WireGuard on server
 Skip this for clients
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+PrivateKey = <server private key>
+PostUp = sysctl -w net.ipv4.ip_forward=1; sysctl -w net.ipv6.conf.all.forwarding=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
+PostDown = sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv6.conf.all.forwarding=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT
+Address = 10.2.0.1/24
+ListenPort = 51820
+
+# Build room gateway
+[Peer]
+PublicKey = <client public key>
+AllowedIPs = 10.2.0.2/32, 10.35.12.0/24
+
+# Student's laptop
+[Peer]
+PublicKey = <client public key>
+AllowedIPs = 10.2.0.x/32
+Peers are appended to the file as shown. The developer should provide a public key to the VPN administrator, and the VPN administrator should assign their machine a unique IP address.
+
 Configure WireGuard on build space gateway
 Skip this for clients
+Copy this file to /etc/wireguard/forward_up.sh and run chmod +x /etc/wireguard/forward_up.sh.
+
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=1
+iptables -A FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -A FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+Copy this file to /etc/wireguard/forward_down.sh and run chmod +x /etc/wireguard/forward_down.sh.
+
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=0
+iptables -D FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -D FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
+The interface wlan0 in both files should be replaced with the actual wireless interface name that's connected to the robot network. ip addr | grep wl will list all wireless interfaces and their associated IP addresses (wl is the wireless prefix and en is the ethernet prefix). For example:
+
+kyle@waffle:~$ ip addr | grep wl
+3: wlo1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    inet 10.35.12.5/24 brd 10.35.12.255 scope global dynamic noprefixroute wlo1
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+Address = 10.2.0.2/24
+PrivateKey = <client private key>
+PostUp = /etc/wireguard/forward_up.sh
+PostDown = /etc/wireguard/forward_down.sh
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = vpn.tavsys.net:51820
+AllowedIPs = 10.2.0.0/24
+PersistentKeepalive = 25 # Keeps recv connection through NAT open
+Run sudo systemctl --now enable sshd to allow remote login for establishing wireless connections to the robot network.
+
 Configure WireGuard on client
 Copy this file to /etc/wireguard/wg0.conf.
 
@@ -164,5 +219,178 @@ ping: sendmsg: Destination address required
 This occurs when the wg0 interface can't see the 10.35.12.0/24 route via the build space gateway. Assuming the build space gateway can ping 10.35.12.2, the most reliable way to fix this seems to be restarting the client WireGuard service.
 
 sudo systemctl restart wg-quick@wg0
-If the problem persists, the build space gateway WireGuard service may need to be restarted. The ssh connection will close, but it can be reestablished once the WireGuard service comes back up.
- -->
+If the problem persists, the build space gateway WireGuard service may need to be restarted. The ssh connection will close, but it can be reestablished once the WireGuard service comes back up.VPN setup
+This VPN facilitates a work-from-home arrangement for FRC software developers. That is, they can build and deploy code from their computers at home to a robot in their build space.
+
+The network topology is as follows:
+
+VPN endpoint on a Linux cloud VM (vpn.tavsys.net)
+Linux machine in the build space that provides a network bridge from the cloud VM to a robot in the build space
+Developer machines that connect to the cloud VM
+The build space machine is configured to forward traffic destined for the robot network, so GradleRIO deploys, tools like OutlineViewer, and ssh will function as if the developer's machine was connected directly to the robot network.
+
+From here on, developer machines will be referred to as clients.
+
+The cloud VM and build space machine must run Linux because they do IP masquerading/forwarding, but all other clients can use any operating system that supports WireGuard (Windows, Linux, macOS, etc.).
+
+Follow these instructions to configure your VPN connection.
+
+Install WireGuard tools
+sudo apt install wireguard # Ubuntu
+sudo pacman -S wireguard-tools # Arch
+# See https://www.wireguard.com/install/ for more OSes
+Generate keypair
+wg genkey | tee private_key | wg pubkey > public_key
+cat private_key
+cat public_key
+Students should give their public key to the VPN administrator so they can be allowed access to the VPN.
+
+Configure WireGuard on server
+Skip this for clients
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+PrivateKey = <server private key>
+PostUp = sysctl -w net.ipv4.ip_forward=1; sysctl -w net.ipv6.conf.all.forwarding=1; iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT
+PostDown = sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv6.conf.all.forwarding=0; iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT
+Address = 10.2.0.1/24
+ListenPort = 51820
+
+# Build room gateway
+[Peer]
+PublicKey = <client public key>
+AllowedIPs = 10.2.0.2/32, 10.35.12.0/24
+
+# Student's laptop
+[Peer]
+PublicKey = <client public key>
+AllowedIPs = 10.2.0.x/32
+Peers are appended to the file as shown. The developer should provide a public key to the VPN administrator, and the VPN administrator should assign their machine a unique IP address.
+
+Configure WireGuard on build space gateway
+Skip this for clients
+Copy this file to /etc/wireguard/forward_up.sh and run chmod +x /etc/wireguard/forward_up.sh.
+
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=1
+iptables -A FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -A FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+Copy this file to /etc/wireguard/forward_down.sh and run chmod +x /etc/wireguard/forward_down.sh.
+
+#!/bin/bash
+sysctl -w net.ipv4.ip_forward=0
+iptables -D FORWARD -i wg0 -o wlan0 -j ACCEPT
+iptables -D FORWARD -i wlan0 -o wg0 -m state --state RELATED,ESTABLISHED \
+         -j ACCEPT
+iptables -t nat -D POSTROUTING -o wlan0 -j MASQUERADE
+The interface wlan0 in both files should be replaced with the actual wireless interface name that's connected to the robot network. ip addr | grep wl will list all wireless interfaces and their associated IP addresses (wl is the wireless prefix and en is the ethernet prefix). For example:
+
+kyle@waffle:~$ ip addr | grep wl
+3: wlo1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    inet 10.35.12.5/24 brd 10.35.12.255 scope global dynamic noprefixroute wlo1
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+Address = 10.2.0.2/24
+PrivateKey = <client private key>
+PostUp = /etc/wireguard/forward_up.sh
+PostDown = /etc/wireguard/forward_down.sh
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = vpn.tavsys.net:51820
+AllowedIPs = 10.2.0.0/24
+PersistentKeepalive = 25 # Keeps recv connection through NAT open
+Run sudo systemctl --now enable sshd to allow remote login for establishing wireless connections to the robot network.
+
+Configure WireGuard on client
+Copy this file to /etc/wireguard/wg0.conf.
+
+[Interface]
+Address = 10.2.0.x/24
+PrivateKey = <client private key>
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = vpn.tavsys.net:51820
+AllowedIPs = 10.2.0.0/24, 10.35.12.0/24
+Replace <client private key> with the client private key generated earlier, and replace <server public key> with Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=.
+
+Ask the VPN administrator for a unique number to replace x in 10.2.0.x/24. The VPN administrator has to assign them to avoid conflicts with other peers.
+
+Connect to VPN
+The following command will enable the WireGuard service so that it starts on boot, as well as start the service immediately.
+
+sudo systemctl --now enable wg-quick@wg0
+It can also be started on demand with sudo systemctl start wg-quick@wg0, stopped with sudo systemctl stop wg-quick@wg0 or restarted with sudo systemctl restart wg-quick@wg0.
+
+Now, clients should be able to ping 10.2.0.1 (server's VPN interface IP) and get a response.
+
+Typical developer operations like ./gradlew deploy should work transparently via the robot network connected to the build space gateway.
+
+Troubleshooting
+If the connection is working, sudo wg show should print something like the following after pinging 10.2.0.1 at least once. Note that the peer's public key matches the server's and the endpoint matches the server's public IP address.
+
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: 64.227.60.179:51820
+  allowed ips: 10.2.0.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+[tav@myriad ~]$ sudo wg show
+interface: wg0
+  public key: (client public key)
+  private key: (hidden)
+  listening port: 37902
+
+peer: Xrx2tePgvZCqbvc1O4jEnOHrofu88aBZXsWu+HNezVo=
+  endpoint: [2604:a880:2:d1::2a7:2001]:51820
+  allowed ips: 10.2.0.0/24
+  latest handshake: 16 minutes, 20 seconds ago
+  transfer: 696 B received, 872 B sent
+Unsupported protocol error
+If the service startup failed with an "unsupported protocol" error, rebooting should fix it. The status of the wireguard service can be determined with systemctl status wg-quick@wg0.
+
+Possible tunnel configuration errors
+We've performed the following actions so far.
+
+Installed WireGuard at both ends
+Set up a NAT rule on the remote side
+Created a private and public key on each side
+Put each public key in the opposite side's [Peer] config
+Put a suitable IP address on each side
+There are several mistakes we could have made in this process.
+
+Broken routing on the client PC
+Broken NAT on the remote router
+Broken routing on the remote PC
+Broken wg0 configuration on one side
+Lack of TCP forwarding on the remote computer
+Lack of proxy ARP on the remote computer
+If the roboRIO isn't responding to pings, run tcpdump.
+
+tcpdump -i wg0 # on the remote server
+ping -c1 10.35.12.2 # on the local machine
+If the packets are reaching the build space gateway, tcpdump will report traffic. If it doesn't, it's not getting through the tunnel (as opposed to there being a packet forwarding issue on the build space gateway).
+
+Required key not available error
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Required key not available
+This occurs when the AllowedIPs key is set too strictly. What we're pinging is routable, but it isn't within the AllowedIPs range, so there was no applicable key for the packet. This was fixed by adding 10.35.12.0/24 to the build space gateway's allowed IPs.
+
+Destination address required error
+PING 10.35.12.2 (10.35.12.2) 56(84) bytes of data.
+From 10.2.0.1 icmp_seq=1 Destination Host Unreachable
+ping: sendmsg: Destination address required
+This occurs when the wg0 interface can't see the 10.35.12.0/24 route via the build space gateway. Assuming the build space gateway can ping 10.35.12.2, the most reliable way to fix this seems to be restarting the client WireGuard service.
+
+sudo systemctl restart wg-quick@wg0
+If the problem persists, the build space gateway WireGuard service may need to be restarted. The ssh connection will close, but it can be reestablished once the WireGuard service comes back up. -->
