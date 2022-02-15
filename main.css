@@ -3,6 +3,14 @@
   src: url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 }
 
+@media (max-width: 500px) {
+  .sidenav{
+    display: none;
+  }
+
+  
+}
+
 .sidenav {
   height: 100%;
   width: 10rem;
