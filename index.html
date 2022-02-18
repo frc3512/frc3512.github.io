@@ -10,52 +10,46 @@
     <title>Software Team - FRC Team 3512</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="shortcut icon" type="image/ico" href="favicon.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <div class="sidenav">
-      <a href="/index.html">Home</a>
-      <a href="bootstrap/index.html">Bootstraps</a>
-      <a href="ci/index.html">Curriculum</a>
-      <a href="vpn/index.html">VPN Setup</a>
-      <a href="fll/index.html">FLL</a>
-      <a href="admin/index.html">Admin</a>
-      <a href="archives/index.html">Archives</a>
-      <div class="Media_Wrapper"> 
-        <a href="https://github.com/frc3512">
-          <img 
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+      <div class="sidenav">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="bootstrap/index.html">Bootstraps</a></li>
+          <li><a href="ci/index.html">Curriculum</a></li>
+          <li><a href="vpn/index.html">VPN Setup</a></li>
+          <li><a href="fll/index.html">FLL</a></li>
+          <li><a href="admin/index.html">Admin</a></li>
+          <li><a href="archives/index.html">Archives</a></li>
+          <li><a href="https://github.com/frc3512">
+            <img 
             src="/Assets/github.png"
             alt="Our Github">
-        </a>           
-        <a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
-          <img
+            </a></li>
+          <li><a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
             src="/Assets/youtube.png"
             alt="Youtube">
-        </a> 
-      </div> 
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a> 
+            </a></li>
+        </ul>
     </div> 
     <div class="Content">
         <div class="top">
         </div>
-        <div class="bottom">
-          <img 
-          src="Assets/image.png"
-          alt="logo">
-          <h1 id="Main_Title">Software <br> Team</h1>
+        <div class="bottom">    
+          <h1 id="Main_Title">FRC 3512 Software Team</h1>
           </div>
-          <div class="Info_Wrapper">
+          <section class="Info_Wrapper">
            <div class="Info_Main">
             <h2>Who We Are</h2>
             <p>We are the software subteam of <a href="https://www.spartatroniks.com/">FRC Team 3512</a>
             located in Orcutt, California. We teach high school students practical software and controls engineering
             skills through <a href="https://www.firstinspires.org/">competitive robotics.</a></p> <br>   
           </div>
-          <img id="Img_main"
-          alt="Photo fo current team/ avatars for current team">
-          <div class="Info_Main" id="Lone">
+          <div class="Info_Main">
             <h2>What We Strive For</h2>
           <p>Produce Software engineers That:</p>
             <ul>
@@ -68,7 +62,7 @@
               <li>All the tools they need to succeed.</li>
             </ul>          
           </div>
-          <div class="Info_Main"  id="Lone">
+          <div class="Info_Main">
           <h2>What You Will Learn With Us</h2>
           <ul>
             <li>How to think like a programmer</li>
@@ -87,8 +81,9 @@
             <li>How to write automated tests that ensure our software continues to work as we add features and perform cleanups.</li>
           </ul>         
         </div> 
-      </div>
-      <div class="Links_Wrapper">
+      </section>
+
+      <section class="Links_Wrapper">
         <div class="Links">
           <a href="bootstrap/index.html"><h3>Bootsraps</h3></a>
           <p>All you need to set up your environment</p>
@@ -101,10 +96,7 @@
           <a href="archives/index.html"><h3>Achives</h3></a>
           <p>Where we store the past of our team. Including past rosters</p> 
         </div>
-      </div>
-      </div>
-      <div class="Footer">
-        <p>FRC 3512 2022</p>
+      </section>
       </div>
   </body>
 </html>
