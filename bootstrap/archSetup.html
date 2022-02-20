@@ -7,7 +7,7 @@
       content="The subdomain of the Spartatroniks Software Team"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLL - FRC Team 3512</title>
+    <title>Arch Bootstraps - FRC Team 3512</title>
     <link rel="stylesheet" type="text/css" href="../main.css" />
     <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
   </head>
@@ -18,10 +18,10 @@
       <div class="sidenav">
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="../bootstrap/index.html">Bootstraps</a></li>
+          <li><a href="/bootstrap/index.html">Bootstraps</a></li>
           <li><a href="../ci/index.html">Curriculum</a></li>
           <li><a href="../vpn/index.html">VPN Setup</a></li>
-          <li><a href="#">FLL</a></li>
+          <li><a href="../fll/index.html">FLL</a></li>
           <li><a href="../admin/index.html">Admin</a></li>
           <li><a href="../archives/index.html">Archives</a></li>
           <li><a href="https://github.com/frc3512">
@@ -36,47 +36,38 @@
             </a></li>
         </ul>
     </div>
-    <div class="Content">
+      <div class="Content">
         <div class="top">
         </div>
         <div class="bottom">
         </div>
-    </div>
+      </div>
   </body>
 </html>
-
-
 <!--
 
-FLL tournament tasks
-Set up Wi-Fi based cameras
-Find the IP
-Try a previous IP
-Use the amcrest tool to find it
-Use ping
-If the camera cannot be found, it may not be connected to Wi-Fi. Use the amcrest app to connect it. Refer to the data portion for more information about the cameras.
+Arch Linux bootstrap
+Dual-booting Arch Linux on a PC
+Tutorial for this coming soon. For now, refer to here,
 
-Open the stream in VLC
-Open VLC and go to "Open Stream" in the task bar. Use rtsp://username:password@IP-Address to connect to and start the stream.
+Tools installation
+Visual Studio Code
+Follow the installation guide from WPILib Docs.
 
-Ensure that the cameras are oriented correctly and video quality settings are okay.
+To build robot projects in a terminal, run the following command to set JAVA_HOME in ~/.bashrc:
 
-In the event there are video quality or bandwidth issues, feel free to edit the camera settings if you know how and are confident in what you're doing.
+echo 'export JAVA_HOME=~/wpilib/2021/jdk' >> ~/.bashrc
+GCC
+sudo pacman -S gcc
+Git
+sudo pacman -S git
+Formatter
+This requires a package from the AUR. Use either the manual installation method (shown below) or an AUR helper.
 
-Wi-Fi camera info
-The serial numbers of the cameras are:
-
-AMC019J764NRRH1HZV
-AMC019DE95WJ8ZPG2C
-Beware of 0 vs O. The serial number tags do not differentiate between them.
-
-Username: Admin
-Password: FIRST3512
-
-Set up sound systems
-TBD
-Archives
-Angelscript
-A landing page for our port of Angelscript to PowerPC VxWorks 6.3.
-
+sudo pacman -S python
+cd /tmp
+git clone https://aur.archlinux.org/python-wpiformat-git
+makepkg -si
+CMake
+sudo pacman
  -->

@@ -1,112 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="description" content=
-  "A page providing the necessary tools to begin programming in C++">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Developer bootstrap - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../main.css">
-  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
-</head>
-<body>
-  <header id="navbar">
-    <ul>
-      <li>
-        <a href="../">Home</a>
-      </li>
-      <li>
-        <a href="../admin/">Admin</a>
-      </li>
-      <li>
-        <a href="./" class="active">Developer Bootstrap</a>
-      </li>
-      <li>
-        <a href="../vpn/">VPN Setup</a>
-      </li>
-      <li>
-        <a href="../ci/">Curriculum</a>
-      </li>
-      <li>
-        <a href="../fll/">FLL</a>
-      </li>
-      <li>
-        <a href="../archives/">Archives</a>
-      </li>
-    </ul>
-  </header>
-  <div class="body">
-    <h1 id="Developer_bootstrap">Developer bootstrap</h1>
-    <p>This page provides setup instructions for the software team's tools so
-    members can quickly start learning C++. If anything doesn't make sense or
-    you need help, please contact a team member or mentor.</p>
-    <p>Please install 64-bit versions of tools if possible and make sure the
-    bitness of all your tools matches by using the appropriate
-    archives/installers.</p>
-    <blockquote>
-      <i>Note:</i> To those installing Ubuntu on their PC for the first time,
-      there is a risk of wiping your existing OS on accident. Therefore, it is
-      highly recommended to back up all of your valuable data to a seperate
-      location to avoid data loss.
-    </blockquote>
-    <ul>
-      <li>
-        <a href="windows/">Windows bootstrap</a>
-      </li>
-      <li>
-        <a href="ubuntu/">Ubuntu bootstrap</a>
-      </li>
-      <li>
-        <a href="archlinux/">Arch Linux bootstrap</a>
-      </li>
-      <li>
-        <a href="macos/">macOS bootstrap</a>
-      </li>
-    </ul>
-    <h2 id="The_tools">The tools</h2>
-    <h3 id="Visual_Studio_Code">Visual Studio Code</h3>
-    <p>Visual Studio Code is an integrated development environment which makes
-    it easier to write, build, and test programs written in C++, Python, and
-    more! Once set up using one of the installation methods above, then all you
-    need to know is how to use the terminal and a little bit of git to get
-    started.</p>
-    <p>Note: Visual Studio Code occasionally shows outdated or false errors in
-    a project file. There is no workaround, so instead just use gradle/CMake to
-    build your project. Keep in mind errors shown in the IDE aren't
-    authoritative. The console build output should be used to determine whether
-    the executable was built successfully.</p>
-    <h3 id="GCC_compiler">GCC compiler</h3>
-    <p>This is the compiler gradle or CMake will use to build the programs you
-    write.</p>
-    <h3>CMake</h3>
-    <p>CMake will be used to build your personal projects. For better
-    integration with VS Code, download the "CMake Tools" extension under VS
-    Code's extensions tab.</p>
-    <h3 id="Gradle">Gradle</h3>
-    <p>Gradle is a build automation tool that we use to build the robot
-    project. To use it, just run one of the scripts in the robot project. See
-    <a href="https://github.com/frc3512/Robot-2020#build-options">here</a> for
-    more.</p>
-    <h3 id="Git">Git</h3>
-    <p>Git is a version control system used to manage the code you write. See
-    <a href="../ci/intro-to-git/">Intro to Git</a> for more information and
-    detailed setup.</p>
-    <h3 id="GitHub">GitHub</h3>
-    <p>GitHub provides web based code review and repository management for the
-    Git version control system. Our GitHub organization is <a href=
-    "https://github.com/frc3512/">here</a>. User setup instructions are
-    <a href="../ci/github/#Setup">here</a>.</p>
-    <h3 id="Formatter">Formatter</h3>
-    <p>Formatters help ensure style guide conformance by automatically
-    correcting deviations. We use the Python 3 scripts provided in WPILib's
-    style guide repository and clang-format for source code formatting. We also
-    use Python 3 for optimizing feedback control system behavior. To run the
-    formatter on a project, run:</p><code>python3 -m wpiformat</code>
-    <blockquote>
-      <i>Note:</i> The formatter should be considered a safety net. It is good
-      practice to be familiar with the enforced style guide and be able to
-      write code in that style directly.
-    </blockquote>
-  </div>
-</body>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Bootstraps - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+      <div class="sidenav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">Bootstraps</a></li>
+          <li><a href="../ci/index.html">Curriculum</a></li>
+          <li><a href="../vpn/index.html">VPN Setup</a></li>
+          <li><a href="../fll/index.html">FLL</a></li>
+          <li><a href="/admin/index.html">Admin</a></li>
+          <li><a href="../archives/index.html">Archives</a></li>
+          <li><a href="https://github.com/frc3512">
+            <img
+            src="/Assets/github.png"
+            alt="Our Github">
+            </a></li>
+          <li><a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+            </a></li>
+        </ul>
+    </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+        </div>
+      </div>
+  </body>
 </html>
+<!-- Developer bootstrap
+This page provides setup instructions for the software team's tools so members can quickly start learning C++. If anything doesn't make sense or you need help, please contact a team member or mentor.
+
+Please install 64-bit versions of tools if possible and make sure the bitness of all your tools matches by using the appropriate archives/installers.
+
+Note: To those installing Ubuntu on their PC for the first time, there is a risk of wiping your existing OS on accident. Therefore, it is highly recommended to back up all of your valuable data to a seperate location to avoid data loss.
+Windows bootstrap
+Ubuntu bootstrap
+Arch Linux bootstrap
+macOS bootstrap
+The tools
+Visual Studio Code
+Visual Studio Code is an integrated development environment which makes it easier to write, build, and test programs written in C++, Python, and more! Once set up using one of the installation methods above, then all you need to know is how to use the terminal and a little bit of git to get started.
+
+Note: Visual Studio Code occasionally shows outdated or false errors in a project file. There is no workaround, so instead just use gradle/CMake to build your project. Keep in mind errors shown in the IDE aren't authoritative. The console build output should be used to determine whether the executable was built successfully.
+
+GCC compiler
+This is the compiler gradle or CMake will use to build the programs you write.
+
+CMake
+CMake will be used to build your personal projects. For better integration with VS Code, download the "CMake Tools" extension under VS Code's extensions tab.
+
+Gradle
+Gradle is a build automation tool that we use to build the robot project. To use it, just run one of the scripts in the robot project. See here for more.
+
+Git
+Git is a version control system used to manage the code you write. See Intro to Git for more information and detailed setup.
+
+GitHub
+GitHub provides web based code review and repository management for the Git version control system. Our GitHub organization is here. User setup instructions are here.
+
+Formatter
+Formatters help ensure style guide conformance by automatically correcting deviations. We use the Python 3 scripts provided in WPILib's style guide repository and clang-format for source code formatting. We also use Python 3 for optimizing feedback control system behavior. To run the formatter on a project, run:
+
+python3 -m wpiformat
+Note: The formatter should be considered a safety net. It is good practice to be familiar with the enforced style guide and be able to write code in that style directly.
+ -->

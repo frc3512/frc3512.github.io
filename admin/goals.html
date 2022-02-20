@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+      <div class="sidenav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../bootstrap/index.html">Bootstraps</a></li>
+          <li><a href="../ci/index.html">Curriculum</a></li>
+          <li><a href="../vpn/index.html">VPN Setup</a></li>
+          <li><a href="../fll/index.html">FLL</a></li>
+          <li><a href="/admin/index.html">Admin</a></li>
+          <li><a href="../archives/index.html">Archives</a></li>
+          <li><a href="https://github.com/frc3512">
+            <img
+            src="/Assets/github.png"
+            alt="Our Github">
+            </a></li>
+          <li><a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+            </a></li>
+        </ul>
+    </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+          <h1>Goals
+          </h1>
+        </div>
+        <div class="Info_Wrapper_2">
+          <div class="Info_Main">
+          <p>
+            The following is a list of goals the software team tries to meet each year.
+            They inform decisions regarding our curriculum design and operating procedures.
+          </p>
+            <ul>
+              <li>Produce an effective product</li>
+              <li>Employ industry best practices</li>
+              <li>Expand our knowledge and capabilities</li>
+              <li>Involve less experienced team members</li>
+              <li>Find tasks requiring less experience</li>
+              <li>Create an autonomous software team / encourage learning</li>
+              <li>Provide access to resources for motivated students</li>
+           </ul>
+           </div>
+           <div class="Info_Main" id="Lone">
+           <h2>Curriculum Goals</h2>
+           <b><p>Teach incoming members enough C++ to be useful</p></b>
+              <p>Integrate modern C++ development paradigms, tools, and practices</p>
+           <b><p>Teach a set of skills motivated by industry best practices</p></b>
+              <p>By industry best practices, we don't mean extremely conservative, waterfall model practices.
+                We're more focused on breaking down and solving problems using industry standard tools.
+                We emphasize reliability, but reliability and innovation aren't mutually exclusive.</p>
+              <p>Software shall meet embedded and real-time requirements</p>
+            <b><p>Prepare students for Computer Science at university</p></b>
+              <p>The focus should be on "Design before build". That is, developing a specification for behavior
+              before implementing it.</p>
+              <p>Teach common development practices like Git and code review.</p>
+            <b><p>Teach an introduction to control theory for those interested</p></b>
+              <p>This is also needed for a reliable / maximally efficient robot and includes state machines,
+              motion profiles, filters, and feedback/feedforward controllers.</p>
+            </div>
+            <div class="Info_Main" id="Lone">
+            <h2>Lab design guidelines</h2>
+              <b><p>Provide implementations for things unrelated to the lab's learning outcomes</p></b>
+                <p>The student shouldn't get bogged down in setting up infrastructure for their solution if the lab
+                  is intended to teach something specific. For example, the state machine lab here provides a template
+                  with all the subsystems necessary to implement a robot's state machine. The comments tell the student
+                  where to insert their state machine logic, as practicing writing state
+                  machine logic is the purpose of the lab.</p>
+              <b><p>Assuming a few prerequisites is acceptable to enable showcasing a topic's utility</p></b>
+                <p>By showcasing advanced topics in an approachable, introductory way, students can appreciate the breadth
+                  of knowledge they can and will learn. If prerequisites are skipped, the lab should provide requisite
+                  knowledge as it is needed to understand or implement dependent concepts.</p>
+              <b><p>Labs should encourage students to develop practical methods for solving problems</p></b>
+                  <p>Labs exist to provide hands-on experience with a topic. They should supplement the theoretical
+                    material covered in lecture to foster practical or intuitive understanding. After finishing a
+                    module and its labs, students should be capable of applying topics initially introduced in
+                    lecture.</p>
+              <b><p>Use graphical tools to gain insight</p></b>
+                  <p>Basically, a picture or movie is worth a thousand words. The following are good examples of
+                    visualization tools.</p>
+                  <p>rltool from MATLAB aids in students' intuitive understanding of how root locus plots
+                    represent a system's response and how the pole and zero locations affect the plot.</p>
+                  <p>GRIP facilitates experimentation with complex image processing operations via an
+                    easy-to-use package.</p>
+              <b><p>Common wisdom imparted through lectures should be motivated in labs with data</p></b>
+                  <p>For example, it is understood that mutexes are preferred over lock-free data structures unless
+                    there are scalability requirements for distributed, concurrent accesses. A lab requiring the
+                    implementation of an atomic data structure may motivate the exercise by making a mutex
+                    implementation first, then benchmarking both. (This would be a good opportunity to show the
+                    utility of and best practices for benchmarking software, by the way.)</p>
+              <b><p>Use industry standard tools to handle auxiliary tasks</p></b>
+                  <p>Students should be able to leverage existing tools to make their jobs as
+                    software developers easier. Labs are encouraged to use tooling if it doesn't automate
+                    what the student is intended to learn through practice.</p>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>

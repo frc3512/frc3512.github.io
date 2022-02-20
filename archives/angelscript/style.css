@@ -59,8 +59,7 @@ body {
 
     font-family: arial,sans-serif;
     font-size: 1em;
-    text-align: justify;
-    color: rgb(40,40,40);
+    text-align: left;
 }
 
 #footer {
@@ -110,6 +109,6 @@ hr {
 
 a {
     outline: 0;
+    margin: 0rem;
     color: rgb(40,40,40);
 }
-

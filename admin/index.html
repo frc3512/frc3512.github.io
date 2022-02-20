@@ -1,114 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="FRC team 3512 administrative documents">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Administration - FRC Team 3512</title>
-  <link rel="stylesheet" type="text/css" href="../main.css">
-  <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
-</head>
-<body>
-  <header id="navbar">
-    <ul>
-      <li>
-        <a href="../">Home</a>
-      </li>
-      <li>
-        <a href="./" class="active">Admin</a>
-      </li>
-      <li>
-        <a href="../bootstrap/">Developer Bootstrap</a>
-      </li>
-      <li>
-        <a href="../vpn/">VPN Setup</a>
-      </li>
-      <li>
-        <a href="../ci/">Curriculum</a>
-      </li>
-      <li>
-        <a href="../fll/">FLL</a>
-      </li>
-      <li>
-        <a href="../archives/">Archives</a>
-      </li>
-    </ul>
-  </header>
-  <div class="body">
-    <h1 id="Administration">Administration</h1>
-    <h2 id="Goals"><a href="goals/">Goals</a></h2>
-    <p>Contains our goals, curriculum design guidelines, and learning
-    outcomes.</p>
-    <h2 id="Varsity"><a href="varsity/">Varsity</a></h2>
-    <p>Contains our varsity letter requirements.</p>
-    <h2 id="Software_for_non-software_team_members"><a href=
-    "software-for-non-software-team-members/">Software for non-software team
-    members</a></h2>
-    <p>What non-software team members should know about the software team.</p>
-    <h2 id="Style_guide"><a href="styleguide/">Style guide</a></h2>
-    <p>Contains the software team style guide.</p>
-    <h2 id="Student_organizational_structure">Student organizational
-    structure</h2>
-    <p>Since 3512 was founded, the software team has enjoyed a certain level of
-    autonomy. With that, we've been free to establish our own internal
-    leadership structure. Rather than a typical top-down leadership structure,
-    we operate more like a "software committee". Everyone is equal and
-    contributes to the code base on their own volition with mentors performing
-    quality control. There is a software lead who handles meetings and shields
-    the members from administrative stuff, but the title doesn't imply any
-    superiority or power over the other members.</p>
-    <p>This works best when everyone is equal in skill level, so the mentors
-    work hard to promote learning among rookies to raise their level of
-    competency to that of their peers. We encourage collaboration with the
-    other students to aid in this process.</p>
-    <h2 id="Role_of_the_mentor">Role of the mentor</h2>
-    <p>Pursuant to the goals listed <a href="goals/">here</a>, the mentors
-    teach rookies the basics of writing software and enough of the tools to
-    make them productive contributors. The veterans already know how to write
-    software, so the mentors can focus on actually teaching them software
-    engineering. Ideally, the students contribute during the design process and
-    are able to justify their design decisions.</p>
-    <p>The students learn the subject matter most efficiently with mentor
-    guidance, so the mentors are fundamentally in a partnership with the
-    students. While the students should do the work, the mentors should use
-    their experience to inform the students of available tools and potential
-    pitfalls so an informed design decision is made. In this sense, the mentors
-    are primarily in an advisory role.</p>
-    <p>Furthermore, mentors should always provide an unbiased analysis.
-    Transparency helps build trust, and specific solutions always have
-    drawbacks. The mentor should be honest about them so the students develop a
-    level-headed view of the world.</p>
-    <p>However, the mentors also possess the long-term vision for the team and
-    should push the boundaries of the team's accomplishments each year to
-    achieve it. To do this, the mentors may implement tricky bits of framework
-    code, but the students should still understand what has been written and
-    should be walked through it step-by-step if necessary. Remember that FIRST
-    is a mentor-based program, but it is for the <i>students</i>; giving them a
-    sense of accomplishment and ownership keeps them engaged and returning each
-    year.</p>
-    <h2 id="Learning_versus_reuse">Learning versus reuse</h2>
-    <p>I like to take the "add tools to the toolbox" approach with my software
-    team. We try some random alternative to improve on previous architecture,
-    and a student or two takes that on as an R&amp;D project. They usually
-    stabilize and end up on the robot by the time competition occurs. We've
-    done probably four different approaches to state machines at this point,
-    and our controls solutions have evolved a lot. Prefer evolution over
-    revolution.</p>
-    <h2 id="Why_I_mentor">Why I mentor</h2>
-    <h3 id="Tyler_Veness">Tyler Veness</h3>
-    <p>My time as a student in FRC was basically one giant R&amp;D experience
-    for me. By always being on the cutting edge of 3512, I learned a <i>lot</i>
-    along the way (successes and failures included). This exercise in
-    independent learning made a big impact on my future, and I want to give
-    students here the same opportunity.</p>
-    <p>Even in college, hands-on engineering projects like FRC are rare. I was
-    on an FSAE team at UCSC. We didn't receive any support from the engineering
-    department (and not for lack of trying) because they are more focused on
-    research. Students should make the most of their FRC experience while they
-    can.</p>
-    <p>I tell college students this often: "Don't let schooling interfere with
-    your education.". Seek out projects that you're interested in and learn
-    everything you can. It opens a lot of avenues for you later.</p>
-  </div>
-</body>
+<html  lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="The subdomain of the Spartatroniks Software Team"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - FRC Team 3512</title>
+    <link rel="stylesheet" type="text/css" href="../main.css" />
+    <link rel="shortcut icon" type="image/ico" href="../favicon.png" />
+  </head>
+  <body>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><span></span></label>
+    <label for="active" class="close"></label>
+      <div class="sidenav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../bootstrap/index.html">Bootstraps</a></li>
+          <li><a href="../ci/index.html">Curriculum</a></li>
+          <li><a href="../vpn/index.html">VPN Setup</a></li>
+          <li><a href="../fll/index.html">FLL</a></li>
+          <li><a href="#">Admin</a></li>
+          <li><a href="../archives/index.html">Archives</a></li>
+          <li><a href="https://github.com/frc3512">
+            <img
+            src="/Assets/github.png"
+            alt="Our Github">
+            </a></li>
+          <li><a href="https://www.youtube.com/channel/UCecHOosspPz6o9_ZXzDxxVw">
+            <img
+            src="/Assets/youtube.png"
+            alt="Youtube">
+            </a></li>
+        </ul>
+    </div>
+      <div class="Content">
+        <div class="top">
+        </div>
+        <div class="bottom">
+          <h1>Administration</h1>
+        </div>
+        <div class="Info_Wrapper">
+          <div class="Info_Main" id="Lone">
+            <h2>Student Structure</h2>
+            <p>Since 3512 was founded, the software team has enjoyed a certain level of autonomy.
+              With that, we've been free to establish our own internal leadership structure.
+              Rather than a typical top-down leadership structure, we operate more like a "software committee".
+              Everyone is equal and contributes to the code base on their own volition with mentors
+              performing quality control. There is a software lead who handles meetings and shields the
+              members from administrative stuff, but the title doesn't imply any superiority or power over the
+              other members.</p>
+            <p>This works best when everyone is equal in skill level, so the mentors work hard to promote
+              learning among rookies to raise their level of competency to that of their peers.
+              We encourage collaboration with the other students to aid in this process.</p>
+          </div>
+          <div class="Info_Main" id="Lone">
+            <h2>Role of The Mentor</h2>
+            <p>Mentors teach rookies the basics of writing software and enough of the tools to make them productive
+              contributors. The veterans already know how to write software, so the mentors can focus on actually
+              teaching them software engineering. Ideally, the students contribute during the design process and
+              are able to justify their design decisions.</p>
+            <p>The students learn the subject matter most efficiently with mentor guidance, so the mentors are
+              fundamentally in a partnership with the students. While the students should do the work, the mentors
+              should use their experience to inform the students of available tools and potential pitfalls so an
+              informed design decision is made. In this sense, the mentors are primarily in an advisory role.</p>
+            <p>Furthermore, mentors should always provide an unbiased analysis. Transparency helps build trust,
+              and specific solutions always have drawbacks. The mentor should be honest about them so the students
+              develop a level-headed view of the world.</p>
+            <p>However, the mentors also possess the long-term vision for the team and should push the boundaries of
+              the team's accomplishments each year to achieve it. To do this, the mentors may implement tricky
+              bits of framework code, but the students should still understand what has been written and should
+              be walked through it step-by-step if necessary. Remember that FIRST is a mentor-based program, but
+              t is for the students; giving them a sense of accomplishment and ownership keeps them engaged and
+              eturning each year.</p>
+          </div>
+          <div class="Info_Main" id="Lone">
+            <h2>Learning vs Reusing</h2>
+            <p>I like to take the "add tools to the toolbox" approach with my software team. We try some random
+              alternative to improve on previous architecture, and a student or two takes that on as an
+              R&D project. They usually stabilize and end up on the robot by the time competition occurs.
+              We've done probably four different approaches to state machines at this point, and our controls
+              solutions have evolved a lot. Prefer evolution over revolution.</p>
+          </div>
+        </div>
+        <div class="Links_Wrapper">
+          <div class="Links">
+            <a href="goals.html">Goals</a>
+            <p>Our goals, curriculum guidelines, and learning outcomes</p>
+          </div>
+          <div class="Links">
+            <a href="varsity.html">Varsity</a>
+            <p>Contains our varsity letter requirements</p>
+          </div>
+          <div class="Links" id="Lone">
+            <a href="styleGuide.html">Style Guide</a>
+            <p>Contains the software team style guide</p>
+          </div>
+        </div>
+    </div>
+  </body>
 </html>
